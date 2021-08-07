@@ -13,7 +13,10 @@ Auth::routes();
 
 
 
+Route::get('/panels',function (){
 
+    return view('panels');
+});
 
 
 

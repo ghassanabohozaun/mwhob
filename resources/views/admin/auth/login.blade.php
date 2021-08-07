@@ -1,101 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>{!! trans('login.login') !!}</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{trans('login.login')}}</title>
-    <link rel="shortcut icon" href="{{asset(\Illuminate\Support\Facades\Storage::url(setting()->site_icon))}}"/>
-
-    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{!! asset('adminBoard/adminLogin/assets/css/materialdesignicons.min.css') !!}">
-    <link rel="stylesheet" href="{!! asset('adminBoard/adminLogin/assets/css/bootstrap.min.css') !!}">
-    <link rel="stylesheet" href="{!! asset('adminBoard/adminLogin/assets/css/login.css') !!}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{!! asset(\Illuminate\Support\Facades\Storage::url(setting()->site_logo)) !!}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css"
+          href="{!! asset('adminBoard/gbLogin/vendor/bootstrap/css/bootstrap.min.css') !!}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css"
+          href="{!! asset('adminBoard/gbLogin/fonts/font-awesome-4.7.0/css/font-awesome.min.css') !!}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css"
+          href="{!! asset('adminBoard/gbLogin/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') !!}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{!! asset('adminBoard/gbLogin/vendor/animate/animate.css') !!}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css"
+          href="{!! asset('adminBoard/gbLogin/vendor/css-hamburgers/hamburgers.min.css') !!}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css"
+          href="{!! asset('adminBoard/gbLogin/vendor/animsition/css/animsition.min.css') !!}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{!! asset('adminBoard/gbLogin/vendor/select2/select2.min.css') !!}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css"
+          href="{!! asset('adminBoard/gbLogin/vendor/daterangepicker/daterangepicker.css') !!}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{!! asset('adminBoard/gbLogin/css/util.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('adminBoard/gbLogin/css/main.css') !!}">
+    <!--===============================================================================================-->
 </head>
-<body>
-<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
-    <div class="container">
-        <div class="card login-card">
-            <div class="row no-gutters">
+<body style="background-color: #666666;" @if(LaravelLocalization::getCurrentLocale() =='ar')  dir="rtl" @endif>
+<style>
+
+    input[type=checkbox] {
+        -moz-appearance:none;
+        -webkit-appearance:none;
+        -o-appearance:none;
+        outline: none;
+        content: none;
+    }
+
+    input[type=checkbox]:before {
+        font-family: "FontAwesome";
+        content: "\f00c";
+        font-size: 15px;
+        color: transparent !important;
+        border: 1px solid #999999;
+        margin-right: 7px;
+    }
+
+    input[type=checkbox]:checked:before {
+
+        color: black !important;
+    }
+</style>
+@if(LaravelLocalization::getCurrentLocale() =='ar')
+    <style>
+        .label-input100 {
+            padding-right: 24px;
+        }
+    </style>
+
+@endif
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" action="{{route('admin.login')}}" method="POST">
+                @csrf
+                <span class="login100-form-title p-b-43">
+						{!! trans('login.welcome') !!}
+					</span>
 
 
-                <div class="col-md-7">
-                    <img src="{{asset('adminBoard/adminLogin/assets/images/login1.jpg')}}" alt="login"
-                         class="login-card-img">
+                @if(\Illuminate\Support\Facades\Session::has('error'))
+                    <div class="alert alert-danger font-weight-bold" role="alert">
+                        {{\Illuminate\Support\Facades\Session::get('error')}}
+                    </div>
+                @endif
+
+                <div class="wrap-input100">
+                    <input class="input100" type="text" name="email" autocomplete="off">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">{!! trans('login.email') !!}</span>
                 </div>
 
-                <div class="col-md-5" style="text-align: center">
-                    <div class="card-body" dir="{!!LaravelLocalization::getCurrentLocale() =='ar'?'rtl':'ltr'!!}">
-                        <div class="brand-wrapper">
-                            @if(!empty(setting()->site_logo))
-                                <a href="#" class="brand-logo" style="margin-top: 10px">
-                                    <img src="{{asset(Storage::url(setting()->site_logo))}}" width="100" height="90">
-                                </a>
-                            @else
-                                <img src="{!! asset('adminBoard/adminLogin/assets/images/logo.svg') !!}" alt="logo"
-                                     class="logo">
-                            @endif
+                @error('email')
+                <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
 
-                        </div>
-                        <div class="clearfix"></div>
+                @enderror
 
-                        <form class="form" id="kt_login_singin_form" action="{{route('admin.login')}}" method="POST"
-                              enctype="multipart/form-data">
-                            @csrf
+                <div class="wrap-input100">
+                    <input class="input100" type="password" name="password" autocomplete="off">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">{!! trans('login.password') !!}</span>
+                </div>
 
-                            @if(\Illuminate\Support\Facades\Session::has('error'))
-                                <div class="alert alert-danger font-size-h2 font-weight-bold" role="alert">
-                                    {{\Illuminate\Support\Facades\Session::get('error')}}
-                                </div>
-                            @endif
+                @error('password')
+                <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
 
-                            <div class="form-group">
-                                <label for="email" class="sr-only">{!! trans('login.email') !!}</label>
-                                <input type="email" name="email" id="email" class="form-control"
-                                       placeholder="{!! trans('login.enter_email') !!}">
-                                @error('email')
-                                <span class="text-danger error_msg"
-                                      style="float: {!!LaravelLocalization::getCurrentLocale() =='ar' ? 'right': 'left'!!}">
-                                    {{$message}}
-                                </span>
-                                @enderror
-                            </div>
+                @enderror
 
-                            <div class="form-group mb-4">
-                                <label for="password" class="sr-only">{!! trans('login.password') !!}</label>
-                                <input type="password" name="password" id="password" class="form-control"
-                                       placeholder="***********">
-                                @error('password')
-                                <span class="text-danger error_msg">{{$message}}</span>
-                                @enderror
-                            </div>
 
-                            <div class="clearfix"></div>
-                            <div class="form-group mb-4"
-                                 style="float: {!!LaravelLocalization::getCurrentLocale() =='ar' ? 'right': 'left'!!}">
-                                <div class="checkbox-inline">
-                                    <label class="checkbox checkbox-outline m-0 text-muted">
-                                        <input type="checkbox" name="rememberMe" id="rememberMe">
-                                        <span></span>
-                                        {{trans('login.remember_me')}}
-                                    </label>
-                                </div>
-                            </div>
 
-                            <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit"
-                                   value="{{trans('login.login')}}">
-                        </form>
-
+                <div class="flex-sb-m w-full p-t-3 p-b-32">
+                    <div class="contact100-form-checkbox" >
+                        <label>
+                            <input type="checkbox" name="rememberMe" id="rememberMe" >
+                            <span style="margin-top: 10px;color: #999999">&nbsp; {{trans('login.remember_me')}}</span>
+                        </label>
                     </div>
                 </div>
 
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        {!! trans('login.login') !!}
+                    </button>
+                </div>
+
+            </form>
+
+            <div class="login100-more"
+                 style="background-image: url({!! asset('adminBoard/gbLogin/images/ytt.jpg') !!} );">
             </div>
         </div>
-
     </div>
-</main>
-<script src="{!! asset('adminBoard/adminLogin/assets/js/jquery-3.4.1.min.js')!!}"></script>
-<script src="{!! asset('adminBoard/adminLogin/assets/js/popper.min.js')!!}"></script>
-<script src="{!! asset('adminBoard/adminLogin/assets/js/bootstrap.min.js')!!}"></script>
+</div>
+
+
+<!--===============================================================================================-->
+<script src="{!! asset('adminBoard/gbLogin/vendor/jquery/jquery-3.2.1.min.js') !!}"></script>
+<!--===============================================================================================-->
+<script src="{!! asset('adminBoard/gbLogin/vendor/animsition/js/animsition.min.js') !!}"></script>
+<!--===============================================================================================-->
+<script src="{!! asset('adminBoard/gbLogin/vendor/bootstrap/js/popper.js') !!}"></script>
+<script src="{!! asset('adminBoard/gbLogin/vendor/bootstrap/js/bootstrap.min.js') !!}"></script>
+<!--===============================================================================================-->
+<script src="{!! asset('adminBoard/gbLogin/vendor/select2/select2.min.js') !!}"></script>
+<!--===============================================================================================-->
+<script src="{!! asset('adminBoard/gbLogin/vendor/daterangepicker/moment.min.js') !!}"></script>
+<script src="{!! asset('adminBoard/gbLogin/vendor/daterangepicker/daterangepicker.js') !!}"></script>
+<!--===============================================================================================-->
+<script src="{!! asset('adminBoard/gbLogin/vendor/countdowntime/countdowntime.js') !!}"></script>
+<!--===============================================================================================-->
+<script src="{!! asset('adminBoard/gbLogin/js/main.js') !!}"></script>
+
 </body>
 </html>

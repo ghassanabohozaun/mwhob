@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'mohwb'=>'Mohwb',
+    'teacher_panel'=>'Teacher Panel',
+    'admin_panel'=>'Admin Panel',
+    'panels'=>"Panels",
+
+
 
     'dashboard' => 'Dashboard',
     'home' => 'Home',
