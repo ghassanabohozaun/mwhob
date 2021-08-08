@@ -449,7 +449,7 @@
                 ' </label>' +
                 ' <input type="text" id="governorate_name_ar"' +
                 ' name="governorate_name_ar"' +
-                ' class="form-control form-control-solid form-control-lg"' +
+                ' class="form-control  form-control-lg"' +
                 ' placeholder="{!! trans('regions.enter_governorate_name_ar') !!}"' +
                 ' autocomplete="off">' +
                 ' <span class="form-text text-danger"' +
@@ -461,7 +461,7 @@
                 ' </label>' +
                 ' <input type="text" id="governorate_name_en"' +
                 '     name="governorate_name_en"' +
-                '   class="form-control form-control-solid form-control-lg"' +
+                '   class="form-control  form-control-lg"' +
                 '   placeholder="{!! trans('regions.governorate_name_en') !!}"' +
                 '   autocomplete="off">' +
                 '                          <span class="form-text text-danger"' +
@@ -727,7 +727,7 @@
                 ' {{trans('regions.city_name_ar')}}' +
                 '</label>' +
                 ' <input type="text" id="city_name_ar" name="city_name_ar"' +
-                '   class="form-control form-control-solid form-control-lg"' +
+                '   class="form-control  form-control-lg"' +
                 '  placeholder="{!! trans('regions.enter_city_name_ar') !!}"' +
                 '  autocomplete="off">' +
                 ' <span class="form-text text-danger"' +
@@ -739,7 +739,7 @@
                 '  {{trans('regions.city_name_en')}}' +
                 '</label>' +
                 '<input type="text" id="city_name_en" name="city_name_en"' +
-                '  class="form-control form-control-solid form-control-lg"' +
+                '  class="form-control  form-control-lg"' +
                 '  placeholder="{!! trans('regions.enter_city_name_en') !!}"' +
                 ' autocomplete="off">' +
                 ' <span class="form-text text-danger"' +
@@ -750,7 +750,7 @@
                 '  <label' +
                 '    class="font-weight-bold">{{trans('regions.governorate_id')}}</label>' +
                 '<select id="governorate_id" name="governorate_id"' +
-                '        class="form-control form-control-solid form-control-lg">' +
+                '        class="form-control  form-control-lg">' +
                 ' </select>' +
                 ' <span class="form-text text-danger"' +
                 '      id="governorate_id_error"></span>' +
@@ -931,7 +931,7 @@
                 ' </label>' +
                 '<input type="text" id="neighborhood_name_ar"' +
                 ' name="neighborhood_name_ar"' +
-                ' class="form-control form-control-solid form-control-lg"' +
+                ' class="form-control  form-control-lg"' +
                 ' placeholder="{!! trans('regions.enter_neighborhood_name_ar') !!}"' +
                 ' autocomplete="off">' +
                 ' <span class="form-text text-danger"' +
@@ -943,7 +943,7 @@
                 'class="font-weight-bold">{{trans('regions.neighborhood_name_en')}}</label>' +
                 '<input type="text" id="neighborhood_name_en"' +
                 ' name="neighborhood_name_en"' +
-                ' class="form-control form-control-solid form-control-lg"' +
+                ' class="form-control  form-control-lg"' +
                 'placeholder="{!! trans('regions.enter_neighborhood_name_en') !!}"' +
                 'autocomplete="off">' +
                 '<span class="form-text text-danger"' +
@@ -955,7 +955,7 @@
                 '   {{trans('regions.city_id')}}' +
                 ' </label>' +
                 '<select id="city_id" name="city_id"' +
-                '       class="form-control form-control-solid form-control-lg">' +
+                '       class="form-control  form-control-lg">' +
                 ' </select>' +
                 ' <span class="form-text text-danger"' +
                 '     id="city_id_error"></span>' +

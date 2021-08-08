@@ -19,4 +19,9 @@ Route::get('/panels',function (){
 });
 
 
+Route::get('/teacher',function (){
+
+    return view('teacher.dashboard');
+});
+
 

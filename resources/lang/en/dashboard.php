@@ -24,10 +24,10 @@ return [
     'name' => 'Name',
     'welcome_message_title' => 'Welcome to the site dashboard of',
     'dear_user' => 'Dear User',
-    'welcome_message_details' => 'We welcome you to the site control panel, this panel provides you with complete control over the site in terms of managing publications, Treatment Areas , photo and video albums, videos, slides, and many other possibilities',
+    'welcome_message_details' => 'We welcome you to the site control panel, this panel provides you with complete control over the site .',
     'profile' => 'Profile',
     'sign_out' => 'Sign Out',
-    'copy_rights' => 'NMA',
+    'copy_rights' => 'Mawhoob',
 
     /////////////////////////////////
     /// Upload Center

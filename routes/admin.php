@@ -100,26 +100,6 @@ Route::group([
         Route::post('/update-neighborhood', 'RegionsController@updateNeighborhood')->name('neighborhood.update');
         Route::get('/get-neighborhood-by-city-id', 'RegionsController@getNeighborhoodByCityID')
             ->name('get.neighborhood.by.city.id');
-
-    });
-
-
-    ///////////////////////////////////////////////////////////////////
-    /// Aides Routes
-    Route::group(['prefix' => 'aides', 'namespace' => 'Aides'], function () {
-        ///////////////////////////////////////////////////////////////////
-        /// beneficiaries Routes
-        Route::group(['prefix' => 'beneficiaries', 'middleware' => 'can:beneficiaries'], function () {
-            Route::get('/', 'BeneficiariesController@index')->name('aides.beneficiaries');
-            Route::get('/get-beneficiaries', 'BeneficiariesController@getBeneficiaries')->name('get.aides.beneficiaries');
-            Route::get('/create', 'BeneficiariesController@create')->name('aides.beneficiary.create');
-            Route::post('/store', 'BeneficiariesController@store')->name('aides.beneficiary.store');
-            Route::post('/destroy', 'BeneficiariesController@destroy')->name('aides.beneficiary.destroy');
-            Route::get('/edit/{id?}', 'BeneficiariesController@edit')->name('aides.beneficiary.edit');
-            Route::post('/update', 'BeneficiariesController@update')->name('aides.beneficiary.update');
-
-        });
-
     });
 
 

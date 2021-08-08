@@ -77,7 +77,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="role_name_ar" id="role_name_ar" type="text"
                                                                 placeholder=" {{trans('roles.enter_role_name_ar')}}"
                                                                 autocomplete="off"/>
@@ -95,7 +95,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="role_name_en" id="role_name_en" type="text"
                                                                 placeholder=" {{trans('roles.enter_role_name_en')}}"
                                                                 autocomplete="off"/>

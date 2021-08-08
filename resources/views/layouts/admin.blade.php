@@ -33,6 +33,8 @@
     <!--end::Page Vendors Styles-->
 
 
+{!! asset('teacherBoard/') !!}
+
 @if( LaravelLocalization::getCurrentLocale() =='ar')
 
 
@@ -127,7 +129,7 @@
                 @if(!empty(setting()->site_logo))
                     <a href="#" class="brand-logo">
                         <img src="{{asset(Storage::url(setting()->site_logo))}}"
-                             style="border-radius: 10%;width: 80px; height: 60px">
+                             style=";width: 110px; height: 55px">
                     </a>
                 @else
                     LOGO

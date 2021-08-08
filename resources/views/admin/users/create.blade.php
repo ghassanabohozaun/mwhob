@@ -117,7 +117,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="name" id="name" type="text"
                                                                 placeholder=" {{trans('users.enter_name')}}"
                                                                 autocomplete="off"/>
@@ -135,7 +135,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="email" id="email" type="text"
                                                                 placeholder=" {{trans('users.enter_email')}}"
                                                                 autocomplete="off"/>
@@ -153,7 +153,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="password" id="password" type="password"
                                                                 placeholder=" {{trans('users.enter_password')}}"
                                                                 autocomplete="off"/>
@@ -171,7 +171,7 @@
                                                         <div class="col-lg-9 col-xl-9">
 
                                                             <select
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="role_id" id="role_id" type="text">
 
                                                                 <option value="">
@@ -204,7 +204,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="mobile" id="mobile" type="text"
                                                                 placeholder=" {{trans('users.enter_mobile')}}"
                                                                 autocomplete="off"/>
@@ -223,7 +223,7 @@
                                                         <div class="col-lg-9 col-xl-9">
 
                                                             <select
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="gender" id="gender" type="text">
 
                                                                 <option value="">

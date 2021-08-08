@@ -30,7 +30,7 @@
                                             <label class="col-form-label">
                                                 ID
                                             </label>
-                                            <input class="form-control form-control-solid form-control-lg"
+                                            <input class="form-control  form-control-lg"
                                                    name="id" id="id_governorate_update" type="hidden"
                                                    placeholder="ID"
                                                    autocomplete="off"/>
@@ -43,7 +43,7 @@
                                             <label class="col-form-label">
                                                 {{trans('regions.governorate_name_ar')}}
                                             </label>
-                                            <input class="form-control form-control-solid form-control-lg"
+                                            <input class="form-control  form-control-lg"
                                                    name="governorate_name_ar" id="governorate_name_ar_update"
                                                    type="text"
                                                    placeholder=" {{trans('regions.enter_governorate_name_ar')}}"
@@ -59,7 +59,7 @@
                                             <label class="col-form-label">
                                                 {{trans('regions.governorate_name_en')}}
                                             </label>
-                                            <input class="form-control form-control-solid form-control-lg"
+                                            <input class="form-control  form-control-lg"
                                                    name="governorate_name_en" id="governorate_name_en_update"
                                                    type="text"
                                                    placeholder=" {{trans('regions.enter_governorate_name_en')}}"

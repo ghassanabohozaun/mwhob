@@ -11,7 +11,7 @@
 
                 <!--begin::Page Title-->
                 <span class="text-dark font-weight-bold mt-2 mb-2 mr-5">
-                    {{trans('menu.home')}}
+                    {{trans('menu.dashboard')}}
                 </span>
                 <!--end::Page Title-->
 

@@ -30,7 +30,7 @@
                                             <label class="col-form-label">
                                                 ID
                                             </label>
-                                            <input class="form-control form-control-solid form-control-lg"
+                                            <input class="form-control  form-control-lg"
                                                    name="id" id="id_neighborhood_update" type="hidden"
                                                    placeholder="ID"
                                                    autocomplete="off"/>
@@ -43,7 +43,7 @@
                                             <label class="col-form-label">
                                                 {{trans('regions.neighborhood_name_ar')}}
                                             </label>
-                                            <input class="form-control form-control-solid form-control-lg"
+                                            <input class="form-control  form-control-lg"
                                                    name="neighborhood_name_ar" id="neighborhood_name_ar_update"
                                                    type="text"
                                                    placeholder=" {{trans('regions.enter_neighborhood_name_ar')}}"
@@ -59,7 +59,7 @@
                                             <label class="col-form-label">
                                                 {{trans('regions.neighborhood_name_en')}}
                                             </label>
-                                            <input class="form-control form-control-solid form-control-lg"
+                                            <input class="form-control  form-control-lg"
                                                    name="neighborhood_name_en" id="neighborhood_name_en_update"
                                                    type="text"
                                                    placeholder=" {{trans('regions.enter_neighborhood_name_en')}}"
@@ -72,7 +72,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">{{trans('regions.city_id')}}</label>
                                             <select id="city_id_update" name="city_id"
-                                                    class="form-control form-control-solid form-control-lg">
+                                                    class="form-control  form-control-lg">
                                                 <option value="">{{trans('general.select_from_list')}}</option>
                                             </select>
                                             <span class="form-text text-danger" id="city_id_update_error"></span>

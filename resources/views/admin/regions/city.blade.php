@@ -30,7 +30,7 @@
                                             <label class="col-form-label">
                                                 ID
                                             </label>
-                                            <input class="form-control form-control-solid form-control-lg"
+                                            <input class="form-control  form-control-lg"
                                                    name="id" id="id_city_update" type="hidden"
                                                    placeholder="ID"
                                                    autocomplete="off"/>
@@ -43,7 +43,7 @@
                                             <label class="col-form-label">
                                                 {{trans('regions.city_name_ar')}}
                                             </label>
-                                            <input class="form-control form-control-solid form-control-lg"
+                                            <input class="form-control  form-control-lg"
                                                    name="city_name_ar" id="city_name_ar_update"
                                                    type="text"
                                                    placeholder=" {{trans('regions.enter_city_name_ar')}}"
@@ -59,7 +59,7 @@
                                             <label class="col-form-label">
                                                 {{trans('regions.city_name_en')}}
                                             </label>
-                                            <input class="form-control form-control-solid form-control-lg"
+                                            <input class="form-control  form-control-lg"
                                                    name="city_name_en" id="city_name_en_update"
                                                    type="text"
                                                    placeholder=" {{trans('regions.enter_city_name_en')}}"
@@ -72,7 +72,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">{{trans('regions.governorate_id')}}</label>
                                             <select id="governorate_id_update" name="governorate_id"
-                                                    class="form-control form-control-solid form-control-lg">
+                                                    class="form-control  form-control-lg">
                                                 <option value="">{{trans('general.select_from_list')}}</option>
                                             </select>
                                             <span class="form-text text-danger" id="governorate_id_update_error"></span>

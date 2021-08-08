@@ -79,7 +79,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="{{$user->id}}"
-                                                                   class="form-control form-control-solid form-control-lg"
+                                                                   class="form-control  form-control-lg"
                                                                    name="id" id="id" type="hidden"
                                                                    autocomplete="off"/>
 
@@ -134,7 +134,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="name" id="name" type="text"
                                                                 value="{{$user->name}}"
                                                                 placeholder=" {{trans('users.enter_name')}}"
@@ -153,7 +153,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
-                                                                class="form-control form-control-solid form-control-lg "
+                                                                class="form-control  form-control-lg "
                                                                 name="email" id="email" type="text" disabled="disabled"
                                                                 value="{{$user->email}}"
                                                                 placeholder=" {{trans('users.enter_email')}}"
@@ -172,7 +172,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="password" id="password" type="password"
                                                                 placeholder=" {{trans('users.enter_password')}}"
                                                                 autocomplete="off"/>
@@ -191,7 +191,7 @@
                                                         <div class="col-lg-9 col-xl-9">
 
                                                             <select
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="role_id" id="role_id" type="text">
 
                                                                 <option value="">
@@ -226,7 +226,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="mobile" id="mobile" type="text"
                                                                 value="{{$user->mobile}}"
                                                                 placeholder=" {{trans('users.enter_mobile')}}"
@@ -246,7 +246,7 @@
                                                         <div class="col-lg-9 col-xl-9">
 
                                                             <select
-                                                                class="form-control form-control-solid form-control-lg"
+                                                                class="form-control  form-control-lg"
                                                                 name="gender" id="gender" type="text">
 
                                                                 <option value="">

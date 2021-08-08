@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="{!! asset('adminBoard/gbLogin/css/main.css') !!}">
     <!--===============================================================================================-->
 </head>
-<body style="background-color: #666666;" @if(LaravelLocalization::getCurrentLocale() =='ar')  dir="rtl" @endif>
+<body style="" @if(LaravelLocalization::getCurrentLocale() =='ar')  dir="rtl" @endif>
 <style>
 
     input[type=checkbox] {
@@ -70,14 +70,16 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
+
             <form class="login100-form validate-form" action="{{route('admin.login')}}" method="POST">
                 @csrf
-                <span class="login100-form-title p-b-43">
-						{!! trans('login.welcome') !!}
-					</span>
+                <div style="margin-bottom: 50px">
+                    <img style=" display:block;margin:auto; width: 150px"
+                         src="{!! \Illuminate\Support\Facades\Storage::url(setting()->site_logo )!!}">
+                </div>
 
 
-                @if(\Illuminate\Support\Facades\Session::has('error'))
+            @if(\Illuminate\Support\Facades\Session::has('error'))
                     <div class="alert alert-danger font-weight-bold" role="alert">
                         {{\Illuminate\Support\Facades\Session::get('error')}}
                     </div>
@@ -126,7 +128,7 @@
             </form>
 
             <div class="login100-more"
-                 style="background-image: url({!! asset('adminBoard/gbLogin/images/ytt.jpg') !!} );">
+                 style="background-image: url({!! asset('adminBoard/gbLogin/images/3.jpg') !!} );">
             </div>
         </div>
     </div>
