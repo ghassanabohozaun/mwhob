@@ -2,6 +2,7 @@
 
 return [
 
+    'sign_in'=>'تسجيل الدخول',
     'login' => 'تسجيل الدخول',
     'new_here' => 'جديد هنا ',
     'create_account' => 'إنشاء حساب جديد',
@@ -36,5 +37,8 @@ return [
     'login_failed' => 'فشل عملية تسجيل الدخول',
     'account_unavailable'=>'الحساب غير متوفر',
     'account_disabled'=>'الحساب معطل',
+
+
+    'sign_in_to_admin'=>'تسجيل دخول الي لوحة المعلم'
 
 ];

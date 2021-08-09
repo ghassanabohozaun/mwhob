@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{!! trans('login.login') !!}</title>
+    <title>{!! trans('login.sign_in') !!}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -121,7 +121,7 @@
 
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
-                        {!! trans('login.login') !!}
+                        {!! trans('login.sign_in') !!}
                     </button>
                 </div>
 

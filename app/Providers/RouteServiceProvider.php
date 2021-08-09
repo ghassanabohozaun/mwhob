@@ -50,6 +50,9 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
         $this->mapWebRoutes();
         $this->mapAdminRoutes();
+        $this->mapTeacherRoutes();
+
+
         //
     }
 
@@ -75,6 +78,16 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace)
             ->group(base_path('routes/admin.php'));
     }
+
+    protected function mapTeacherRoutes()
+    {
+        Route::prefix(LaravelLocalization::setLocale().'/teacher')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/teacher.php'));
+    }
+
+
 
 
     /**

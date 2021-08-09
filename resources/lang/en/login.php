@@ -2,6 +2,11 @@
 
 return [
 
+    ////////////////////////////////////////////////////
+    /// Admin Login
+
+    'sign_in'=>'Sign In',
+
     'login' => 'Login',
     'new_here' => ' New Here',
     'create_account' => 'Create Account',
@@ -45,5 +50,10 @@ return [
     'account_unavailable'=>'Account Unavailable',
     'account_disabled'=>'Account Disabled',
 
+
+
+    ////////////////////////////////////////////////////
+    /// Teacher Login
+    'sign_in_to_admin'=>'Sign In To Teacher Panel'
 
 ];

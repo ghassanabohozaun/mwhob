@@ -24,4 +24,8 @@ Route::get('/teacher',function (){
     return view('teacher.dashboard');
 });
 
+Route::get('/teacher-login',function (){
+
+    return view('teacher.auth.login');
+});
 

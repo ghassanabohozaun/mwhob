@@ -1,64 +1,85 @@
-
 <!DOCTYPE html>
-<!--
-Template Name: Metronic - Bootstrap 4 HTML, React, Angular 9 & VueJS Admin Dashboard Theme
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: https://1.envato.market/EA4JP
-Renew Support: https://1.envato.market/EA4JP
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
-<html lang="en" >
+
+<html lang="en">
 <!--begin::Head-->
-<head><base href="../../../../">
+<head>
     <meta charset="utf-8"/>
-    <title>Metronic | Login Page 4</title>
+    <title>{!! trans('login.sign_in') !!}</title>
     <meta name="description" content="Login page example"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
     <!--begin::Fonts-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>        <!--end::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
+    <!--end::Fonts-->
 
 
     <!--begin::Page Custom Styles(used by this page)-->
-    <link href="assets/css/pages/login/classic/login-4.css" rel="stylesheet" type="text/css"/>
+    <link href="{!! asset('teacherBoard/assets/css/pages/login/classic/login-4.css') !!}" rel="stylesheet"
+          type="text/css"/>
     <!--end::Page Custom Styles-->
 
     <!--begin::Global Theme Styles(used by all pages)-->
-    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="{!! asset('teacherBoard/assets/plugins/global/plugins.bundle.css') !!}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{!! asset('teacherBoard/assets/plugins/custom/prismjs/prismjs.bundle.css') !!}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{!! asset('teacherBoard/assets/css/style.bundle.css') !!}" rel="stylesheet" type="text/css"/>
     <!--end::Global Theme Styles-->
 
     <!--begin::Layout Themes(used by all pages)-->
 
-    <link href="assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css"/>        <!--end::Layout Themes-->
+    <link href="{!! asset('teacherBoard/assets/css/themes/layout/header/base/light.css') !!}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{!! asset('teacherBoard/assets/css/themes/layout/header/menu/light.css') !!}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{!! asset('teacherBoard/assets/css/themes/layout/brand/dark.css') !!}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{!! asset('teacherBoard/assets/css/themes/layout/aside/dark.css') !!}" rel="stylesheet"
+          type="text/css"/>        <!--end::Layout Themes-->
 
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico"/>
+    <link rel="shortcut icon" href="{!! asset('teacherBoard/assets/media/logos/favicon.ico') !!}"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet"/>
+    <style>
+        body, html {
+            font-family: "Poppins", "ArbFONTSBEINNormalAR", sans-serif;
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 
 </head>
 <!--end::Head-->
-
+@if(LaravelLocalization::getCurrentLocale() =='ar')
+   <style>
+       body{
+           direction: rtl
+       }
+       .checkbox-inline .checkbox span {
+           margin-right: 0.75rem;
+           margin-left: 0.75rem;
+       }
+       .font_size_16{
+           font-size: 16px;
+       }
+   </style>
+@endif
 <!--begin::Body-->
-<body  id="kt_body"  class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed subheader-mobile-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading"  >
+<body id="kt_body" style="background: white ;"
+      class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed subheader-mobile-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
 
 <!--begin::Main-->
 <div class="d-flex flex-column flex-root">
     <!--begin::Login-->
     <div class="login login-4 login-signin-on d-flex flex-row-fluid" id="kt_login">
-        <div class="d-flex flex-center flex-row-fluid bgi-size-cover bgi-position-top bgi-no-repeat" style="background-image: url('assets/media/bg/bg-3.jpg');">
+        <div class="d-flex flex-center flex-row-fluid bgi-size-cover bgi-position-top bgi-no-repeat"
+             style="background-image: url('{!! asset('teacherBoard/assets/media/bg/bg-3.jpg');!!}">
             <div class="login-form text-center p-7 position-relative overflow-hidden">
                 <!--begin::Login Header-->
                 <div class="d-flex flex-center mb-15">
                     <a href="#">
-                        <img src="assets/media/logos/logo-letter-13.png" class="max-h-75px" alt=""/>
+                        <img src="{!! \Illuminate\Support\Facades\Storage::url(setting()->site_logo) !!}"
+                             class="max-h-75px" alt=""/>
                     </a>
                 </div>
                 <!--end::Login Header-->
@@ -66,34 +87,33 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!--begin::Login Sign in form-->
                 <div class="login-signin">
                     <div class="mb-20">
-                        <h3>Sign In To Admin</h3>
-                        <div class="text-muted font-weight-bold">Enter your details to login to your account:</div>
+                        <h2>{!! trans('login.sign_in_to_admin') !!}</h2>
                     </div>
-                    <form class="form" id="kt_login_signin_form">
+                    <form class="form" id="kt_login_signin_form" >
                         <div class="form-group mb-5">
-                            <input class="form-control h-auto form-control-solid py-4 px-8" type="text" placeholder="Email" name="username" autocomplete="off" />
+                            <input class="form-control h-auto py-4 px-8 font_size_16" type="text"
+                                   placeholder="{!! trans('login.email') !!}"
+                                   name="email" autocomplete="off"/>
                         </div>
                         <div class="form-group mb-5">
-                            <input class="form-control h-auto form-control-solid py-4 px-8" type="password" placeholder="Password" name="password" />
+                            <input class="form-control h-auto  py-4 px-8 font_size_16" type="password"
+                                   placeholder="{!! trans('login.password') !!}"
+                                   name="password" autocomplete="off"/>
                         </div>
                         <div class="form-group d-flex flex-wrap justify-content-between align-items-center">
                             <div class="checkbox-inline">
-                                <label class="checkbox m-0 text-muted">
+                                <label class="checkbox m-0 text-muted font_size_16">
                                     <input type="checkbox" name="remember" />
                                     <span></span>
-                                    Remember me
+                                    {{trans('login.remember_me')}}
                                 </label>
                             </div>
-                            <a href="javascript:;" id="kt_login_forgot" class="text-muted text-hover-primary">Forget Password ?</a>
                         </div>
-                        <button id="kt_login_signin_submit" class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4">Sign In</button>
+                        <button id="kt_login_signin_submit"
+                                class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4 font_size_16">
+                            {!! trans('login.sign_in') !!}
+                        </button>
                     </form>
-                    <div class="mt-10">
-					<span class="opacity-70 mr-4">
-						Don't have an account yet?
-					</span>
-                        <a href="javascript:;" id="kt_login_signup" class="text-muted text-hover-primary font-weight-bold">Sign Up!</a>
-                    </div>
                 </div>
                 <!--end::Login Sign in form-->
 
@@ -105,21 +125,25 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     <form class="form" id="kt_login_signup_form">
                         <div class="form-group mb-5">
-                            <input class="form-control h-auto form-control-solid py-4 px-8" type="text" placeholder="Fullname" name="fullname" />
+                            <input class="form-control h-auto form-control-solid py-4 px-8" type="text"
+                                   placeholder="Fullname" name="fullname"/>
                         </div>
                         <div class="form-group mb-5">
-                            <input class="form-control h-auto form-control-solid py-4 px-8" type="text" placeholder="Email" name="email" autocomplete="off" />
+                            <input class="form-control h-auto form-control-solid py-4 px-8" type="text"
+                                   placeholder="Email" name="email" autocomplete="off"/>
                         </div>
                         <div class="form-group mb-5">
-                            <input class="form-control h-auto form-control-solid py-4 px-8" type="password" placeholder="Password" name="password" />
+                            <input class="form-control h-auto form-control-solid py-4 px-8" type="password"
+                                   placeholder="Password" name="password"/>
                         </div>
                         <div class="form-group mb-5">
-                            <input class="form-control h-auto form-control-solid py-4 px-8" type="password" placeholder="Confirm Password" name="cpassword" />
+                            <input class="form-control h-auto form-control-solid py-4 px-8" type="password"
+                                   placeholder="Confirm Password" name="cpassword"/>
                         </div>
                         <div class="form-group mb-5 text-left">
                             <div class="checkbox-inline">
                                 <label class="checkbox m-0">
-                                    <input type="checkbox" name="agree" />
+                                    <input type="checkbox" name="agree"/>
                                     <span></span>
                                     I Agree the <a href="#" class="font-weight-bold ml-1">terms and conditions</a>.
                                 </label>
@@ -127,8 +151,12 @@ License: You must have a valid license purchased only from themeforest(the above
                             <div class="form-text text-muted text-center"></div>
                         </div>
                         <div class="form-group d-flex flex-wrap flex-center mt-10">
-                            <button id="kt_login_signup_submit" class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">Sign Up</button>
-                            <button id="kt_login_signup_cancel" class="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-2">Cancel</button>
+                            <button id="kt_login_signup_submit"
+                                    class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">Sign Up
+                            </button>
+                            <button id="kt_login_signup_cancel"
+                                    class="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-2">Cancel
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -142,11 +170,16 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     <form class="form" id="kt_login_forgot_form">
                         <div class="form-group mb-10">
-                            <input class="form-control form-control-solid h-auto py-4 px-8" type="text" placeholder="Email" name="email" autocomplete="off"/>
+                            <input class="form-control form-control-solid h-auto py-4 px-8" type="text"
+                                   placeholder="Email" name="email" autocomplete="off"/>
                         </div>
                         <div class="form-group d-flex flex-wrap flex-center mt-10">
-                            <button id="kt_login_forgot_submit" class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">Request</button>
-                            <button id="kt_login_forgot_cancel" class="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-2">Cancel</button>
+                            <button id="kt_login_forgot_submit"
+                                    class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">Request
+                            </button>
+                            <button id="kt_login_forgot_cancel"
+                                    class="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-2">Cancel
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -224,14 +257,14 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end::Global Config-->
 
 <!--begin::Global Theme Bundle(used by all pages)-->
-<script src="assets/plugins/global/plugins.bundle.js"></script>
-<script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
-<script src="assets/js/scripts.bundle.js"></script>
+<script src="{!! asset('teacherBoard/assets/plugins/global/plugins.bundle.js') !!}"></script>
+<script src="{!! asset('teacherBoard/assets/plugins/custom/prismjs/prismjs.bundle.js') !!}"></script>
+<script src="{!! asset('teacherBoard/assets/js/scripts.bundle.js') !!}"></script>
 <!--end::Global Theme Bundle-->
 
 
 <!--begin::Page Scripts(used by this page)-->
-<script src="assets/js/pages/custom/login/login-general.js"></script>
+<script src="{!! asset('teacherBoard/assets/js/pages/custom/login/login-general.js') !!}"></script>
 <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
