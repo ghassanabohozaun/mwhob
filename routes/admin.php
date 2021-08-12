@@ -29,7 +29,8 @@ Route::group([
         ->name('get.admin.settings')->middleware('can:settings');
     Route::post('settings', 'DashboardController@storeSettings')
         ->name('store.admin.settings')->middleware('can:settings');
-
+    Route::post('switch-en-lang', 'DashboardController@switchEnglishLang')
+        ->name('switch.english.lang');
     //////////////////////////////////////////////////////////////////
     /// admin routes
     Route::get('/admin', 'AdminsController@index')->name('get.admin')->middleware('can:admins');
@@ -38,7 +39,6 @@ Route::group([
 
     //////////////////////////////////////////////////////////////////
     /// users Routes
-
     Route::group(['prefix' => 'users', 'middleware' => 'can:users'], function () {
         Route::get('/', 'UserController@index')->name('users');
         Route::get('/get-users', 'UserController@getUsers')->name('get.users');
@@ -55,7 +55,6 @@ Route::group([
         Route::get('/bar-chart', 'UserController@barChart')->name('user.bar.chart');
 
     });
-
     ///////////////////////////////////////////////////////////////////
     /// Roles Routes
     Route::group(['prefix' => 'roles', 'middleware' => 'can:roles'], function () {
@@ -67,53 +66,25 @@ Route::group([
         Route::get('/edit/{id?}', 'RolesController@edit')->name('admin.role.edit');
         Route::post('/update', 'RolesController@update')->name('admin.role.update');
     });
-    ///////////////////////////////////////////////////////////////////
-    /// Regions Routes
-
-    Route::group(['prefix' => 'regions'], function () {
-        Route::get('/', 'RegionsController@index')->name('admin.regions');
-    });
-
-    Route::group(['prefix' => 'governorate'], function () {
-        Route::post('/store-governorate', 'RegionsController@storeGovernorate')->name('governorate.store');
-        Route::get('/get-all-governorates', 'RegionsController@getAllGovernorates')->name('get.all.governorates');
-        Route::post('/destroy-governorate', 'RegionsController@destroyGovernorate')->name('governorate.destroy');
-        Route::get('/edit-governorate', 'RegionsController@editGovernorate')->name('governorate.edit');
-        Route::post('/update-governorate', 'RegionsController@updateGovernorate')->name('governorate.update');
-
-    });
-
-    Route::group(['prefix' => 'city'], function () {
-        Route::post('/store-city', 'RegionsController@storeCity')->name('city.store');
-        Route::get('/get-all-cities', 'RegionsController@getAllCities')->name('get.all.cities');
-        Route::post('/destroy-city', 'RegionsController@destroyCity')->name('city.destroy');
-        Route::get('/edit-city', 'RegionsController@editCity')->name('city.edit');
-        Route::post('/update-city', 'RegionsController@updateCity')->name('city.update');
-        Route::get('/get-city-by-governorate-id', 'RegionsController@getCityByGovernorateID')
-            ->name('get.city.by.governorate.id');
-    });
-
-    Route::group(['prefix' => 'neighborhood'], function () {
-        Route::post('/store-neighborhood', 'RegionsController@storeNeighborhood')->name('neighborhood.store');
-        Route::post('/destroy-neighborhood', 'RegionsController@destroyNeighborhood')->name('neighborhood.destroy');
-        Route::get('/edit-neighborhood', 'RegionsController@editNeighborhood')->name('neighborhood.edit');
-        Route::post('/update-neighborhood', 'RegionsController@updateNeighborhood')->name('neighborhood.update');
-        Route::get('/get-neighborhood-by-city-id', 'RegionsController@getNeighborhoodByCityID')
-            ->name('get.neighborhood.by.city.id');
-    });
-
 
     ///////////////////////////////////////////////////////////////////
-    /// Upload Center routes
-    Route::group(['prefix' => 'upload-center'], function () {
-        Route::get('/', 'UploadCenterController@index')->name('admin.upload.center');
-        Route::get('/get-upload-center-files', 'UploadCenterController@getUploadCenterFiles')
-            ->name('get.admin.upload.center.files');
-        Route::post('/store', 'UploadCenterController@store')->name('admin.upload.center.store');
-        Route::post('/destroy', 'UploadCenterController@destroy')->name('admin.upload.center.destroy');
-        Route::get('/get-file-by-id', 'UploadCenterController@getUploadCenterFileById')
-            ->name('get.admin.upload.center.file.by.id');
+    /// Categories Routes
+    Route::group(['prefix' => 'categories', 'middleware' => 'can:categories'], function () {
+        Route::get('/', 'CategoriesController@index')->name('admin.categories');
+        Route::get('/get-categories', 'CategoriesController@getCategories')->name('admin.get.categories');
+        Route::get('/trashed-categories', 'CategoriesController@trashedCategories')->name('admin.trashed.categories');
+        Route::get('/get-trashed-categories', 'CategoriesController@getTrashedCategories')->name('admin.get.trashed.categories');
+        Route::get('/create', 'CategoriesController@create')->name('admin.create.category');
+        Route::post('/store', 'CategoriesController@store')->name('admin.store.category');
+        Route::get('/edit/{id?}', 'CategoriesController@edit')->name('admin.edit.category');
+        Route::post('/update', 'CategoriesController@update')->name('admin.update.category');
+        Route::post('/destroy', 'CategoriesController@destroy')->name('admin.destroy.category');
+        Route::post('/restore', 'CategoriesController@restore')->name('admin.restore.category');
+
+        Route::post('/force-destroy', 'CategoriesController@forceDestroy')->name('admin.force.destroy.category');
     });
+
+
 });
 
 

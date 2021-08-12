@@ -108,7 +108,7 @@ return [
     'very_good' => 'Very Good',
 
     'required' => 'This Field is Required ',
-    'image_max' => 'Max allow image size 2 mega',
+    'image_max' => 'Max allow image size 1 mega',
     'in' => 'The entered value incorrect',
     'numeric' => 'The entered value must be numeric',
     'choose_validation' => 'You Must chose one of options',

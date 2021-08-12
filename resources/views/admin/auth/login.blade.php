@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{!! asset(\Illuminate\Support\Facades\Storage::url(setting()->site_logo)) !!}"/>
+    <link rel="icon" type="image/png"
+          href="{!! asset(\Illuminate\Support\Facades\Storage::url(setting()->site_logo)) !!}"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css"
           href="{!! asset('adminBoard/gbLogin/vendor/bootstrap/css/bootstrap.min.css') !!}">
@@ -37,9 +38,9 @@
 <style>
 
     input[type=checkbox] {
-        -moz-appearance:none;
-        -webkit-appearance:none;
-        -o-appearance:none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -o-appearance: none;
         outline: none;
         content: none;
     }
@@ -79,7 +80,7 @@
                 </div>
 
 
-            @if(\Illuminate\Support\Facades\Session::has('error'))
+                @if(\Illuminate\Support\Facades\Session::has('error'))
                     <div class="alert alert-danger font-weight-bold" role="alert">
                         {{\Illuminate\Support\Facades\Session::get('error')}}
                     </div>
@@ -93,7 +94,6 @@
 
                 @error('email')
                 <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
-
                 @enderror
 
                 <div class="wrap-input100">
@@ -104,15 +104,13 @@
 
                 @error('password')
                 <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
-
                 @enderror
 
 
-
                 <div class="flex-sb-m w-full p-t-3 p-b-32">
-                    <div class="contact100-form-checkbox" >
+                    <div class="contact100-form-checkbox">
                         <label>
-                            <input type="checkbox" name="rememberMe" id="rememberMe" >
+                            <input type="checkbox" name="rememberMe" id="rememberMe">
                             <span style="margin-top: 10px;color: #999999">&nbsp; {{trans('login.remember_me')}}</span>
                         </label>
                     </div>

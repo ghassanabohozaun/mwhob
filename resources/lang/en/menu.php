@@ -15,9 +15,9 @@ return [
     'permissions' => 'Permissions',
     'add_new_permission' => 'Add New Permission',
     'regions' => 'Regions',
-    'aides' => 'Humanitarian Aides',
-    'beneficiaries' => 'Beneficiaries',
-    'add_new_beneficiary' => 'Add New Beneficiary',
+    'teacher' => 'Teacher',
 
+    'categories' => 'Categories',
+    'add_new_category' => 'Add New category',
 
 ];

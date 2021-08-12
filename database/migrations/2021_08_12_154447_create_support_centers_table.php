@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNeighborhoodsTable extends Migration
+class CreateSupportCentersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateNeighborhoodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('neighborhoods', function (Blueprint $table) {
+        Schema::create('support_centers', function (Blueprint $table) {
             $table->id();
-            $table->string('neighborhood_name_ar');
-            $table->string('neighborhood_name_en');
-            $table->integer('city_id')->unsigned()->nullable();
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ class CreateNeighborhoodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('neighborhoods');
+        Schema::dropIfExists('support_centers');
     }
 }

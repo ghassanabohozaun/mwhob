@@ -10,22 +10,24 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 */
 
+//////////////////////////////////////////////////////////
+/// Student Login until create Student Routes File
+Route::group(['prefix' => 'student'], function () {
+    Route::get('/login', function () {
+        return view('site.student.auth.login');
+    })->name('get.student.login');
+});
 
 
-
-Route::get('/panels',function (){
+Route::get('/panels', function () {
 
     return view('panels');
 });
 
 
-Route::get('/teacher',function (){
 
-    return view('teacher.dashboard');
-});
+Route::get('sms', 'PhoneAuthController@sms');
 
-Route::get('/teacher-login',function (){
+Route::get('verify/{coderesult?}', 'PhoneAuthController@verify')->name('verify');
 
-    return view('teacher.auth.login');
-});
 

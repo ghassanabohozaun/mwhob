@@ -31,6 +31,12 @@
 
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
+                <a href="{!! route('users.trashed') !!}"
+                   class="btn btn-light-danger">
+                    <i class="fa fa-trash"></i>
+                    {{trans('general.trash')}}
+                </a>
+                &nbsp;
                 <a href="{!! route('user.create') !!}"
                    class="btn btn-primary btn-sm font-weight-bold font-size-base  mr-1">
                     <i class="fa fa-plus-square"></i>
@@ -159,7 +165,7 @@
                             if (data.status == true) {
                                 Swal.fire({
                                     title: "{!! trans('general.deleted') !!}",
-                                    text: "{!! trans('general.delete_success_message') !!}",
+                                    text: data.msg,
                                     icon: "success",
                                     allowOutsideClick: false,
                                     customClass: {confirmButton: 'delete_user_button'}
@@ -184,63 +190,23 @@
 
         })
 
-        ///////////////////////////////////////////////////
-        /// close user Delete Notify
-        $('body').on('click', '#btn_user_close', function (e) {
+
+        // switch english language
+        var switchStatus = false;
+        $('body').on('change','.change_status', function (e) {
             e.preventDefault();
-            $.notifyClose();
-            $('#user_delete_id').val('');
-        })
-
-        ///////////////////////////////////////////////////
-        /// Delete user
-        $('body').on('click', '#btn_user_delete', function (e) {
-            e.preventDefault();
-            $.notifyClose();
-
-            var id = $('#user_delete_id').val();
-            $.ajax({
-                url: '{!! route('user.destroy') !!}',
-                data: {id, id},
-                type: 'post',
-                dataType: 'json',
-                beforeSend: function () {
-                    KTApp.blockPage({
-                        overlayColor: '#000000',
-                        state: 'danger',
-                        message: "{{trans('general.please_wait')}}",
-                    });
-                },//end beforeSend
-                success: function (data) {
-                    KTApp.unblockPage();
-                    console.log(data);
-                    if (data.status == true) {
-                        notifySuccessOrError(data.msg, 'success');
-                        updateDataTable();
-                        $('#user_delete_id').val('');
-                    }
-                    if (data.status == false) {
-                        notifySuccessOrError(data.msg, 'warning');
-                    }
-
-                },//end success
-                complete: function () {
-                    KTApp.unblockPage();
-                },//end complete
-            })
-        })
-
-
-        ////////////////////////////////////////////////////
-        // Change Status
-        $('body').on('click', '.change_status', function (e) {
-            e.preventDefault();
-            $.notifyClose();
             var id = $(this).data('id');
+
+            if ($(this).is(':checked')) {
+                switchStatus = $(this).is(':checked');
+            }
+            else {
+                switchStatus = $(this).is(':checked');
+            }
 
             $.ajax({
                 url: "{{route('user.change.status')}}",
-                data: {id, id},
+                data: {switchStatus: switchStatus ,id:id},
                 type: 'post',
                 dataType: 'JSON',
                 beforeSend: function () {
@@ -259,15 +225,15 @@
                             text: "",
                             icon: "success",
                             allowOutsideClick: false,
-                            customClass: {confirmButton: 'update_user_status_button'}
+                            customClass: {confirmButton: 'switch_status_toggle'}
                         });
-                        $('.update_user_status_button').click(function () {
-                            updateDataTable();
+                        $('.switch_status_toggle').click(function () {
                         });
                     }
                 },//end success
             })
-        })
+        });
+
 
 
     </script>

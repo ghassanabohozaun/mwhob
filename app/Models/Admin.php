@@ -27,18 +27,11 @@ class Admin extends Authenticatable
         'remember_token'
     ];
     protected $hidden = ['created_at', 'updated_at', 'remember_token'];
-    //////////////////////////////////// Relations ///////////////////////
-    /// Post
-    public function posts()
-    {
-        return $this->hasMany('App\Models\Post', 'admin_id', 'id');
-    }
     /////////////////////////////////////////////////////////////////////
     /// role
     public function role(){
         return $this->belongsTo(Role::class,'role_id');
     }
-
     //////////////////////////////////// accessors ///////////////////////
     /// Gender accessors
     public function getGenderAttribute($value)

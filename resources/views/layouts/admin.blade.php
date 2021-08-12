@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html
-    @if( LaravelLocalization::getCurrentLocale() =='ar')
-    lang="ar" direction="rtl" dir="rtl" style="direction: rtl"
-    @else
-    lang="en"
-    @endif
+    lang="{!!  LaravelLocalization::getCurrentLocale() !!}"
+    dir="{!! LaravelLocalization::getCurrentLocaleDirection() !!}"
+    direction="{!! LaravelLocalization::getCurrentLocaleDirection() !!}"
+    style="{!! LaravelLocalization::getCurrentLocaleDirection() !!}"
 >
+
 <!--begin::Head-->
 <head>
     <base href="">
     <meta charset="utf-8"/>
-    <title>{{ !empty($title) ? $title: trans('dashboard.home') }}</title>
+    <title>{{ !empty($title) ? $title: trans('dashboard.admin_panel') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Updates and statistics"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -32,8 +32,6 @@
 
     <!--end::Page Vendors Styles-->
 
-
-{!! asset('teacherBoard/') !!}
 
 @if( LaravelLocalization::getCurrentLocale() =='ar')
 

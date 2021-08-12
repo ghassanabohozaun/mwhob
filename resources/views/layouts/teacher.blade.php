@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html
-    @if( LaravelLocalization::getCurrentLocale() =='ar')
-    lang="ar" direction="rtl" dir="rtl" style="direction: rtl"
-    @else
-    lang="en"
-    @endif>
+    lang="{!!  LaravelLocalization::getCurrentLocale() !!}"
+    dir="{!! LaravelLocalization::getCurrentLocaleDirection() !!}"
+    direction="{!! LaravelLocalization::getCurrentLocaleDirection() !!}"
+    style="{!! LaravelLocalization::getCurrentLocaleDirection() !!}"
+>
+
 <!--begin::Head-->
 <head>
     <base href="">
     <meta charset="utf-8"/>
-    <title>{{ !empty($title) ? $title: trans('dashboard.home') }}</title>
+    <title>{{ !empty($title) ? $title: trans('dashboard.teacher_panel') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Updates and statistics"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -45,11 +46,11 @@
 
         <link href="{{asset('teacherBoard/assets/css/themes/layout/header/base/light.rtl.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/header/menu/dark.rtl.css')}}" rel="stylesheet"
+        <link href="{{asset('teacherBoard/assets/css/themes/layout/header/menu/light.rtl.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/brand/dark.rtl.css')}}" rel="stylesheet"
+        <link href="{{asset('teacherBoard/assets/css/themes/layout/brand/light.rtl.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/aside/dark.rtl.css')}}" rel="stylesheet"
+        <link href="{{asset('teacherBoard/assets/css/themes/layout/aside/light.rtl.css')}}" rel="stylesheet"
               type="text/css"/>
         <!--end::Layout Themes-->
 
@@ -64,9 +65,11 @@
 
 @else
     <!--begin::Global Theme Styles(used by all pages)-->
-        <link href="{{asset('teacherBoard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css')}}" rel="stylesheet"
+        <link href="{{asset('teacherBoard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css')}}"
+              rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{asset('teacherBoard/assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet"
+              type="text/css"/>
         <link href="{{asset('teacherBoard/assets/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet"
               type="text/css"/>
         <link href="{{asset('teacherBoard/assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
@@ -76,10 +79,12 @@
 
         <link href="{{asset('teacherBoard/assets/css/themes/layout/header/base/light.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/header/menu/dark.css')}}" rel="stylesheet"
+        <link href="{{asset('teacherBoard/assets/css/themes/layout/header/menu/light.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{asset('teacherBoard/assets/css/themes/layout/brand/light.css')}}" rel="stylesheet"
+              type="text/css"/>
+        <link href="{{asset('teacherBoard/assets/css/themes/layout/aside/light.css')}}" rel="stylesheet"
+              type="text/css"/>
         <!--end::Layout Themes-->
 
         <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet"/>
@@ -195,29 +200,39 @@
         <!--begin::Header-->
         <div class="d-flex align-items-center mt-5">
             <div class="symbol symbol-100 mr-5">
-                <a href="#">
-                    <div class="symbol-label"
-                        style="background-image: url('{{asset('teacherBoard/images/user.jpg')}}');"></div>
-                </a>
+                @if(empty(auth()->guard('teacher')->user()->photo))
+                    <a href="#">
+                        <div class="symbol-label"
+                             style="background-image: url('{{asset('teacherBoard/images/user.jpg')}}');">
+                        </div>
+                    </a>
+                @else
+                    <a href="#">
+                        <div class="symbol-label"
+                             style="background-image: url('{{\Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->photo)}}');">
+                        </div>
+                    </a>
+                @endif
 
                 <i class="symbol-badge bg-success"></i>
             </div>
             <div class="d-flex flex-column">
                 <a href="#"
                    class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
-                    admin
+                    {!! auth()->guard('teacher')->user()->name !!}
                 </a>
                 <div class="text-muted mt-1">
                 </div>
                 <div class="navi mt-2">
                     <a href="#" class="navi-item">
                         <span class="navi-link p-0 pb-2">
-
                             <span class="navi-text text-muted text-hover-primary"></span>
                         </span>
                     </a>
-                    <a href="#"
-                       class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">{{trans('dashboard.sign_out')}}</a>
+                    <a href="{!! route('teacher.logout') !!}"
+                       class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">
+                        {{trans('dashboard.sign_out')}}
+                    </a>
                 </div>
             </div>
         </div>
@@ -232,8 +247,6 @@
     <!--end::Content-->
 </div>
 <!-- end::User Panel-->
-
-
 
 
 <!--begin::Scrolltop-->
@@ -251,46 +264,6 @@
 </svg><!--end::Svg Icon--></span></div>
 <!--end::Scrolltop-->
 
-<!--begin::Sticky Toolbar-
-<ul class="sticky-toolbar nav flex-column pl-2 pr-2 pt-3 pb-3 mt-4">
-
-    <li class="nav-item mb-2" id="kt_demo_panel_toggle" data-toggle="tooltip" title="Check out more demos"
-        data-placement="right">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-success btn-hover-success" href="#">
-            <i class="flaticon2-drop"></i>
-        </a>
-    </li>
-
-
-
-    <li class="nav-item mb-2" data-toggle="tooltip" title="Layout Builder" data-placement="left">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-primary btn-hover-primary"
-           href="#">
-            <i class="flaticon2-gear"></i>
-        </a>
-    </li>
-
-
-
-    <li class="nav-item mb-2" data-toggle="tooltip" title="Documentation" data-placement="left">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-warning btn-hover-warning"
-           href="#">
-            <i class="flaticon2-telegram-logo"></i>
-        </a>
-    </li>
-
-
-
-    <li class="nav-item" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="Chat Example"
-        data-placement="left">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="#" data-toggle="modal"
-           data-target="#kt_chat_modal">
-            <i class="flaticon2-chat-1"></i>
-        </a>
-    </li>
-
-</ul>
---end::Sticky Toolbar-->
 <!--begin::Global Theme Bundle(used by all pages)-->
 <script src="{{asset('teacherBoard/assets/plugins/global/plugins.bundle.js')}}"></script>
 <script src="{{asset('teacherBoard/assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>

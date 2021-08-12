@@ -10,7 +10,7 @@
         <ul class="menu-nav ">
 
                 <li class="menu-item  menu-item-active" aria-haspopup="true" style="height: 40px;">
-                    <a href="#" class="menu-link ">
+                    <a href="{!! route('teacher.dashboard') !!}" class="menu-link ">
                     <span class="svg-icon menu-icon">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -44,18 +44,11 @@
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
 
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="#" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">{{trans('menu.settings')}}</span>
-                                </a>
-                            </li>
-
 
                             <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="#" class="menu-link menu-toggle">
+                                <a href="{!! route('get.teacher') !!}" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">{{trans('menu.admin')}}</span>
+                                    <span class="menu-text">{{trans('menu.teacher')}}</span>
                                 </a>
                             </li>
 

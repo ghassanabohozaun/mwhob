@@ -37,10 +37,6 @@
                     <!--begin::Nav-->
                     <ul class="navi navi-hover py-4">
                         <!--begin::Item-->
-
-                        <!--end::Item-->
-
-
                         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                             <li class="navi-item">
                                 <a class="navi-link" rel="alternate" hreflang="{{ $localeCode }}"
@@ -56,8 +52,7 @@
                                 </a>
                             </li>
                         @endforeach
-
-
+                    <!--end::Item-->
                     </ul>
                     <!--end::Nav-->
                 </div>
@@ -70,12 +65,16 @@
                 <div
                     class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
                     id="kt_quick_user_toggle">
-                                <span
-                                    class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1"></span>
+                                <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1"></span>
                     <span
-                        class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">admin</span>
+                        class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{!! auth()->guard('teacher')->user()->name !!}</span>
                     <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
+
+                        @if(empty(auth()->guard('teacher')->user()->photo))
                             <img src="{{asset('teacherBoard/images/user.jpg')}}">
+                        @else
+                            <img src="{!! \Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->photo) !!}">
+                        @endif
 		                    </span>
                 </div>
             </div>

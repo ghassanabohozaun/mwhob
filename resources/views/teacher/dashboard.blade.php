@@ -57,7 +57,8 @@
                                                 <h5 style="line-height: 2rem">
                                                     {{trans('dashboard.dear_user')}}
                                                     &nbsp;
-                                                    <span class="text-warning">Admin</span>&nbsp;,
+                                                    <span
+                                                        class="text-warning">{!! auth()->guard('teacher')->user()->name !!}</span>&nbsp;,
                                                     &nbsp;
                                                     {!! trans('dashboard.welcome_message_details') !!}
                                                 </h5>
@@ -68,19 +69,27 @@
                                     <div class="row" style="margin-top: 20px">
 
                                         <div class="col-lg-2">
-                                            <img src="{{asset('teacherBoard/images/user.jpg')}}"
-                                                class="img-fluid img-thumbnail rounded-circle"
-                                                style="width: 120px;height: 120px;">
-
+                                            @if(empty(auth()->guard('teacher')->user()->photo))
+                                                <img src="{{asset('teacherBoard/images/user.jpg')}}"
+                                                     class="img-fluid img-thumbnail rounded-circle"
+                                                     style="width: 120px;height: 120px;">
+                                            @else
+                                                <img
+                                                    src="{{\Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->photo)}}"
+                                                    class="img-fluid img-thumbnail rounded-circle"
+                                                    style="width: 120px;height: 120px;">
+                                            @endif
                                         </div>
                                         <div class="col-lg-6 "
                                              style=" margin-top: 10px; font-weight: bolder;font-size: 15px">
                                             <p style="">{{trans('dashboard.name')}}
                                                 : admin</p>
-                                            <p>{{trans('dashboard.email')}} : Email</p>
-                                            <p>{{trans('users.last_login_at')}} : Last Login at</p>
-                                            <p>{{trans('users.last_login_ip')}} : Last Login IP</p>
-
+                                            <p>{{trans('dashboard.email')}}
+                                                : {!! auth()->guard('teacher')->user()->email !!}</p>
+                                            <p>{{trans('users.last_login_at')}}
+                                                : {!! auth()->guard('teacher')->user()->last_login_at !!}</p>
+                                            <p>{{trans('users.last_login_ip')}}
+                                                : {!! auth()->guard('teacher')->user()->last_login_ip !!}</p>
                                         </div>
                                     </div>
 

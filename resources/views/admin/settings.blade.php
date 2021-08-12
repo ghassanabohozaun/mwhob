@@ -312,26 +312,6 @@
                                                             <!--begin::Group-->
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">
-                                                                    {{trans('settings.site_linkedin')}}
-                                                                </label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <input
-                                                                        class="form-control  form-control-lg"
-                                                                        name="site_linkedin" id="site_linkedin"
-                                                                        type="text"
-                                                                        placeholder=" {{trans('settings.enter_site_linkedin')}}"
-                                                                        autocomplete="off"
-                                                                        value="{{ setting()->site_linkedin}}"/>
-                                                                    <span class="form-text text-danger"
-                                                                          id="site_linkedin_error"></span>
-                                                                </div>
-                                                            </div>
-                                                            <!--end::Group-->
-
-
-                                                            <!--begin::Group-->
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">
                                                                     {{trans('settings.site_phone')}}
                                                                 </label>
                                                                 <div class="col-lg-9 col-xl-9">
@@ -366,70 +346,28 @@
                                                             </div>
                                                             <!--end::Group-->
 
-                                                            <!--begin::Group-->
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">
-                                                                    {{trans('settings.site_address_ar')}}
-                                                                </label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                            <textarea
-                                                                class="form-control  form-control-lg"
-                                                                name="site_address_ar" id="site_address_ar" type="text"
-                                                                placeholder=" {{trans('settings.enter_site_address_ar')}}"
-                                                                autocomplete="off">{{ setting()->site_address_ar}}</textarea>
-
-                                                                    <span class="form-text text-danger"
-                                                                          id="site_address_ar_error"></span>
-                                                                </div>
-                                                            </div>
-                                                            <!--end::Group-->
-
-                                                            <!--begin::Group-->
-                                                            <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label">
-                                                                    {{trans('settings.site_address_en')}}
-                                                                </label>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                            <textarea
-                                                                class="form-control  form-control-lg"
-                                                                name="site_address_en" id="site_address_en" type="text"
-                                                                placeholder=" {{trans('settings.enter_site_address_en')}}"
-                                                                autocomplete="off">{{ setting()->site_address_en}}</textarea>
-
-                                                                    <span class="form-text text-danger"
-                                                                          id="site_address_en_error"></span>
-                                                                </div>
-                                                            </div>
-                                                            <!--end::Group-->
-
                                                         </div>
                                                     </div>
                                                     <br/>
 
                                                     <div class="card my-2">
                                                         <div class="card-body p-5">
-                                                            <h3>{{trans('settings.settings_section')}} </h3>
+                                                            <h3>{{trans('settings.language_section')}} </h3>
                                                             <hr/>
                                                             <br/>
+
 
                                                             <!--begin::Group-->
                                                             <div class="form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">
-                                                                    {{trans('settings.site_language')}}
+                                                                    {{trans('general.ar')}}
                                                                 </label>
                                                                 <div class="col-lg-9 col-xl-9">
-                                                                    <select name="site_language" id="site_language"
-                                                                            class="form-control  form-control-lg">
-                                                                        <option
-                                                                            value="">{{trans('general.select_from_list')}}</option>
-                                                                        <option
-                                                                            value="ar" {{setting()->site_language == 'ar' ? 'selected' :''}}>{{trans('general.ar')}}</option>
-                                                                        <option
-                                                                            value="en" {{setting()->site_language == 'en' ? 'selected' :''}}>{{trans('general.en')}}</option>
+                                                                    <div class="cst-switch switch-lg">
+                                                                        <input type="checkbox"  checked
+                                                                               name="site_lang_ar" id="site_lang_ar">
+                                                                    </div>
 
-                                                                    </select>
-                                                                    <span class="form-text text-danger"
-                                                                          id="site_language_error"></span>
                                                                 </div>
 
                                                             </div>
@@ -438,32 +376,15 @@
 
                                                             <!--begin::Group-->
                                                             <div class="form-group row">
-                                                                <label
-                                                                    class="col-xl-3 col-lg-3 col-form-label">
-                                                                    {{trans('settings.site_status')}}
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    {{trans('general.en')}}
                                                                 </label>
-
-                                                                <div class="col-lg-9 col-xl-9 radio-inline">
-                                                                    <label class="radio radio-solid">
-                                                                        <input type="radio" name="site_status"
-                                                                               id="site_status"
-                                                                               {{setting()->site_status == 1 ? 'checked':''}}
-                                                                               value="1">
-                                                                        <span></span>
-                                                                        {{trans('general.open')}}
-                                                                    </label>
-                                                                    <label class="radio radio-solid">
-                                                                        <input type="radio" name="site_status"
-                                                                               id="site_status"
-                                                                               {{setting()->site_status == 0 ? 'checked':''}}
-                                                                               value="0">
-                                                                        <span></span>
-                                                                        {{trans('general.close')}}
-                                                                    </label>
+                                                                <div class="col-lg-9 col-xl-9 " id="site_lang_en_section">
+                                                                    <div class="cst-switch switch-lg" >
+                                                                        <input class="site_lang_en" type="checkbox" {{setting()->site_lang_en == 'on' ? 'checked':''}}
+                                                                        name="site_lang_en" id="site_lang_en">
+                                                                    </div>
                                                                 </div>
-
-                                                                <span class="form-text text-danger"
-                                                                      id="site_status_error"></span>
                                                             </div>
                                                             <!--end::Group-->
 
@@ -484,11 +405,12 @@
                                                                 </label>
                                                                 <div class="col-lg-9 col-xl-9">
                                                             <textarea rows="3"
-                                                                class="form-control  form-control-lg"
-                                                                name="site_description_ar" id="site_description_ar"
-                                                                type="text"
-                                                                placeholder=" {{trans('settings.enter_site_description_ar')}}"
-                                                                autocomplete="off">{{ setting()->site_description_ar}}</textarea>
+                                                                      class="form-control  form-control-lg"
+                                                                      name="site_description_ar"
+                                                                      id="site_description_ar"
+                                                                      type="text"
+                                                                      placeholder=" {{trans('settings.enter_site_description_ar')}}"
+                                                                      autocomplete="off">{{ setting()->site_description_ar}}</textarea>
 
                                                                     <span class="form-text text-danger"
                                                                           id="site_description_ar_error"></span>
@@ -504,11 +426,12 @@
                                                                 </label>
                                                                 <div class="col-lg-9 col-xl-9">
                                                             <textarea rows="3"
-                                                                class="form-control  form-control-lg"
-                                                                name="site_description_en" id="site_description_en"
-                                                                type="text"
-                                                                placeholder=" {{trans('settings.enter_site_description_en')}}"
-                                                                autocomplete="off">{{ setting()->site_description_en}}</textarea>
+                                                                      class="form-control  form-control-lg"
+                                                                      name="site_description_en"
+                                                                      id="site_description_en"
+                                                                      type="text"
+                                                                      placeholder=" {{trans('settings.enter_site_description_en')}}"
+                                                                      autocomplete="off">{{ setting()->site_description_en}}</textarea>
 
                                                                     <span class="form-text text-danger"
                                                                           id="site_description_en_error"></span>
@@ -524,11 +447,11 @@
                                                                 </label>
                                                                 <div class="col-lg-9 col-xl-9">
                                                             <textarea rows="5"
-                                                                class="form-control  form-control-lg"
-                                                                name="site_keywords_ar" id="site_keywords_ar"
-                                                                type="text"
-                                                                placeholder=" {{trans('settings.enter_site_keywords_ar')}}"
-                                                                autocomplete="off">{{ setting()->site_keywords_ar}}</textarea>
+                                                                      class="form-control  form-control-lg"
+                                                                      name="site_keywords_ar" id="site_keywords_ar"
+                                                                      type="text"
+                                                                      placeholder=" {{trans('settings.enter_site_keywords_ar')}}"
+                                                                      autocomplete="off">{{ setting()->site_keywords_ar}}</textarea>
 
                                                                     <span class="form-text text-danger"
                                                                           id="site_keywords_ar_error"></span>
@@ -544,11 +467,11 @@
                                                                 </label>
                                                                 <div class="col-lg-9 col-xl-9">
                                                             <textarea rows="5"
-                                                                class="form-control  form-control-lg"
-                                                                name="site_keywords_en" id="site_keywords_en"
-                                                                type="text"
-                                                                placeholder=" {{trans('settings.enter_site_keywords_en')}}"
-                                                                autocomplete="off">{{ setting()->site_keywords_en}}</textarea>
+                                                                      class="form-control  form-control-lg"
+                                                                      name="site_keywords_en" id="site_keywords_en"
+                                                                      type="text"
+                                                                      placeholder=" {{trans('settings.enter_site_keywords_en')}}"
+                                                                      autocomplete="off">{{ setting()->site_keywords_en}}</textarea>
 
                                                                     <span class="form-text text-danger"
                                                                           id="site_keywords_en_error"></span>
@@ -587,6 +510,13 @@
 
 
     <script type="text/javascript">
+
+        $("#site_lang_ar").prop('disabled', function () {
+            return ! $(this).prop('disabled');
+        });
+
+
+
         var site_icon = new KTImageInput('kt_site_icon');
         var site_logo = new KTImageInput('kt_site_logo');
 
@@ -602,7 +532,6 @@
             $('#site_twitter_error').text('')
             $('#site_youtube_error').text('')
             $('#site_instagram_error').text('')
-            $('#site_linkedin_error').text('')
             $('#site_phone_error').text('')
             $('#site_mobile_error').text('')
             $('#site_status_error').text('')
@@ -611,8 +540,6 @@
             $('#site_description_en_error').text('')
             $('#site_keywords_ar_error').text('')
             $('#site_keywords_en_error').text('')
-            $('#site_address_ar_error').text('')
-            $('#site_address_en_error').text('')
             $('#site_icon_error').text('')
             $('#site_logo_error').text('')
 
@@ -625,7 +552,6 @@
             $('#site_twitter').css('border-color', '');
             $('#site_youtube').css('border-color', '');
             $('#site_instagram').css('border-color', '');
-            $('#site_linkedin').css('border-color', '');
             $('#site_phone').css('border-color', '');
             $('#site_mobile').css('border-color', '');
             $('#site_status').css('border-color', '');
@@ -634,8 +560,6 @@
             $('#site_description_en').css('border-color', '');
             $('#site_keywords_ar').css('border-color', '');
             $('#site_keywords_en').css('border-color', '');
-            $('#site_address_ar').css('border-color', '');
-            $('#site_address_en').css('border-color', '');
             $('#site_icon').css('border-color', '');
             $('#site_logo').css('border-color', '');
             ///////////////////////////////////////////////////////////////////////////
@@ -695,5 +619,50 @@
 
             });//end ajax
         });//end submit
+
+        ////////////////////////////////////////////////////
+        // switch english language
+        var switchStatus = false;
+        $("#site_lang_en").on('change', function(e) {
+            e.preventDefault();
+
+            if ($(this).is(':checked')) {
+                switchStatus = $(this).is(':checked');
+            }
+            else {
+                switchStatus = $(this).is(':checked');
+            }
+
+            $.ajax({
+                url: "{{route('switch.english.lang')}}",
+                data:{switchStatus:switchStatus},
+                type: 'post',
+                dataType: 'JSON',
+                beforeSend: function () {
+                    KTApp.blockPage({
+                        overlayColor: '#000000',
+                        state: 'danger',
+                        message: "{{trans('general.please_wait')}}",
+                    });
+                },//end beforeSend
+                success: function (data) {
+                    KTApp.unblockPage();
+                    console.log(data);
+                    if (data.status == true) {
+                        Swal.fire({
+                            title: data.msg,
+                            text: "",
+                            icon: "success",
+                            allowOutsideClick: false,
+                            customClass: {confirmButton: 'switch_english_lang_button'}
+                        });
+                        $('.switch_english_lang_button').click(function () {
+                        });
+                    }
+                },//end success
+            })
+        });
+
+
     </script>
 @endpush

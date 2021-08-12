@@ -45,8 +45,8 @@
 }
 
 .cst-switch input[type="checkbox"] {
-    width: 30px;
-    height: 15px;
+    width: 55px;
+    height: 18px;
     position: relative;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -66,11 +66,11 @@
 .cst-switch input[type="checkbox"]:after {
     content: "";
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 35px;
+    height: 15px;
     border-radius: 20px;
-    top: 2px;
-    right: 2px;
+    top: 1px;
+    right: 3px;
     background: #FFF;
     -webkit-transform: scale(1.1);
     transform: scale(1.1);

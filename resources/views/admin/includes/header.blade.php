@@ -54,8 +54,6 @@
                                             alt=""/>
                                     </span>
                                     <span class="navi-text"> {{ $properties['native'] }}</span>
-
-
                                 </a>
                             </li>
                         @endforeach

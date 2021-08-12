@@ -136,7 +136,7 @@
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
                                                                 class="form-control  form-control-lg"
-                                                                name="email" id="email" type="text"
+                                                                name="email" id="email" type="email"
                                                                 placeholder=" {{trans('users.enter_email')}}"
                                                                 autocomplete="off"/>
                                                             <span class="form-text text-danger"

@@ -26,9 +26,8 @@ class SettingRequest extends FormRequest
         return [
             'site_name_ar'=>'required|max:100',
             'site_name_en'=>'required|max:100',
-            'site_language'=>'required|in:ar,en',
-            'site_icon'=>'image|mimes:png|max:2048',
-            'site_logo'=>'image|mimes:png,jpeg,jpg|max:2048',
+            'site_icon'=>'image|mimes:png|max:10248',
+            'site_logo'=>'image|mimes:png,jpeg,jpg|max:1024',
         ];
     }
 
@@ -42,7 +41,6 @@ class SettingRequest extends FormRequest
             'image_max'=>trans('settings.image_max'),
             'site_icon.mimes'=>trans('settings.site_icon_mimes'),
             'site_logo.mimes'=>trans('settings.site_logo_mimes'),
-
         ];
     }
 }

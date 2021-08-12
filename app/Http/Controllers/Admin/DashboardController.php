@@ -9,6 +9,7 @@ use App\Models\Setting;
 use App\Models\Website_main_page;
 use App\Traits\GeneralTrait;
 use File;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
@@ -19,7 +20,7 @@ class DashboardController extends Controller
     /// index
     public function index()
     {
-        $title = trans('dashboard.home');
+        $title = trans('dashboard.admin_panel');
         return view('admin.dashboard', compact('title'));
     }
     ////////////////////////////////////////////////////////
@@ -31,11 +32,10 @@ class DashboardController extends Controller
     }
     ////////////////////////////////////////////////////////
     /// store Settings
-    protected function storeSettings(SettingRequest $request)
+    public function storeSettings(SettingRequest $request)
     {
 
         try {
-
             $settings = Setting::get();
             if ($settings->isEmpty()) {
 
@@ -56,17 +56,13 @@ class DashboardController extends Controller
                     'site_twitter' => $request->site_twitter,
                     'site_youtube' => $request->site_youtube,
                     'site_instagram' => $request->site_instagram,
-                    'site_linkedin' => $request->site_linkedin,
                     'site_phone' => $request->site_phone,
                     'site_mobile' => $request->site_mobile,
-                    'site_status' => $request->site_status,
-                    'site_language' => $request->site_language,
+                    'site_lang_en' => $request->site_lang_en,
                     'site_description_ar' => $request->site_description_ar,
                     'site_description_en' => $request->site_description_en,
                     'site_keywords_ar' => $request->site_keywords_ar,
                     'site_keywords_en' => $request->site_keywords_en,
-                    'site_address_ar' => $request->site_address_ar,
-                    'site_address_en' => $request->site_address_en,
                     'site_icon' => $site_icon,
                     'site_logo' => '',
                 ]);
@@ -115,30 +111,43 @@ class DashboardController extends Controller
                     'site_twitter' => $request->site_twitter,
                     'site_youtube' => $request->site_youtube,
                     'site_instagram' => $request->site_instagram,
-                    'site_linkedin' => $request->site_linkedin,
                     'site_phone' => $request->site_phone,
                     'site_mobile' => $request->site_mobile,
-                    'site_status' => $request->site_status,
-                    'site_language' => $request->site_language,
+                    'site_lang_en' => $request->site_lang_en,
                     'site_description_ar' => $request->site_description_ar,
                     'site_description_en' => $request->site_description_en,
                     'site_keywords_ar' => $request->site_keywords_ar,
                     'site_keywords_en' => $request->site_keywords_en,
-                    'site_address_ar' => $request->site_address_ar,
-                    'site_address_en' => $request->site_address_en,
                     'site_icon' => $site_icon,
                     'site_logo' => $site_logo,
                 ]);
 
                 return $this->returnSuccessMessage(trans('general.update_success_message'));
             }
-
-
         } catch (\Exception $exception) {
+            return $this->returnError(trans('general.try_catch_error_message'), 500);
+        }//end catch
 
-            return $this->returnError(trans('general.try_catch_error_message'), '500');
-        }
+    }
+    ////////////////////////////////////////////////////////
+    ///  switchEnglishLang
 
+    public function switchEnglishLang(Request $request)
+    {
+        try {
+            $settings = Setting::orderBy('id', 'desc')->first();
+            if ($request->switchStatus == 'false') {
+                $settings->site_lang_en = null;
+                $settings->save();
+            } else {
+                $settings->site_lang_en = 'on';
+                $settings->save();
+            }
+
+            return $this->returnSuccessMessage(trans('general.change_status_success_message'));
+        } catch (\Exception $exception) {
+            return $this->returnError(trans('general.try_catch_error_message'), 500);
+        }//end catch
 
     }
     ////////////////////////////////////////////////////////

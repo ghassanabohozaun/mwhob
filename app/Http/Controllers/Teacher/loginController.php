@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\Teacher\TeacherLoginRequest;
 use App\Models\Teachers\Teacher;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class loginController extends Controller
 
     }
 
-    public function doLogin(LoginRequest $request)
+    public function doLogin(TeacherLoginRequest $request)
     {
 
         $teacher = Teacher::where('email', $request->email)->first();
@@ -43,7 +44,6 @@ class loginController extends Controller
                 return redirect()->route('get.teacher.login')
                     ->with(['error' => trans('login.account_disabled')]);
             }
-
         }
 
     }

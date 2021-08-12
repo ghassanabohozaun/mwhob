@@ -43,7 +43,6 @@ class AdminsController extends Controller
             if (!$admin) {
                 return redirect()->route('admin.not.found');
             }
-
             if ($request->hasFile('photo')) {
                 if (!empty($admin->photo)) {
                     Storage::delete($admin->photo);
@@ -59,7 +58,6 @@ class AdminsController extends Controller
                 }
             }
 
-
             if (!empty($request->input('password'))) {
                 $password = bcrypt($request->password);
             } else {
@@ -72,8 +70,6 @@ class AdminsController extends Controller
                 'photo' => $photo_path,
                 'password' => $password,
             ]);
-
-
 
             return $this->returnSuccessMessage(trans('general.update_success_message'));
         } catch (\Exception $exception) {

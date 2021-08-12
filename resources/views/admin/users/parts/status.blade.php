@@ -1,5 +1,5 @@
 <div class="cst-switch switch-sm">
-    <input type="checkbox"
-           {{$instance->status == '1' ? 'checked':''}}  data-id="{{$instance->id}}"
+    <input type="checkbox" id="change_status"
+           {{$instance->status == 'on' ? 'checked':''}}  data-id="{{$instance->id}}"
            class="change_status">
 </div>

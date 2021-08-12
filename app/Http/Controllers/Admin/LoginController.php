@@ -10,12 +10,14 @@ use Carbon\Carbon;
 class LoginController extends Controller
 {
 
+    /////////////////////////////////////
+    /// get Login
     public function getLogin()
     {
         return view('admin.auth.login');
-
     }
-
+    /////////////////////////////////////
+    /// do Login
     public function doLogin(LoginRequest $request)
     {
 
@@ -25,7 +27,7 @@ class LoginController extends Controller
             return redirect()->route('get.admin.login')
                 ->with(['error' => trans('login.account_unavailable')]);
         } else {
-            if($admin->status == '1'){
+            if($admin->status == 'on'){
 
                 $rememberMe = $request->has('rememberMe') ? true : false;
 
@@ -47,7 +49,8 @@ class LoginController extends Controller
         }
 
     }
-
+    /////////////////////////////////////
+    ///  Logout
     public function logout()
     {
         auth()->guard('admin')->logout();

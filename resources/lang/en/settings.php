@@ -6,7 +6,7 @@ return [
 
     'logo_and_icon'=>'Logo and Site Name Section',
     'contact_us'=>'Contact Us Section',
-    'settings_section'=>'General Settings Section',
+    'language_section'=>'Language Section',
     'seo_section'=>'SEO Section',
 
     'site_name_ar'=>'Site Name | ar',
@@ -84,10 +84,8 @@ return [
     'max'=>'Max allow characters 100',
     'in'=>'The entered value is not valid',
     'image'=>'must be image ',
-    'image_max'=>'Max allow image size 2 mega',
+    'image_max'=>'Max allow image size 1 mega',
     'site_icon_mimes'=>'image with png format only',
     'site_logo_mimes'=>'image with jpeg, jpg, png formats only',
-
-
 
 ];

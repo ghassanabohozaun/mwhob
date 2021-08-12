@@ -47,7 +47,6 @@
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
 
-
                         @can('settings')
                             <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{route('get.admin.settings')}}" class="menu-link menu-toggle">
@@ -65,13 +64,6 @@
                                 </a>
                             </li>
                         @endcan
-
-                        <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                            <a href="{!! route('admin.regions') !!}" class="menu-link menu-toggle">
-                                <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                <span class="menu-text">{{trans('menu.regions')}}</span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </li>
@@ -92,6 +84,7 @@
                     </a>
                 </li>
             @endcan
+
         <!------------------------------------ Users    ---------------------------------------------------->
             @can('users')
                 <li class="menu-item  menu-item-submenu
@@ -105,7 +98,7 @@
                         <i class="menu-arrow"></i>
                         <span class="menu-label">
                         <span class="label label-rounded label-info">
-                           {{App\Models\Admin::withTrashed()->count()}}
+                           {{App\Models\Admin::withTrashed()->where('id', '!=', \auth('admin')->user()->id)->count()}}
                         </span>
                     </span>
 
@@ -124,35 +117,34 @@
                                     <span class="menu-text">{{trans('menu.users')}}</span>
                                     <span class="menu-label">
                                     <span class="label label-rounded label-info">
-                                        {{App\Models\Admin::withoutTrashed()->count()}}
+                                        {{App\Models\Admin::withoutTrashed()->where('id', '!=', \auth('admin')->user()->id)->count()}}
                                     </span>
-                                </span>
-                                </a>
-                            </li>
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{route('users.trashed')}}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">{{trans('menu.trashed_users')}}</span>
-                                    <span class="menu-label">
-                                    <span class="label label-rounded label-info">
-                                        {{App\Models\Admin::onlyTrashed()->count()}}
-                                    </span>
-                                </span>
-                                </a>
-                            </li>
-                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{route('user.bar.chart')}}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
-                                    <span class="menu-text">Chart</span>
-                                    <span class="menu-label">
                                 </span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-        @endcan
-        <!------------------------------------ Users    ---------------------------------------------------->
+            @endcan
+        <!------------------------------------ Users ---------------------------------------------------->
+            <!------------------------------------ Categories  ---------------------------------------------------->
+            @can('categories')
+                <li class="menu-item  menu-item-submenu"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="{!! route('admin.categories') !!}" class="menu-link menu-toggle">
+                    <span class="svg-icon menu-icon">
+                        <i class="fa fa-layer-group"></i>
+                    </span>
+                        <span class="menu-text">{{trans('menu.categories')}}</span>
+                        <span class="menu-label">
+                        <span class="label label-rounded label-success">
+                             {{App\Models\Category::count()}}
+                        </span>
+                    </span>
+                    </a>
+                </li>
+            @endcan
+
         </ul>
         <!--end::Menu Nav-->
     </div>

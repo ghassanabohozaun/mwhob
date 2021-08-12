@@ -69,7 +69,8 @@ return [
     'error' => 'خطأ',
     'ask_delete_record' => 'هل تريد حذف هذا السجل ؟ ',
     'ask_permanent_delete_record' => 'هل تريد حذف هذا السجل نهائياً؟ ',
-
+    'move_to_trash' => 'ثم نقل  السجل الي المحذوفات',
+    'trash'=>'سلة المحذوفات',
     'change_status_success_message' => 'تمت عملية تغير الحالة بنجاح',
     'export' => 'تصدير',
     'print' => 'طباعة',

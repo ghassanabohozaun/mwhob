@@ -29,7 +29,7 @@ class UserRequest extends FormRequest
             'password' => 'required|min:6',
             'gender' => 'required|in:male,female',
             'role_id' => 'required',
-            'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'photo' => 'required|image|mimes:jpg,jpeg,png|max:1024',
         ];
     }
 

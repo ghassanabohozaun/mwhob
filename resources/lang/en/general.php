@@ -56,7 +56,7 @@ return [
     'delete_success_message' => ' deleted Successfully',
     'update_success_message' => ' updated Successfully',
     'upload_success_message' => ' Upload Successfully',
-    'restore_success_message' => ' restored Successfully',
+    'restore_success_message' => ' Restored Successfully',
 
     'internal_server_error_message' => 'Sorry, Internal server Error ',
     'try_catch_error_message' => 'Sorry, There is an error, please try again later',
@@ -67,7 +67,8 @@ return [
 
     'ask_delete_record' => 'Do You Want To Delete This Record ? ',
     'ask_permanent_delete_record' => 'Do You Want To Permanent Delete This Record ? ',
-
+    'move_to_trash' => 'Record Moved To Trash',
+    'trash'=>'Trash',
     'change_status_success_message' => 'change Status Successfully',
     'export' => 'Export',
     'print' => 'Print',
@@ -96,12 +97,12 @@ return [
     'validation_error_message' => 'Sorry, looks like there are some errors detected, please try again.',
     'ok_got_it' => 'Ok, got it! ',
     'required' => 'This Field is Required ',
-    'image_max' => 'Max allow image size 2 mega',
+    'image_max' => 'Max allow image size 1 mega',
     'in' => 'The entered value incorrect',
     'digits' => 'The entered value must be digits',
     'personal_id_validation' => 'Personal ID consist of 9 digits',
     'mobile_number_validation' => 'Mobile consist of 10 digits',
     'choose_validation' => 'You Must chose one of options',
-    'review_your_details_and_submit'=>'Review your Details and Submit',
+    'review_your_details_and_submit' => 'Review your Details and Submit',
 
 ];

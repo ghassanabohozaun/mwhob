@@ -51,18 +51,20 @@
 </head>
 <!--end::Head-->
 @if(LaravelLocalization::getCurrentLocale() =='ar')
-   <style>
-       body{
-           direction: rtl
-       }
-       .checkbox-inline .checkbox span {
-           margin-right: 0.75rem;
-           margin-left: 0.75rem;
-       }
-       .font_size_16{
-           font-size: 16px;
-       }
-   </style>
+    <style>
+        body {
+            direction: rtl
+        }
+
+        .checkbox-inline .checkbox span {
+            margin-right: 0.75rem;
+            margin-left: 0.75rem;
+        }
+
+        .font_size_16 {
+            font-size: 16px;
+        }
+    </style>
 @endif
 <!--begin::Body-->
 <body id="kt_body" style="background: white ;"
@@ -87,32 +89,56 @@
                 <!--begin::Login Sign in form-->
                 <div class="login-signin">
                     <div class="mb-20">
-                        <h2>{!! trans('login.sign_in_to_admin') !!}</h2>
+                        <h2>{!! trans('login.sign_in_to_teacher') !!}</h2>
                     </div>
-                    <form class="form" id="kt_login_signin_form" >
+                    <form class="form"   action="{!! route('teacher.login') !!}"
+                          method="POST" enctype="multipart/form-data">
+                        @csrf
+
+
+                        @if(\Illuminate\Support\Facades\Session::has('error'))
+                            <div class="alert alert-danger font-weight-bold" role="alert">
+                                {{\Illuminate\Support\Facades\Session::get('error')}}
+                            </div>
+                        @endif
+
+
                         <div class="form-group mb-5">
                             <input class="form-control h-auto py-4 px-8 font_size_16" type="text"
                                    placeholder="{!! trans('login.email') !!}"
                                    name="email" autocomplete="off"/>
                         </div>
+                        @error('email')
+                        <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
+                        @enderror
+
+
                         <div class="form-group mb-5">
                             <input class="form-control h-auto  py-4 px-8 font_size_16" type="password"
                                    placeholder="{!! trans('login.password') !!}"
                                    name="password" autocomplete="off"/>
                         </div>
+                        @error('password')
+                        <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
+                        @enderror
+
+
                         <div class="form-group d-flex flex-wrap justify-content-between align-items-center">
                             <div class="checkbox-inline">
                                 <label class="checkbox m-0 text-muted font_size_16">
-                                    <input type="checkbox" name="remember" />
+                                    <input type="checkbox" name="remember"/>
                                     <span></span>
                                     {{trans('login.remember_me')}}
                                 </label>
                             </div>
                         </div>
+
                         <button id="kt_login_signin_submit"
                                 class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4 font_size_16">
                             {!! trans('login.sign_in') !!}
                         </button>
+
+
                     </form>
                 </div>
                 <!--end::Login Sign in form-->

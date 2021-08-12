@@ -6,7 +6,7 @@ return [
 
     'logo_and_icon'=>'قسم الشعار واسم الموقع',
     'contact_us'=>'قسم بيانات التواصل ',
-    'settings_section'=>'قسم اعدادات العامة',
+    'language_section'=>'قسم اللغة',
     'seo_section'=>'قسم SEO',
 
     'site_name_ar'=>'اسم الموقع | عربي',

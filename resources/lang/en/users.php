@@ -28,7 +28,7 @@ return [
     'image' => 'Must be Image ',
     'in' => 'The entered value incorrect',
     'mimes' => 'image with jpeg, jpg, png formats only',
-    'image_max' => 'Max allow image size 2 mega',
+    'image_max' => 'Max allow image size 1 mega',
     'image_required' => 'Image Required',
     'email_email' => 'Email Must be in this format admin@admin.com',
     'min' => 'Password Must be Grater than 6 characters',
