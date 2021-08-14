@@ -52,12 +52,12 @@
                                     <!--begin::Pic-->
                                     <div class="flex-shrink-0 mr-7">
                                         <div class="symbol symbol-30 symbol-lg-80">
-                                            @if(!empty($teacher->photo) )
+                                            @if(!empty($teacher->teacher_photo) )
                                                 <img alt="Pic"
-                                                     src="{{asset(\Illuminate\Support\Facades\Storage::url($teacher->photo))}}"/>
+                                                     src="{{asset(\Illuminate\Support\Facades\Storage::url($teacher->teacher_photo))}}"/>
                                             @else
                                                 <img alt="Pic"
-                                                     src="{{asset('teacherBoard/assets/media/users/default.jpg')}}"/>
+                                                     src="{{asset('adminBoard/assets/media/users/default.jpg')}}"/>
                                             @endif
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@
                                                 <!--begin::Name-->
                                                 <a href="#"
                                                    class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
-                                                    {{$teacher->name}} <i
+                                                    {{$teacher->teacher_full_name}} <i
                                                         class="flaticon2-correct text-success icon-md ml-2"></i>
                                                 </a>
                                                 <!--end::Name-->
@@ -87,7 +87,7 @@
                                                                     class="svg-icon svg-icon-md svg-icon-gray-500 mr-1">
 
                                                                  <i class="fa fa-mail-bulk"></i>
-                                                                    {{$teacher->email}}
+                                                                    {{$teacher->teacher_email}}
                                                                 </span>
                                                     </a>
 
@@ -143,7 +143,7 @@
                     </button>
                 </div>
 
-                <form action="{{route('teacher.update')}}" method="POST" enctype="multipart/form-data"
+                <form action="#" method="POST" enctype="multipart/form-data"
                       id="form_teacher_update">
                     <div class="modal-body">
 
@@ -300,7 +300,7 @@
             $.notifyClose();
 
             var id = $(this).data('id');
-            $.get("{{route('get.teacher.by.id')}}", {id, id}, function (data) {
+            $.get("#", {id, id}, function (data) {
                 console.log(data)
                 if (data.status == true) {
                     $('#id').val(data.data.id);

@@ -21,6 +21,16 @@ class Category extends Model
     ];
     protected $hidden = ['created_at', 'updated_at'];
 
+    //////////////////////////////////////////////////////////////
+    /// Relations
+
+    public function teacherCategory(){
+        return $this->hasOne('App\Models\Teacher_Category','category_id');
+    }
+
+    public function mowhobs(){
+        return $this->hasMany('App\Models\Mawhob','category_id','id');
+    }
     //////////////////////////////////// accessors ///////////////////////
     /// Gender accessors
     public function getFieldAttribute($value)

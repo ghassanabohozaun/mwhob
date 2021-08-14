@@ -57,6 +57,9 @@ return [
     'update_success_message' => ' updated Successfully',
     'upload_success_message' => ' Upload Successfully',
     'restore_success_message' => ' Restored Successfully',
+    'send_success_message' => ' Send Successfully',
+
+
 
     'internal_server_error_message' => 'Sorry, Internal server Error ',
     'try_catch_error_message' => 'Sorry, There is an error, please try again later',
@@ -70,6 +73,8 @@ return [
     'move_to_trash' => 'Record Moved To Trash',
     'trash'=>'Trash',
     'change_status_success_message' => 'change Status Successfully',
+    'change_password_success_message' => 'change password Successfully',
+
     'export' => 'Export',
     'print' => 'Print',
     'pdf' => 'PDF',

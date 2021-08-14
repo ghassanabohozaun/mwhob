@@ -18,13 +18,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
     <!--end::Fonts-->
     <!--begin::Page Custom Styles(used by this page)-->
-    <link href="{{asset('teacherBoard/assets/css/pages/wizard/wizard-4.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('adminBoard/assets/css/pages/wizard/wizard-4.css')}}" rel="stylesheet" type="text/css"/>
     <!--end::Page Custom Styles-->
     <!--begin::Page Vendors Styles(used by this page)-->
-    <link href="{{asset('teacherBoard/assets/plugins/custom/jstree/jstree.bundle.css')}}" rel="stylesheet"
+    <link href="{{asset('adminBoard/assets/plugins/custom/jstree/jstree.bundle.css')}}" rel="stylesheet"
           type="text/css"/>
 
-    <link href="{{asset('teacherBoard/assets/js/jsTree/default-dark/style.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('adminBoard/assets/js/jsTree/default-dark/style.css')}}" rel="stylesheet" type="text/css"/>
 
     <!--end::Page Vendors Styles-->
 
@@ -32,25 +32,25 @@
 
 
     <!--begin::Global Theme Styles(used by all pages)-->
-        <link href="{{asset('teacherBoard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css')}}"
+        <link href="{{asset('adminBoard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css')}}"
               rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/plugins/global/plugins.bundle.rtl.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/plugins/global/plugins.bundle.rtl.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/plugins/custom/prismjs/prismjs.bundle.rtl.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/plugins/custom/prismjs/prismjs.bundle.rtl.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/style.bundle.rtl.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{asset('adminBoard/assets/css/style.bundle.rtl.css')}}" rel="stylesheet" type="text/css"/>
         <!--end::Global Theme Styles-->
 
         <!--begin::Layout Themes(used by all pages)-->
 
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/header/base/light.rtl.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/css/themes/layout/header/base/light.rtl.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/header/menu/light.rtl.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/css/themes/layout/header/menu/light.rtl.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/brand/light.rtl.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/css/themes/layout/brand/light.rtl.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/aside/light.rtl.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/css/themes/layout/aside/light.rtl.css')}}" rel="stylesheet"
               type="text/css"/>
         <!--end::Layout Themes-->
 
@@ -65,25 +65,25 @@
 
 @else
     <!--begin::Global Theme Styles(used by all pages)-->
-        <link href="{{asset('teacherBoard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css')}}"
+        <link href="{{asset('adminBoard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css')}}"
               rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
+        <link href="{{asset('adminBoard/assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
         <!--end::Global Theme Styles-->
 
         <!--begin::Layout Themes(used by all pages)-->
 
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/header/base/light.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/css/themes/layout/header/base/light.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/header/menu/light.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/css/themes/layout/header/menu/light.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/brand/light.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/css/themes/layout/brand/light.css')}}" rel="stylesheet"
               type="text/css"/>
-        <link href="{{asset('teacherBoard/assets/css/themes/layout/aside/light.css')}}" rel="stylesheet"
+        <link href="{{asset('adminBoard/assets/css/themes/layout/aside/light.css')}}" rel="stylesheet"
               type="text/css"/>
         <!--end::Layout Themes-->
 
@@ -97,7 +97,7 @@
         </style>
     @endif
 
-    <link href="{{asset('teacherBoard/assets/css/mystyle.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('adminBoard/assets/css/mystyle.css')}}" rel="stylesheet" type="text/css"/>
 
     <link rel="shortcut icon" href="{{asset(Storage::url(setting()->site_icon))}}"/>
 
@@ -200,16 +200,16 @@
         <!--begin::Header-->
         <div class="d-flex align-items-center mt-5">
             <div class="symbol symbol-100 mr-5">
-                @if(empty(auth()->guard('teacher')->user()->photo))
+                @if(empty(auth()->guard('teacher')->user()->teacher_photo))
                     <a href="#">
                         <div class="symbol-label"
-                             style="background-image: url('{{asset('teacherBoard/images/user.jpg')}}');">
+                             style="background-image: url('{{asset('adminBoard/images/user.jpg')}}');">
                         </div>
                     </a>
                 @else
                     <a href="#">
                         <div class="symbol-label"
-                             style="background-image: url('{{\Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->photo)}}');">
+                             style="background-image: url('{{\Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->teacher_photo)}}');">
                         </div>
                     </a>
                 @endif
@@ -219,7 +219,7 @@
             <div class="d-flex flex-column">
                 <a href="#"
                    class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
-                    {!! auth()->guard('teacher')->user()->name !!}
+                    {!! auth()->guard('teacher')->user()->teacher_full_name !!}
                 </a>
                 <div class="text-muted mt-1">
                 </div>
@@ -265,33 +265,33 @@
 <!--end::Scrolltop-->
 
 <!--begin::Global Theme Bundle(used by all pages)-->
-<script src="{{asset('teacherBoard/assets/plugins/global/plugins.bundle.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/js/scripts.bundle.js')}}"></script>
+<script src="{{asset('adminBoard/assets/plugins/global/plugins.bundle.js')}}"></script>
+<script src="{{asset('adminBoard/assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/scripts.bundle.js')}}"></script>
 <!--end::Global Theme Bundle-->
 
-<script src="{{asset('teacherBoard/assets/js/my_general_script.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/my_general_script.js')}}"></script>
 
 
 <!--begin::Page Vendors(used by this page)-->
-<script src="{{asset('teacherBoard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js')}}"></script>
+<script src="{{asset('adminBoard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js')}}"></script>
 
 
-<script src="{{asset('teacherBoard/assets/plugins/custom/jstree/jstree.bundle.js')}}"></script>
+<script src="{{asset('adminBoard/assets/plugins/custom/jstree/jstree.bundle.js')}}"></script>
 
 <!--end::Page Vendors-->
 
 <!--begin::Page Scripts(used by this page)-->
-<script src="{{asset('teacherBoard/assets/js/pages/crud/ktdatatable/base/data-ajax.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/js/pages/widgets.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/js/pages/crud/forms/widgets/bootstrap-switch.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/js/pages/features/miscellaneous/bootstrap-notify.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/js/pages/crud/file-upload/image-input.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/js/pages/features/miscellaneous/treeview.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/js/pages/crud/forms/editors/summernote.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/js/bootstrap-datepicker.ar.min.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js')}}"></script>
-<script src="{{asset('teacherBoard/assets/js/pages/features/miscellaneous/sweetalert2.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/pages/crud/ktdatatable/base/data-ajax.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/pages/widgets.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/pages/crud/forms/widgets/bootstrap-switch.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/pages/features/miscellaneous/bootstrap-notify.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/pages/crud/file-upload/image-input.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/pages/features/miscellaneous/treeview.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/pages/crud/forms/editors/summernote.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/bootstrap-datepicker.ar.min.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/pages/features/miscellaneous/sweetalert2.js')}}"></script>
 <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
 <script>
     var KTAppSettings = {

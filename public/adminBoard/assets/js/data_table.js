@@ -22,6 +22,7 @@ var DatatablesSearchOptionsColumnSearch = function () {
                     order: [[1, "asc"]],
                     ajax: window.data_url,
                     columns: window.columns,
+
                 })
             )
         }

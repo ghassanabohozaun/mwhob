@@ -131,6 +131,36 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('users.gender')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+
+                                                            <select
+                                                                class="form-control  form-control-lg"
+                                                                name="gender" id="gender" type="text">
+
+                                                                <option value="">
+                                                                    {{trans('general.select_from_list')}}
+                                                                </option>
+
+                                                                <option value="male">
+                                                                    {{trans('general.male')}}
+                                                                </option>
+
+                                                                <option value="female">
+                                                                    {{trans('general.female')}}
+                                                                </option>
+
+                                                            </select>
+                                                            <span class="form-text text-danger"
+                                                                  id="gender_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
                                                             {{trans('users.email')}}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
@@ -215,35 +245,7 @@
                                                     <!--end::Group-->
 
 
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{trans('users.gender')}}
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
 
-                                                            <select
-                                                                class="form-control  form-control-lg"
-                                                                name="gender" id="gender" type="text">
-
-                                                                <option value="">
-                                                                    {{trans('general.select_from_list')}}
-                                                                </option>
-
-                                                                <option value="male">
-                                                                    {{trans('general.male')}}
-                                                                </option>
-
-                                                                <option value="female">
-                                                                    {{trans('general.female')}}
-                                                                </option>
-
-                                                            </select>
-                                                            <span class="form-text text-danger"
-                                                                  id="gender_error"></span>
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Group-->
                                                 </div>
                                                 <!--begin::body-->
 

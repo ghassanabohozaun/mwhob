@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -32,11 +30,27 @@ Route::group([
     Route::post('switch-en-lang', 'DashboardController@switchEnglishLang')
         ->name('switch.english.lang');
     //////////////////////////////////////////////////////////////////
+    /// Support Center Route
+    Route::group(['prefix' => 'support-center', 'middleware' => 'can:support-center'], function () {
+        Route::get('/', 'SupportCenterController@index')
+            ->name('admin.support.center');
+        Route::get('/get-support-center', 'SupportCenterController@getSupportCenter')
+            ->name('get.admin.support.center');
+        Route::get('/create', 'SupportCenterController@create')
+            ->name('admin.support.center.create');
+        Route::post('/send', 'SupportCenterController@send')
+            ->name('admin.support.center.send');
+        Route::post('/change-status', 'SupportCenterController@changeStatus')
+            ->name('admin.support.center.change.status');
+
+        Route::get('/get-one-message', 'SupportCenterController@getOneMessage')
+            ->name('admin.support.center.get.one.message');
+    });
+    //////////////////////////////////////////////////////////////////
     /// admin routes
     Route::get('/admin', 'AdminsController@index')->name('get.admin')->middleware('can:admins');
     Route::get('/get-admin-by-id', 'AdminsController@getAdminById')->name('get.admin.by.id');
     Route::post('/admin-update', 'AdminsController@adminUpdate')->name('admin.update');
-
     //////////////////////////////////////////////////////////////////
     /// users Routes
     Route::group(['prefix' => 'users', 'middleware' => 'can:users'], function () {
@@ -66,7 +80,6 @@ Route::group([
         Route::get('/edit/{id?}', 'RolesController@edit')->name('admin.role.edit');
         Route::post('/update', 'RolesController@update')->name('admin.role.update');
     });
-
     ///////////////////////////////////////////////////////////////////
     /// Categories Routes
     Route::group(['prefix' => 'categories', 'middleware' => 'can:categories'], function () {
@@ -80,13 +93,56 @@ Route::group([
         Route::post('/update', 'CategoriesController@update')->name('admin.update.category');
         Route::post('/destroy', 'CategoriesController@destroy')->name('admin.destroy.category');
         Route::post('/restore', 'CategoriesController@restore')->name('admin.restore.category');
-
         Route::post('/force-destroy', 'CategoriesController@forceDestroy')->name('admin.force.destroy.category');
+        Route::get('/get-all-categories', 'CategoriesController@getAllCategories')->name('admin.get.all.categories');
+
     });
 
+    //////////////////////////////////////////////////////////////////
+    /// mowhobs Routes
+    Route::group(['prefix' => 'mowhobs', 'middleware' => 'can:users'], function () {
+        Route::get('/', 'MowhobsController@index')->name('admin.mowhobs');
+        Route::get('/get-mowhobs', 'MowhobsController@getMowhobs')->name('get.mowhobs');
+        Route::post('/destroy', 'MowhobsController@destroy')->name('mowhob.destroy');
+        Route::post('/change-status', 'MowhobsController@changeStatus')->name('mowhob.change.status');
+        Route::get('/create', 'MowhobsController@create')->name('mowhob.create');
+        Route::post('store', 'MowhobsController@store')->name('mowhob.store');
+        Route::get('/edit/{id?}', 'MowhobsController@edit')->name('mowhob.edit');
+        Route::post('update', 'MowhobsController@update')->name('mowhob.update');
+        Route::get('/trashed-mowhob', 'MowhobsController@trashedMowhob')->name('mowhobs.trashed');
+        Route::get('/get-trashed-mowhobs', 'MowhobsController@getTrashedMowhobs')->name('get.trashed.mowhobs');
+        Route::post('/force-delete', 'MowhobsController@forceDelete')->name('mowhobs.force.delete');
+        Route::post('/restore', 'MowhobsController@restore')->name('mowhobs.restore');
+        Route::get('/profile/{id?}', 'MowhobsController@profile')->name('mowhob.profile');
+
+    });
+
+    //////////////////////////////////////////////////////////////////
+    /// Teachers Routes
+    Route::group(['prefix' => 'teachers', 'middleware' => 'can:users'], function () {
+        Route::get('/', 'TeacherController@index')->name('admin.teachers');
+        Route::get('/get-teachers', 'TeacherController@getTeachers')->name('get.teachers');
+        Route::post('/destroy', 'TeacherController@destroy')->name('teacher.destroy');
+        Route::post('/change-status', 'TeacherController@changeStatus')->name('teacher.change.status');
+        Route::get('/create', 'TeacherController@create')->name('teacher.create');
+        Route::post('store', 'TeacherController@store')->name('teacher.store');
+        Route::get('/edit/{id?}', 'TeacherController@edit')->name('teacher.edit');
+        Route::post('update', 'TeacherController@update')->name('teacher.update');
+        Route::get('/trashed-teacher', 'TeacherController@trashedTeacher')->name('teachers.trashed');
+        Route::get('/get-trashed-teachers', 'TeacherController@getTrashedTeachers')->name('get.trashed.teachers');
+        Route::post('/force-delete', 'TeacherController@forceDelete')->name('teachers.force.delete');
+        Route::post('/restore', 'TeacherController@restore')->name('teachers.restore');
+        Route::get('/profile/{id?}', 'TeacherController@profile')->name('teacher.profile');
+        Route::post('/change-password', 'TeacherController@changePassword')->name('teacher.change.password');
+        Route::post('/add-category', 'TeacherController@addCategory')->name('teacher.add.category');
+        Route::get('/get-all-teacher-categories', 'TeacherController@getAllTeacherCategories')
+            ->name('teacher.get.all.teacher.categories');
+
+        Route::post('/delete-category','TeacherController@deleteCategory')
+            ->name('admin.delete.teacher.category');
+    });
 
 });
-
 
 //////////////////////////////////////////////////////////////////////////////
 /// Guest => that mean:must not be admin => because any one must be able to access login page
@@ -94,7 +150,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'guest:admin'], function (
     Route::get('login', 'LoginController@getLogin')->name('get.admin.login');
     Route::post('login', 'LoginController@doLogin')->name('admin.login');
 });
-
 //////////////////////////////////////////////////////////////////////////////
 /// Logout
 Route::get('logout', 'Admin\LoginController@logout')->name('admin.logout');

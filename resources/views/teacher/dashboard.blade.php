@@ -58,7 +58,7 @@
                                                     {{trans('dashboard.dear_user')}}
                                                     &nbsp;
                                                     <span
-                                                        class="text-warning">{!! auth()->guard('teacher')->user()->name !!}</span>&nbsp;,
+                                                        class="text-warning">{!! auth()->guard('teacher')->user()->teacher_full_name !!}</span>&nbsp;,
                                                     &nbsp;
                                                     {!! trans('dashboard.welcome_message_details') !!}
                                                 </h5>
@@ -69,13 +69,13 @@
                                     <div class="row" style="margin-top: 20px">
 
                                         <div class="col-lg-2">
-                                            @if(empty(auth()->guard('teacher')->user()->photo))
-                                                <img src="{{asset('teacherBoard/images/user.jpg')}}"
+                                            @if(empty(auth()->guard('teacher')->user()->teacher_photo))
+                                                <img src="{{asset('adminBoard/images/user.jpg')}}"
                                                      class="img-fluid img-thumbnail rounded-circle"
                                                      style="width: 120px;height: 120px;">
                                             @else
                                                 <img
-                                                    src="{{\Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->photo)}}"
+                                                    src="{{\Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->teacher_photo)}}"
                                                     class="img-fluid img-thumbnail rounded-circle"
                                                     style="width: 120px;height: 120px;">
                                             @endif
@@ -85,11 +85,11 @@
                                             <p style="">{{trans('dashboard.name')}}
                                                 : admin</p>
                                             <p>{{trans('dashboard.email')}}
-                                                : {!! auth()->guard('teacher')->user()->email !!}</p>
+                                                : {!! auth()->guard('teacher')->user()->teacher_email !!}</p>
                                             <p>{{trans('users.last_login_at')}}
-                                                : {!! auth()->guard('teacher')->user()->last_login_at !!}</p>
+                                                : {!! auth()->guard('teacher')->user()->teacher_last_login_at !!}</p>
                                             <p>{{trans('users.last_login_ip')}}
-                                                : {!! auth()->guard('teacher')->user()->last_login_ip !!}</p>
+                                                : {!! auth()->guard('teacher')->user()->teacher_last_login_ip !!}</p>
                                         </div>
                                     </div>
 

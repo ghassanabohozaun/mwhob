@@ -192,7 +192,7 @@
                                                                       autocomplete="off">{!! $category->description_en !!}</textarea>
 
                                                             <span class="form-text text-danger"
-                                                                  id="description_en_en_error"></span>
+                                                                  id="description_en_error"></span>
 
                                                         </div>
                                                     </div>

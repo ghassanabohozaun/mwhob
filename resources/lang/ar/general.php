@@ -55,12 +55,15 @@ return [
     'restore' => 'استرجاع',
     'submit' => 'إرسال',
 
+
     'change_image' => 'تغير الصورة',
     'image_format_allow' => 'صيغ الصور المسموح بها هي jpg ,jpeg, png فقط',
     'add_success_message' => 'تمت عملية الحفظ بنجاح',
     'delete_success_message' => 'تمت عملية الحذف بنجاح',
     'update_success_message' => 'تمت عملية التعديل بنجاح',
     'upload_success_message' => 'تمت عملية الرفع بنجاح',
+    'send_success_message' => 'تمت عملية الارسال بنجاح',
+
     'restore_success_message' => 'تمت عملية الاسترجاع بنجاح',
     'internal_server_error_message' => 'عذراً , خطأ داخلي في الخادم ',
     'try_catch_error_message' => 'عذراً , هتالك خطأ ما يرجي المحاولة فيما بعد  ',
@@ -72,6 +75,8 @@ return [
     'move_to_trash' => 'ثم نقل  السجل الي المحذوفات',
     'trash'=>'سلة المحذوفات',
     'change_status_success_message' => 'تمت عملية تغير الحالة بنجاح',
+    'change_password_success_message' => 'تمت عملية تغير كلمة المرور بنجاح',
+
     'export' => 'تصدير',
     'print' => 'طباعة',
     'pdf' => 'PDF',

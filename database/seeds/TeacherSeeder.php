@@ -11,7 +11,7 @@ class TeacherSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Teachers\Teacher::create([
+        \App\Models\Teacher::create([
             'name' => 'First Teacher',
             'email' => 'teacher@mwhob.ps',
             'password' => '$2y$10$nLk42W5/gmuL7NLfXPhvj.n8wRyJtqc.q092/eKda2JE6eVah5iYO',

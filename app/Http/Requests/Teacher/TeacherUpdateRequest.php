@@ -14,7 +14,7 @@ class TeacherUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
+            'teacher_name'=>'required',
             'password'=>'sometimes|nullable|min:6',
         ];
     }
@@ -22,7 +22,7 @@ class TeacherUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required'=>trans('login.name_requires'),
+            'teacher_name.required'=>trans('login.name_requires'),
             'email.required'=>trans('login.email_required'),
             'email.email'=>trans('login.email_email'),
             'password.min'=>trans('login.password_min'),

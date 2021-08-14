@@ -14,30 +14,30 @@
 
 
     <!--begin::Page Custom Styles(used by this page)-->
-    <link href="{!! asset('teacherBoard/assets/css/pages/login/classic/login-4.css') !!}" rel="stylesheet"
+    <link href="{!! asset('adminBoard/assets/css/pages/login/classic/login-4.css') !!}" rel="stylesheet"
           type="text/css"/>
     <!--end::Page Custom Styles-->
 
     <!--begin::Global Theme Styles(used by all pages)-->
-    <link href="{!! asset('teacherBoard/assets/plugins/global/plugins.bundle.css') !!}" rel="stylesheet"
+    <link href="{!! asset('adminBoard/assets/plugins/global/plugins.bundle.css') !!}" rel="stylesheet"
           type="text/css"/>
-    <link href="{!! asset('teacherBoard/assets/plugins/custom/prismjs/prismjs.bundle.css') !!}" rel="stylesheet"
+    <link href="{!! asset('adminBoard/assets/plugins/custom/prismjs/prismjs.bundle.css') !!}" rel="stylesheet"
           type="text/css"/>
-    <link href="{!! asset('teacherBoard/assets/css/style.bundle.css') !!}" rel="stylesheet" type="text/css"/>
+    <link href="{!! asset('adminBoard/assets/css/style.bundle.css') !!}" rel="stylesheet" type="text/css"/>
     <!--end::Global Theme Styles-->
 
     <!--begin::Layout Themes(used by all pages)-->
 
-    <link href="{!! asset('teacherBoard/assets/css/themes/layout/header/base/light.css') !!}" rel="stylesheet"
+    <link href="{!! asset('adminBoard/assets/css/themes/layout/header/base/light.css') !!}" rel="stylesheet"
           type="text/css"/>
-    <link href="{!! asset('teacherBoard/assets/css/themes/layout/header/menu/light.css') !!}" rel="stylesheet"
+    <link href="{!! asset('adminBoard/assets/css/themes/layout/header/menu/light.css') !!}" rel="stylesheet"
           type="text/css"/>
-    <link href="{!! asset('teacherBoard/assets/css/themes/layout/brand/dark.css') !!}" rel="stylesheet"
+    <link href="{!! asset('adminBoard/assets/css/themes/layout/brand/dark.css') !!}" rel="stylesheet"
           type="text/css"/>
-    <link href="{!! asset('teacherBoard/assets/css/themes/layout/aside/dark.css') !!}" rel="stylesheet"
+    <link href="{!! asset('adminBoard/assets/css/themes/layout/aside/dark.css') !!}" rel="stylesheet"
           type="text/css"/>        <!--end::Layout Themes-->
 
-    <link rel="shortcut icon" href="{!! asset('teacherBoard/assets/media/logos/favicon.ico') !!}"/>
+    <link rel="shortcut icon" href="{!! asset('adminBoard/assets/media/logos/favicon.ico') !!}"/>
 
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet"/>
     <style>
@@ -75,7 +75,7 @@
     <!--begin::Login-->
     <div class="login login-4 login-signin-on d-flex flex-row-fluid" id="kt_login">
         <div class="d-flex flex-center flex-row-fluid bgi-size-cover bgi-position-top bgi-no-repeat"
-             style="background-image: url('{!! asset('teacherBoard/assets/media/bg/bg-3.jpg');!!}">
+             style="background-image: url('{!! asset('adminBoard/assets/media/bg/bg-3.jpg');!!}">
             <div class="login-form text-center p-7 position-relative overflow-hidden">
                 <!--begin::Login Header-->
                 <div class="d-flex flex-center mb-15">
@@ -106,9 +106,9 @@
                         <div class="form-group mb-5">
                             <input class="form-control h-auto py-4 px-8 font_size_16" type="text"
                                    placeholder="{!! trans('login.email') !!}"
-                                   name="email" autocomplete="off"/>
+                                   name="teacher_email" id="teacher_email" autocomplete="off"/>
                         </div>
-                        @error('email')
+                        @error('teacher_email')
                         <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
                         @enderror
 
@@ -116,7 +116,7 @@
                         <div class="form-group mb-5">
                             <input class="form-control h-auto  py-4 px-8 font_size_16" type="password"
                                    placeholder="{!! trans('login.password') !!}"
-                                   name="password" autocomplete="off"/>
+                                   name="password" id="password" autocomplete="off"/>
                         </div>
                         @error('password')
                         <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
@@ -126,7 +126,8 @@
                         <div class="form-group d-flex flex-wrap justify-content-between align-items-center">
                             <div class="checkbox-inline">
                                 <label class="checkbox m-0 text-muted font_size_16">
-                                    <input type="checkbox" name="remember"/>
+                                    <input type="checkbox" name="teacher_remember_token"
+                                    id="teacher_remember_token"/>
                                     <span></span>
                                     {{trans('login.remember_me')}}
                                 </label>
@@ -283,14 +284,14 @@
 <!--end::Global Config-->
 
 <!--begin::Global Theme Bundle(used by all pages)-->
-<script src="{!! asset('teacherBoard/assets/plugins/global/plugins.bundle.js') !!}"></script>
-<script src="{!! asset('teacherBoard/assets/plugins/custom/prismjs/prismjs.bundle.js') !!}"></script>
-<script src="{!! asset('teacherBoard/assets/js/scripts.bundle.js') !!}"></script>
+<script src="{!! asset('adminBoard/assets/plugins/global/plugins.bundle.js') !!}"></script>
+<script src="{!! asset('adminBoard/assets/plugins/custom/prismjs/prismjs.bundle.js') !!}"></script>
+<script src="{!! asset('adminBoard/assets/js/scripts.bundle.js') !!}"></script>
 <!--end::Global Theme Bundle-->
 
 
 <!--begin::Page Scripts(used by this page)-->
-<script src="{!! asset('teacherBoard/assets/js/pages/custom/login/login-general.js') !!}"></script>
+<script src="{!! asset('adminBoard/assets/js/pages/custom/login/login-general.js') !!}"></script>
 <!--end::Page Scripts-->
 </body>
 <!--end::Body-->

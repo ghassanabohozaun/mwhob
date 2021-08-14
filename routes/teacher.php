@@ -24,17 +24,6 @@ Route::group([
     Route::get('/', 'DashboardController@index')->name('teacher.dashboard');
     Route::get('/dashboard', 'DashboardController@index')->name('teacher.dashboard');
 
-
-
-
-    //////////////////////////////////////////////////////////////////
-    /// teacher  routes
-    Route::get('/teacher', 'TeacherController@index')->name('get.teacher');
-    Route::get('/get-teacher-by-id', 'TeacherController@getTeacherById')->name('get.teacher.by.id');
-    Route::post('/teacher-update', 'TeacherController@teacherUpdate')->name('teacher.update');
-
-
-
 });
 
 

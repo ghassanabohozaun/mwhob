@@ -9,7 +9,6 @@
              class="img-fluid img-thumbnail"/>
     @endif
 
-
 @else
     <img src="{{asset(Storage::url($instance->photo))}}"
          width="80" height="80"

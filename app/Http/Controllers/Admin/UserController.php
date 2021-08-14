@@ -86,7 +86,7 @@ class UserController extends Controller
     }
 
     /////////////////////////////////////////
-    /// User create
+    ///  create
     public function create()
     {
         $title = trans('menu.add_new_user');
@@ -94,7 +94,7 @@ class UserController extends Controller
         return view('admin.users.create', compact('title', 'roles'));
     }
     /////////////////////////////////////////
-    /// User store
+    ///  store
     public function store(UserRequest $request)
     {
         try {
@@ -120,7 +120,7 @@ class UserController extends Controller
 
 
     /////////////////////////////////////////
-    /// User edit
+    ///  edit
     public function edit($id = null)
     {
         if (!$id) {
@@ -139,7 +139,7 @@ class UserController extends Controller
 
 
     /////////////////////////////////////////
-    /// User Update
+    ///  Update
     public function update(UserUpdateRequest $request)
     {
         try {
@@ -180,7 +180,7 @@ class UserController extends Controller
         }//end catch
     }
     /////////////////////////////////////////
-    /// User restore
+    ///  restore
     public function restore(Request $request)
     {
         try {
@@ -197,7 +197,7 @@ class UserController extends Controller
         }//end catch
     }
     /////////////////////////////////////////
-    /// User Destroy
+    ///  Destroy
     public function destroy(Request $request)
     {
         try {
@@ -216,7 +216,7 @@ class UserController extends Controller
     }
 
     /////////////////////////////////////////
-    /// user force delete
+    ///  force delete
     public function forceDelete(Request $request)
     {
         try {
@@ -238,7 +238,7 @@ class UserController extends Controller
 
     }
     /////////////////////////////////////////
-    /// change User status
+    /// change  status
     public function changeStatus(Request $request)
     {
 

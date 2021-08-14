@@ -81,8 +81,13 @@ class CategoriesController extends Controller
         ]);
     }
 
-
-
+    /////////////////////////////////////////
+    /// Get All Categories
+    public function getAllCategories()
+    {
+        $categories = Category::get();
+        return $this->returnData('OK', 'data', $categories);
+    }
     ////////////////////////////////////////////
     /// create Category
     public function create()

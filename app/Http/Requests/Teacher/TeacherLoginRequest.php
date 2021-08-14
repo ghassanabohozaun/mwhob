@@ -14,7 +14,7 @@ class TeacherLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required|email',
+            'teacher_email'=>'required|email',
             'password'=>'required|min:6'
         ];
     }
@@ -22,8 +22,8 @@ class TeacherLoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required'=>trans('login.email_required'),
-            'email.email'=>trans('login.email_email'),
+            'teacher_email.required'=>trans('login.email_required'),
+            'teacher_email.email'=>trans('login.email_email'),
             'password.required'=>trans('login.password_required'),
             'password.min'=>trans('login.password_min'),
         ];

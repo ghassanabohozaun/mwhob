@@ -22,9 +22,9 @@
                     <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
                         <img class="h-20px w-20px rounded-sm"
                              @if( LaravelLocalization::getCurrentLocale() =='ar')
-                             src="{{asset('teacherBoard/assets/media/svg/flags/العربية.svg')}}"
+                             src="{{asset('adminBoard/assets/media/svg/flags/العربية.svg')}}"
                              @else
-                             src="{{asset('teacherBoard/assets/media/svg/flags/English.svg')}}"
+                             src="{{asset('adminBoard/assets/media/svg/flags/English.svg')}}"
                              @endif
                              alt=""/>
                     </div>
@@ -43,7 +43,7 @@
                                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                      <span class="symbol symbol-20 mr-3">
                                         <img
-                                            src="{{asset('teacherBoard/assets/media/svg/flags/'. $properties['native']  .'.svg')}}"
+                                            src="{{asset('adminBoard/assets/media/svg/flags/'. $properties['native']  .'.svg')}}"
                                             alt=""/>
                                     </span>
                                     <span class="navi-text"> {{ $properties['native'] }}</span>
@@ -67,13 +67,13 @@
                     id="kt_quick_user_toggle">
                                 <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1"></span>
                     <span
-                        class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{!! auth()->guard('teacher')->user()->name !!}</span>
+                        class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{!! auth()->guard('teacher')->user()->teacher_full_name !!}</span>
                     <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
 
-                        @if(empty(auth()->guard('teacher')->user()->photo))
-                            <img src="{{asset('teacherBoard/images/user.jpg')}}">
+                        @if(empty(auth()->guard('teacher')->user()->teacher_photo))
+                            <img src="{{asset('adminBoard/images/user.jpg')}}">
                         @else
-                            <img src="{!! \Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->photo) !!}">
+                            <img src="{!! \Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->teacher_photo) !!}">
                         @endif
 		                    </span>
                 </div>

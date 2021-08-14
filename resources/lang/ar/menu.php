@@ -17,6 +17,11 @@ return [
     'regions' => 'المناطق',
     'teacher' => 'المدرس',
     'categories' => 'المجموعات',
-    'add_new_category' => 'اضافة مجموعة جديدة',
+    'add_new_category' => 'إضافة مجموعة جديدة',
+    'support_center'=>'مركز الدعم',
+    'mowhobs'=>'الموهوبين',
+    'add_new_mowhob' => 'إضافة موهوب جديد',
+    'teachers'=>'المدرسين',
+    'add_new_teacher' => 'إضافة مدرس جديد',
 
 ];

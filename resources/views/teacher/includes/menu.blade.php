@@ -2,7 +2,7 @@
     <!--begin::Menu Container-->
     <div style="margin-top:18px"
          id="kt_aside_menu"
-         class="aside-menu "
+         class="aside-menu teacher_aside_menu"
          data-menu-vertical="1"
          data-menu-scroll="1" data-menu-dropdown-timeout="500">
         <!--begin::Menu Nav-->
@@ -10,7 +10,7 @@
         <ul class="menu-nav ">
 
                 <li class="menu-item  menu-item-active" aria-haspopup="true" style="height: 40px;">
-                    <a href="{!! route('teacher.dashboard') !!}" class="menu-link ">
+                    <a href="#" class="menu-link ">
                     <span class="svg-icon menu-icon">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -46,7 +46,7 @@
 
 
                             <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{!! route('get.teacher') !!}" class="menu-link menu-toggle">
+                                <a href="#" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i>
                                     <span class="menu-text">{{trans('menu.teacher')}}</span>
                                 </a>

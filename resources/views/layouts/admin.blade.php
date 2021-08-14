@@ -397,7 +397,8 @@
 <script src="{{asset('adminBoard/assets/js/bootstrap-datepicker.ar.min.js')}}"></script>
 <script src="{{asset('adminBoard/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js')}}"></script>
 <script src="{{asset('adminBoard/assets/js/pages/features/miscellaneous/sweetalert2.js')}}"></script>
-
+<script src="{{asset('adminBoard/assets/js/pages/widgets.js')}}"></script>
+<script src="{{asset('adminBoard/assets/js/pages/custom/profile/profile.js')}}"></script>
 <!--end::Page Scripts-->
 
 
