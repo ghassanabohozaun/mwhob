@@ -45,7 +45,7 @@ return [
     'show_work_plan' => 'Show Work Plan',
     'cannot_be_deleted_because_it_enroll_mawhob' => 'Program Cannot Be Deleted Because it Enrolled By Mawhob',
     'add_new_mawhob_success_message' => 'Mawhab Added Successfully',
-    'mawhob_enrolled_in_this_program' => 'Sorry , Mawhob Has Previously Enrolled For This Program   ',
+    'mawhob_enrolled_in_this_program' => 'Sorry , Mawhob Has Previously Enrolled For This Program ',
     /////////////////////////////////////////////////////////
     /// enrolled List
 

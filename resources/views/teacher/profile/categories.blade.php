@@ -13,7 +13,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="table-responsive" id="teacher_categories_section" style="overflow:auto; height: 370px">
+                    <span id="teacher_categories_section">
+                     <div class="table-responsive" style="overflow:auto; height: 370px">
                         @if($teacherCategories->isEmpty())
                             <img src="{!! asset('site/images/noRecordFound.svg') !!}"
                                  class="img-fluid" id="no_data_img"
@@ -39,7 +40,8 @@
                                         </td>
                                         <td>
                                             <a href="#"
-                                               class="btn btn-sm btn-hover-danger btn-icon btn-pill delete_teacher_category_btn"
+                                               class="btn btn-sm btn-hover-danger btn-icon btn-pill
+                                                delete_teacher_category_btn"
                                                data-id="{{$teacherCategory->id}}"
                                                title="{{trans('general.delete')}}">
                                                 <i class="fa fa-trash fa-1x"></i>
@@ -52,7 +54,7 @@
                         @endif
 
                     </div>
-
+                   </span>
                 </div>
             </div>
         </div>
@@ -83,7 +85,7 @@
                     //////////////////////////////////////
                     // Delete Teacher
                     $.ajax({
-                        url: '{!! route('admin.delete.teacher.category') !!}',
+                        url: '{!! route('teacher.delete.teacher.category') !!}',
                         data: {id, id},
                         type: 'post',
                         dataType: 'json',

@@ -25,7 +25,11 @@ Route::group([
     Route::get('/dashboard', 'DashboardController@index')->name('teacher.dashboard');
 
 
-    Route::get('/teacher-profile', 'DashboardController@profile')->name('teacher.profile');
+    Route::get('/teacher-profile', 'DashboardController@profile')
+        ->name('teacher.profile');
+    Route::post('/delete-category', 'DashboardController@deleteCategory')
+        ->name('teacher.delete.teacher.category');
+
 
     ///////////////////////////////////////////////////////////////////
     /// Courses Routes
@@ -49,6 +53,19 @@ Route::group([
             ->name('teacher.show.course.details');
 
 
+        ///////////////////////////////////////////////////////////////////
+        /// Lectures Routes
+        Route::group(['prefix' => 'lectures'], function () {
+            Route::get('/lecture/{id?}', 'LecturesController@index')->name('teacher.lectures');
+            Route::get('/get-lectures/{id?}', 'LecturesController@getLectures')->name('teacher.get.lectures');
+            Route::get('/create', 'LecturesController@create')->name('teacher.create.lecture');
+            Route::post('/store', 'LecturesController@store')->name('teacher.store.lecture');
+            Route::get('/edit/{id?}', 'LecturesController@edit')->name('teacher.edit.lecture');
+            Route::post('/update', 'LecturesController@update')->name('teacher.update.lecture');
+            Route::post('/destroy', 'LecturesController@destroy')->name('teacher.destroy.lecture');
+            Route::post('/change-status', 'LecturesController@changeStatus')
+                ->name('teacher.lecture.change.status');
+        });
 
 
     });

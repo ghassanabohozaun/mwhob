@@ -42,7 +42,7 @@ return [
     'show_work_plan' => 'عرض خطة العمل',
     'cannot_be_deleted_because_it_enroll_mawhob' => 'لا يمكن حذف الرنامج  لانها مسجل من موهوب',
     'add_new_mawhob_success_message' => 'تمت عملية اضافة الموهوب بنجاح',
-    'mawhob_enrolled_in_this_program' => 'عذرا الموهوب سجل في هذه الدورة ',
+    'mawhob_enrolled_in_this_program' => 'عذرا الموهوب سجل في هذه البرنامج ',
     /////////////////////////////////////////////////////////
     /// enrolled List
     'mawhobs_enrolled_in_program' => 'الموهوبين المسجلين في البرنامج',

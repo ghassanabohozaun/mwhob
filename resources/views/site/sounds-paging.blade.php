@@ -1,5 +1,6 @@
 <div class="row" uk-lightbox>
     @foreach($sounds as $sound)
+
         <div class="col-lg-4 col-md-6  mb-4">
             <div class="item-course">
                 <div class="img-course">

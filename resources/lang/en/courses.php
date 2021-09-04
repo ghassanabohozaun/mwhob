@@ -77,10 +77,12 @@ return [
 
     'cannot_be_deleted_because_it_have_lectures' => 'Course Cannot Be Deleted Because It Have Lectures',
     'cannot_be_deleted_because_it_enrolled_by_mawhob' => 'Course Cannot Be Deleted Because Enrolled By Mawhob',
+    'add_new_mawhob_success_message' => 'Mawhab Added Successfully',
+    'mawhob_enrolled_in_this_course' => 'Sorry , Mawhob Has Previously Enrolled For This Course ',
+    'this_time_enrolled_for_anther_course'=>'This Time Enrolled For Anther Course',
 
     /////////////////////////////////////////////////////////
     /// enrolled List
-
     'mawhobs_enrolled_in_course' => 'Mawhobs Enrolled In Course',
     'enrolled_list' => 'Enrolled List',
     'add_new_mawhob' => 'Add New Mawhob',

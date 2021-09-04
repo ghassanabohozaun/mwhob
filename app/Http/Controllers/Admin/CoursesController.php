@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CourseChangeTeacherRequest;
 use App\Http\Requests\CourseRequest;
 use App\Http\Requests\CourseUpdateRequest;
+use App\Http\Requests\MawhobEnrolledCourseRequest;
 use App\Http\Resources\CourseResource;
 use App\Http\Resources\CourseTrashedResource;
 use App\Http\Resources\MawhobEnrolledCourseResource;
@@ -16,6 +17,7 @@ use App\Models\MawhobEnrollCourse;
 use App\Models\Revenue;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class CoursesController extends Controller
@@ -502,5 +504,48 @@ class CoursesController extends Controller
 
     }
 
+    ////////////////////////////////////////
+    /// store new course mawhob in enrolled list
+    public function storeNewCourseMawhob(MawhobEnrolledCourseRequest $request)
+    {
+
+        $mawhobEnrollCourse = MawhobEnrollCourse::
+        where('course_id', $request->id)->where('mawhob_id', $request->mawhob_id)->get();
+
+        if ($mawhobEnrollCourse->isEmpty()) {
+
+            MawhobEnrollCourse::create([
+                'course_id' => $request->id,
+                'mawhob_id' => $request->mawhob_id,
+                'enrolled_date' => Carbon::now()->format('Y-m-d'),
+            ]);
+
+
+            ///////////////////////////////////////////////////////
+            /// add  Revenue
+            $coureCost = Course::find($request->id)->cost;
+            $coureDiscount = Course::find($request->id)->discount;
+
+            if ($coureDiscount == '' || $coureDiscount == 0) {
+                $value = $coureCost;
+            } else {
+                $value = $coureDiscount;
+            }
+
+            Revenue::create([
+                'mawhob_id' => $request->mawhob_id,
+                'date' => Carbon::now()->format('Y-m-d'),
+                'value' => $value,
+                'revenue_for' => $request->id,
+                'details' => 'enroll_course',
+            ]);
+
+            return $this->returnSuccessMessage(trans('courses.add_new_mawhob_success_message'));
+        } else {
+            return $this->returnError(trans('courses.mawhob_enrolled_in_this_course'), 500);
+        }
+
+
+    }
 
 }

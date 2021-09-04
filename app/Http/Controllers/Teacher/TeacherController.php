@@ -75,4 +75,7 @@ class TeacherController extends Controller
             return $this->returnError(trans('general.try_catch_error_message'), '500');
         }
     }
+
+
+
 }

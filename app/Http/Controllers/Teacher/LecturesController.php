@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LectureRequest;
@@ -21,7 +21,7 @@ class LecturesController extends Controller
             return redirect()->route('teacher.not.found');
         }
         $title = trans('courses.lectures');
-        return view('admin.courses.lectures.index', compact('title', 'id'));
+        return view('teacher.courses.lectures.index', compact('title', 'id'));
     }
     ///////////////////////////////////////////////////////////////
     /// Get Courses
@@ -118,7 +118,7 @@ class LecturesController extends Controller
         try {
             $lecture = Lecture::find($request->id);
             if (!$lecture) {
-                return redirect()->route('admin.not.found');
+                return redirect()->route('teacher.not.found');
             }
             if ($request->switchStatus == 'false') {
                 $lecture->status = null;

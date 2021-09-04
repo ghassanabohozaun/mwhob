@@ -444,39 +444,38 @@ class ProgramsController extends Controller
     }
 
     ////////////////////////////////////////
-    /// store new Programs mawhob in enrolled list
+    /// store new programs mawhob in enrolled list
     public function storeNewProgramMawhob(MawhobEnrolledProgramRequest $request)
     {
 
+        $mawhobEnrollProgram = MawhobEnrollProgram::
+        where('program_id', $request->id)
+            ->where('mawhob_id', $request->mawhob_id)->get();
+
+        if ($mawhobEnrollProgram->isEmpty()) {
+
+            MawhobEnrollProgram::create([
+                'program_id' => $request->id,
+                'mawhob_id' => $request->mawhob_id,
+                'enrolled_date' => Carbon::now()->format('Y-m-d'),
+            ]);
 
 
-            $mawhobEnrollProgram = MawhobEnrollProgram::
-            where('program_id', $request->id)
-                ->where('mawhob_id', $request->mawhob_id)->get();
+            ///////////////////////////////////////////////////////
+            /// add  Revenue
+            $programPrice = Program::find($request->id)->price;
+            Revenue::create([
+                'mawhob_id' => $request->mawhob_id,
+                'date' => Carbon::now()->format('Y-m-d'),
+                'value' => $programPrice,
+                'revenue_for' => $request->id,
+                'details' => 'enroll_program',
+            ]);
 
-            if ($mawhobEnrollProgram->isEmpty()) {
-
-                MawhobEnrollProgram::create([
-                    'program_id' => $request->id,
-                    'mawhob_id' => $request->mawhob_id,
-                    'enrolled_date' => Carbon::now()->format('Y-m-d'),
-                ]);
-
-
-               $programPrice =  Program::find($request->id)->price;
-                Revenue::create([
-                    'mawhob_id' =>$request->mawhob_id,
-                    'date' => Carbon::now()->format('Y-m-d'),
-                    'value' => $programPrice,
-                    'revenue_for' => $request->id,
-                    'details' => 'enroll_program',
-                ]);
-
-
-                return $this->returnSuccessMessage(trans('programs.add_new_mawhob_success_message'));
-            } else {
-                return $this->returnError(trans('programs.mawhob_enrolled_in_this_program'), 500);
-            }
+            return $this->returnSuccessMessage(trans('programs.add_new_mawhob_success_message'));
+        } else {
+            return $this->returnError(trans('programs.mawhob_enrolled_in_this_program'), 500);
+        }
 
 
     }

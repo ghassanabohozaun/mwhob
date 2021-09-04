@@ -15,7 +15,7 @@
 <a href="{!! route('admin.lectures',$instance->id) !!}"
    class="btn btn-hover-primary btn-icon btn-pill "
    title="{{trans('courses.lectures')}}">
-    <i class="fa fa-pen fa-1x"></i>
+    <i class="flaticon2-open-text-book fa-1x"></i>
 </a>
 
 

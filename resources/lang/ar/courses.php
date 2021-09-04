@@ -82,8 +82,9 @@ return [
 
     'cannot_be_deleted_because_it_have_lectures' => 'لا يمكن حذف الدورة  لانه تحتوي علي محاضرات',
     'cannot_be_deleted_because_it_enrolled_by_mawhob' => 'لا يمكن حذف الدورة  لانها مسجلة من قبل موهوب',
-
-
+    'add_new_mawhob_success_message' => 'تمت عملية اضافة الموهوب بنجاح',
+    'mawhob_enrolled_in_this_course' => 'عذرا الموهوب سجل في هذه الدورة ',
+    'this_time_enrolled_for_anther_course'=>'هذا الوقت محجوز لدورة اخري',
     /////////////////////////////////////////////////////////
     /// enrolled List
     'mawhobs_enrolled_in_course' => 'الموهوبين المسجلين في الدورة',

@@ -199,6 +199,7 @@
                 },
                 url: "/{!! Lang() !!}/get/more/sounds?page=" + page,
                 success: function (data) {
+                    console.log(data);
                     $('#sounds_data').html(data);
                     $('html, body').animate({
                         scrollTop: $("#sounds_section").offset().top
