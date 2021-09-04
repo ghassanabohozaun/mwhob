@@ -414,73 +414,36 @@
         }
     });
 
-
-    ////////////////////////////////////////////////////////////////////////////
-    //////// notifySuccessOrError
-    function notifySuccessOrError(notify_message, notify_type) {
-        $.notify({
-            // options
-            message: notify_message,
-
-        }, {
-            // settings
-            element: 'body',
-            position: null,
-            type: notify_type,
-            newest_on_top: true,
-            allow_dismiss: false,
-            placement: {
-                from: "top",
-                @if(LaravelLocalization::getCurrentLocale() =='ar')
-                align: "left",
-                @else
-                align: "right",
-                @endif
-            },
-            delay: 800,
-            timer: 800,
-            z_index: 99999,
-            animate: {
-                enter: 'animated fadeInDown',
-                exit: 'animated fadeOutUp'
-            },
-        });
-    }
-
     ///////////////////////////////////////////////////////////////////////////
-    //////// notifySuccessOrError
-    function notifyDelete(notify_message, notify_type) {
-        $.notify({
-            // options
-            title: ' &nbsp;',
-            message: notify_message,
+    //////// Textarea Limit characters
+    function limitText(textarea, charcount) {
+        var ta = document.getElementById(textarea),
+            count = ta.value.length,
+            ml = ta.maxLength,
+            remaining = ml - count,
+            cc = document.getElementById(charcount);
 
-        }, {
-            // settings
-            element: 'body',
-            position: null,
-            newest_on_top: true,
-            type: notify_type,
-            allow_dismiss: false,
+        if ("{!! Lang()=='ar' !!}") {
+            if (remaining <= 0) {
+                cc.innerHTML = '{!! trans('general.character_limit_reached') !!} ' + ml + ' . ';
+            } else if (remaining <= 50) {
+                cc.innerHTML = ' {!! trans('general.character_limit') !!}  ' + ml + ' , ' + ' {!! trans('general.remaining') !!} ' + remaining + ' . ';
+            } else {
+                cc.innerHTML = '';
+            }
+        } else {
+            if (remaining <= 0) {
+                cc.innerHTML = ml + '{!! trans('general.character_limit_reached') !!}.';
+            } else if (remaining <= 50) {
+                cc.innerHTML = ml + ' {!! trans('general.character_limit') !!} , ' + remaining + ' {!! trans('general.remaining') !!}.';
+            } else {
+                cc.innerHTML = '';
+            }
+        }
 
-            placement: {
-                from: "top",
-                @if(LaravelLocalization::getCurrentLocale() =='ar')
-                align: "left",
-                @else
-                align: "right",
-                @endif
-            },
 
-            delay: 800,
-            timer: 800,
-            z_index: 99999,
-            animate: {
-                enter: 'animated fadeInDown',
-                exit: 'animated fadeOutUp'
-            },
-        });
     }
+
 
     ///////////////////////////////////////////////////////////////////////////
     //////// Translate validation
@@ -494,14 +457,15 @@
 
     ///////////////////////////////////////////////////////////////////////////
     ////////  Datatable Fonts
-    pdfMake.fonts = {
+    /*pdfMake.fonts = {
         Roboto: {
             normal: "{!! asset('adminBoard/assets/fonts/ArbFONTS-bein-ar-normal.ttf') !!}",
             bold: "{!! asset('adminBoard/assets/fonts/ArbFONTS-bein-ar-normal.ttf') !!}",
             italics: "{!! asset('adminBoard/assets/fonts/ArbFONTS-beIN Normal .ttf') !!}",
             bolditalics: "{!! asset('adminBoard/assets/fonts/ArbFONTS-beIN Normal .ttf') !!}"
         },
-    }
+    }*/
+
 
 
     ///////////////////////////////////////////////////////////////////////////

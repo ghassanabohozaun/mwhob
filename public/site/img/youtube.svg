@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26.202" height="18.423" viewBox="0 0 26.202 18.423">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="0.084" x2="1" y2="1.232" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="red"/>
+      <stop offset="1" stop-color="maroon"/>
+    </linearGradient>
+  </defs>
+  <path id="youtube" d="M26.063,4.633A3.292,3.292,0,0,0,23.746,2.3C21.7,1.75,13.509,1.75,13.509,1.75s-8.194,0-10.237.551A3.292,3.292,0,0,0,.956,4.633,34.537,34.537,0,0,0,.408,10.98a34.537,34.537,0,0,0,.548,6.348,3.243,3.243,0,0,0,2.317,2.294c2.043.551,10.237.551,10.237.551s8.194,0,10.237-.551a3.243,3.243,0,0,0,2.317-2.294,34.537,34.537,0,0,0,.548-6.348,34.537,34.537,0,0,0-.548-6.348ZM10.83,14.876V7.084l6.848,3.9Z" transform="translate(-0.408 -1.75)" fill="url(#linear-gradient)"/>
+</svg>

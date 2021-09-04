@@ -99,6 +99,17 @@ return [
     'comments' => 'Comments',
     'captcha' => 'Please Check Captcha ',
 
+    ///////////////////////////////////////////////////////
+    /// Select 2
+    'searching' => 'searching',
+    'noResults' => 'No Results',
+    'noResults2' => 'No Results ',
+    'click' => 'Click here',
+    'errorLoading' => 'Error Loading !',
+    'inputTooLong' => 'Please, the number of search characters does not exceed 20 characters',
+    'inputTooShort' => 'Please enter at least one letter',
+
+
     'validation_error_message' => 'Sorry, looks like there are some errors detected, please try again.',
     'ok_got_it' => 'Ok, got it! ',
     'required' => 'This Field is Required ',
@@ -109,5 +120,11 @@ return [
     'mobile_number_validation' => 'Mobile consist of 10 digits',
     'choose_validation' => 'You Must chose one of options',
     'review_your_details_and_submit' => 'Review your Details and Submit',
+    'search'=>'Search',
+    'reset'=>'Reset',
+    'character_limit_reached'=>'character limit reached',
+    'character_limit'=>'character limit',
+    'remaining'=>'remaining',
+
 
 ];

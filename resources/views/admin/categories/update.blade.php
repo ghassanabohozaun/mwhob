@@ -165,11 +165,15 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <textarea rows="5"
+                                                                      maxlength="200"
+                                                                      onkeyup="limitText('description_ar' , 'ar_char_count')"
                                                                       class="form-control  form-control-lg"
                                                                       name="description_ar" id="description_ar"
                                                                       type="text"
                                                                       placeholder=" {{trans('categories.enter_description_ar')}}"
                                                                       autocomplete="off">{!! $category->description_ar !!}</textarea>
+                                                            <div class="form-text text-warning"
+                                                                 id="ar_char_count"></div>
                                                             <span class="form-text text-danger"
                                                                   id="description_ar_error"></span>
 
@@ -185,11 +189,15 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <textarea rows="5"
+                                                                      maxlength="200"
+                                                                      onkeyup="limitText('description_en' , 'en_char_count')"
                                                                       class="form-control  form-control-lg"
                                                                       name="description_en" id="description_en"
                                                                       type="text"
                                                                       placeholder=" {{trans('categories.enter_description_en')}}"
                                                                       autocomplete="off">{!! $category->description_en !!}</textarea>
+                                                            <div class="form-text text-warning"
+                                                                 id="en_char_count"></div>
 
                                                             <span class="form-text text-danger"
                                                                   id="description_en_error"></span>
@@ -216,11 +224,15 @@
                                                                     {{trans('categories.courses')}}
                                                                 </option>
 
-                                                                <option value="success_stories"
-                                                                    {!! $category->field == trans('categories.success_stories') ? 'selected':'' !!}>
-                                                                    {{trans('categories.success_stories')}}
+                                                                <option value="mawhobs"
+                                                                    {!! $category->field == trans('categories.mawhobs') ? 'selected':'' !!}>
+                                                                    {{trans('categories.mawhobs')}}
                                                                 </option>
 
+                                                                <option value="teachers"
+                                                                    {!! $category->field == trans('categories.teachers') ? 'selected':'' !!}>
+                                                                    {{trans('categories.teachers')}}
+                                                                </option>
                                                             </select>
                                                             <span class="form-text text-danger"
                                                                   id="field_error"></span>

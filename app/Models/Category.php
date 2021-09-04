@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-    use SoftDeletes;
 
     protected $table = 'categories';
     protected $fillable = [
         'icon',
+        'slug_name_ar',
+        'slug_name_en',
         'name_ar',
         'name_en',
         'description_ar',
@@ -19,7 +19,7 @@ class Category extends Model
         'field',
         'language'
     ];
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['updated_at'];
 
     //////////////////////////////////////////////////////////////
     /// Relations
@@ -31,14 +31,23 @@ class Category extends Model
     public function mowhobs(){
         return $this->hasMany('App\Models\Mawhob','category_id','id');
     }
+
+
+    public function courses(){
+        return $this->hasMany('App\Models\Course','category_id','id');
+
+    }
+
     //////////////////////////////////// accessors ///////////////////////
-    /// Gender accessors
+    /// Field accessors
     public function getFieldAttribute($value)
     {
         if ($value == 'courses') {
             return trans('categories.courses');
-        } elseif ($value == 'success_stories') {
-            return trans('categories.success_stories');
+        } elseif ($value == 'mawhobs') {
+            return trans('categories.mawhobs');
+        }elseif ($value == 'teachers') {
+            return trans('categories.teachers');
         }
     }
 }

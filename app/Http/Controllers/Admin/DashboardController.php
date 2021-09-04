@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SettingRequest;
-use App\Http\Requests\websiteMainPageRequest;
+use App\Models\Admin;
+use App\Models\Contest;
+use App\Models\Course;
+use App\Models\Mawhob;
+use App\Models\Program;
+use App\Models\Revenue;
 use App\Models\Setting;
-use App\Models\Website_main_page;
+use App\Models\Teacher;
 use App\Traits\GeneralTrait;
-use File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
@@ -21,7 +26,49 @@ class DashboardController extends Controller
     public function index()
     {
         $title = trans('dashboard.admin_panel');
-        return view('admin.dashboard', compact('title'));
+
+        $teachersCount = Teacher:: withoutTrashed()->count();
+        $mawhobsCount = Mawhob:: withoutTrashed()->count();
+        $coursesCount = Course:: withoutTrashed()->count();
+        $RevenuesValue = Revenue:: sum('value');
+
+        $courses = Course::with('teacher')->orderBy('id', 'desc')->take(7)->get();
+        $contests = Contest::orderBy('id', 'desc')->take(7)->get();
+        $revenues = Revenue::with('mawhob')->orderBy('id', 'desc')->take(7)->get();
+
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////
+        /// Mawhob Chart
+        $mawhobs = Mawhob::select(DB::raw("COUNT(*) as count"))
+            ->whereYear('created_at', date('Y'))
+            ->groupBy(DB::raw("Month(created_at)"))
+            ->pluck('count');
+        $months = Mawhob::select(DB::raw("Month(created_at) as month"))
+            ->whereYear('created_at', date('Y'))
+            ->groupBy(DB::raw("Month(created_at)"))
+            ->pluck('month');
+        $datas = array(0,0,0,0,0,0,0,0,0,0,0,0);
+        foreach ($months as $index=>$month){
+            $datas[$month] = $mawhobs[$index];
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////
+        /// Revenues Chart
+        $Revenues = Revenue::select(DB::raw("COUNT(*) as count"))
+            ->whereYear('created_at', date('Y'))
+            ->groupBy(DB::raw("Month(created_at)"))
+            ->pluck('count');
+        $RevenueMonths = Revenue::select(DB::raw("Month(created_at) as month"))
+            ->whereYear('created_at', date('Y'))
+            ->groupBy(DB::raw("Month(created_at)"))
+            ->pluck('month');
+        $RevenueData = array(0,0,0,0,0,0,0,0,0,0,0,0);
+        foreach ($RevenueMonths as $index=>$month){
+            $RevenueData[$month] = $Revenues[$index];
+        }
+        return view('admin.dashboard', compact('title',
+            'teachersCount', 'mawhobsCount', 'coursesCount', 'RevenuesValue',
+            'courses','contests','datas','RevenueData','revenues'));
     }
     ////////////////////////////////////////////////////////
     /// get Settings
@@ -131,7 +178,6 @@ class DashboardController extends Controller
     }
     ////////////////////////////////////////////////////////
     ///  switchEnglishLang
-
     public function switchEnglishLang(Request $request)
     {
         try {
@@ -150,6 +196,7 @@ class DashboardController extends Controller
         }//end catch
 
     }
+
     ////////////////////////////////////////////////////////
     /// not Found
     public function notFound()
@@ -158,145 +205,6 @@ class DashboardController extends Controller
         return view('admin.errors.not-found', compact('title'));
     }
 
-    /////////////////////////////////////////////////////////////////////
-    /// website main page
-    public function websiteMainPage()
-    {
-        $title = trans('menu.website_main_page');
-        return view('admin.website-main-page', compact('title'));
-    }
-    /////////////////////////////////////////////////////////////////////
-    /// store website main page
-    public function storeWebsiteMainPage(websiteMainPageRequest $request)
-    {
 
-        $Website_main_page = Website_main_page::get();
-
-        if ($Website_main_page->isEmpty()) {
-            if ($request->hasFile('counter_one_icon')) {
-                $counter_one_icon = $request->file('site_icon')->store('settings');
-            }
-            if ($request->hasFile('counter_tow_icon')) {
-                $counter_tow_icon = $request->file('counter_tow_icon')->store('settings');
-            }
-            if ($request->hasFile('counter_three_icon')) {
-                $counter_three_icon = $request->file('counter_three_icon')->store('settings');
-            }
-            if ($request->hasFile('counter_four_icon')) {
-                $counter_four_icon = $request->file('counter_four_icon')->store('settings');
-            }
-            Website_main_page::create([
-                'counter_one_icon' => $counter_one_icon,
-                'counter_one_text_ar' => $request->counter_one_text_ar,
-                'counter_one_text_en' => $request->counter_one_text_en,
-                'counter_one_number' => $request->counter_one_number,
-                'counter_tow_icon' => $counter_tow_icon,
-                'counter_tow_text_ar' => $request->counter_tow_text_ar,
-                'counter_tow_text_en' => $request->counter_tow_text_en,
-                'counter_tow_number' => $request->counter_tow_number,
-                'counter_three_icon' => $counter_three_icon,
-                'counter_three_text_ar' => $request->counter_three_text_ar,
-                'counter_three_text_en' => $request->counter_three_text_en,
-                'counter_three_number' => $request->counter_three_number,
-                'counter_four_icon' => $counter_four_icon,
-                'counter_four_text_ar' => $request->counter_four_text_ar,
-                'counter_four_text_en' => $request->counter_four_text_en,
-                'counter_four_number' => $request->counter_four_number,
-            ]);
-            return $this->returnSuccessMessage(trans('general.add_success_message'));
-
-            /////////////////////////////////////////////////////////////////////////////////////
-            /// Update Website main page
-        } else {
-
-            $Website_main_page = Website_main_page::orderBy('id', 'desc')->first();
-
-            /// counter icon one
-            if ($request->hasFile('counter_one_icon')) {
-                if (!empty($Website_main_page->counter_one_icon)) {
-                    Storage::delete($Website_main_page->counter_one_icon);
-                    $counter_one_icon = $request->file('counter_one_icon')->store('settings');
-                } else {
-                    $counter_one_icon = $request->file('counter_one_icon')->store('settings');
-                }
-            } else {
-                if (!empty($Website_main_page->counter_one_icon)) {
-                    $counter_one_icon = $Website_main_page->counter_one_icon;
-                } else {
-                    $counter_one_icon = '';
-                }
-            }
-
-            /// counter icon tow
-            if ($request->hasFile('counter_tow_icon')) {
-                if (!empty($Website_main_page->counter_tow_icon)) {
-                    Storage::delete($Website_main_page->counter_tow_icon);
-                    $counter_tow_icon = $request->file('counter_tow_icon')->store('settings');
-                } else {
-                    $counter_tow_icon = $request->file('counter_tow_icon')->store('settings');
-                }
-            } else {
-                if (!empty($Website_main_page->counter_tow_icon)) {
-                    $counter_tow_icon = $Website_main_page->counter_tow_icon;
-                } else {
-                    $counter_tow_icon = '';
-                }
-            }
-
-            /// counter icon three
-            if ($request->hasFile('counter_three_icon')) {
-                if (!empty($Website_main_page->counter_three_icon)) {
-                    Storage::delete($Website_main_page->counter_three_icon);
-                    $counter_three_icon = $request->file('counter_three_icon')->store('settings');
-                } else {
-                    $counter_three_icon = $request->file('counter_three_icon')->store('settings');
-                }
-            } else {
-                if (!empty($Website_main_page->counter_three_icon)) {
-                    $counter_three_icon = $Website_main_page->counter_three_icon;
-                } else {
-                    $counter_three_icon = '';
-                }
-            }
-
-            /// counter icon three
-            if ($request->hasFile('counter_four_icon')) {
-                if (!empty($Website_main_page->counter_four_icon)) {
-                    Storage::delete($Website_main_page->counter_four_icon);
-                    $counter_four_icon = $request->file('counter_four_icon')->store('settings');
-                } else {
-                    $counter_four_icon = $request->file('counter_four_icon')->store('settings');
-                }
-            } else {
-                if (!empty($Website_main_page->counter_four_icon)) {
-                    $counter_four_icon = $Website_main_page->counter_four_icon;
-                } else {
-                    $counter_four_icon = '';
-                }
-            }
-
-
-            $Website_main_page->update([
-                'counter_one_icon' => $counter_one_icon,
-                'counter_one_text_ar' => $request->counter_one_text_ar,
-                'counter_one_text_en' => $request->counter_one_text_en,
-                'counter_one_number' => $request->counter_one_number,
-                'counter_tow_icon' => $counter_tow_icon,
-                'counter_tow_text_ar' => $request->counter_tow_text_ar,
-                'counter_tow_text_en' => $request->counter_tow_text_en,
-                'counter_tow_number' => $request->counter_tow_number,
-                'counter_three_icon' => $counter_three_icon,
-                'counter_three_text_ar' => $request->counter_three_text_ar,
-                'counter_three_text_en' => $request->counter_three_text_en,
-                'counter_three_number' => $request->counter_three_number,
-                'counter_four_icon' => $counter_four_icon,
-                'counter_four_text_ar' => $request->counter_four_text_ar,
-                'counter_four_text_en' => $request->counter_four_text_en,
-                'counter_four_number' => $request->counter_four_number,
-            ]);
-
-            return $this->returnSuccessMessage(trans('general.add_success_message'));
-        }
-    }
 
 }

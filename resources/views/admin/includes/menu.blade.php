@@ -32,7 +32,7 @@
             <li class="menu-item  menu-item-submenu
                     @if(str_contains(url()->current(), 'settings')
                             || str_contains(url()->current(), '/admin/admin')
-                            || str_contains(url()->current(), '/admin/regions')) menu-item-open @endif"
+                            || str_contains(url()->current(), '/admin/Revenues')) menu-item-open @endif"
                 aria-haspopup="true" data-menu-toggle="hover"
                 style="margin-top: -25px">
                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -72,11 +72,135 @@
                                 </a>
                             </li>
                         @endcan
+
+                        @can('admins')
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{{route('admin.revenues')}}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.revenues')}}</span>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </div>
             </li>
 
-            <!------------------------------------ Roles  ---------------------------------------------------->
+
+            <!------------------------------------ Landing Page    ---------------------------------------------------->
+            @can('dashboard')
+                <li class="menu-item  menu-item-submenu
+                             @if(str_contains(url()->current(), 'landing-page')
+                             ) menu-item-open @endif"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                    <span class="svg-icon menu-icon">
+                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Write.svg--><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24"/>
+                            <path
+                                d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z"
+                                fill="#000000" fill-rule="nonzero"
+                                transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953) "/>
+                            <path
+                                d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z"
+                                fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                            </g>
+                            </svg><!--end::Svg Icon--></span>
+                    </span>
+                        <span class="menu-text">{{trans('menu.landing_page')}}</span>
+                        <i class="menu-arrow"></i>
+                        <span class="menu-label">
+                    </span>
+
+                    </a>
+                    <div class="menu-submenu ">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item  menu-item-parent" aria-haspopup="true">
+                            <span class="menu-link">
+                                <span class="menu-text">{{trans('menu.landing_page')}}</span>
+                            </span>
+                            </li>
+
+
+
+
+
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.index.page') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.index')}}</span>
+                                    <span class="menu-label">
+                                </span>
+                                </a>
+                            </li>
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.sliders') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.sliders')}}</span>
+                                    <span class="menu-label">
+                                </span>
+                                </a>
+                            </li>
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.why.choose.us') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.why_choose_us')}}</span>
+                                    <span class="menu-label">
+                                </span>
+                                </a>
+                            </li>
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.about.mawhob') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.about_mawhob')}}</span>
+                                    <span class="menu-label">
+                                </span>
+                                </a>
+                            </li>
+
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.team') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.team')}}</span>
+                                    <span class="menu-label">
+                                </span>
+                                </a>
+                            </li>
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.static.strings') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.static_strings')}}</span>
+                                    <span class="menu-label">
+                                </span>
+                                </a>
+                            </li>
+
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.footer.images') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.footer_images')}}</span>
+                                    <span class="menu-label">
+                                </span>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                </li>
+            @endcan
+
+        <!------------------------------------ Roles  ---------------------------------------------------->
             @can('roles')
                 <li class="menu-item  menu-item-submenu"
                     aria-haspopup="true" data-menu-toggle="hover">
@@ -130,9 +254,6 @@
                         <span class="menu-text">{{trans('menu.users')}}</span>
                         <i class="menu-arrow"></i>
                         <span class="menu-label">
-                        <span class="label label-rounded label-info">
-                           {{App\Models\Admin::withTrashed()->where('id', '!=', \auth('admin')->user()->id)->count()}}
-                        </span>
                     </span>
 
                     </a>
@@ -144,7 +265,6 @@
                                 <span class="menu-text">{{trans('menu.users')}}</span>
                             </span>
                             </li>
-
 
                             <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{route('users')}}" class="menu-link menu-toggle">
@@ -164,7 +284,7 @@
                                     <span class="menu-text">{{trans('menu.mowhobs')}}</span>
                                     <span class="menu-label">
                                     <span class="label label-rounded label-info">
-                                        {{App\Models\Mawhob::count()}}
+                                        {{App\Models\Mawhob::withoutTrashed()->count()}}
                                     </span>
                                 </span>
                                 </a>
@@ -177,7 +297,7 @@
                                     <span class="menu-text">{{trans('menu.teachers')}}</span>
                                     <span class="menu-label">
                                     <span class="label label-rounded label-info">
-                                        {{App\Models\Teacher::count()}}
+                                        {{App\Models\Teacher::withoutTrashed()->count()}}
                                     </span>
                                 </span>
                                 </a>
@@ -244,6 +364,230 @@
                     </a>
                 </li>
             @endcan
+
+        <!------------------------------------ Programs  ---------------------------------------------------->
+            @can('programs')
+                <li class="menu-item  menu-item-submenu"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="{!! route('admin.programs') !!}" class="menu-link menu-toggle">
+                                <span class="svg-icon menu-icon">
+                                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Files\Group-folders.svg--><svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24"/>
+                                            <path
+                                                d="M4.5,21 L21.5,21 C22.3284271,21 23,20.3284271 23,19.5 L23,8.5 C23,7.67157288 22.3284271,7 21.5,7 L11,7 L8.43933983,4.43933983 C8.15803526,4.15803526 7.77650439,4 7.37867966,4 L4.5,4 C3.67157288,4 3,4.67157288 3,5.5 L3,19.5 C3,20.3284271 3.67157288,21 4.5,21 Z"
+                                                fill="#000000" opacity="0.3"/>
+                                            <path
+                                                d="M2.5,19 L19.5,19 C20.3284271,19 21,18.3284271 21,17.5 L21,6.5 C21,5.67157288 20.3284271,5 19.5,5 L9,5 L6.43933983,2.43933983 C6.15803526,2.15803526 5.77650439,2 5.37867966,2 L2.5,2 C1.67157288,2 1,2.67157288 1,3.5 L1,17.5 C1,18.3284271 1.67157288,19 2.5,19 Z"
+                                                fill="#000000"/>
+                                            </g>
+                                            </svg><!--end::Svg Icon--></span>
+                                 </span>
+                        <span class="menu-text">{{trans('menu.programs')}}</span>
+                        <span class="menu-label">
+                        <span class="label label-rounded label-light-dark">
+                             {{App\Models\Program::withoutTrashed()->count()}}
+                        </span>
+                    </span>
+                    </a>
+                </li>
+            @endcan
+        <!------------------------------------ Courses  ---------------------------------------------------->
+            @can('courses')
+                <li class="menu-item  menu-item-submenu"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="{!! route('admin.courses') !!}" class="menu-link menu-toggle">
+                                <span class="svg-icon menu-icon">
+                                           <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Duplicate.svg--><svg
+                                                   xmlns="http://www.w3.org/2000/svg"
+                                                   width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect x="0" y="0" width="24" height="24"/>
+        <path
+            d="M15.9956071,6 L9,6 C7.34314575,6 6,7.34314575 6,9 L6,15.9956071 C4.70185442,15.9316381 4,15.1706419 4,13.8181818 L4,6.18181818 C4,4.76751186 4.76751186,4 6.18181818,4 L13.8181818,4 C15.1706419,4 15.9316381,4.70185442 15.9956071,6 Z"
+            fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+        <path
+            d="M10.1818182,8 L17.8181818,8 C19.2324881,8 20,8.76751186 20,10.1818182 L20,17.8181818 C20,19.2324881 19.2324881,20 17.8181818,20 L10.1818182,20 C8.76751186,20 8,19.2324881 8,17.8181818 L8,10.1818182 C8,8.76751186 8.76751186,8 10.1818182,8 Z"
+            fill="#000000"/>
+    </g>
+</svg><!--end::Svg Icon--></span>
+                                 </span>
+                        <span class="menu-text">{{trans('menu.courses')}}</span>
+                        <span class="menu-label">
+                        <span class="label label-rounded label-light-success">
+                             {{App\Models\Course::withoutTrashed()->count()}}
+                        </span>
+                    </span>
+                    </a>
+                </li>
+            @endcan
+
+        <!------------------------------------ activities    ---------------------------------------------------->
+            @can('activities')
+                <li class="menu-item  menu-item-submenu
+                  @if(str_contains(url()->current(), '/summer-camps')
+                     || str_contains(url()->current(), '/contests'))
+                    menu-item-open @endif"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                    <span class="svg-icon menu-icon">
+                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Layout\Layout-top-panel-4.svg--><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24"/>
+                            <path
+                                d="M3,4 L20,4 C20.5522847,4 21,4.44771525 21,5 L21,7 C21,7.55228475 20.5522847,8 20,8 L3,8 C2.44771525,8 2,7.55228475 2,7 L2,5 C2,4.44771525 2.44771525,4 3,4 Z M3,10 L13,10 C13.5522847,10 14,10.4477153 14,11 L14,13 C14,13.5522847 13.5522847,14 13,14 L3,14 C2.44771525,14 2,13.5522847 2,13 L2,11 C2,10.4477153 2.44771525,10 3,10 Z M3,16 L13,16 C13.5522847,16 14,16.4477153 14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L3,20 C2.44771525,20 2,19.5522847 2,19 L2,17 C2,16.4477153 2.44771525,16 3,16 Z"
+                                fill="#000000"/>
+                            <rect fill="#000000" opacity="0.3" x="16" y="10" width="5" height="10" rx="1"/>
+                            </g>
+                            </svg><!--end::Svg Icon--></span>
+                    </span>
+                        <span class="menu-text">{{trans('menu.activities')}}</span>
+                        <i class="menu-arrow"></i>
+                        <span class="menu-label">
+                    </span>
+
+                    </a>
+                    <div class="menu-submenu ">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item  menu-item-parent" aria-haspopup="true">
+                            <span class="menu-link">
+                                <span class="menu-text">{{trans('menu.activities')}}</span>
+                            </span>
+                            </li>
+
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.summer.camps') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.summer_camps')}}</span>
+                                    <span class="menu-label">
+                                    <span class="label label-rounded label-info">
+                                        {{App\Models\SummerCamp::withoutTrashed()->count()}}
+                                    </span>
+                                </span>
+                                </a>
+                            </li>
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.contests') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.contests')}}</span>
+                                    <span class="menu-label">
+                                    <span class="label label-rounded label-info">
+                                         {{App\Models\Contest::withoutTrashed()->count()}}
+                                    </span>
+                                </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </li>
+            @endcan
+
+        <!------------------------------------ Talents    ---------------------------------------------------->
+            @can('talents')
+                <li class="menu-item  menu-item-submenu
+                     @if(str_contains(url()->current(), '/sounds')
+                       ||str_contains(url()->current(), '/video')
+                       ||str_contains(url()->current(), '/story-categories')
+                       ||str_contains(url()->current(), '/stories')
+                       )
+                    menu-item-open @endif"
+                    aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                    <span class="svg-icon menu-icon">
+                                <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Layout\Layout-arrange.svg--><svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24"/>
+                                <path
+                                    d="M5.5,4 L9.5,4 C10.3284271,4 11,4.67157288 11,5.5 L11,6.5 C11,7.32842712 10.3284271,8 9.5,8 L5.5,8 C4.67157288,8 4,7.32842712 4,6.5 L4,5.5 C4,4.67157288 4.67157288,4 5.5,4 Z M14.5,16 L18.5,16 C19.3284271,16 20,16.6715729 20,17.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,17.5 C13,16.6715729 13.6715729,16 14.5,16 Z"
+                                    fill="#000000"/>
+                                <path
+                                    d="M5.5,10 L9.5,10 C10.3284271,10 11,10.6715729 11,11.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,11.5 C4,10.6715729 4.67157288,10 5.5,10 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,12.5 C20,13.3284271 19.3284271,14 18.5,14 L14.5,14 C13.6715729,14 13,13.3284271 13,12.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z"
+                                    fill="#000000" opacity="0.3"/>
+                                </g>
+                                </svg><!--end::Svg Icon--></span>
+                    </span>
+                        <span class="menu-text">{{trans('menu.talents')}}</span>
+                        <i class="menu-arrow"></i>
+                        <span class="menu-label">
+                    </span>
+
+                    </a>
+                    <div class="menu-submenu ">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item  menu-item-parent" aria-haspopup="true">
+                            <span class="menu-link">
+                                <span class="menu-text">{{trans('menu.talents')}}</span>
+                            </span>
+                            </li>
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.sounds') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.sounds')}}</span>
+                                    <span class="menu-label">
+                                    <span class="label label-rounded label-light-danger">
+                                        {{App\Models\Sound::withoutTrashed()->count()}}
+                                    </span>
+                                </span>
+                                </a>
+                            </li>
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.videos') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.videos')}}</span>
+                                    <span class="menu-label">
+                                    <span class="label label-rounded label-light-danger">
+                                      {{App\Models\Video::withoutTrashed()->count()}}
+                                    </span>
+                                </span>
+                                </a>
+                            </li>
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.stories') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.success_stories')}}</span>
+                                    <span class="menu-label">
+                                    <span class="label label-rounded label-light-danger">
+                                       {{App\Models\Story::count()}}
+                                    </span>
+                                </span>
+                                </a>
+                            </li>
+
+
+                            <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{!! route('admin.story.categories') !!}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                    <span class="menu-text">{{trans('menu.success_story_categories')}}</span>
+                                    <span class="menu-label">
+                                    <span class="label label-rounded label-light-danger">
+                                         {{App\Models\StoryCategory::count()}}
+                                    </span>
+                                </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </li>
+            @endcan
+
+
         </ul>
         <!--end::Menu Nav-->
     </div>

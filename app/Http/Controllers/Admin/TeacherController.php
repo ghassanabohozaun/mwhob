@@ -9,9 +9,11 @@ use App\Http\Requests\TeacherRequest;
 use App\Http\Requests\TeacherUpdateRequest;
 use App\Http\Resources\TeachersResource;
 use App\Http\Resources\TeachersTrashedResource;
+use App\Models\Course;
 use App\Models\Teacher;
 use App\Models\Teacher_Category;
 use App\Traits\GeneralTrait;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,7 +43,21 @@ class TeacherController extends Controller
             $offset = $request->start;
         }
 
-        $list = Teacher::orderByDesc('created_at')->offset($offset)->take($perPage)->get();
+        if (!empty($request->search_name)) {
+            $searchQuery = $request->search_name;
+            $requestData = ['teacher_full_name'];
+            $list = Teacher::withoutTrashed()->orderByDesc('created_at')
+                ->where(function ($q) use ($requestData, $searchQuery) {
+                    foreach ($requestData as $field)
+                        $q->orWhere($field, 'like', "%{$searchQuery}%");
+                })->get();
+        }else{
+            $list = Teacher::withoutTrashed()->orderByDesc('created_at')->offset($offset)->take($perPage)->get();
+
+        }
+
+
+
         $arr = TeachersResource::collection($list);
         $recordsTotal = Teacher::get()->count();
         $recordsFiltered = Teacher::get()->count();
@@ -94,7 +110,6 @@ class TeacherController extends Controller
         return view('admin.teachers.create', compact('title'));
     }
 
-
     /////////////////////////////////////////
     ///  store
     public function store(TeacherRequest $request)
@@ -116,6 +131,7 @@ class TeacherController extends Controller
 
             Teacher::create([
                 'teacher_photo' => $photo_path,
+                'slug_teacher_full_name' => slug($request->teacher_full_name),
                 'teacher_full_name' => $request->teacher_full_name,
                 'teacher_email' => $request->teacher_email,
                 'teacher_bio' => $request->teacher_bio,
@@ -155,8 +171,6 @@ class TeacherController extends Controller
     {
 
         try {
-
-
             $teacher = Teacher::find($request->id);
 
             if (!$teacher) {
@@ -202,6 +216,7 @@ class TeacherController extends Controller
 
             $teacher->update([
                 'teacher_photo' => $photo_path,
+                'slug_teacher_full_name' => slug($request->teacher_full_name),
                 'teacher_full_name' => $request->teacher_full_name,
                 'teacher_bio' => $request->teacher_bio,
                 'password' => $password,
@@ -245,6 +260,21 @@ class TeacherController extends Controller
                 if (!$teacher) {
                     return redirect()->route('admin.not.found');
                 }
+
+                ////////////////////////////////////////////////////////////////////////
+                /// Check Courses
+                $courses = Course::where('teacher_id', $request->id)->get();
+                if (!$courses->isEmpty()) {
+                    return $this->returnError([trans('teachers.cannot_be_deleted_because_it_have_courses')], 500);
+                }
+
+                ////////////////////////////////////////////////////////////////////////
+                /// Check Teacher Category
+                $teacherCategory = Teacher_Category::where('teacher_id', $request->id)->get();
+                if (!$teacherCategory->isEmpty()) {
+                    return $this->returnError([trans('teachers.cannot_be_deleted_because_it_belong_to_category')], 500);
+                }
+
                 $teacher->delete();
                 return $this->returnSuccessMessage(trans('general.move_to_trash'));
             }
@@ -314,8 +344,9 @@ class TeacherController extends Controller
         $title = trans('teachers.profile');
 
         $teacherCategories = Teacher_Category::with('category')->where('teacher_id', $teacher->id)->get();
-
-        return view('admin.teachers.profile', compact('title', 'teacher', 'teacherCategories'));
+        $courses = Course::where('teacher_id', $id)->get();
+        return view('admin.teachers.profile', compact('title', 'teacher',
+            'teacherCategories','courses'));
     }
 
     ///////////////////////////////////////
@@ -355,40 +386,74 @@ class TeacherController extends Controller
     }
 
     //////////////////////////////////////
-    /// add category
+    /// add  Teacher category
     public function addCategory(TeacherAddCategoryRequest $request)
     {
-        $categoryExists = Teacher_Category::where('category_id', $request->category_id)
-            ->where('teacher_id', $request->teacher_category_id)->get();
 
-        if ($categoryExists->isEmpty()) {
-            Teacher_Category::create([
-                'category_id' => $request->category_id,
-                'teacher_id' => $request->teacher_category_id,
-            ]);
-            return $this->returnSuccessMessage(trans('general.add_success_message'));
-        } else {
-            return $this->returnError(trans('teachers.category_exists'), '500');
+        try {
+            $categoryExists = Teacher_Category::where('category_id', $request->category_id)
+                ->where('teacher_id', $request->teacher_category_id)->get();
 
-        }
+            if ($categoryExists->isEmpty()) {
+                Teacher_Category::create([
+                    'category_id' => $request->category_id,
+                    'teacher_id' => $request->teacher_category_id,
+                ]);
+                return $this->returnSuccessMessage(trans('general.add_success_message'));
+            } else {
+                return $this->returnError(trans('teachers.category_exists'), '500');
 
+            }
 
+        } catch (\Exception $exception) {
+            return $this->returnError(trans('general.try_catch_error_message'), 500);
+        }//end catch
     }
 
     //////////////////////////////////////
-    /// delete category
+    /// delete Teacher category
 
     public function deleteCategory(Request $request)
     {
-        if($request->ajax()){
+        try {
+            if ($request->ajax()) {
 
-            $teacherCategory  =   Teacher_Category::find($request->id);
-            if (!$teacherCategory) {
-                return redirect()->route('admin.not.found');
+                $teacherCategory = Teacher_Category::find($request->id);
+                if (!$teacherCategory) {
+                    return redirect()->route('admin.not.found');
+                }
+                $teacherCategory->delete();
+                return $this->returnSuccessMessage(trans('general.delete_success_message'));
             }
-            $teacherCategory->delete();
-            return $this->returnSuccessMessage(trans('general.delete_success_message'));
+        } catch (\Exception $exception) {
+            return $this->returnError(trans('general.try_catch_error_message'), 500);
+        }//end catch
+    }
+
+    ///////////////////////////////////////////////////////////////
+    /// get All Teacher Name
+    public function getAllTeacherName(Request $request)
+    {
+        $data = [];
+        if ($request->has('q')) {
+            $search = $request->q;
+            $data = DB::table("teachers")
+                ->select("id", "teacher_full_name")
+                ->where('teacher_full_name', 'LIKE', "%$search%")
+                ->get();
         }
+        return response()->json($data);
+    }
+
+
+    public function show($id)
+    {
+        $teacher = Teacher::find($id);
+
+        session(['teacher_id' => $teacher->id]);
+        session(['teacher_login' => 'login']);
+
+        return redirect()->route('teacher.dashboard');
     }
 }
 

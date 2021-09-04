@@ -1,5 +1,5 @@
 @if($instance->photo == null)
-    @if($instance->gender == trans('general.male'))
+    @if($instance->mowhob_gender == trans('general.male'))
         <img src="{{asset('adminBoard/images/male.jpeg')}}"
              width="80" height="80"
              class="img-fluid img-thumbnail"/>

@@ -16,6 +16,7 @@ return [
     'teacher_categories'=>'Teacher Categories',
     'category_name'=>'Category_name',
     'notifications'=>'Notifications',
+    'change_teacher'=>'Change Teacher',
 
 
     'teacher_photo' => 'Photo',
@@ -52,7 +53,7 @@ return [
     'in' => 'The entered value is not valid',
     'image' => 'must be image ',
     'image_max' => 'Max allow image size 1 mega',
-    'mimes' => 'image with png format only',
+    'mimes' => 'image with this format jpeg,jpg,png',
     'photo_required' => 'Offer Photo Required',
     'email_email' => 'Email Must be in this format admin@admin.com',
     'min' => 'Password Must be Grater than 6 characters',
@@ -63,5 +64,8 @@ return [
 
     'category_exists'=>'Category Exists',
     'no_category_exists'=>'The teacher does not have any group',
+    'cannot_be_deleted_because_it_have_courses' => 'Teacher Cannot Be Deleted Because It Have Courses',
+    'no_courses_exists'=>'The teacher does not have any course',
+    'cannot_be_deleted_because_it_belong_to_category' => 'Teacher Cannot Be Deleted Because It Belong To Category',
 
 ];

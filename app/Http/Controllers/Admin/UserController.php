@@ -241,7 +241,7 @@ class UserController extends Controller
     /// change  status
     public function changeStatus(Request $request)
     {
-
+        try {
             $admin = Admin::find($request->id);
             if ($request->switchStatus == 'false') {
                 $admin->status = null;
@@ -251,7 +251,9 @@ class UserController extends Controller
                 $admin->save();
             }
             return $this->returnSuccessMessage(trans('general.change_status_success_message'));
-
+        } catch (\Exception $exception) {
+            return $this->returnError(trans('general.try_catch_error_message'), 500);
+        }//end catch
 
     }
 

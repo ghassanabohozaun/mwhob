@@ -10,13 +10,14 @@ return [
     'active' => 'فعال',
     'no_cv' => 'لا يوجد سيرة ذاتية للمدرس',
     'show_cv' => 'عرض السيرة الذاتية',
-    'courses' => 'الدروس',
+    'courses' => 'الدورات',
     'categories' => 'المجموعات',
     'change_password'=>'تغير كلمة المرور',
     'confirm_password'=>'اعادة كلمة المرور',
     'teacher_categories'=>'مجموعات المدرسين',
     'category_name'=>'اسم المجموعة',
     'notifications'=>'الاشعارات',
+    'change_teacher'=>'تغير المدرس',
 
 
 
@@ -56,7 +57,7 @@ return [
     'in' => 'القيمة المدخلة غير صحيحة',
     'image' => 'يجب ان تكون صورة',
     'image_max' => 'حجم الصورة المسموح به 1 ميجا فقط',
-    'mimes' => 'يجب ان تكون صورة بصيغة الصيغ png',
+    'mimes' => 'يجب ان تكون صورة باحدي الصيغ png ,jpeg,jpg',
     'image_required' => 'الصورة  مطلوبة',
     'email_email' => 'يجب ان تكون صيغة الايميل مثل admin@admin.com',
     'min' => 'يجب ان تكون كلمة المرور اكثر من 6 حروف',
@@ -66,5 +67,9 @@ return [
 
     'category_exists'=>'تم اضافة المجموعة سابقاً',
     'no_category_exists'=>'المدرس لا ينتمي لاي مجموعة',
+    'cannot_be_deleted_because_it_have_courses'=>'لا يمكن حذف المدرس لامتلاكه لدورات',
+    'no_courses_exists'=>'المدرس لا يتملك اي دورة ',
+    'cannot_be_deleted_because_it_belong_to_category'=>'لا يمكن حذف المدرس لانه ينتمي الي مجموعة',
+
 
 ];

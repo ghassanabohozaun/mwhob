@@ -11,7 +11,7 @@
                 </button>
             </div>
 
-            <form method="POST" action="{!! route('teacher.add.category') !!}"
+            <form method="POST" action="{!! route('admin.teacher.add.category') !!}"
                   id="form_teacher_categories"
                   enctype="multipart/form-data">
                 @csrf
@@ -221,7 +221,7 @@
         //  Fill Categories Table
         function FillCategoriesTable(teacher_id=null){
             $.ajax({
-                url: "{!! route('teacher.get.all.teacher.categories') !!}",
+                url: "{!! route('admin.teacher.get.all.teacher.categories') !!}",
                 data: {teacher_id: teacher_id},
                 type: 'GET',
                 dataType: 'json', // added data type

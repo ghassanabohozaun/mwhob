@@ -16,13 +16,14 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('icon')->nullable();
+            $table->string('slug_name_ar')->nullable();
+            $table->string('slug_name_en')->nullable();
             $table->string('name_ar')->nullable();
             $table->string('name_en')->nullable();
             $table->longText('description_ar')->nullable();
             $table->longText('description_en')->nullable();
-            $table->enum('field',['courses','success_stories'])->default('courses');
+            $table->enum('field',['courses','mawhobs','teachers'])->default('courses');
             $table->enum('language',['ar','ar_en'])->default('ar');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

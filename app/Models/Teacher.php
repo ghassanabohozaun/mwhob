@@ -14,6 +14,7 @@ class Teacher extends Authenticatable
     protected $table = 'teachers';
     protected $fillable = [
         'teacher_photo',
+        'slug_teacher_full_name',
         'teacher_full_name',
         'teacher_email',
         'teacher_bio',
@@ -25,12 +26,17 @@ class Teacher extends Authenticatable
         'teacher_photos_and_videos_link',
         'teacher_gender',
         'teacher_freeze',
-
         'teacher_last_login_at',
         'teacher_last_login_ip',
         'teacher_remember_token',
     ];
     protected $hidden = ['updated_at', 'remember_token'];
+    //////////////////////////////////////////////////////////////
+    /// Relations
+    public function course()
+    {
+        return $this->hasOne('App\Models\Course', 'teacher_id', 'id');
+    }
     //////////////////////////////////// accessors ///////////////////////
     /// Gender accessors
     public function getTeacherGenderAttribute($value)
@@ -41,4 +47,6 @@ class Teacher extends Authenticatable
             return trans('general.female');
         }
     }
+
+    
 }

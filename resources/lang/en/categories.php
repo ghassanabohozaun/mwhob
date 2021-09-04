@@ -3,11 +3,13 @@
 return [
 
 
-    'update_category' => 'Update New Category',
+    'update_category' => 'Update Category',
     'trashed_categories' => 'Trashed Categories',
 
     'courses' => 'Courses',
-    'success_stories' => 'Success Stories',
+    'mawhobs' => 'Mawhobs',
+    'teachers' => 'Teachers',
+
 
     'icon' => 'Icon',
     'name_ar' => 'Name | ar',
@@ -29,7 +31,12 @@ return [
     'in' => 'The entered value is not valid',
     'image' => 'must be image ',
     'image_max' => 'Max allow image size 1 mega',
-    'mimes' => 'image with png format only',
+    'mimes' => 'image with this format jpeg,jpg,png',
     'photo_required' => 'Offer Photo Required',
+
+    'cannot_be_deleted_because_it_have_courses' => 'Category Cannot Be Deleted Because It Have Courses',
+    'cannot_be_deleted_because_it_have_teacher_category' => 'Category Cannot Be Deleted Because It Have Teacher Category',
+    'cannot_be_deleted_because_it_have_mawhob' => 'Category Cannot Be Deleted Because It Have Mawhob',
+
 
 ];

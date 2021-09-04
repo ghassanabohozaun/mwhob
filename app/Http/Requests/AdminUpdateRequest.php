@@ -26,6 +26,7 @@ class AdminUpdateRequest extends FormRequest
         return [
             'name'=>'required',
             'password'=>'sometimes|nullable|min:6',
+            'confirm_password'=>'same:password',
         ];
     }
 
@@ -36,6 +37,7 @@ class AdminUpdateRequest extends FormRequest
             'email.required'=>trans('login.email_required'),
             'email.email'=>trans('login.email_email'),
             'password.min'=>trans('login.password_min'),
+            'confirm_password.same' => trans('login.same'),
         ];
     }
 }

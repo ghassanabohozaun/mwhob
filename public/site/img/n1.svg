@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="46" viewBox="0 0 46 46">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f2cb05"/>
+      <stop offset="1" stop-color="#ceb117"/>
+    </radialGradient>
+  </defs>
+  <g id="n1" transform="translate(-483 -817)">
+    <circle id="Ellipse_1175" data-name="Ellipse 1175" cx="23" cy="23" r="23" transform="translate(483 817)" fill="url(#radial-gradient)"/>
+    <g id="labour-day" transform="translate(494 828)">
+      <g id="Group_40061" data-name="Group 40061" transform="translate(7.914 4.068)">
+        <g id="Group_40060" data-name="Group 40060">
+          <path id="Path_3051" data-name="Path 3051" d="M176.284,97.425v1.328h-6.191V97.425a.547.547,0,0,1,.547-.547h1.142V90.767l-.81.81a.537.537,0,0,1-.759,0l-1.23-1.23a.536.536,0,0,1,0-.758l2.57-2.57a.78.78,0,0,1,.55-.228H174.1a.5.5,0,0,1,.5.5v9.59h1.142A.547.547,0,0,1,176.284,97.425Z" transform="translate(-168.827 -86.79)" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_40067" data-name="Group 40067" transform="translate(3.555)">
+        <g id="Group_40062" data-name="Group 40062" transform="translate(8.013)">
+          <path id="Path_3052" data-name="Path 3052" d="M247.5,2.953a.7.7,0,0,1-.7-.7V.7A.7.7,0,0,1,248.2.7V2.25A.7.7,0,0,1,247.5,2.953Z" transform="translate(-246.797)" fill="#fff"/>
+        </g>
+        <g id="Group_40063" data-name="Group 40063" transform="translate(0 5.822)">
+          <path id="Path_3053" data-name="Path 3053" d="M78.1,125.613H76.554a.7.7,0,0,1,0-1.406H78.1a.7.7,0,1,1,0,1.406Z" transform="translate(-75.851 -124.207)" fill="#fff"/>
+        </g>
+        <g id="Group_40064" data-name="Group 40064" transform="translate(13.073 5.822)">
+          <path id="Path_3054" data-name="Path 3054" d="M356.993,125.613h-1.547a.7.7,0,1,1,0-1.406h1.547a.7.7,0,0,1,0,1.406Z" transform="translate(-354.743 -124.207)" fill="#fff"/>
+        </g>
+        <g id="Group_40065" data-name="Group 40065" transform="translate(11.989 1.213)">
+          <path id="Path_3055" data-name="Path 3055" d="M332.316,28.291a.7.7,0,0,1-.5-1.2l1-1a.7.7,0,0,1,.994.994l-1,1A.7.7,0,0,1,332.316,28.291Z" transform="translate(-331.612 -25.888)" fill="#fff"/>
+        </g>
+        <g id="Group_40066" data-name="Group 40066" transform="translate(3.041 1.213)">
+          <path id="Path_3056" data-name="Path 3056" d="M142.419,28.291a.7.7,0,0,1-.5-.206l-1-1a.7.7,0,1,1,.994-.994l1,1a.7.7,0,0,1-.5,1.2Z" transform="translate(-140.719 -25.888)" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_40068" data-name="Group 40068" transform="translate(0 17.437)">
+        <path id="Path_3057" data-name="Path 3057" d="M.186,401.15l1.5,1.524L.186,404.2A.652.652,0,0,0,.7,405.3H3.811V400.05H.7a.653.653,0,0,0-.518,1.1Z" transform="translate(0 -398.735)" fill="#fff"/>
+        <path id="Path_3058" data-name="Path 3058" d="M432.824,402.674l1.5-1.524a.653.653,0,0,0-.518-1.1H430.7V405.3h3.107a.652.652,0,0,0,.518-1.1Z" transform="translate(-410.509 -398.735)" fill="#fff"/>
+        <path id="Path_3059" data-name="Path 3059" d="M124.162,372H112a.7.7,0,0,0-.7.7v4.453h13.566V372.7a.7.7,0,0,0-.7-.7Z" transform="translate(-106.083 -372)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

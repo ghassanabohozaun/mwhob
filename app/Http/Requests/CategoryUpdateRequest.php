@@ -15,7 +15,7 @@ class CategoryUpdateRequest extends FormRequest
     {
         if (setting()->site_lang_en == 'on') {
             return [
-                'icon' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:1024',
+                'icon' => 'sometimes|nullable|image|mimes:jpg,jpeg,png,svg|max:1024',
                 'name_ar' => 'required',
                 'name_en' => 'required',
                 'description_ar' => 'required',
@@ -24,7 +24,7 @@ class CategoryUpdateRequest extends FormRequest
             ];
         } else {
             return [
-                'icon' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:1024',
+                'icon' => 'sometimes|nullable|image|mimes:jpg,jpeg,png,svg|max:1024',
                 'name_ar' => 'required',
                 'description_ar' => 'required',
                 'field' => 'required|min:1',

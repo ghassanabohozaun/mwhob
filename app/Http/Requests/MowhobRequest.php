@@ -44,7 +44,7 @@ class MowhobRequest extends FormRequest
             'photo.image' => trans('mowhob.image'),
             'photo.required' => trans('mowhob.photo_required'),
             'photo.mimes' => trans('mowhob.mimes'),
-            'photo.max' => trans('mowhob.image_required'),
+            'photo.max' => trans('mowhob.image_max'),
         ];
     }
 }

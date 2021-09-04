@@ -1,0 +1,60 @@
+
+#form_contact_message_send label {
+    display: inline-block;
+    margin-bottom: 0rem;
+}
+
+.error {
+    margin-top: 2px;
+    color: red;
+}
+
+#courses_section {
+    padding-top: 30px;
+}
+
+#contests_section, #sounds_section, #videos_section {
+    padding-top: 5px;
+}
+
+#contactUs {
+    padding-top: 35px;
+}
+
+.item-itunes .img-views img {
+    width: 30px;
+    height: 30px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+#my_list_user_li {
+    padding: 20px
+}
+
+.font_size_14 {
+    font-size: 14px;
+}
+
+
+.min_height_480 {
+    min-height: 488px
+}
+
+
+.my_price {
+    color: #707070;
+    font-size: 20px;
+}
+
+.my_text_decoration {
+    padding-bottom: 20px;
+    text-decoration: underline;
+    text-underline-offset: 0.4em;
+}
+
+#no_data_img {
+
+    display: block;
+    margin: 20px auto;
+}

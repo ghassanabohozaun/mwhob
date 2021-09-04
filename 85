@@ -1,0 +1,21 @@
+
+   Illuminate\Contracts\Container\BindingResolutionException 
+
+  Unable to resolve dependency [Parameter #0 [ <required> $id ]] in class App\Console\Commands\TestTask
+
+  at C:\laragon\www\mwhob\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:182
+    178|             $dependencies[] = $parameter->getDefaultValue();
+    179|         } elseif (! $parameter->isOptional() && ! array_key_exists($paramName, $parameters)) {
+    180|             $message = "Unable to resolve dependency [{$parameter}] in class {$parameter->getDeclaringClass()->getName()}";
+    181| 
+  > 182|             throw new BindingResolutionException($message);
+    183|         }
+    184|     }
+    185| 
+    186|     /**
+
+  1   C:\laragon\www\mwhob\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:124
+      Illuminate\Container\BoundMethod::addDependencyForCallParameter(Object(Illuminate\Foundation\Application), Object(ReflectionParameter), [], [])
+
+  2   C:\laragon\www\mwhob\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php:36
+      Illuminate\Container\BoundMethod::getMethodDependencies(Object(Illuminate\Foundation\Application), [])

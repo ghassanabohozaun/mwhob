@@ -25,7 +25,7 @@ class CategoryRequest extends FormRequest
     {
         if (setting()->site_lang_en == 'on') {
             return [
-                'icon' => 'required|image|mimes:jpg,jpeg,png|max:1024',
+                'icon' => 'required|image|mimes:jpg,jpeg,png,svg|max:1024',
                 'name_ar' => 'required',
                 'name_en' => 'required',
                 'description_ar' => 'required',
@@ -34,7 +34,7 @@ class CategoryRequest extends FormRequest
             ];
         } else {
             return [
-                'icon' => 'required|image|mimes:jpg,jpeg,png|max:1024',
+                'icon' => 'required|image|mimes:jpg,jpeg,png,svg|max:1024',
                 'name_ar' => 'required',
                 'description_ar' => 'required',
                 'field' => 'required|min:1',

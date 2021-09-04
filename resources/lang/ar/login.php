@@ -20,6 +20,7 @@ return [
     'photo' => 'الصورة',
     'password' => 'كلمة المرور',
     'mobile' => 'رقم الموبايل',
+    'confirm_password'=>'تاكيد كلمة المرور',
 
 
     'enter_name' => 'ادخل الاسم',
@@ -27,12 +28,14 @@ return [
     'enter_photo' => 'ادخل الصورة',
     'enter_password' => 'ادخل كلمة المرور',
     'enter_mobile' => 'ادخل رقم الموبايل',
+    'enter_confirm_password'=>'ادخل تاكيد كلمة المرور',
 
     'name_required'=>'الاسم مطلوب',
     'email_required' => 'الايميل مطلوب',
     'email_email' => 'يجب ان تكون صيغة الايميل مثل admin@admin.com',
     'password_required' => 'كلمة المرور مطلوبة',
     'password_min' => 'يجب ان كلمة المرور اكبر من 6 حروف',
+    'same'=>'كلمة المرور غير متطابقة',
 
     'login_failed' => 'فشل عملية تسجيل الدخول',
     'account_unavailable'=>'الحساب غير متوفر',

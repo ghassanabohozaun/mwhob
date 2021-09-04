@@ -16,6 +16,7 @@ class LoginController extends Controller
     {
         return view('admin.auth.login');
     }
+
     /////////////////////////////////////
     /// do Login
     public function doLogin(LoginRequest $request)
@@ -49,6 +50,7 @@ class LoginController extends Controller
         }
 
     }
+
     /////////////////////////////////////
     ///  Logout
     public function logout()

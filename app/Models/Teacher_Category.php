@@ -11,7 +11,7 @@ class Teacher_Category extends Model
         'category_id',
         'teacher_id',
     ];
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['updated_at'];
 
 
     public function category(){

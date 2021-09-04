@@ -25,6 +25,7 @@ return [
     'photo' => 'Photo',
     'password' => 'Password',
     'mobile' => 'Mobile',
+    'confirm_password'=>'Confirm Password',
 
 
     'enter_name' => 'Enter Name',
@@ -32,6 +33,7 @@ return [
     'enter_photo' => 'Enter Photo',
     'enter_password' => 'Enter Password',
     'enter_mobile' => 'Enter Mobile',
+    'enter_confirm_password'=>'Enter Confirm Password',
 
 
     'required' => 'This Field Required',
@@ -46,6 +48,7 @@ return [
     'password_required' => 'Password Required',
     'password_min' => 'Password Must be Grater than 6 characters',
     'login_failed' => 'Login Failed',
+    'same'=>'Password does not match',
 
     'account_unavailable'=>'Account Unavailable',
     'account_disabled'=>'Account Disabled',

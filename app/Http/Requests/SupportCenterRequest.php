@@ -28,6 +28,7 @@ class SupportCenterRequest extends FormRequest
             'customer_email' => 'required|email',
             'title' => 'required',
             'message' => 'required',
+            'captcha' => 'required|captcha'
         ];
     }
 
@@ -36,7 +37,7 @@ class SupportCenterRequest extends FormRequest
         return [
             'required' => trans('supportCenter.required'),
             'customer_email.email' => trans('supportCenter.email_email'),
-
+            'captcha'=>trans('supportCenter.captcha')
         ];
     }
 }

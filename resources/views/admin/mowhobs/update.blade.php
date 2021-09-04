@@ -25,7 +25,7 @@
 
                         <li class="breadcrumb-item">
                             <a href="" class="text-muted">
-                                {{trans('menu.update_mowhob')}}
+                                {{trans('mowhob.update_mowhob')}}
                             </a>
                         </li>
 

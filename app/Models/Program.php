@@ -12,6 +12,8 @@ class Program extends Model
     protected $table = 'programs';
     protected $fillable = [
         'icon',
+        'slug_name_ar',
+        'slug_name_en',
         'name_ar',
         'name_en',
         'short_description_ar',
@@ -24,6 +26,10 @@ class Program extends Model
         'status',
     ];
 
-
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['updated_at'];
+    //////////////////////////////////////////////////////////////
+    public function mawhobEnrollProgram()
+    {
+        return $this->hasMany('App\Models\MawhobEnrollProgram', 'program_id', 'id');
+    }
 }

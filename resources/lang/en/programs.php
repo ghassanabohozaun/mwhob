@@ -3,33 +3,55 @@
 return [
 
 
-    'update_category' => 'Update New Category',
-    'trashed_categories' => 'Trashed Categories',
+    'update_program' => 'Update New Program',
+    'trashed_programs' => 'Trashed Programs',
+    'search_name'=>'Name',
+    'enter_search_name'=>'Enter Name',
 
-    'courses' => 'Courses',
-    'success_stories' => 'Success Stories',
 
     'icon' => 'Icon',
     'name_ar' => 'Name | ar',
     'name_en' => 'Name | en',
-    'description_ar' => 'Description | ar',
-    'description_en' => 'Description | en',
-    'field' => 'Field',
+    'short_description_ar' => 'Short Description | ar',
+    'short_description_en' => 'Short Description | en',
+    'hours' => 'Hours',
+    'work_plan' => 'Work Plane',
+    'date' => 'Date',
+    'price' => 'Price',
+    'language' => 'Language',
+    'status' => 'Status',
 
     'enter_icon' => 'Enter Icon',
     'enter_name_ar' => 'Enter Arabic Name ',
-    'enter_name_en' => 'Enter English Name',
-    'enter_description_ar' => 'Enter Arabic Description',
-    'enter_description_en' => 'Enter English Description',
-    'enter_field' => 'Enter Field',
-
+    'enter_name_en' => 'Enter English Name ',
+    'enter_short_description_ar' => 'Enter Arabic Short Description ',
+    'enter_short_description_en' => 'Enter English Short Description ',
+    'enter_hours' => 'Enter Hours',
+    'enter_work_plan' => 'Enter Work Plane',
+    'enter_date' => 'Enter Date',
+    'enter_price' => 'Enter Price',
+    'enter_language' => 'Enter Language',
+    'enter_status' => 'Enter Status',
 
     'required' => 'This Field Required',
     'max' => 'Max allow characters 100',
     'in' => 'The entered value is not valid',
+    'numeric' => 'must be numeric',
     'image' => 'must be image ',
     'image_max' => 'Max allow image size 1 mega',
-    'mimes' => 'image with png format only',
+    'mimes' => 'image with this format jpeg,jpg,png',
     'photo_required' => 'Offer Photo Required',
+    'no_work_plan' => 'No Work Plan Exists',
+    'show_work_plan' => 'Show Work Plan',
+
+    'cannot_be_deleted_because_it_enroll_mawhob' => 'Program Cannot Be Deleted Because it Enrolled By Mawhob',
+    /////////////////////////////////////////////////////////
+    /// enrolled List
+
+    'mawhobs_enrolled_in_program' => 'Mawhobs Enrolled In Program',
+    'enrolled_list' => 'Enrolled List',
+    'add_new_mawhob' => 'Add New Mawhob',
+    'mawhob_id' => 'Mawhob',
+    'enrolled_date' => 'enrolled Date',
 
 ];

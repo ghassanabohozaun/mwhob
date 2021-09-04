@@ -16,10 +16,12 @@ class CreateProgramsTable extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->string('icon')->nullable();
+            $table->string('slug_name_ar')->nullable();
+            $table->string('slug_name_en')->nullable();
             $table->string('name_ar')->nullable();
             $table->string('name_en')->nullable();
-            $table->string('short_description_ar')->nullable();
-            $table->string('short_description_en')->nullable();
+            $table->text('short_description_ar')->nullable();
+            $table->text('short_description_en')->nullable();
             $table->double('hours')->nullable();
             $table->string('work_plan')->nullable();
             $table->string('date')->nullable();

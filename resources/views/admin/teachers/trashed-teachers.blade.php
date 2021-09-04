@@ -13,7 +13,7 @@
                 <!--begin::Actions-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
-                        <a href="#" class="text-muted">
+                        <a href="javascript:void(0);" class="text-muted">
                             {{trans('teachers.trashed_teachers')}}
                         </a>
                     </li>
@@ -103,7 +103,7 @@
     <script src="{{asset('adminBoard/assets/js/data_table.js')}}" type="text/javascript"></script>
 
     <script>
-        window.data_url = "{{route('get.trashed.teachers')}}";
+        window.data_url = "{{route('get.admin.trashed.teachers')}}";
         window.columns = [{data: "id"},
             {data: "teacher_photo"},
             {data: "teacher_full_name"},
@@ -137,7 +137,7 @@
                     //////////////////////////////////////
                     // Delete Teacher
                     $.ajax({
-                        url: '{!! route('teachers.force.delete') !!}',
+                        url: '{!! route('admin.teachers.force.delete') !!}',
                         data: {id, id},
                         type: 'post',
                         dataType: 'json',
@@ -178,7 +178,7 @@
             var id = $(this).data('id');
 
             $.ajax({
-                url: "{{route('teachers.restore')}}",
+                url: "{{route('admin.teachers.restore')}}",
                 data: {id, id},
                 type: 'post',
                 dataType: 'JSON',

@@ -13,7 +13,7 @@ class Role extends Model
         'role_name_en',
         'permissions',
     ];
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['updated_at'];
 
     public function users()
     {

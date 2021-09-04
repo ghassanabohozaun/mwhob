@@ -12,78 +12,51 @@
     <div class="card-body py-2" style="overflow:auto; height: 300px">
         <div class="container-fluid">
             <div class="row">
-                <div class="table-responsive-lg">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">course Name</th>
-                            <th scope="col">course details</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
+                <div class="table-responsive">
 
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
+                    @if($mawhobEnrolledContests->isEmpty())
 
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
+                        <img src="{!! asset('site/images/noRecordFound.svg') !!}"
+                             class="img-fluid" id="no_data_img"
+                             title="{!! trans('site.no_date') !!}">
+                    @else
+                        <table class="table" style="text-align: center;vertical-align: middle;">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">{!! trans('contests.name_ar') !!}</th>
+                                <th scope="col">{!! trans('contests.name_en') !!}</th>
+                                <th scope="col">{!! trans('contests.enrolled_date') !!}</th>
+                                <th scope="col">{!! trans('contests.mawhob_winner') !!}</th>
 
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($mawhobEnrolledContests as $key=>$mawhobEnrolledContest)
+                                <tr>
+                                    <td>{!! $key+1 !!}</td>
+                                    <td>{!! $mawhobEnrolledContest->contest->name_ar !!}</td>
+                                    <td>{!! $mawhobEnrolledContest->contest->name_en !!}</td>
+                                    <td>{!! $mawhobEnrolledContest->enrolled_date !!}</td>
+                                    <td>
+                                    @if($mawhobEnrolledContest->mawhob_winner == 'false')
+                                           <span class="text-danger">
+                                               {!! trans('contests.not_winner') !!}
+                                           </span>
+                                        @else
+                                            <span class="text-success">
+                                            {!! trans('contests.winner') !!}
+                                         </span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
 
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
+                            </tbody>
+                        </table>
 
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
+                    @endif
 
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        </tbody>
-                    </table>
                 </div>
 
             </div>

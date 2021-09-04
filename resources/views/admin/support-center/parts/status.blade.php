@@ -1,13 +1,13 @@
 @if( $instance->status == 'new')
-    <span class="text-warning   mr-2">
+    <span class="label label-lg font-weight-bold label-light-warning label-inline">
       {!! trans('supportCenter.new') !!}
 </span>
 @elseif( $instance->status == 'contacted')
-    <span class="text-info   mr-2">
+    <span class="label label-lg font-weight-bold label-light-ifo label-inline">
  {!! trans('supportCenter.contacted') !!}
 </span>
 @elseif( $instance->status == 'solved')
-    <span class="text-success mr-2">
+    <span class="label label-lg font-weight-bold label-light-success label-inline">
  {!! trans('supportCenter.solved') !!}
 </span>
 @endif

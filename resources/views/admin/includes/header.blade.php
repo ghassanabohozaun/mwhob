@@ -5,7 +5,15 @@
         <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
             <!--begin::Header Menu-->
             <div id="kt_header_menu" class="header-menu header-menu-mobile  header-menu-layout-default ">
+                <ul class="menu-nav ">
+                    <li class="menu-item  menu-item-open menu-item-here
+                     menu-item-submenu menu-item-rel menu-item-open menu-item-here menu-item-active">
+                        <a href="{!! route('index') !!}" class="menu-link "><span
+                                class="menu-text">{{trans('dashboard.website')}}</span><i class="menu-arrow"></i></a>
+                    </li>
 
+                </ul>
+                <!--end::Header Nav-->
             </div>
             <!--end::Header Menu-->
         </div>

@@ -45,6 +45,7 @@
 }
 
 .cst-switch input[type="checkbox"] {
+    margin-top: 8px;
     width: 55px;
     height: 18px;
     position: relative;
@@ -106,17 +107,17 @@
 
 
 .teacher_aside_menu .menu-nav > .menu-item.menu-item-active > .menu-heading, .teacher_aside_menu .menu-nav > .menu-item.menu-item-active > .menu-link {
-    background-color: #000000;
+    background-color: #EF9034;
 
 }
 .teacher_aside_menu .menu-nav > .menu-item.menu-item-active > .menu-heading .menu-text, .teacher_aside_menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-text {
-    color: #ffffff;
+    color: #171616;
 }
 
 .teacher_aside_menu .menu-nav > .menu-item.menu-item-active > .menu-heading .menu-icon.svg-icon svg g [fill], .teacher_aside_menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-icon.svg-icon svg g [fill] {
     -webkit-transition: fill 0.3s ease;
     transition: fill 0.3s ease;
-    fill: #E9B26E;
+    fill: #171616;
 }
 
 

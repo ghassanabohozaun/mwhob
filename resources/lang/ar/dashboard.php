@@ -29,13 +29,31 @@ return [
     'profile' => 'الملف الشخصي',
     'sign_out' => 'تسجيل خروج',
     'copy_rights'=>'موهوب',
+    'teachers_count'=>'عدد المدرسين',
+    'mawhobs_count'=>'عدد الموهبين',
+    'courses_count'=>'عدد الدورات',
+    'revenues_value'=>'قيمة الايرادات',
+    'daily_revenue'=>'الايرادات اليومية',
+
+    'last_courses'=>'أحدث الدورات',
+    'last_contests'=>'أحدث المسابقات',
+    'last_revenue'=>'أحدث الايرادات',
+
+    'no_courses_exists'=>'لا يوجد دورات حاليا',
+    'no_contests_exists'=>'لا يوجد مسابقات حاليا',
+    'no_revenues_exists'=>'لا يوجد ايرادات حاليا',
+    'new_mawobs_growth'=>'نمو المواهب الجديدة',
+    'new_revenues_growth'=>'نمو الايرادات الجديدة',
+
+
     /////////////////////////////////
     /// Upload Center
-
     'file' => 'الملف او الصورة',
     'file_name' => 'اسم الملف او الصورة',
     'file_mimes_type' => 'نوع الملف او الصورة',
     'full_path_after_upload' => 'المسار الكامل للملف او الصورة',
-
     'file_required' => 'الملف او الصورة مطلوبة',
+
+
+
 ];

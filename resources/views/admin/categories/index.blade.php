@@ -13,7 +13,7 @@
                 <!--begin::Actions-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
-                        <a href="#" class="text-muted">
+                        <a href="javascript:void(0);" class="text-muted">
                             {{trans('menu.categories')}}
                         </a>
                     </li>
@@ -31,12 +31,6 @@
 
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
-                <a href="{!! route('admin.trashed.categories') !!}"
-                   class="btn btn-light-danger">
-                    <i class="fa fa-trash"></i>
-                    {{trans('general.trash')}}
-                </a>
-                &nbsp;
 
                 <a href="{!! route('admin.create.category') !!}"
                    class="btn btn-primary btn-sm font-weight-bold font-size-base  mr-1">
@@ -91,10 +85,6 @@
 
                         </div>
 
-                        <form class="d-none" id="form_category_delete">
-                            <input type="hidden" id="offer_category_id">
-                        </form>
-                        <!--end::Form-->
 
                     </div>
                     <!--end::Card-->
@@ -164,6 +154,17 @@
                                 });
                                 $('.delete_category_button').click(function () {
                                     updateDataTable();
+                                });
+                            }else if (data.status == false) {
+                                Swal.fire({
+                                    title: "{!! trans('general.deleted') !!}",
+                                    text: data.msg,
+                                    icon: "warning",
+                                    allowOutsideClick: false,
+                                    customClass: {confirmButton: 'delete_error_category_button'}
+                                });
+                                $('.delete_error_category_button').click(function () {
+
                                 });
                             }
                         },//end success

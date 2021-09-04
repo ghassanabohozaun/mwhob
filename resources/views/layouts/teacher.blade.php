@@ -3,8 +3,7 @@
     lang="{!!  LaravelLocalization::getCurrentLocale() !!}"
     dir="{!! LaravelLocalization::getCurrentLocaleDirection() !!}"
     direction="{!! LaravelLocalization::getCurrentLocaleDirection() !!}"
-    style="{!! LaravelLocalization::getCurrentLocaleDirection() !!}"
->
+    style="{!! LaravelLocalization::getCurrentLocaleDirection() !!}">
 
 <!--begin::Head-->
 <head>

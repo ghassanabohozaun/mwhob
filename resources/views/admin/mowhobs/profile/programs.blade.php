@@ -12,78 +12,40 @@
     <div class="card-body py-2" style="overflow:auto; height: 300px">
         <div class="container-fluid">
             <div class="row">
-                <div class="table-responsive-lg">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">course Name</th>
-                            <th scope="col">course details</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
+                <div class="table-responsive">
+                    @if($mawhobEnrollPrograms->isEmpty())
+                        <img src="{!! asset('site/images/noRecordFound.svg') !!}"
+                             class="img-fluid" id="no_data_img"
+                             title="{!! trans('site.no_date') !!}">
+                    @else
+                        <table class="table" style="text-align: center;vertical-align: middle;">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">{!! trans('programs.name_ar') !!}</th>
+                                <th scope="col">{!! trans('programs.name_en') !!}</th>
+                                <th scope="col">{!! trans('programs.hours') !!}</th>
+                                <th scope="col">{!! trans('programs.date') !!}</th>
+                                <th scope="col">{!! trans('programs.price') !!}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($mawhobEnrollPrograms as $key=>$mawhobEnrollProgram)
+                                <tr>
+                                    <td>{!! $key+1 !!}</td>
+                                    <td>{!! $mawhobEnrollProgram->program->name_ar !!}</td>
+                                    <td>{!! $mawhobEnrollProgram->program->name_en !!}</td>
+                                    <td>{!! $mawhobEnrollProgram->program->hours !!}</td>
+                                    <td>{!! $mawhobEnrollProgram->program->date !!}</td>
+                                    <td>{!! $mawhobEnrollProgram->program->price !!}</td>
 
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
+                                </tr>
+                            @endforeach
 
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
+                            </tbody>
+                        </table>
 
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Course No 1</td>
-                            <td>course Details course Details course Details course Details </td>
-
-                        </tr>
-                        </tbody>
-                    </table>
+                    @endif
                 </div>
 
             </div>

@@ -48,7 +48,7 @@ var DatatablesSearchOptionsColumnSearch = function () {
                     serverSide: !0,
                     select: false,
                     searching: true,
-                    order: [[1, "asc"]],
+                    order: [[0, "desc"]],
                     ajax: window.data_url,
                     columns: window.columns,
 

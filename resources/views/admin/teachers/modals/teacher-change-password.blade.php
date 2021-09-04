@@ -11,7 +11,7 @@
                 </button>
             </div>
 
-            <form method="POST" action="{!! route('teacher.change.password') !!}"
+            <form method="POST" action="{!! route('admin.teacher.change.password') !!}"
                   id="form_teacher_change_password"
                   enctype="multipart/form-data">
                 @csrf
@@ -51,7 +51,8 @@
                                             <div class="col-lg-9 col-xl-9">
                                                 <input
                                                     class="form-control form-control-lg"
-                                                    name="password" id="password" type="text"
+                                                    name="password" id="password" type="password"
+                                                    placeholder="*********"
                                                     autocomplete="off"/>
                                                 <span class="form-text text-danger"
                                                       id="password_error"></span>
@@ -69,7 +70,7 @@
                                                 <input
                                                     class="form-control form-control-lg"
                                                     name="confirm_password" id="confirm_password"
-                                                    type="text"
+                                                    type="password" placeholder="*********"
                                                     autocomplete="off"/>
                                                 <span class="form-text text-danger"
                                                       id="confirm_password_error"></span>

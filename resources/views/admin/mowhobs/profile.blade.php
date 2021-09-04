@@ -87,9 +87,9 @@
                                         </a>
                                         <div class="text-muted">
                                             @if($mowhob->freeze =='on')
-                                                {!! trans('mowhob.frozen') !!}
-                                            @else
                                                 {!! trans('mowhob.active') !!}
+                                            @else
+                                                {!! trans('mowhob.frozen') !!}
                                             @endif
                                         </div>
                                     </div>

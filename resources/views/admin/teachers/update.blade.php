@@ -2,7 +2,7 @@
 @section('title') @endsection
 @section('content')
 
-    <form class="form" action="{{route('teacher.update')}}" method="POST"
+    <form class="form" action="{{route('admin.teacher.update')}}" method="POST"
           id="form_teacher_update"
           enctype="multipart/form-data">
     @csrf

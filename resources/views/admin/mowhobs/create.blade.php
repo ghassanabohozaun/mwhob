@@ -191,6 +191,32 @@
                                                     <!--end::Group-->
 
 
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('mowhob.mowhob_gender')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+
+                                                            <select
+                                                                class="form-control form-control-lg"
+                                                                name="mowhob_gender" id="mowhob_gender" type="text">
+                                                                <option value="">
+                                                                    {{trans('general.select_from_list')}}
+                                                                </option>
+                                                                <option value="male">
+                                                                    {{trans('general.male')}}
+                                                                </option>
+                                                                <option value="female">
+                                                                    {{trans('general.female')}}
+                                                                </option>
+
+                                                            </select>
+                                                            <span class="form-text text-danger"
+                                                                  id="mowhob_gender_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
 
 
                                                     <!--begin::Group-->

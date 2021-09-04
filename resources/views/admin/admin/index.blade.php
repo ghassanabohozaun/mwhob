@@ -224,7 +224,6 @@
                                             <!--end::Group-->
 
 
-
                                             <!--begin::Group-->
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-lg-3 col-form-label">
@@ -256,6 +255,26 @@
                                                         placeholder=" {{trans('login.enter_password')}}"
                                                         autocomplete="off"/>
                                                     <span class="form-text text-danger" id="password_error"></span>
+
+                                                </div>
+
+                                            </div>
+                                            <!--end::Group-->
+
+
+                                            <!--begin::Group-->
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                    {{trans('login.confirm_password')}}
+                                                </label>
+                                                <div class="col-lg-9 col-xl-9">
+                                                    <input
+                                                        class="form-control  form-control-lg"
+                                                        name="confirm_password" id="confirm_password" type="password"
+                                                        placeholder=" {{trans('login.enter_confirm_password')}}"
+                                                        autocomplete="off"/>
+                                                    <span class="form-text text-danger"
+                                                          id="confirm_password_error"></span>
 
                                                 </div>
 
@@ -325,6 +344,12 @@
             $('#name_error').text('');
             $('#email_error').text('');
             $('#password_error').text('');
+            $('#confirm_password_error').text('');
+
+            $('#name').css('border-color', '');
+            $('#email').css('border-color', '');
+            $('#password').css('border-color', '');
+            $('#confirm_password').css('border-color', '');
             /////////////////////////////////////////////////////////////////
 
             var data = new FormData(this);
@@ -355,7 +380,7 @@
                             text: "",
                             icon: "success",
                             allowOutsideClick: false,
-                            customClass: { confirmButton: 'update_admin_button' }
+                            customClass: {confirmButton: 'update_admin_button'}
                         });
                         $('.update_admin_button').click(function () {
                             $('.card_admin_id').load(location.href + ' .card_admin_id');

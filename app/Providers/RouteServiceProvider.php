@@ -26,6 +26,8 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/';
     public const ADMIN = '/admin';
     public const TEACHER = '/teacher';
+    public const STUDENT = '/student';
+
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -53,6 +55,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
         $this->mapAdminRoutes();
         $this->mapTeacherRoutes();
+        $this->mapStudentRoutes();
 
 
         //
@@ -89,6 +92,14 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/teacher.php'));
     }
 
+
+    protected function mapStudentRoutes()
+    {
+        Route::prefix(LaravelLocalization::setLocale().'/student')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/student.php'));
+    }
 
 
 

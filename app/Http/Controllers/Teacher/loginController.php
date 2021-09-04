@@ -22,13 +22,16 @@ class loginController extends Controller
     /// do Login
     public function doLogin(TeacherLoginRequest $request)
     {
+
+
+
         $teacher = Teacher::where('teacher_email', $request->teacher_email)->first();
 
         if (!$teacher) {
             return redirect()->route('get.teacher.login')
                 ->with(['error' => trans('login.account_unavailable')]);
         } else {
-            if ($teacher->teacher_freeze == null) {
+            if ($teacher->teacher_freeze == 'on') {
 
                 $rememberMe = $request->has('teacher_remember_token') ? true : false;
 
@@ -38,7 +41,7 @@ class loginController extends Controller
                         'teacher_last_login_at' => Carbon::now()->toDateTimeString(),
                         'teacher_last_login_ip' => $request->getClientIp()
                     ]);
-                    return redirect()->route('teacher.dashboard');
+                    return redirect()->route('teacher.profile');
 
                 } else {
                     return redirect()->route('get.teacher.login')->with(['error' => trans('login.login_failed')]);

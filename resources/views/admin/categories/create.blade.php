@@ -141,8 +141,6 @@
                                                     <!--end::Group-->
 
 
-
-
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
@@ -150,12 +148,19 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <textarea rows="5"
+                                                                      maxlength="200"
+                                                                      onkeyup="limitText('description_ar' , 'ar_char_count')"
                                                                       class="form-control  form-control-lg"
-                                                                      name="description_ar" id="description_ar" type="text"
+                                                                      name="description_ar" id="description_ar"
+                                                                      type="text"
                                                                       placeholder=" {{trans('categories.enter_description_ar')}}"
                                                                       autocomplete="off"></textarea>
+                                                            <div class="form-text text-warning"
+                                                                 id="ar_char_count"></div>
+
                                                             <span class="form-text text-danger"
                                                                   id="description_ar_error"></span>
+
 
                                                         </div>
                                                     </div>
@@ -169,10 +174,15 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <textarea rows="5"
+                                                                      maxlength="200"
+                                                                      onkeyup="limitText('description_en' , 'en_char_count')"
                                                                       class="form-control  form-control-lg"
-                                                                      name="description_en" id="description_en" type="text"
+                                                                      name="description_en" id="description_en"
+                                                                      type="text"
                                                                       placeholder=" {{trans('categories.enter_description_en')}}"
                                                                       autocomplete="off"></textarea>
+                                                            <div class="form-text text-warning"
+                                                                 id="en_char_count"></div>
 
                                                             <span class="form-text text-danger"
                                                                   id="description_en_error"></span>
@@ -194,12 +204,17 @@
                                                                 <option value="">
                                                                     {{trans('general.select_from_list')}}
                                                                 </option>
+
                                                                 <option value="courses">
                                                                     {{trans('categories.courses')}}
                                                                 </option>
 
-                                                                <option value="success_stories">
-                                                                    {{trans('categories.success_stories')}}
+                                                                <option value="mawhobs">
+                                                                    {{trans('categories.mawhobs')}}
+                                                                </option>
+
+                                                                <option value="teachers">
+                                                                    {{trans('categories.teachers')}}
                                                                 </option>
 
                                                             </select>
@@ -208,7 +223,6 @@
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
-
 
 
                                                 </div>
@@ -236,6 +250,10 @@
 
 @push('js')
     <script type="text/javascript">
+
+
+
+
 
         ////////////////////////////////////////////////////
 
