@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MawhobEnrolledContestRequest extends FormRequest
+class MawhobEnrolledCourseRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,7 +31,7 @@ class MawhobEnrolledContestRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => trans('contests.required'),
+            'required' => trans('courses.required'),
         ];
     }
 }

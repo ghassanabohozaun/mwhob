@@ -1,19 +1,19 @@
 <!-- begin add new mawhob Modal -->
-<div class="modal fade" id="modal_add_new_contest_mawhob" data-backdrop="static" tabindex="-1" role="dialog"
+<div class="modal fade" id="modal_add_new_program_mawhob" data-backdrop="static" tabindex="-1" role="dialog"
      aria-labelledby="staticBackdrop" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"
-                    id="exampleModalLabel">{{trans('contests.add_new_mawhob')}}</h5>
+                    id="exampleModalLabel">{{trans('programs.add_new_mawhob')}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i aria-hidden="true" class="ki ki-close"></i>
                 </button>
             </div>
 
-            <form action="{!! route('admin.store.new.contest.mawhob')!!}"
+            <form action="{!! route('admin.store.new.program.mawhob')!!}"
                   method="POST" enctype="multipart/form-data"
-                  id="form_add_new_contest_mawhob">
+                  id="form_add_new_program_mawhob">
                 @csrf
                 <div class="modal-body">
 
@@ -43,7 +43,7 @@
                                         <!--begin::Group-->
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-lg-3 col-form-label">
-                                                {{trans('contests.mawhob_id')}}
+                                                {{trans('programs.mawhob_id')}}
                                             </label>
                                             <div class="col-lg-9 col-xl-9">
                                                 <select class="form-control"
@@ -66,12 +66,12 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="" id="cancel_add_new_contest_mawhob_btn"
+                    <button type="" id="cancel_add_new_program_mawhob_btn"
                             class="btn btn-light-primary font-weight-bold">
                         {{trans('general.cancel')}}
                     </button>
 
-                    <button type="submit" id="save_add_new_contest_mawhob_btn" class="btn btn-primary font-weight-bold">
+                    <button type="submit" id="save_add_new_program_mawhob_btn" class="btn btn-primary font-weight-bold">
                         {{trans('general.save')}}
                     </button>
                 </div>
@@ -79,7 +79,7 @@
         </div>
     </div>
 </div>
-<!-- end Renew Contest  Modal-->
+<!-- end Renew Program  Modal-->
 
 @push('js')
 
@@ -133,39 +133,39 @@
 
 
         ////////////////////////////////////////////////////
-        // add new contest mawhob
-        $('body').on('click', '.add_new_contest_mawhob', function (e) {
+        // add new program mawhob
+        $('body').on('click', '.add_new_program_mawhob', function (e) {
             e.preventDefault();
-            $('#modal_add_new_contest_mawhob').modal('show');
+            $('#modal_add_new_program_mawhob').modal('show');
             var id = $(this).data('id');
-            $('#form_add_new_contest_mawhob').find('#id').val(id);
+            $('#form_add_new_program_mawhob').find('#id').val(id);
         });
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // close add new contest mawhob  modal by cancel
-        $('body').on('click', '#cancel_add_new_contest_mawhob_btn', function (e) {
+        // close add new program mawhob  modal by cancel
+        $('body').on('click', '#cancel_add_new_program_mawhob_btn', function (e) {
             e.preventDefault();
             $.notifyClose();
-            $('#modal_add_new_contest_mawhob').modal('hide');
-            $('#form_add_new_contest_mawhob')[0].reset();
+            $('#modal_add_new_program_mawhob').modal('hide');
+            $('#form_add_new_program_mawhob')[0].reset();
             $('#mawhob_id').css('border-color', '');
             $('#mawhob_id_error').text('');
         });
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // Close add new contest mawhob modal By event
-        $('#modal_add_new_contest_mawhob').on('hidden.bs.modal',
+        // Close add new program mawhob modal By event
+        $('#modal_add_new_program_mawhob').on('hidden.bs.modal',
             function (e) {
                 e.preventDefault();
                 $.notifyClose();
-                $('#modal_add_new_contest_mawhob').modal('hide');
-                $('#form_add_new_contest_mawhob')[0].reset();
+                $('#modal_add_new_program_mawhob').modal('hide');
+                $('#form_add_new_program_mawhob')[0].reset();
                 $('#mawhob_id').css('border-color', '');
                 $('#mawhob_id_error').text('');
             });
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        /// add new contest mawhob
-        $('#form_add_new_contest_mawhob').on('submit', function (e) {
+        /// add new program mawhob
+        $('#form_add_new_program_mawhob').on('submit', function (e) {
             e.preventDefault();
             $.notifyClose();
             //////////////////////////////////////////////////////////////
@@ -200,12 +200,12 @@
                             text: "",
                             icon: "success",
                             allowOutsideClick: false,
-                            customClass: {confirmButton: 'add_new_contest_mawhob_button'}
+                            customClass: {confirmButton: 'add_new_programprogram_mawhob_button'}
                         });
-                        $('.add_new_contest_mawhob_button').click(function () {
-                            $('#modal_add_new_contest_mawhob').modal('hide');
-                            $('#my_enrolled_mawhob_data_table').DataTable().ajax.reload();
-                            $('#form_add_new_contest_mawhob')[0].reset();
+                        $('.add_new_programprogram_mawhob_button').click(function () {
+                            $('#modal_add_new_program_mawhob').modal('hide');
+                            $('#my_programs_enrolled_mawhob_data_table').DataTable().ajax.reload();
+                            $('#form_add_new_program_mawhob')[0].reset();
                             $("#mawhob_id_select2").val('').trigger('change');
                         });
                     } else if (data.status == false) {
@@ -214,11 +214,11 @@
                             text: "",
                             icon: "warning",
                             allowOutsideClick: false,
-                            customClass: {confirmButton: 'mawhob_exist_in_this_contest_button'}
+                            customClass: {confirmButton: 'mawhob_exist_in_this_programprogram_button'}
                         });
-                        $('.mawhob_exist_in_this_contest_button').click(function () {
-                            $('#modal_add_new_contest_mawhob').modal('hide');
-                            $('#form_add_new_contest_mawhob')[0].reset();
+                        $('.mawhob_exist_in_this_program_button').click(function () {
+                            $('#modal_add_new_program_mawhob').modal('hide');
+                            $('#form_add_new_program_mawhob')[0].reset();
                             $("#mawhob_id_select2").val('').trigger('change');
 
                         });

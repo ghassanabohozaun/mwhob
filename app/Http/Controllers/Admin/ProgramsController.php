@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MawhobEnrolledProgramRequest;
 use App\Http\Requests\ProgramRequest;
 use App\Http\Requests\ProgramUpdateRequest;
 use App\Http\Resources\MawhobEnrolledProgramResource;
@@ -14,6 +15,7 @@ use App\Models\Revenue;
 use App\Traits\GeneralTrait;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class ProgramsController extends Controller
@@ -440,5 +442,44 @@ class ProgramsController extends Controller
         }//end catch
 
     }
+
+    ////////////////////////////////////////
+    /// store new Programs mawhob in enrolled list
+    public function storeNewProgramMawhob(MawhobEnrolledProgramRequest $request)
+    {
+
+
+
+            $mawhobEnrollProgram = MawhobEnrollProgram::
+            where('program_id', $request->id)
+                ->where('mawhob_id', $request->mawhob_id)->get();
+
+            if ($mawhobEnrollProgram->isEmpty()) {
+
+                MawhobEnrollProgram::create([
+                    'program_id' => $request->id,
+                    'mawhob_id' => $request->mawhob_id,
+                    'enrolled_date' => Carbon::now()->format('Y-m-d'),
+                ]);
+
+
+               $programPrice =  Program::find($request->id)->price;
+                Revenue::create([
+                    'mawhob_id' =>$request->mawhob_id,
+                    'date' => Carbon::now()->format('Y-m-d'),
+                    'value' => $programPrice,
+                    'revenue_for' => $request->id,
+                    'details' => 'enroll_program',
+                ]);
+
+
+                return $this->returnSuccessMessage(trans('programs.add_new_mawhob_success_message'));
+            } else {
+                return $this->returnError(trans('programs.mawhob_enrolled_in_this_program'), 500);
+            }
+
+
+    }
+
 
 }

@@ -68,13 +68,9 @@ return [
     'renew_success_message' => 'Renew Contest Successfully',
     'add_new_mawhob_success_message' => 'Mawhab Added Successfully',
     'mawhob_enrolled_in_this_contest' => 'Sorry , Mawhob Has Previously Enrolled For This Contest   ',
-
     'choose_contest_winner'=>'Choose Contest Winner',
     'winner_of_contest_chosen'=>'Winner Of Contest Chosen Successfully',
     'cannot_delete_winner'=>'You can not able to delete the Winner',
-
-
     'cannot_be_deleted_because_it_enrolled_by_mawhob' => 'Contest Cannot Be Deleted Because Enrolled By Mawhob',
-
 
 ];

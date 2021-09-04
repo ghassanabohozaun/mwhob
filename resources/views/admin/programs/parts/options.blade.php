@@ -6,7 +6,7 @@
 
 
 <a href="{!! route('admin.programs.enrolled.list',$instance->id) !!}" class="btn btn-hover-info btn-icon btn-pill"
-   title="{{trans('contests.enrolled_list')}}">
+   title="{{trans('programs.enrolled_list')}}">
     <i class="fa fa-users fa-1x"></i>
 </a>
 
