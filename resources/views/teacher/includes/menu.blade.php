@@ -55,6 +55,20 @@
                 </a>
             </li>
 
+            <!------------------------------------ profile  ---------------------------------------------------->
+
+            <li class="menu-item  menu-item-submenu"
+                aria-haspopup="true" data-menu-toggle="hover">
+                <a href="{!! route('teacher.notifications') !!}" class="menu-link menu-toggle">
+                                <span class="svg-icon menu-icon">
+                              <i class="flaticon-bell text-primary icon-lg"></i>
+                                 </span>
+                    <span class="menu-text">{{trans('menu.notifications')}}</span>
+                    <span class="menu-label">
+                    </span>
+                </a>
+            </li>
+
 
             <!------------------------------------ Courses  ---------------------------------------------------->
 

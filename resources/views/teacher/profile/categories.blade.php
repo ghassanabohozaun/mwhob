@@ -1,5 +1,5 @@
 <!--Start:: Categories-->
-<div class="col-lg-6">
+<div class="col-lg-12">
 
 
     <!--begin::List Widget 14-->

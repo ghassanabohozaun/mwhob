@@ -32,6 +32,24 @@ Route::group([
 
 
     ///////////////////////////////////////////////////////////////////
+    /// Notifications Routes
+    ///////////////////////////////////////////////////////////////////
+    /// Notifications Routes
+    Route::group(['prefix'=>'notifications'],function (){
+
+        Route::get('/', 'NotificationsController@index')->name('teacher.notifications');
+        Route::get('/get-notifications', 'NotificationsController@getNotificationsResource')
+            ->name('get.teacher.notifications.resource');
+
+
+    Route::get('/get/teacher/notifications', 'NotificationsController@getNotifications')
+        ->name('teacher.get.notifications');
+    Route::get('/get/one/teacher/notification', 'NotificationsController@getOneNotification')
+        ->name('teacher.get.one.notification');
+    Route::post('/teacher/notification/make/read', 'NotificationsController@makeRead')
+        ->name('teacher.notification.make.read');
+    });
+    ///////////////////////////////////////////////////////////////////
     /// Courses Routes
     Route::group(['prefix' => 'courses'], function () {
         Route::get('/', 'CoursesController@index')->name('teacher.courses');

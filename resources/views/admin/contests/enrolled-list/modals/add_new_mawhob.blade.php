@@ -207,6 +207,8 @@
                             $('#my_enrolled_mawhob_data_table').DataTable().ajax.reload();
                             $('#form_add_new_contest_mawhob')[0].reset();
                             $("#mawhob_id_select2").val('').trigger('change');
+                            $('#notify_section').load("{!! route('admin.get.notifications') !!}");
+                            $(".notifications_count").load(location.href + " .notifications_count");
                         });
                     } else if (data.status == false) {
                         Swal.fire({

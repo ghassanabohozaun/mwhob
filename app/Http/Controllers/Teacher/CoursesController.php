@@ -8,6 +8,8 @@ use App\Http\Requests\Teacher\TeacherCourseUpdateRequest;
 use App\Http\Resources\teachers\TeacherCourseResource;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Mawhoob_Notification;
+use App\Models\Teacher;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -117,7 +119,7 @@ class CoursesController extends Controller
             }
 
             if (setting()->site_lang_en == 'on') {
-                Course::create([
+                $course = Course::create([
                     'course_image' => $course_image_path,
                     'slug_title_ar' => slug($request->title_ar),
                     'slug_title_en' => slug($request->title_en),
@@ -134,7 +136,7 @@ class CoursesController extends Controller
                     'language' => 'ar_en',
                 ]);
             } else {
-                Course::create([
+                $course = Course::create([
                     'course_image' => $course_image_path,
                     'slug_title_ar' => slug($request->title_ar),
                     'title_ar' => $request->title_ar,
@@ -148,6 +150,21 @@ class CoursesController extends Controller
                     'language' => 'ar',
                 ]);
             }
+
+
+            $teacher = Teacher::find(teacher()->id());
+            ////////////////////////////////////////////////////
+            ///  new course added notification
+            Mawhoob_Notification::create([
+                'title_ar' => 'تنبيه اضافة دورة جديدة',
+                'title_en' => 'Added New Course Notification',
+                'details_ar' => $course->title_ar . ' اضيف بواسطة ' . $teacher->teacher_full_name,
+                'details_en' => $course->title_en . ' Added By ' . $teacher->teacher_full_name,
+                'notify_status' => 'send',
+                'notify_class' => 'unread',
+                'notify_for' => 'admin',
+            ]);
+
             return $this->returnSuccessMessage(trans('general.add_success_message'));
 
         } catch (\Exception $exception) {

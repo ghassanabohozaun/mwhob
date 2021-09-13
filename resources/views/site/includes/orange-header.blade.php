@@ -107,10 +107,22 @@
                         </a>
                     </li>
 
-                    <li class="nav-item col">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item col dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {!! trans('site.activities') !!}
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{!! route('contests') !!}">
+                                {!! trans('site.contests') !!}
+                            </a>
+                            <a class="dropdown-item" href="{!! route('summer.camps') !!}">
+                                {!! trans('site.summer_camps') !!}
+                            </a>
+                            <a class="dropdown-item" href="{!! route('magazine') !!}">
+                                {!! trans('site.mawhoob_magazine') !!}
+                            </a>
+                        </div>
                     </li>
 
                     <li class="nav-item col">

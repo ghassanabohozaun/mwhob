@@ -31,7 +31,20 @@ Route::group([
     Route::post('switch-en-lang', 'DashboardController@switchEnglishLang')
         ->name('switch.english.lang');
 
+    ///////////////////////////////////////////////////////////////////
+    /// Notifications Routes
+    Route::group(['prefix'=>'notifications', 'middleware' => 'can:admins'],function (){
+        Route::get('/', 'NotificationsController@index')->name('admin.notifications');
+        Route::get('/get-notifications', 'NotificationsController@getNotificationsResource')
+            ->name('get.admin.notifications.resource');
 
+        Route::get('/get/admin/notifications', 'NotificationsController@getNotifications')
+            ->name('admin.get.notifications');
+        Route::get('/get/one/admin/notification', 'NotificationsController@getOneNotification')
+            ->name('admin.get.one.notification');
+        Route::post('/admin/notification/make/read', 'NotificationsController@makeRead')
+            ->name('admin.notification.make.read');
+    });
     ///////////////////////////////////////////////////////////////////
     /// Revenues Routes
     Route::group(['prefix' => 'Revenues', 'middleware' => 'can:talents'], function () {
@@ -68,10 +81,8 @@ Route::group([
         Route::post('/why-choose-us', 'LandingPageController@storeWhyChooseUs')->name('admin.why.choose.us');
 
 
-
         Route::get('/static-strings', 'LandingPageController@staticStrings')->name('admin.static.strings');
         Route::post('/static-strings', 'LandingPageController@storeStaticStrings')->name('admin.static.strings');
-
 
 
         Route::group(['prefix' => 'team'], function () {

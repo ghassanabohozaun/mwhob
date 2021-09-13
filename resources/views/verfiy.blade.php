@@ -13,7 +13,7 @@
 
 
 
-    <h3>{!! $coderesult !!}</h3>
+    <h3> </h3>
 
     <div class="mb-5 mt-5">
         <h3>Add verification code</h3>

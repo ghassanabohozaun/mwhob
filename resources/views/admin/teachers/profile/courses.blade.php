@@ -47,3 +47,4 @@
     <!--end::Body-->
 </div>
 <!--end::Advance Table Widget 7-->
+

@@ -1,231 +1,154 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<!--begin::Head-->
+<!doctype html>
+<html @if( Lang() =='ar') lang="ar" dir="rtl" @else lang="en" dir="ltr" @endif
+xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8"/>
-    <title>{!! trans('login.sign_in') !!}</title>
-    <meta name="description" content="Login page example"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>{!! Lang()=='ar' ?  setting()->site_name_ar : setting()->site_name_en !!}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no,
+             initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!--begin::Fonts-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
-    <!--end::Fonts-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
+    <link rel="icon" type="image/jpg"
+          href="{!!asset(\Illuminate\Support\Facades\Storage::url(setting()->site_icon)) !!}">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <!--begin::Page Custom Styles(used by this page)-->
-    <link href="{!! asset('adminBoard/assets/css/pages/login/classic/login-4.css') !!}" rel="stylesheet"
-          type="text/css"/>
-    <!--end::Page Custom Styles-->
+    <link rel="shortcut icon" href="">
+    <link rel="apple-touch-icon" sizes="180x180" href="">
+    <meta name="application-name" content=""/>
+    <meta name="author" content=""/>
+    <link href="{!! asset('site/css/select2.min.css') !!}" rel="stylesheet">
 
-    <!--begin::Global Theme Styles(used by all pages)-->
-    <link href="{!! asset('adminBoard/assets/plugins/global/plugins.bundle.css') !!}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{!! asset('adminBoard/assets/plugins/custom/prismjs/prismjs.bundle.css') !!}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{!! asset('adminBoard/assets/css/style.bundle.css') !!}" rel="stylesheet" type="text/css"/>
-    <!--end::Global Theme Styles-->
-
-    <!--begin::Layout Themes(used by all pages)-->
-
-    <link href="{!! asset('adminBoard/assets/css/themes/layout/header/base/light.css') !!}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{!! asset('adminBoard/assets/css/themes/layout/header/menu/light.css') !!}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{!! asset('adminBoard/assets/css/themes/layout/brand/dark.css') !!}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{!! asset('adminBoard/assets/css/themes/layout/aside/dark.css') !!}" rel="stylesheet"
-          type="text/css"/>        <!--end::Layout Themes-->
-
-    <link rel="shortcut icon" href="{!! asset('adminBoard/assets/media/logos/favicon.ico') !!}"/>
-
-    <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet"/>
+    @if(Lang()=='ar')
+        <link href="{!! asset('site/css/style-ar.css') !!}" rel="stylesheet">
+    @else
+        <link href="{!! asset('site/css/style-en.css') !!}" rel="stylesheet">
+    @endif
     <style>
-        body, html {
-            font-family: "Poppins", "ArbFONTSBEINNormalAR", sans-serif;
-            font-weight: normal;
-            font-style: normal;
+        .left-background-login {
+            background-image: url({!! asset('adminBoard/images/adminLogin3.jpg') !!});
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
         }
     </style>
-
 </head>
-<!--end::Head-->
-@if(LaravelLocalization::getCurrentLocale() =='ar')
-    <style>
-        body {
-            direction: rtl
-        }
+<body>
 
-        .checkbox-inline .checkbox span {
-            margin-right: 0.75rem;
-            margin-left: 0.75rem;
-        }
 
-        .font_size_16 {
-            font-size: 16px;
-        }
-    </style>
-@endif
-<!--begin::Body-->
-<body id="kt_body" style="background: white ;"
-      class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed subheader-mobile-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+<section class="c-panel">
+    <div>
+        <div class="row mx-0 align-items-center">
+            <div class="col-lg-6 px-0 left-background-login d-none d-lg-block">
+                <div class="img-left-login ">
 
-<!--begin::Main-->
-<div class="d-flex flex-column flex-root">
-    <!--begin::Login-->
-    <div class="login login-4 login-signin-on d-flex flex-row-fluid" id="kt_login">
-        <div class="d-flex flex-center flex-row-fluid bgi-size-cover bgi-position-top bgi-no-repeat"
-             style="background-image: url('{!! asset('adminBoard/assets/media/bg/bg-3.jpg');!!}">
-            <div class="login-form text-center p-7 position-relative overflow-hidden">
-                <!--begin::Login Header-->
-                <div class="d-flex flex-center mb-15">
-                    <a href="#">
-                        <img src="{!! \Illuminate\Support\Facades\Storage::url(setting()->site_logo) !!}"
-                             class="max-h-75px" alt=""/>
-                    </a>
                 </div>
-                <!--end::Login Header-->
+            </div>
+            <div class="col-lg-6 ">
+                <div class="row ">
+                    <div class="col-lg-12">
+                        <div class="">
+                            <div class="title-block-login text-bold text-warning fs-24 text-center">
+                                <div class="mt-4">
+                                    <img src="{!! asset('adminBoard/images/logo/logo.svg') !!}" style="width: 200px">
+                                </div>
 
-                <!--begin::Login Sign in form-->
-                <div class="login-signin">
-                    <div class="mb-20">
-                        <h2>{!! trans('login.sign_in_to_teacher') !!}</h2>
+                                <div class="mt-4">
+                                    <h2>
+                                        {!! trans('login.sign_in_to_teacher') !!}
+                                    </h2>
+                                </div>
+                            </div>
+
+
+                            <form action="{!! route('teacher.login') !!}"
+                                  method="POST"
+                                  style=" display: table;margin: auto " class="col-lg-8">
+                                @csrf
+
+
+                                <div class="mt-4">
+                                    @if(\Illuminate\Support\Facades\Session::has('error'))
+                                        <div class="alert alert-danger font-weight-bold" role="alert">
+                                            {{\Illuminate\Support\Facades\Session::get('error')}}
+                                        </div>
+                                    @endif
+                                </div>
+
+
+                                <div class="form-group  mt-4">
+                                    <label for="email">
+                                        {!! trans('login.email') !!}
+                                    </label>
+                                    <input type="email" class="form-control" id="teacher_email" name="teacher_email"
+                                           autocomplete="off" placeholder="{!! trans('login.enter_email') !!}">
+                                    @error('teacher_email')
+                                    <span class="text-danger font-weight-bold">
+                                        {{$message}}
+                                    </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group mt-4">
+                                    <label for="password">
+                                        {!! trans('login.password') !!}
+                                    </label>
+                                    <input type="password" class="form-control" id="password" name="password"
+                                           autocomplete="off"
+                                           placeholder="{!! trans('login.enter_password') !!}">
+
+                                    @error('password')
+                                    <span class="text-danger font-weight-bold">
+                                        {{$message}}
+                                    </span>
+                                    @enderror
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="contact100-form-checkbox">
+                                        <label>
+                                            <input type="checkbox" name="teacher_remember_token"
+                                                   id="teacher_remember_token">
+                                            <span style="margin-top: 10px;color: #999999">&nbsp;
+                                                {{trans('login.remember_me')}}
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary px-5 br-20">
+                                        {!! trans('login.login') !!}
+                                    </button>
+                                </div>
+
+                            </form>
+
+
+                        </div>
                     </div>
-                    <form class="form" action="{!! route('teacher.login') !!}"
-                          method="POST" enctype="multipart/form-data">
-                        @csrf
-
-
-                        @if(\Illuminate\Support\Facades\Session::has('error'))
-                            <div class="alert alert-danger font-weight-bold" role="alert">
-                                {{\Illuminate\Support\Facades\Session::get('error')}}
-                            </div>
-                        @endif
-
-
-                        <div class="form-group mb-5">
-                            <input class="form-control h-auto py-4 px-8 font_size_16" type="text"
-                                   placeholder="{!! trans('login.email') !!}"
-                                   name="teacher_email" id="teacher_email" autocomplete="off"/>
-                        </div>
-                        @error('teacher_email')
-                        <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
-                        @enderror
-
-
-                        <div class="form-group mb-5">
-                            <input class="form-control h-auto  py-4 px-8 font_size_16" type="password"
-                                   placeholder="{!! trans('login.password') !!}"
-                                   name="password" id="password" autocomplete="off"/>
-                        </div>
-                        @error('password')
-                        <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
-                        @enderror
-
-
-                        <div class="form-group d-flex flex-wrap justify-content-between align-items-center">
-                            <div class="checkbox-inline">
-                                <label class="checkbox m-0 text-muted font_size_16">
-                                    <input type="checkbox" name="teacher_remember_token"
-                                           id="teacher_remember_token"/>
-                                    <span></span>
-                                    {{trans('login.remember_me')}}
-                                </label>
-                            </div>
-                        </div>
-
-                        <button id="kt_login_signin_submit"
-                                class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4 font_size_16">
-                            {!! trans('login.sign_in') !!}
-                        </button>
-
-
-                    </form>
                 </div>
-                <!--end::Login Sign in form-->
-
             </div>
         </div>
     </div>
-    <!--end::Login-->
-</div>
-<!--end::Main-->
+</section>
 
+<script src="{!! asset('site/js/jquery.min.js') !!}"></script>
 
-<script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
-<!--begin::Global Config(global config for global JS scripts)-->
-<script>
-    var KTAppSettings = {
-        "breakpoints": {
-            "sm": 576,
-            "md": 768,
-            "lg": 992,
-            "xl": 1200,
-            "xxl": 1400
-        },
-        "colors": {
-            "theme": {
-                "base": {
-                    "white": "#ffffff",
-                    "primary": "#3699FF",
-                    "secondary": "#E5EAEE",
-                    "success": "#1BC5BD",
-                    "info": "#8950FC",
-                    "warning": "#FFA800",
-                    "danger": "#F64E60",
-                    "light": "#E4E6EF",
-                    "dark": "#181C32"
-                },
-                "light": {
-                    "white": "#ffffff",
-                    "primary": "#E1F0FF",
-                    "secondary": "#EBEDF3",
-                    "success": "#C9F7F5",
-                    "info": "#EEE5FF",
-                    "warning": "#FFF4DE",
-                    "danger": "#FFE2E5",
-                    "light": "#F3F6F9",
-                    "dark": "#D6D6E0"
-                },
-                "inverse": {
-                    "white": "#ffffff",
-                    "primary": "#ffffff",
-                    "secondary": "#3F4254",
-                    "success": "#ffffff",
-                    "info": "#ffffff",
-                    "warning": "#ffffff",
-                    "danger": "#ffffff",
-                    "light": "#464E5F",
-                    "dark": "#ffffff"
-                }
-            },
-            "gray": {
-                "gray-100": "#F3F6F9",
-                "gray-200": "#EBEDF3",
-                "gray-300": "#E4E6EF",
-                "gray-400": "#D1D3E0",
-                "gray-500": "#B5B5C3",
-                "gray-600": "#7E8299",
-                "gray-700": "#5E6278",
-                "gray-800": "#3F4254",
-                "gray-900": "#181C32"
-            }
-        },
-        "font-family": "Poppins"
-    };
-</script>
-<!--end::Global Config-->
-
-<!--begin::Global Theme Bundle(used by all pages)-->
-<script src="{!! asset('adminBoard/assets/plugins/global/plugins.bundle.js') !!}"></script>
-<script src="{!! asset('adminBoard/assets/plugins/custom/prismjs/prismjs.bundle.js') !!}"></script>
-<script src="{!! asset('adminBoard/assets/js/scripts.bundle.js') !!}"></script>
-<!--end::Global Theme Bundle-->
-
-
-<!--begin::Page Scripts(used by this page)-->
-<script src="{!! asset('adminBoard/assets/js/pages/custom/login/login-general.js') !!}"></script>
-<!--end::Page Scripts-->
+<script src="{!! asset('site/js/uikit.min.js') !!}"></script>
+<script src="{!! asset('site/js/bootstrap.min.js') !!}"></script>
+<script src="{!! asset('site/js/aos.js') !!}"></script>
 </body>
-<!--end::Body-->
 </html>
+

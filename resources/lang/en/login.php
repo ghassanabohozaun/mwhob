@@ -57,6 +57,6 @@ return [
 
     ////////////////////////////////////////////////////
     /// Teacher Login
-    'sign_in_to_teacher'=>'Sign In To Teacher Panel'
+    'sign_in_to_teacher'=>'  Teacher  CPanel'
 
 ];

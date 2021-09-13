@@ -10,6 +10,7 @@ use App\Http\Requests\TeacherUpdateRequest;
 use App\Http\Resources\TeachersResource;
 use App\Http\Resources\TeachersTrashedResource;
 use App\Models\Course;
+use App\Models\Mawhoob_Notification;
 use App\Models\Teacher;
 use App\Models\Teacher_Category;
 use App\Traits\GeneralTrait;
@@ -345,8 +346,12 @@ class TeacherController extends Controller
 
         $teacherCategories = Teacher_Category::with('category')->where('teacher_id', $teacher->id)->get();
         $courses = Course::where('teacher_id', $id)->get();
+
+        $notifications = Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'teacher')
+            ->where('teacher_id', $id)->take(20)->get();
+
         return view('admin.teachers.profile', compact('title', 'teacher',
-            'teacherCategories','courses'));
+            'teacherCategories','courses','notifications'));
     }
 
     ///////////////////////////////////////

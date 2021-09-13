@@ -14,6 +14,7 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\Lecture;
 use App\Models\MawhobEnrollCourse;
+use App\Models\Mawhoob_Notification;
 use App\Models\Revenue;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
@@ -379,10 +380,39 @@ class CoursesController extends Controller
             if ($request->switchActive == 'false') {
                 $course->active = null;
                 $course->save();
+
+                ////////////////////////////////////////////////////
+                ///  active Course notification
+                Mawhoob_Notification::create([
+                    'title_ar' => 'تنبيه الغاء تفعيل  دورة ',
+                    'title_en' => 'canceling activation of a course',
+                    'details_ar' => ' تمت الغاء تفعيل دورتك التالية  ' . $course->title_ar,
+                    'details_en' => ' canceling active of your course  ' . $course->title_en,
+                    'notify_status' => 'send',
+                    'notify_class' => 'unread',
+                    'notify_for' => 'teacher',
+                    'teacher_id' => $course->teacher_id,
+                ]);
+
+
             } else {
                 $course->active = 'on';
                 $course->save();
+                ////////////////////////////////////////////////////
+                ///  active Course notification
+                Mawhoob_Notification::create([
+                    'title_ar' => 'تنبيه الموافقة علي دورة وتفعليها ',
+                    'title_en' => 'Approve And Activate course Notification',
+                    'details_ar' => ' تمت الموافقة وتفعيل دورتك التالية  ' . $course->title_ar,
+                    'details_en' => ' Approve and active your course  ' . $course->title_en,
+                    'notify_status' => 'send',
+                    'notify_class' => 'unread',
+                    'notify_for' => 'teacher',
+                    'teacher_id' => $course->teacher_id,
+                ]);
             }
+
+
             return $this->returnSuccessMessage(trans('general.change_status_success_message'));
 
         } catch (\Exception $exception) {
@@ -509,12 +539,12 @@ class CoursesController extends Controller
     public function storeNewCourseMawhob(MawhobEnrolledCourseRequest $request)
     {
 
-        $mawhobEnrollCourse = MawhobEnrollCourse::
+        $MawhobEnrollCourse = MawhobEnrollCourse::
         where('course_id', $request->id)->where('mawhob_id', $request->mawhob_id)->get();
 
-        if ($mawhobEnrollCourse->isEmpty()) {
+        if ($MawhobEnrollCourse->isEmpty()) {
 
-            MawhobEnrollCourse::create([
+            $mawhobEnrollCourse =  MawhobEnrollCourse::create([
                 'course_id' => $request->id,
                 'mawhob_id' => $request->mawhob_id,
                 'enrolled_date' => Carbon::now()->format('Y-m-d'),
@@ -538,6 +568,55 @@ class CoursesController extends Controller
                 'value' => $value,
                 'revenue_for' => $request->id,
                 'details' => 'enroll_course',
+            ]);
+            ////////////////////////////////////////////////////
+            ///   enrolled course Admin notification
+            Mawhoob_Notification::create([
+                'title_ar' => 'تنبيه التسجيل في دورة',
+                'title_en' => 'Enrolled In Course Notification',
+
+                'details_ar' => ' قام الطالب   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                    . ' بالتسجيل في الدورة التالية  ' . $mawhobEnrollCourse->course->title_ar,
+
+                'details_en' => ' The student   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                    . ' Enrolled In This Course   ' . $mawhobEnrollCourse->course->title_en,
+                'notify_status' => 'send',
+                'notify_class' => 'unread',
+                'notify_for' => 'admin',
+            ]);
+
+
+            ////////////////////////////////////////////////////
+            ///  student enrolled course  Teacher notification
+            Mawhoob_Notification::create([
+                'title_ar' => 'تنبيه التسجيل في دورة',
+                'title_en' => 'Enrolled In Course Notification',
+
+                'details_ar' => ' قام الطالب   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                    . ' بالتسجيل في دورتك التالية  ' . $mawhobEnrollCourse->course->title_ar,
+
+                'details_en' => ' The student   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                    . ' Enrolled In Your Course   ' . $mawhobEnrollCourse->course->title_en,
+                'notify_status' => 'send',
+                'notify_class' => 'unread',
+                'notify_for' => 'teacher',
+                'teacher_id' => $mawhobEnrollCourse->course->teacher_id,
+            ]);
+
+
+            ////////////////////////////////////////////////////
+            ///  student enrolled course  student notification
+            Mawhoob_Notification::create([
+                'title_ar' => 'تنبيه التسجيل في دورة',
+                'title_en' => 'Enrolled In Course Notification',
+
+                'details_ar' => ' قمت بالتسجيل في الدورة التالية ' . $mawhobEnrollCourse->course->title_ar,
+
+                'details_en' => ' You Enrolled In This Course  ' . $mawhobEnrollCourse->course->title_en,
+                'notify_status' => 'send',
+                'notify_class' => 'unread',
+                'notify_for' => 'mawhob',
+                'student_id' => student()->id(),
             ]);
 
             return $this->returnSuccessMessage(trans('courses.add_new_mawhob_success_message'));

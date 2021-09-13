@@ -13,6 +13,7 @@ use App\Http\Resources\ContestTrashedResource;
 use App\Http\Resources\MawhobEnrolledContestResource;
 use App\Models\Contest;
 use App\Models\MawhobEnrolledContest;
+use App\Models\Mawhoob_Notification;
 use App\Traits\GeneralTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -459,20 +460,54 @@ class ContestsController extends Controller
             if ($MawhobEnrolledContest->isEmpty()) {
 
                 if (setting()->site_lang_en == 'on') {
-                    MawhobEnrolledContest::create([
+                    $mawhobEnrolledContest =  MawhobEnrolledContest::create([
                         'contest_id' => $request->id,
                         'mawhob_id' => $request->mawhob_id,
                         'enrolled_date' => Carbon::now()->format('Y-m-d'),
                         'language' => 'ar_en',
                     ]);
                 } else {
-                    MawhobEnrolledContest::create([
+                    $mawhobEnrolledContest =   MawhobEnrolledContest::create([
                         'contest_id' => $request->id,
                         'mawhob_id' => $request->mawhob_id,
                         'enrolled_date' => Carbon::now()->format('Y-m-d'),
                         'language' => 'ar',
                     ]);
                 }
+
+
+                ////////////////////////////////////////////////////
+                ///   enrolled contest Admin notification
+                Mawhoob_Notification::create([
+                    'title_ar' => 'تنبيه التسجيل في مسابقة',
+                    'title_en' => 'Enrolled In Contest Notification',
+
+                    'details_ar' => ' قام الطالب   ' . $mawhobEnrolledContest->mawhob->mawhob_full_name
+                        . ' بالتسجيل في المسابقة التالية  ' . $mawhobEnrolledContest->contest->name_ar,
+
+                    'details_en' => ' The student   ' . $mawhobEnrolledContest->mawhob->mawhob_full_name
+                        . ' Enrolled In This Contest   ' . $mawhobEnrolledContest->contest->name_en,
+                    'notify_status' => 'send',
+                    'notify_class' => 'unread',
+                    'notify_for' => 'admin',
+                ]);
+
+
+                ////////////////////////////////////////////////////
+                ///   enrolled contest student notification
+                Mawhoob_Notification::create([
+                    'title_ar' => 'تنبيه التسجيل في مسابقة',
+                    'title_en' => 'Enrolled In Contest Notification',
+                    'details_ar' => ' قمت بالتسجيل في المسابقة التالية  ' . $mawhobEnrolledContest->contest->name_ar,
+                    'details_en' => ' You Enrolled In This Contest ' . $mawhobEnrolledContest->contest->name_en,
+                    'notify_status' => 'send',
+                    'notify_class' => 'unread',
+                    'notify_for' => 'mawhob',
+                    'student_id' => student()->id(),
+
+                ]);
+
+
                 return $this->returnSuccessMessage(trans('contests.add_new_mawhob_success_message'));
             } else {
                 return $this->returnError(trans('contests.mawhob_enrolled_in_this_contest'), 500);

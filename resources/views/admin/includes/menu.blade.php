@@ -32,7 +32,8 @@
             <li class="menu-item  menu-item-submenu
                     @if(str_contains(url()->current(), 'settings')
                             || str_contains(url()->current(), '/admin/admin')
-                            || str_contains(url()->current(), '/admin/Revenues')) menu-item-open @endif"
+                            || str_contains(url()->current(), '/admin/Revenues')
+                            || str_contains(url()->current(), '/admin/notifications')) menu-item-open @endif"
                 aria-haspopup="true" data-menu-toggle="hover"
                 style="margin-top: -25px">
                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -81,6 +82,17 @@
                                 </a>
                             </li>
                         @endcan
+
+                            @can('admins')
+                                <li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                    <a href="{{route('admin.notifications')}}" class="menu-link menu-toggle">
+                                        <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                        <span class="menu-text">{{trans('menu.notifications')}}</span>
+                                    </a>
+                                </li>
+                            @endcan
+
+
                     </ul>
                 </div>
             </li>

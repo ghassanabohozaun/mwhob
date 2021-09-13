@@ -10,6 +10,7 @@ use App\Http\Resources\MawhobEnrolledProgramResource;
 use App\Http\Resources\ProgramResource;
 use App\Http\Resources\ProgramTrashedResource;
 use App\Models\MawhobEnrollProgram;
+use App\Models\Mawhoob_Notification;
 use App\Models\Program;
 use App\Models\Revenue;
 use App\Traits\GeneralTrait;
@@ -448,13 +449,13 @@ class ProgramsController extends Controller
     public function storeNewProgramMawhob(MawhobEnrolledProgramRequest $request)
     {
 
-        $mawhobEnrollProgram = MawhobEnrollProgram::
+        $MawhobEnrollProgram = MawhobEnrollProgram::
         where('program_id', $request->id)
             ->where('mawhob_id', $request->mawhob_id)->get();
 
-        if ($mawhobEnrollProgram->isEmpty()) {
+        if ($MawhobEnrollProgram->isEmpty()) {
 
-            MawhobEnrollProgram::create([
+            $mawhobEnrollProgram =  MawhobEnrollProgram::create([
                 'program_id' => $request->id,
                 'mawhob_id' => $request->mawhob_id,
                 'enrolled_date' => Carbon::now()->format('Y-m-d'),
@@ -471,6 +472,39 @@ class ProgramsController extends Controller
                 'revenue_for' => $request->id,
                 'details' => 'enroll_program',
             ]);
+
+
+            ////////////////////////////////////////////////////
+            ///   enrolled program admin notification
+            Mawhoob_Notification::create([
+                'title_ar' => 'تنبيه التسجيل في برنامج',
+                'title_en' => 'Enrolled In Program Notification',
+
+                'details_ar' => ' قام الطالب   ' . $mawhobEnrollProgram->mawhob->mawhob_full_name
+                    . ' بالتسجيل في البرنامج التالي   ' . $mawhobEnrollProgram->program->name_ar,
+
+                'details_en' => ' The student   ' . $mawhobEnrollProgram->mawhob->mawhob_full_name
+                    . ' Enrolled In This Program   ' . $mawhobEnrollProgram->program->name_en,
+                'notify_status' => 'send',
+                'notify_class' => 'unread',
+                'notify_for' => 'admin',
+            ]);
+
+            ////////////////////////////////////////////////////
+            ///   enrolled program admin notification
+            Mawhoob_Notification::create([
+                'title_ar' => 'تنبيه التسجيل في برنامج',
+                'title_en' => 'Enrolled In Program Notification',
+
+                'details_ar' => ' قمت  بالتسجيل في البرنامج التالي ' . $mawhobEnrollProgram->program->name_ar,
+
+                'details_en' => ' You   Enrolled In This Program  ' . $mawhobEnrollProgram->program->name_en,
+                'notify_status' => 'send',
+                'notify_class' => 'unread',
+                'notify_for' => 'mawhob',
+                'student_id'=> student()->id(),
+            ]);
+
 
             return $this->returnSuccessMessage(trans('programs.add_new_mawhob_success_message'));
         } else {

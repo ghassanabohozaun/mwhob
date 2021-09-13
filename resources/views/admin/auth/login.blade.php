@@ -1,154 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html @if( Lang() =='ar') lang="ar" dir="rtl" @else lang="en" dir="ltr" @endif
+xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>{!! trans('login.sign_in') !!}</title>
+    <title>{!! Lang()=='ar' ?  setting()->site_name_ar : setting()->site_name_en !!}</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png"
-          href="{!! asset(\Illuminate\Support\Facades\Storage::url(setting()->site_logo)) !!}"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css"
-          href="{!! asset('adminBoard/gbLogin/vendor/bootstrap/css/bootstrap.min.css') !!}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css"
-          href="{!! asset('adminBoard/gbLogin/fonts/font-awesome-4.7.0/css/font-awesome.min.css') !!}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css"
-          href="{!! asset('adminBoard/gbLogin/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') !!}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{!! asset('adminBoard/gbLogin/vendor/animate/animate.css') !!}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css"
-          href="{!! asset('adminBoard/gbLogin/vendor/css-hamburgers/hamburgers.min.css') !!}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css"
-          href="{!! asset('adminBoard/gbLogin/vendor/animsition/css/animsition.min.css') !!}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{!! asset('adminBoard/gbLogin/vendor/select2/select2.min.css') !!}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css"
-          href="{!! asset('adminBoard/gbLogin/vendor/daterangepicker/daterangepicker.css') !!}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{!! asset('adminBoard/gbLogin/css/util.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('adminBoard/gbLogin/css/main.css') !!}">
-    <!--===============================================================================================-->
-</head>
-<body style="" @if(LaravelLocalization::getCurrentLocale() =='ar')  dir="rtl" @endif>
-<style>
+    <meta name="viewport" content="width=device-width, user-scalable=no,
+             initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    input[type=checkbox] {
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        -o-appearance: none;
-        outline: none;
-        content: none;
-    }
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
-    input[type=checkbox]:before {
-        font-family: "FontAwesome";
-        content: "\f00c";
-        font-size: 15px;
-        color: transparent !important;
-        border: 1px solid #999999;
-        margin-right: 7px;
-    }
+    <link rel="icon" type="image/jpg"
+          href="{!!asset(\Illuminate\Support\Facades\Storage::url(setting()->site_icon)) !!}">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    input[type=checkbox]:checked:before {
+    <link rel="shortcut icon" href="">
+    <link rel="apple-touch-icon" sizes="180x180" href="">
+    <meta name="application-name" content=""/>
+    <meta name="author" content=""/>
+    <link href="{!! asset('site/css/select2.min.css') !!}" rel="stylesheet">
 
-        color: black !important;
-    }
-</style>
-@if(LaravelLocalization::getCurrentLocale() =='ar')
+    @if(Lang()=='ar')
+        <link href="{!! asset('site/css/style-ar.css') !!}" rel="stylesheet">
+    @else
+        <link href="{!! asset('site/css/style-en.css') !!}" rel="stylesheet">
+    @endif
     <style>
-        .label-input100 {
-            padding-right: 24px;
+        .left-background-login {
+            background-image: url({!! asset('adminBoard/images/adminLogin2.jpg') !!});
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
         }
     </style>
+</head>
+<body>
 
-@endif
 
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
+<section class="c-panel">
+    <div>
+        <div class="row mx-0 align-items-center">
+            <div class="col-lg-6 px-0 left-background-login d-none d-lg-block">
+                <div class="img-left-login ">
 
-            <form class="login100-form validate-form" action="{{route('admin.login')}}" method="POST">
-                @csrf
-                <div style="margin-bottom: 50px">
-                    <img style=" display:block;margin:auto; width: 150px"
-                         src="{!! \Illuminate\Support\Facades\Storage::url(setting()->site_logo )!!}">
                 </div>
+            </div>
+            <div class="col-lg-6 ">
+                <div class="row ">
+                    <div class="col-lg-12">
+                        <div class="">
+                            <div class="title-block-login text-bold text-warning fs-24 text-center">
+                                <div class="mt-4">
+                                    <img src="{!! asset('adminBoard/images/logo/logo.svg') !!}" style="width: 200px">
+                                </div>
+
+                                <div class="mt-4">
+                                    <h2>
+                                        {!! trans('login.login') !!}
+                                    </h2>
+                                </div>
+                            </div>
 
 
-                @if(\Illuminate\Support\Facades\Session::has('error'))
-                    <div class="alert alert-danger font-weight-bold" role="alert">
-                        {{\Illuminate\Support\Facades\Session::get('error')}}
+
+                            <form action="{{route('admin.login')}}" method="POST"
+                                  style=" display: table;margin: auto " class="col-lg-8">
+                                @csrf
+
+
+                                <div class="mt-4">
+                                    @if(\Illuminate\Support\Facades\Session::has('error'))
+                                        <div class="alert alert-danger font-weight-bold" role="alert">
+                                            {{\Illuminate\Support\Facades\Session::get('error')}}
+                                        </div>
+                                    @endif
+                                </div>
+
+
+
+                                <div class="form-group  mt-4">
+                                    <label for="email">
+                                        {!! trans('login.email') !!}
+                                    </label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                           autocomplete="off" placeholder="{!! trans('login.enter_email') !!}">
+                                    @error('email')
+                                    <span class="text-danger font-weight-bold">
+                                        {{$message}}
+                                    </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group mt-4">
+                                    <label for="password">
+                                        {!! trans('login.password') !!}
+                                    </label>
+                                    <input type="password" class="form-control" id="password" name="password"
+                                           autocomplete="off"
+                                           placeholder="{!! trans('login.enter_password') !!}">
+
+                                    @error('password')
+                                    <span class="text-danger font-weight-bold">
+                                        {{$message}}
+                                    </span>
+                                    @enderror
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="contact100-form-checkbox">
+                                        <label>
+                                            <input type="checkbox" name="rememberMe" id="rememberMe">
+                                            <span style="margin-top: 10px;color: #999999">&nbsp;
+                                                {{trans('login.remember_me')}}
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary px-5 br-20">
+                                        {!! trans('login.login') !!}
+                                    </button>
+                                </div>
+
+                            </form>
+
+
+                        </div>
                     </div>
-                @endif
-
-                <div class="wrap-input100">
-                    <input class="input100" type="text" name="email" autocomplete="off">
-                    <span class="focus-input100"></span>
-                    <span class="label-input100">{!! trans('login.email') !!}</span>
                 </div>
-
-                @error('email')
-                <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
-                @enderror
-
-                <div class="wrap-input100">
-                    <input class="input100" type="password" name="password" autocomplete="off">
-                    <span class="focus-input100"></span>
-                    <span class="label-input100">{!! trans('login.password') !!}</span>
-                </div>
-
-                @error('password')
-                <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
-                @enderror
-
-
-                <div class="flex-sb-m w-full p-t-3 p-b-32">
-                    <div class="contact100-form-checkbox">
-                        <label>
-                            <input type="checkbox" name="rememberMe" id="rememberMe">
-                            <span style="margin-top: 10px;color: #999999">&nbsp; {{trans('login.remember_me')}}</span>
-                        </label>
-                    </div>
-                </div>
-
-
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
-                        {!! trans('login.sign_in') !!}
-                    </button>
-                </div>
-
-            </form>
-
-            <div class="login100-more"
-                 style="background-image: url({!! asset('adminBoard/gbLogin/images/3.jpg') !!} );">
             </div>
         </div>
     </div>
-</div>
+</section>
 
+<script src="{!! asset('site/js/jquery.min.js') !!}"></script>
 
-<!--===============================================================================================-->
-<script src="{!! asset('adminBoard/gbLogin/vendor/jquery/jquery-3.2.1.min.js') !!}"></script>
-<!--===============================================================================================-->
-<script src="{!! asset('adminBoard/gbLogin/vendor/animsition/js/animsition.min.js') !!}"></script>
-<!--===============================================================================================-->
-<script src="{!! asset('adminBoard/gbLogin/vendor/bootstrap/js/popper.js') !!}"></script>
-<script src="{!! asset('adminBoard/gbLogin/vendor/bootstrap/js/bootstrap.min.js') !!}"></script>
-<!--===============================================================================================-->
-<script src="{!! asset('adminBoard/gbLogin/vendor/select2/select2.min.js') !!}"></script>
-<!--===============================================================================================-->
-<script src="{!! asset('adminBoard/gbLogin/vendor/daterangepicker/moment.min.js') !!}"></script>
-<script src="{!! asset('adminBoard/gbLogin/vendor/daterangepicker/daterangepicker.js') !!}"></script>
-<!--===============================================================================================-->
-<script src="{!! asset('adminBoard/gbLogin/vendor/countdowntime/countdowntime.js') !!}"></script>
-<!--===============================================================================================-->
-<script src="{!! asset('adminBoard/gbLogin/js/main.js') !!}"></script>
-
+<script src="{!! asset('site/js/uikit.min.js') !!}"></script>
+<script src="{!! asset('site/js/bootstrap.min.js') !!}"></script>
+<script src="{!! asset('site/js/aos.js') !!}"></script>
 </body>
 </html>
+

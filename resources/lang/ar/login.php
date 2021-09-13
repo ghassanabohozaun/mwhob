@@ -42,6 +42,6 @@ return [
     'account_disabled'=>'الحساب معطل',
 
 
-    'sign_in_to_teacher'=>'تسجيل دخول الي لوحة المعلم'
+    'sign_in_to_teacher'=>' لوحة  تحكم المعلم'
 
 ];

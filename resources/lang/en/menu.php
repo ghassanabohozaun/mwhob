@@ -52,6 +52,7 @@ return [
     'sliders' => 'Slider',
     'add_new_slider'=>'Add New Slider',
     'why_choose_us'=>'Why Choose Us',
+    'notifications' => 'Notifications',
 
 ];
 

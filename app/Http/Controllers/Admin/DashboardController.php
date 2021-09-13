@@ -66,6 +66,9 @@ class DashboardController extends Controller
         foreach ($RevenueMonths as $index=>$month){
             $RevenueData[$month] = $Revenues[$index];
         }
+
+
+
         return view('admin.dashboard', compact('title',
             'teachersCount', 'mawhobsCount', 'coursesCount', 'RevenuesValue',
             'courses','contests','datas','RevenueData','revenues'));

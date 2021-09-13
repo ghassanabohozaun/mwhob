@@ -326,12 +326,10 @@
                     <div class="flex-row-fluid ml-lg-8">
                         <!--begin::Row-->
                         <div class="row">
+                            @include('teacher.profile.courses')
                             @include('teacher.profile.categories')
-                            @include('teacher.profile.notifications')
-
                         </div>
                         <!--end::Row-->
-                        @include('teacher.profile.courses')
 
                     </div>
                     <!--end::Content-->

@@ -56,5 +56,9 @@ Route::group(
     Route::get('/success-story/{id?}', 'SiteController@story')
         ->name('story');
 
+
+    Route::get('/sms',function (){
+       return view('sms');
+    });
 });
 
