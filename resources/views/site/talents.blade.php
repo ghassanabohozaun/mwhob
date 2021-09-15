@@ -22,7 +22,7 @@
             <p>{!! Lang()=='ar'?staticStrings()->talents_description_ar:staticStrings()->talents_description_en !!}</p>
         </div>
         <div class="back-sub-header">
-            <img src="{!! asset('site/img/header-2.png') !!}" alt="">
+            <img src="{!! asset('site/img/header-2.jpg') !!}" alt="">
         </div>
     </section>
 

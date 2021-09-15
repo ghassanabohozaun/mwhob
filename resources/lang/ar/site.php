@@ -111,18 +111,15 @@ return [
     'enrolled_in_contest_successfully' => 'تم تسجيلك في المسابقة بنجاح ',
     'already_enrolled_in_this_contest' => 'قمت بالتسجيل في المسابقة سابقا',
     'you_have_not_joined_any_contest_yet' => 'لم تنضم الي اي مسابقة بعد',
-
     'do_you_want_to_enroll_in_course' => 'هل تريد التسجيل في الدورة ؟',
     'enrolled_in_course_successfully' => 'تم تسجيلك في الدورة بنجاح ',
     'already_enrolled_in_this_course' => 'قمت بالتسجيل في الدورة سابقا',
     'you_have_not_joined_any_course_yet' => 'لم تنضم الي اي دورة بعد',
-
-
     'do_you_want_to_enroll_in_program' => 'هل تريد التسجيل في البرنامج ؟',
     'enrolled_in_program_successfully' => 'تم تسجيلك في البرنامج بنجاح ',
     'already_enrolled_in_this_program' => 'قمت بالتسجيل في البرنامج سابقا',
-
     'no_date'=>'لايوجد بيانات حاليا',
+    'iam_almowhob'=>'انا الموهوب',
     //////////////////////////////////////////////////
     /// not Exists
     'no_team_members_exists' => 'لا يوجد أعضاء في الفريق حالياً',

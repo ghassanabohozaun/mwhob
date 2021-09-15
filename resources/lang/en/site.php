@@ -10,14 +10,12 @@ return [
     'contact' => 'Contact',
     'ar' => 'ع',
     'en' => 'EN',
-
     'mawhoob' => 'Mawhoob',
     'i_want_to_get_practice' => 'I Want To Get Practice',
     'need_to_show_my_talent' => 'Need To Show My Talent',
     'mawhoobs' => 'Mawhoobs',
     'login' => 'Login',
     'sign_up' => 'SIGN UP',
-
     'read_more' => 'Read more',
     'best_mawhoobs' => 'Best Mawhoobs',
     'mawhoob_the_best_app_to_show_your_talents' => 'Mawhoob The Best App To Show Your Talents',
@@ -114,6 +112,7 @@ return [
     'enrolled_in_program_successfully' => 'You have been successfully enrolled into the Program',
     'already_enrolled_in_this_program' => 'You have already enrolled for the Program ',
     'no_date'=>'No Data',
+    'iam_almowhob'=>'Iam Almowhob',
 
     //////////////////////////////////////////////////
     /// not Exists

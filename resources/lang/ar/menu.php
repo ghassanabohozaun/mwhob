@@ -42,7 +42,7 @@ return [
     'success_story_categories' => 'مجموعات قصص النجاح',
     'add_new_success_story_category' => 'اضافة مجموعة قصص نجاح جديدة',
     'revenues' => 'الايرادات',
-    'teacher_profile' => 'الملف الشخصي للمدرس',
+    'teacher_profile' => 'الملف الشخصي ',
     'landing_page' => 'الصفحة الرئيسية للموقع',
     'index' => 'رئيسية الموقع',
     'about_mawhob' => 'عن موهوب',

@@ -204,68 +204,7 @@
                                                     </div>
                                                     <!--end::Group-->
 
-                                                    <!--begin::Group-->
-                                                    <div class="url_section">
 
-
-                                                        <div class="form-group row">
-                                                            <label class="col-xl-3 col-lg-3 col-form-label">
-                                                                {{trans('sliders.url_ar')}}
-                                                            </label>
-                                                            <div class="col-lg-9 col-xl-9">
-                                                                <input
-                                                                    class="form-control form-control-solid form-control-lg"
-                                                                    name="url_ar" id="url_ar" type="text"
-                                                                    placeholder=" {{trans('sliders.enter_url_ar')}}"
-                                                                    autocomplete="off"/>
-                                                                <span class="form-text text-danger"
-                                                                      id="url_ar_error"></span>
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="form-group row">
-                                                            <label class="col-xl-3 col-lg-3 col-form-label">
-                                                                {{trans('sliders.url_en')}}
-                                                            </label>
-                                                            <div class="col-lg-9 col-xl-9">
-                                                                <input
-                                                                    class="form-control form-control-solid form-control-lg"
-                                                                    name="url_en" id="url_en" type="text"
-                                                                    placeholder=" {{trans('sliders.enter_url_en')}}"
-                                                                    autocomplete="off"/>
-                                                                <span class="form-text text-danger"
-                                                                      id="url_en_error"></span>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                    <!--end::Group-->
-
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{trans('sliders.order')}}
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <input
-                                                                class="form-control form-control-solid form-control-lg"
-                                                                name="order" id="order" type="text"
-                                                                placeholder=" {{trans('sliders.enter_order')}}"
-                                                                autocomplete="off"/>
-                                                            <span class="form-text text-muted">
-                                                             {{trans('sliders.exist_number')}}
-                                                                &nbsp;
-                                                                {{App\Models\Slider::select('order')->orderBy('order','desc')->pluck('order')}}
-
-                                                            </span>
-
-                                                            <span class="form-text text-danger" id="order_error"></span>
-                                                        </div>
-
-                                                    </div>
-                                                    <!--end::Group-->
 
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
@@ -374,17 +313,6 @@
 
         var slider_photo = new KTImageInput('kt_slider_photo');
 
-        ///-------------------------------------------------------------------////
-        $('.url_section').addClass('d-none');
-        ///////////////////////////////////////////////////////////////
-        $('input[type=radio][name=button_status]').change(function () {
-            if (this.value == 'show') {
-                $('.url_section').removeClass('d-none');
-            } else if (this.value == 'hide') {
-                $('.url_section').addClass('d-none');
-            }
-        });
-        ///-------------------------------------------------------------------////
 
 
         $('#form_sliders_add').on('submit', function (e) {
@@ -397,8 +325,6 @@
             $('#language').css('border-color', '');
             $('#order').css('border-color', '');
             $('#photo').css('border-color', '');
-            $('#url_ar').css('border-color', '');
-            $('#url_en').css('border-color', '');
 
 
 
@@ -409,8 +335,7 @@
             $('#language_error').text('');
             $('#order_error').text('');
             $('#photo_error').text('');
-            $('#url_ar_error').text('');
-            $('#url_en_error').text('');
+
             /////////////////////////////////////////////////////////////
             var data = new FormData(this);
             var type = $(this).attr('method');

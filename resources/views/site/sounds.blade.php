@@ -22,7 +22,7 @@
                 {!! Lang()=='ar'?staticStrings()->soundtrack_description_ar:staticStrings()->soundtrack_description_en  !!}
             </p>
         </div>
-        <div class="back-sub-header"><img src="{!! asset('site/img/sound-tracks.png') !!}" alt="">
+        <div class="back-sub-header"><img src="{!! asset('site/img/sound-tracks.jpg') !!}" alt="">
         </div>
     </section>
 

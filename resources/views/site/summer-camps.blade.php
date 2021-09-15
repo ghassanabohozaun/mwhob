@@ -23,7 +23,7 @@
             </p>
         </div>
         <div class="back-sub-header">
-            <img src="{!! asset('site/img/Programs.png') !!}"
+            <img src="{!! asset('site/img/Programs.jpg') !!}"
                  alt="{!! trans('site.summer_camps') !!}">
         </div>
     </section>

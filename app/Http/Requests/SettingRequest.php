@@ -26,8 +26,8 @@ class SettingRequest extends FormRequest
         return [
             'site_name_ar'=>'required|max:100',
             'site_name_en'=>'required|max:100',
-            'site_icon'=>'image|mimes:png|max:10248',
-            'site_logo'=>'image|mimes:png,jpeg,jpg|max:1024',
+            'site_icon'=>'image|mimes:png,svg,jpeg,jpg|max:1024',
+            'site_logo'=>'image|mimes:png,svg,jpeg,jpg|max:1024',
         ];
     }
 

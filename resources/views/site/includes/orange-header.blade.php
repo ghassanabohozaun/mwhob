@@ -17,7 +17,17 @@
                     <!-- begin:user image --------------------------------------------------->
                         <div class="col-auto pr-0">
                             <a href="{!! route('student.portfolio') !!}" class="img-after-login">
-                                <img src="{!! asset(Storage::url(student()->user()->photo)) !!}" alt="">
+
+                                @if(student()->user()->photo == null)
+                                    @if(student()->user()->mowhob_gender ==  trans('general.male'))
+                                        <img src="{{asset('adminBoard/images/male.jpeg')}}" alt="">
+                                    @else
+                                        <img src="{{asset('adminBoard/images/female.jpeg')}}" alt="">
+
+                                    @endif
+                                @else
+                                    <img src="{!! asset(Storage::url(student()->user()->photo)) !!}" alt="">
+                                @endif
                             </a>
                         </div>
                         <!-- end:user image --------------------------------------------------->

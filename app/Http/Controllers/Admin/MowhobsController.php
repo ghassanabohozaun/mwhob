@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MowhobRequest;
+use App\Http\Requests\MowhobUpdateRequest;
 use App\Http\Resources\MowhobsResource;
 use App\Http\Resources\MowhobsTrashedResource;
 use App\Models\BestMawhob;
@@ -60,9 +61,9 @@ class MowhobsController extends Controller
                 })->get();
         } elseif (!empty($request->status)) {
             if ($request->status == 'active') {
-                $status_value = null;
-            } else {
                 $status_value = 'on';
+            } else {
+                $status_value = null;
             }
             $list = $list = Mawhob::with('category')
                 ->withoutTrashed()->orderByDesc('created_at')
@@ -140,27 +141,37 @@ class MowhobsController extends Controller
     public function store(MowhobRequest $request)
     {
 
+
         try {
-            if ($request->hasFile('photo')) {
-                $photo_path = $request->file('photo')->store('Mowhobs');
+
+            $mawhoobExists = Mawhob::where('mawhob_mobile_no', $request->mawhob_mobile_no)->first();
+
+            if (!$mawhoobExists) {
+
+                if ($request->hasFile('photo')) {
+                    $photo_path = $request->file('photo')->store('Mowhobs');
+                } else {
+                    $photo_path = '';
+                }
+
+                Mawhob::create([
+                    'photo' => $photo_path,
+                    'slug_mawhob_full_name' => slug($request->mawhob_full_name),
+                    'mawhob_full_name' => $request->mawhob_full_name,
+                    'mawhob_mobile_no' => $request->mawhob_mobile_no,
+                    'password' => '$2y$10$J1uHls/Pp690G8aJslCgDelNYeC3YRVsyc.h4GHxFDrr2U6L6wUF2',
+                    'mawhob_whatsapp_no' => $request->mawhob_whatsapp_no,
+                    'mawhob_birthday' => $request->mawhob_birthday,
+                    'mowhob_gender' => $request->mowhob_gender,
+                    'category_id' => $request->category_id,
+                    'portfolio' => $request->portfolio,
+
+                ]);
+                return $this->returnSuccessMessage(trans('general.add_success_message'));
             } else {
-                $photo_path = '';
+                return $this->returnError(trans('mowhob.mawhob_exists'), 500);
             }
 
-            Mawhob::create([
-                'photo' => $photo_path,
-                'slug_mawhob_full_name' => slug($request->mawhob_full_name),
-                'mawhob_full_name' => $request->mawhob_full_name,
-                'mawhob_mobile_no' => $request->mawhob_mobile_no,
-                'password' => $request->password,
-                'mawhob_whatsapp_no' => $request->mawhob_whatsapp_no,
-                'mawhob_birthday' => $request->mawhob_birthday,
-                'mowhob_gender' => $request->mowhob_gender,
-                'category_id' => $request->category_id,
-                'portfolio' => $request->portfolio,
-
-            ]);
-            return $this->returnSuccessMessage(trans('general.add_success_message'));
         } catch (\Exception $exception) {
             return $this->returnError(trans('general.try_catch_error_message'), 500);
         }//end catch
@@ -183,10 +194,11 @@ class MowhobsController extends Controller
     }
     /////////////////////////////////////////
     ///  update
-    public function update(MowhobRequest $request)
+    public function update(MowhobUpdateRequest $request)
     {
 
         try {
+
             $mowhob = Mawhob::find($request->id);
 
             if ($request->hasFile('photo')) {
@@ -207,8 +219,7 @@ class MowhobsController extends Controller
                 'photo' => $photo_path,
                 'slug_mawhob_full_name' => slug($request->mawhob_full_name),
                 'mawhob_full_name' => $request->mawhob_full_name,
-                'mawhob_mobile_no' => $request->mawhob_mobile_no,
-                'password' => $request->password,
+                'password' => '$2y$10$J1uHls/Pp690G8aJslCgDelNYeC3YRVsyc.h4GHxFDrr2U6L6wUF2',
                 'mawhob_whatsapp_no' => $request->mawhob_whatsapp_no,
                 'mawhob_birthday' => $request->mawhob_birthday,
                 'mowhob_gender' => $request->mowhob_gender,
@@ -306,7 +317,6 @@ class MowhobsController extends Controller
                 if (!$mawhobRevenues->isEmpty()) {
                     return $this->returnError([trans('mowhob.cannot_be_deleted_because_it_have_revenues')], 500);
                 }
-
 
 
                 $mowhob->delete();

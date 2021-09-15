@@ -101,7 +101,7 @@
                                                                  </span>
                                                                     </div>
                                                                     <span
-                                                                        class="form-text text-muted">{{trans('general.image_format_allow')}}</span>
+                                                                        class="form-text text-muted">{{trans('settings.image_format_allow')}}</span>
                                                                     <span class="form-text text-danger"
                                                                           id="site_icon_error"></span>
                                                                 </div>
@@ -138,7 +138,7 @@
                                                                  </span>
                                                                     </div>
                                                                     <span class="form-text text-muted">
-                                                                {{trans('general.image_format_allow')}}
+                                                                {{trans('settings.image_format_allow')}}
                                                               <span class="form-text text-danger"
                                                                     id="site_logo_error"></span>
                                                             </span>

@@ -33,6 +33,8 @@
 
     <!--begin::content-->
     <div class="d-flex flex-column-fluid" style="margin-bottom: 5px">
+
+
         <!--begin::Container-->
         <div class=" container-fluid ">
             <!--begin::Counters-->
@@ -239,7 +241,9 @@
                 <!--end::Header-->
 
                 @if($courses->isEmpty())
-
+                    <img src="{!! asset('site/images/noRecordFound.svg') !!}"
+                         class="img-fluid" id="no_data_img"
+                         title="{!! trans('site.no_date') !!}">
                 @else
                 <!--begin::Body-->
                     <div class="card-body py-2" style="overflow:auto; height: 350px">
@@ -356,7 +360,7 @@
                 </div>
                 <!--end::Header-->
 
-                @if($contests->isEmpty())
+                @if($revenues->isEmpty())
 
                     <img src="{!! asset('site/images/noRecordFound.svg') !!}"
                          class="img-fluid" id="no_data_img"

@@ -3,6 +3,7 @@
 return [
 
     'settings'=>'Settings',
+    'image_format_allow' => 'Allowed file types jpg,jpeg,svg,png',
 
     'logo_and_icon'=>'Logo and Site Name Section',
     'contact_us'=>'Contact Us Section',
@@ -85,7 +86,7 @@ return [
     'in'=>'The entered value is not valid',
     'image'=>'must be image ',
     'image_max'=>'Max allow image size 1 mega',
-    'site_icon_mimes'=>'image with png format only',
-    'site_logo_mimes'=>'image with jpeg, jpg, png formats only',
+    'site_icon_mimes'=>'image with jpeg, jpg,svg, png formats only',
+    'site_logo_mimes'=>'image with jpeg, jpg,svg, png formats only',
 
 ];

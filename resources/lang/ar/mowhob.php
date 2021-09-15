@@ -49,6 +49,8 @@ return [
     'image_required' => 'الصورة  مطلوبة',
     'portfolio_max' => 'حجم الملف المسموح به 5 ميجا فقط',
 
+    'mawhob_exists' => 'الموهوب تم اضافته مسبقا',
+
     'no_contests_exists' => 'الموهوب لم يتشرك في اي مسابقة بعد',
 
     'cannot_be_deleted_because_it_have_stories' => 'لا يمكن حذف الموهوب  لان له قصص نجاح',

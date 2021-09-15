@@ -23,8 +23,7 @@
                 <!--begin: Item-->
                     <div class="d-flex align-items-center  rounded p-5 mb-5 bg-light-info">
                         <div class="d-flex align-items-center flex-grow-1">
-                            <label class="checkbox checkbox-lg checkbox-lg flex-shrink-0 mr-4">
-                                <input type="checkbox" value="1"/>
+                            <label class=" flex-shrink-0 mr-4">
                                 <span>
                                       <i class="flaticon-bell text-danger icon-lg"></i>
                                 </span>

@@ -82,10 +82,14 @@
                                         </a>
                                         <div class="text-muted">
                                             @if($teacher->teacher_freeze =='on')
-                                                {!! trans('teachers.frozen') !!}
-                                            @else
                                                 {!! trans('teachers.active') !!}
+                                            @else
+                                                {!! trans('teachers.frozen') !!}
                                             @endif
+                                        </div>
+
+                                        <div class="text-muted">
+                                            {!! $teacher->teacher_email !!}
                                         </div>
                                     </div>
                                 </div>

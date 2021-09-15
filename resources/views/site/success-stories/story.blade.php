@@ -25,7 +25,7 @@
             </p>
         </div>
         <div class="back-sub-header">
-            <img src="{!! asset('site/img/Success-Stories-Category.png') !!}" alt="">
+            <img src="{!! asset('site/img/Success-Stories-Category.jpg') !!}" alt="">
         </div>
     </section>
 
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 p-5">
-                    <div class="fs-14 text-warning text-bold">Iam Almowhob</div>
+                    <div class="fs-14 text-warning text-bold">{!! trans('site.iam_almowhob') !!}</div>
                     <h2 class="my-4 text-bold">{!! $story->mawhob->mawhob_full_name !!}</h2>
                     <p>
                         @if(Lang() == 'ar')

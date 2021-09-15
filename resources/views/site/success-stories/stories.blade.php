@@ -28,7 +28,7 @@
                 {!! Lang()=='ar'?staticStrings()->success_story_description_ar:staticStrings()->success_story_description_en !!}
             </p>
         </div>
-        <div class="back-sub-header"><img src="{!! asset('site/img/Success-Stories.png') !!}" alt=""></div>
+        <div class="back-sub-header"><img src="{!! asset('site/img/Success-Stories.jpg') !!}" alt=""></div>
     </section>
 
 

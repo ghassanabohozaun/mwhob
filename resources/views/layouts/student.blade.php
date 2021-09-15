@@ -65,7 +65,7 @@ xmlns="http://www.w3.org/1999/xhtml">
         function refreshLectureDate() {
             setInterval(function() {
                 $( "#refresh_lecture_date" ).load(window.location.href + " #refresh_lecture_date" );
-            }, 10000);  //Delay here = 5 seconds
+            }, 5000);  //Delay here = 5 seconds
         }
     });
 </script>

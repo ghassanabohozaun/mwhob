@@ -87,10 +87,14 @@
                                         </a>
                                         <div class="text-muted">
                                             @if($teacher->teacher_freeze =='on')
-                                                {!! trans('teachers.frozen') !!}
-                                            @else
                                                 {!! trans('teachers.active') !!}
+                                            @else
+                                                {!! trans('teachers.frozen') !!}
                                             @endif
+                                        </div>
+
+                                        <div class="text-muted">
+                                            {!! $teacher->teacher_email !!}
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +103,7 @@
                                 <!--begin::Contact-->
                                 <div class="py-9">
                                     <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <a href="#"
+                                        <a href="javascript:void(0);"
                                            class="text-muted text-hover-primary">  {!! $teacher->teacher_bio !!}</a>
                                     </div>
 

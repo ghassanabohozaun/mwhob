@@ -120,12 +120,12 @@ class SiteController extends Controller
                 ->where(function ($q) {
                     $q->where('language', 'ar')
                         ->orWhere('language', 'ar_en');
-                })->paginate(12);
+                })->paginate(9);
         } else {
             $programs = Program::withoutTrashed()->orderByDesc('id')->where('status', 'on')
                 ->where(function ($q) {
                     $q->where('language', 'ar_en');
-                })->paginate(12);
+                })->paginate(9);
         }
         return view('site.programs', compact('title', 'programs'));
 
@@ -140,12 +140,12 @@ class SiteController extends Controller
                     ->where(function ($q) {
                         $q->where('language', 'ar')
                             ->orWhere('language', 'ar_en');
-                    })->paginate(12);
+                    })->paginate(9);
             } else {
                 $programs = Program::withoutTrashed()->orderByDesc('id')->where('status', 'on')
                     ->where(function ($q) {
                         $q->where('language', 'ar_en');
-                    })->paginate(12);
+                    })->paginate(9);
             }
 
             return view('site.programs-paging', compact('programs'))->render();

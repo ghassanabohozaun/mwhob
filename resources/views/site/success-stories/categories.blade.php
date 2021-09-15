@@ -25,7 +25,7 @@
             </p>
         </div>
         <div class="back-sub-header">
-            <img src="{!! asset('site/img/Success-Stories2.png') !!}" alt="">
+            <img src="{!! asset('site/img/Success-Stories2.jpg') !!}" alt="">
         </div>
     </section>
 

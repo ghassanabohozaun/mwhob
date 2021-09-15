@@ -23,7 +23,7 @@
                 {!! Lang()=='ar'?staticStrings()->programs_description_ar:staticStrings()->programs_description_en !!}
             </p>
         </div>
-        <div class="back-sub-header"><img src="{!! asset('site/img/Programs.png') !!}" alt=""></div>
+        <div class="back-sub-header"><img src="{!! asset('site/img/Programs.jpg') !!}" alt=""></div>
     </section>
 
     <section class=" content-section py-5 px-4 px-md-0" id="programs_section">

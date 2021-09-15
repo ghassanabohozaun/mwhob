@@ -151,7 +151,7 @@
 
                                                             <select
                                                                 class="form-control  form-control-lg"
-                                                                name="" id="story_category_id"
+                                                                name="story_category_id" id="story_category_id"
                                                                 type="text">
                                                                 <option value="">
                                                                     {{trans('general.select_from_list')}}

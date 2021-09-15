@@ -20,7 +20,7 @@
             <h2>{!! trans('site.courses') !!}</h2>
             <p>{!! Lang()=='ar'?staticStrings()->courses_description_ar:staticStrings()->courses_description_en !!}</p>
         </div>
-        <div class="back-sub-header"><img src="{!! asset('site/img/Courses.png') !!}" alt=""></div>
+        <div class="back-sub-header"><img src="{!! asset('site/img/Courses.jpg') !!}" alt=""></div>
     </section>
 
 

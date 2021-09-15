@@ -32,15 +32,12 @@ class SlidersRequest extends FormRequest
                     'title_en' => 'required',
                     'details_ar' => 'required',
                     'details_en' => 'required',
-                    'url_ar' => 'required',
-                    'url_en' => 'required',
                     'photo' => 'required|image|mimes:jpeg,jpg,png|max:5120',
                 ];
             } else {
                 return [
                     'title_ar' => 'required',
                     'details_ar' => 'required',
-                    'url_ar' => 'required',
                     'photo' => 'required|image|mimes:jpeg,jpg,png|max:5120',
                 ];
             }

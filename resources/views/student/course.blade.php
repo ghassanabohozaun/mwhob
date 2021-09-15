@@ -20,7 +20,7 @@
                             <div class="course-dt">
                                 <div class="cor-img">
                                     <img src="{!! asset(Storage::url($course->course_image)) !!}"
-                                         width="100%" height="300" alt="">
+                                         alt="">
                                 </div>
                                 <div class="row  py-3 mt-4">
                                     <div class="col-md-10">

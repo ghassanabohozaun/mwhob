@@ -156,7 +156,7 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="{!! $mowhob->mawhob_mobile_no !!}"
-                                                                   class="form-control  form-control-lg"
+                                                                   class="form-control  form-control-lg"  disabled="disabled"
                                                                    name="mawhob_mobile_no" id="mawhob_mobile_no"
                                                                    type="text"
                                                                    placeholder=" {{trans('mowhob.enter_mawhob_mobile_no')}}"

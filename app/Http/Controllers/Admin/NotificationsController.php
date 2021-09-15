@@ -57,7 +57,7 @@ class NotificationsController extends Controller
     /// get admin notifications
     public function getNotifications()
     {
-        $notifications = Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'admin')->get();
+        $notifications = Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'admin')->take(20)->get();
 
         return view('admin.includes.notifications', compact('notifications'));
     }

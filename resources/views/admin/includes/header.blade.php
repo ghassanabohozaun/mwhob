@@ -212,6 +212,7 @@
                 success: function (data) {
                     console.log(data);
                     $('#notify_section').load("{!! route('admin.get.notifications') !!}");
+                    $(".notifications_count").load(location.href + " .notifications_count");
                 }
             })
         });
@@ -224,7 +225,6 @@
             function () {
                 $('#notify_section').load("{!! route('admin.get.notifications') !!}");
                 $(".notifications_count").load(location.href + " .notifications_count");
-                //$("#notifications_count2").load(location.href + " #notifications_count2");
-            }, 60000);
+            }, 6000);
     </script>
 @endpush

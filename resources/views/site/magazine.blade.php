@@ -19,7 +19,7 @@
             <h2>{!! trans('site.mawhoob_magazine') !!}</h2>
             <p>{!! Lang()=='ar'? staticStrings()->magazine_description_ar:staticStrings()->magazine_description_en  !!}</p>
         </div>
-        <div class="back-sub-header"><img src="{!! asset('site/img/Magazine.png') !!}" alt=""></div>
+        <div class="back-sub-header"><img src="{!! asset('site/img/Magazine.jpg') !!}" alt=""></div>
     </section>
     <section class=" content-section py-5 my-5 px-4 px-md-0">
         <div class="container text-center py-5 my-5">

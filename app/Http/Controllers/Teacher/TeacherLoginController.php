@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 
-class loginController extends Controller
+class TeacherLoginController extends Controller
 {
     //////////////////////////////////////////////
     /// get Login

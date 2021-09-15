@@ -402,7 +402,7 @@ html::-webkit-scrollbar-thumb:hover { background: #F28705; }
 .best-mwhobs-list { text-align: center; }
 .best-mwhobs-list img { -o-object-fit: cover; object-fit: cover; border-radius: 16px; height: 300px; }
 
-section.best-app { background-image: url("../img/back-blow.png"); background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; padding: 160px 0; margin: 100px 0; }
+section.best-app { background-image: url("../img/back-blow.jpg"); background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; padding: 160px 0; margin: 100px 0; }
 section.best-app .img-right { position: absolute; top: -450px; }
 section.best-app .img-right img { width: 450px; }
 
@@ -450,7 +450,7 @@ section.best-app .img-right img { width: 450px; }
 
 .progress .bg-warning { margin: 2px; border-radius: 20px; }
 
-.section-footer { background-image: url(../img/back-footer.png); background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; padding: 140px 0 50px; }
+.section-footer { background-image: url(../img/back-footer.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; padding: 140px 0 50px; }
 .section-footer .list-social-media { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; padding: 0; list-style: none; }
 .section-footer .list-social-media li { margin: 5px; }
 .section-footer .list-social-media li a { display: -webkit-box; display: -ms-flexbox; display: flex; height: 40px; width: 40px; padding: 2px; background-color: #fff; border-radius: 50%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out; }

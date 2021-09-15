@@ -23,7 +23,7 @@
             </p>
         </div>
         <div class="back-sub-header">
-            <img src="{!! asset('site/img/sound-tracks.png') !!}" alt="">
+            <img src="{!! asset('site/img/sound-tracks.jpg') !!}" alt="">
         </div>
     </section>
 

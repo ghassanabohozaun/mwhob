@@ -366,7 +366,20 @@
                         $('.add_mowhob_button').click(function () {
                             window.location.href = "{{route('admin.mowhobs')}}";
                         });
+                    }else if (data.status == false) {
+                        Swal.fire({
+                            title:data.msg,
+                            text: '',
+                            icon: "warning",
+                            allowOutsideClick: false,
+                            customClass: {confirmButton: 'mowhob_exists_button'}
+                        });
+                        $('.mowhob_exists_button').click(function () {
+                        });
                     }
+
+
+
                 },
 
                 error: function (reject) {

@@ -22,7 +22,7 @@
                 {!! Lang()=='ar'? staticStrings()->contests_description_ar:staticStrings()->contests_description_en  !!}
             </p>
         </div>
-        <div class="back-sub-header"><img src="{!! asset('site/img/Contests.png') !!}" alt=""></div>
+        <div class="back-sub-header"><img src="{!! asset('site/img/Contests.jpg') !!}" alt=""></div>
     </section>
 
 

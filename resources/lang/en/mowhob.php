@@ -52,6 +52,7 @@ return [
 
 
     'no_contests_exists'=>'The Mawhob  has not entered any Contests yet',
+    'mawhob_exists' => 'mawhob exists',
 
 
     'cannot_be_deleted_because_it_have_stories' => 'Mawhob Cannot Be Deleted Because It Have Success Stories',

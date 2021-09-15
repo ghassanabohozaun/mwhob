@@ -93,13 +93,13 @@ Route::group([
 //////////////////////////////////////////////////////////////////////////////
 /// Guest => that mean:must not be teacher => because any one must be able to access login page
 Route::group(['namespace' => 'Teacher', 'middleware' => 'guest:teacher'], function () {
-    Route::get('login', 'LoginController@getLogin')->name('get.teacher.login');
-    Route::post('login', 'LoginController@doLogin')->name('teacher.login');
+    Route::get('login', 'TeacherLoginController@getLogin')->name('get.teacher.login');
+    Route::post('login', 'TeacherLoginController@doLogin')->name('teacher.login');
 });
 
 //////////////////////////////////////////////////////////////////////////////
 /// Logout
-Route::get('logout', 'Teacher\LoginController@logout')->name('teacher.logout');
+Route::get('logout', 'Teacher\TeacherLoginController@logout')->name('teacher.logout');
 
 
 
