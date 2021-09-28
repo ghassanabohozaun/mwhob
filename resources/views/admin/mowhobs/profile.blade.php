@@ -81,9 +81,14 @@
                                         <i class="symbol-badge bg-success"></i>
                                     </div>
                                     <div>
-                                        <a href="#"
+                                        <a href="javascript:void(0)"
                                            class="font-weight-bolder font-size-h5 text-dark-75 text-hover-primary">
                                             {!! $mowhob->mawhob_full_name !!}
+                                        </a>
+
+                                        <a href="javascript:void(0)" style="display: block ;margin-top: 3px"
+                                           class="font-weight-bolder font-size-h5 text-dark-75 text-hover-primary">
+                                            {!! $mowhob->mawhob_full_name_en !!}
                                         </a>
                                         <div class="text-muted">
                                             @if($mowhob->freeze =='on')

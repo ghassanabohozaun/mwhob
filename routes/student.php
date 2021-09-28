@@ -51,10 +51,18 @@ Route::group([
 /// Guest => that mean:must not be student => because any one must be able to access login page
 Route::group(['namespace' => 'Student', 'middleware' => 'guest:student'], function () {
 
+
     Route::group(['prefix' => 'signup'], function () {
         Route::get('/', 'SignupController@index')->name('student.signup');
         Route::post('/store', 'SignupController@store')->name('student.signup.store');
     });
+
+    Route::get('/mobile-confirm/{mobileNo?}/{whatsappNo?}','SignupController@registrationConfirmation')
+        ->name('student.registration.confirmation');
+
+    Route::post('/active-student','SignupController@activeStudent')
+        ->name('student.active.student');
+
 
     Route::get('login', 'StudentLoginController@getLogin')->name('get.student.login');
     Route::post('login', 'StudentLoginController@doLogin')->name('student.login');

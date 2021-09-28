@@ -120,10 +120,19 @@
                 processResults: function (data) {
                     return {
                         results: $.map(data, function (item) {
-                            return {
-                                text: item.mawhob_full_name,
-                                id: item.id,
+
+                            if ("{!! Lang()=='ar' !!}") {
+                                return {
+                                    text: item.mawhob_full_name,
+                                    id: item.id,
+                                }
+                            } else {
+                                return {
+                                    text: item.mawhob_full_name_en,
+                                    id: item.id,
+                                }
                             }
+
                         })
                     };
                 },

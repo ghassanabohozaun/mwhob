@@ -21,9 +21,7 @@ Route::group([
     Route::get('/notFound', 'DashboardController@notFound')->name('teacher.not.found');
     //////////////////////////////////////////////////////////////////
     /// dashboard
-    Route::get('/', 'DashboardController@index')->name('teacher.dashboard');
-    Route::get('/dashboard', 'DashboardController@index')->name('teacher.dashboard');
-
+    Route::get('/', 'DashboardController@profile')->name('teacher.dashboard');
 
     Route::get('/teacher-profile', 'DashboardController@profile')
         ->name('teacher.profile');

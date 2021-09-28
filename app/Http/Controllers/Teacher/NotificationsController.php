@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\teacher;
-use App\Http\Resources\NotificationResource;
+use App\Http\Resources\teachers\TeacherNotificationResource;
 use App\Models\Mawhoob_Notification;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
@@ -39,7 +39,7 @@ class NotificationsController extends Controller
         $list =  Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'teacher')
             ->where('teacher_id', teacher()->id())->offset($offset)->take($perPage)->get();
 
-        $arr = NotificationResource::collection($list);
+        $arr = TeacherNotificationResource::collection($list);
         $recordsTotal = Mawhoob_Notification::where('notify_for', 'teacher')->where('teacher_id', teacher()->id())
             ->get()->count();
 

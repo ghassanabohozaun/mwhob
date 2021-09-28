@@ -16,6 +16,7 @@ class Mawhob extends Authenticatable
         'photo',
         'slug_mawhob_full_name',
         'mawhob_full_name',
+        'mawhob_full_name_en',
         'mawhob_mobile_no',
         'password',
         'mawhob_whatsapp_no',

@@ -307,6 +307,7 @@ class DashboardController extends Controller
             'photo' => $photo_path,
             'slug_mawhob_full_name' => slug($request->mawhob_full_name),
             'mawhob_full_name' => $request->mawhob_full_name,
+            'mawhob_full_name_en' => $request->mawhob_full_name_en,
             'password' => $password,
             'mawhob_whatsapp_no' => $request->mawhob_whatsapp_no,
             'mawhob_birthday' => $request->mawhob_birthday,

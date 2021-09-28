@@ -148,6 +148,24 @@
                                                     </div>
                                                     <!--end::Group-->
 
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('mowhob.mawhob_full_name_en')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input value="{!! $mowhob->mawhob_full_name_en !!}"
+                                                                   class="form-control  form-control-lg"
+                                                                   name="mawhob_full_name_en" id="mawhob_full_name_en"
+                                                                   type="text"
+                                                                   placeholder=" {{trans('mowhob.enter_mawhob_full_name_en')}}"
+                                                                   autocomplete="off"/>
+                                                            <span class="form-text text-danger"
+                                                                  id="mawhob_full_name_en_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
 
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
@@ -338,6 +356,7 @@
             ////////////////////////////////////////////////////
             $('#photo_error').text('');
             $('#mawhob_full_name_error').text('');
+            $('#mawhob_full_name_en_error').text('');
             $('#mawhob_mobile_no_error').text('');
             $('#mawhob_whatsapp_no_error').text('');
             $('#mawhob_birthday_error').text('');
@@ -347,6 +366,7 @@
 
             $('#photo').css('border-color', '');
             $('#mawhob_full_name').css('border-color', '');
+            $('#mawhob_full_name_en').css('border-color', '');
             $('#mawhob_mobile_no').css('border-color', '');
             $('#mawhob_whatsapp_no').css('border-color', '');
             $('#mawhob_birthday').css('border-color', '');

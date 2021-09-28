@@ -51,7 +51,7 @@ class MowhobsController extends Controller
 
         if (!empty($request->search_name)) {
             $searchQuery = $request->search_name;
-            $requestData = ['mawhob_full_name'];
+            $requestData = ['mawhob_full_name','mawhob_full_name_en'];
 
             $list = Mawhob::with('category')
                 ->withoutTrashed()->orderByDesc('created_at')
@@ -158,6 +158,7 @@ class MowhobsController extends Controller
                     'photo' => $photo_path,
                     'slug_mawhob_full_name' => slug($request->mawhob_full_name),
                     'mawhob_full_name' => $request->mawhob_full_name,
+                    'mawhob_full_name_en' => $request->mawhob_full_name_en,
                     'mawhob_mobile_no' => $request->mawhob_mobile_no,
                     'password' => '$2y$10$J1uHls/Pp690G8aJslCgDelNYeC3YRVsyc.h4GHxFDrr2U6L6wUF2',
                     'mawhob_whatsapp_no' => $request->mawhob_whatsapp_no,
@@ -219,6 +220,7 @@ class MowhobsController extends Controller
                 'photo' => $photo_path,
                 'slug_mawhob_full_name' => slug($request->mawhob_full_name),
                 'mawhob_full_name' => $request->mawhob_full_name,
+                'mawhob_full_name_en' => $request->mawhob_full_name_en,
                 'password' => '$2y$10$J1uHls/Pp690G8aJslCgDelNYeC3YRVsyc.h4GHxFDrr2U6L6wUF2',
                 'mawhob_whatsapp_no' => $request->mawhob_whatsapp_no,
                 'mawhob_birthday' => $request->mawhob_birthday,
@@ -406,10 +408,13 @@ class MowhobsController extends Controller
         $data = [];
         if ($request->has('q')) {
             $search = $request->q;
+            $requestData = ['mawhob_full_name','mawhob_full_name_en'];
             $data = DB::table("mawhobs")
-                ->select("id", "mawhob_full_name")
-                ->where('mawhob_full_name', 'LIKE', "%$search%")
-                ->get();
+                ->select("id", "mawhob_full_name",'mawhob_full_name_en')
+                ->where(function ($q) use ($requestData, $search) {
+                    foreach ($requestData as $field)
+                        $q->orWhere($field, 'like', "%{$search}%");
+                })->get();
         }
         return response()->json($data);
     }

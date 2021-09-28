@@ -218,7 +218,11 @@
             <div class="d-flex flex-column">
                 <a href="#"
                    class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
-                    {!! auth()->guard('teacher')->user()->teacher_full_name !!}
+                    @if(Lang()=='ar')
+                        {!! auth()->guard('teacher')->user()->teacher_full_name !!}
+                    @else
+                        {!! auth()->guard('teacher')->user()->teacher_full_name_en !!}
+                    @endif
                 </a>
                 <div class="text-muted mt-1">
                 </div>

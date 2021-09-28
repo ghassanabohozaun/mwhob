@@ -212,8 +212,8 @@
         //////////////////////////////////////////////////////////////////////////////////////
         // enrolled mawhob reset btn
         $('body').on('click', '#enrolled_mawhob_reset_btn', function (e) {
-            $('#name_ar').val('');
-            $('#my_enrolled_mawhob_data_table').DataTable().ajax.reload();
+            $('#search_name').val('');
+            loadData();
         });
 
 

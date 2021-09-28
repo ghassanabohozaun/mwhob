@@ -205,7 +205,12 @@
                     $('#discount').text(data.data.discount);
                     $('#category_id').text(data.data.category.name_{!! Lang() !!});
 
-                    $('#teacher_id').text(data.data.teacher.teacher_full_name);
+                    if("{!! Lang()=='ar' !!}"){
+                        $('#teacher_id').text(data.data.teacher.teacher_full_name);
+                    }else{
+                        $('#teacher_id').text(data.data.teacher.teacher_full_name_en);
+                    }
+
                     $('#zoom_link').text(data.data.zoom_link);
 
                     var image = data.data.course_image;

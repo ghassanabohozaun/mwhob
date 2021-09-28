@@ -25,6 +25,7 @@ class SignupRequest extends FormRequest
     {
         return [
             'mawhob_full_name' => 'required',
+            'mawhob_full_name_en' => 'required',
             'mawhob_mobile_no' => 'required',
             'mawhob_whatsapp_no' => 'required',
             'mawhob_birthday' => 'required',
@@ -46,7 +47,7 @@ class SignupRequest extends FormRequest
             'photo.required' => trans('mowhob.photo_required'),
             'photo.mimes' => trans('mowhob.mimes'),
             'photo.max' => trans('mowhob.image_max'),
-            'portfolio.max'=>trans('mowhob.portfolio_max'),
+            'portfolio.max' => trans('mowhob.portfolio_max'),
         ];
     }
 }

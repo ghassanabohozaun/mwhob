@@ -29,16 +29,16 @@
             </div>
             <!--end::Info-->
 
+
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
                 <a href="{!! route('users.trashed') !!}"
-                   class="btn btn-light-danger">
+                   class="btn btn-light-danger trash_btn" title="{{trans('general.trash')}}">
                     <i class="fa fa-trash"></i>
-                    {{trans('general.trash')}}
                 </a>
                 &nbsp;
                 <a href="{!! route('user.create') !!}"
-                   class="btn btn-primary btn-sm font-weight-bold font-size-base  mr-1">
+                   class="btn btn-primary btn-sm font-weight-bold font-size-base mr-1">
                     <i class="fa fa-plus-square"></i>
                     {{trans('menu.add_new_user')}}
                 </a>

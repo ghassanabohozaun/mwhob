@@ -44,10 +44,10 @@ class StudentController extends Controller
                     'title_ar' => 'تنبيه التسجيل في مسابقة',
                     'title_en' => 'Enrolled In Contest Notification',
 
-                    'details_ar' => ' قام الطالب   ' . $mawhobEnrolledContest->mawhob->mawhob_full_name
+                    'details_ar' => ' قام الموهوب   ' . $mawhobEnrolledContest->mawhob->mawhob_full_name
                         . ' بالتسجيل في المسابقة التالية  ' . $mawhobEnrolledContest->contest->name_ar,
 
-                    'details_en' => ' The student   ' . $mawhobEnrolledContest->mawhob->mawhob_full_name
+                    'details_en' => ' The Mawhoob   ' . $mawhobEnrolledContest->mawhob->mawhob_full_name_en
                         . ' Enrolled In This Contest   ' . $mawhobEnrolledContest->contest->name_en,
                     'notify_status' => 'send',
                     'notify_class' => 'unread',
@@ -121,10 +121,10 @@ class StudentController extends Controller
                     'title_ar' => 'تنبيه التسجيل في دورة',
                     'title_en' => 'Enrolled In Course Notification',
 
-                    'details_ar' => ' قام الطالب   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                    'details_ar' => ' قام الموهوب   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
                         . ' بالتسجيل في الدورة التالية  ' . $mawhobEnrollCourse->course->title_ar,
 
-                    'details_en' => ' The student   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                    'details_en' => ' The Mawhoob   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name_en
                         . ' Enrolled In This Course   ' . $mawhobEnrollCourse->course->title_en,
                     'notify_status' => 'send',
                     'notify_class' => 'unread',
@@ -138,10 +138,10 @@ class StudentController extends Controller
                     'title_ar' => 'تنبيه التسجيل في دورة',
                     'title_en' => 'Enrolled In Course Notification',
 
-                    'details_ar' => ' قام الطالب   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                    'details_ar' => ' قام الموهوب   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
                         . ' بالتسجيل في دورتك التالية  ' . $mawhobEnrollCourse->course->title_ar,
 
-                    'details_en' => ' The student   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                    'details_en' => ' The Mawhoob   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name_en
                         . ' Enrolled In Your Course   ' . $mawhobEnrollCourse->course->title_en,
                     'notify_status' => 'send',
                     'notify_class' => 'unread',
@@ -211,10 +211,10 @@ class StudentController extends Controller
                     'title_ar' => 'تنبيه التسجيل في برنامج',
                     'title_en' => 'Enrolled In Program Notification',
 
-                    'details_ar' => ' قام الطالب   ' . $mawhobEnrollProgram->mawhob->mawhob_full_name
+                    'details_ar' => ' قام الموهوب   ' . $mawhobEnrollProgram->mawhob->mawhob_full_name
                         . ' بالتسجيل في البرنامج التالي   ' . $mawhobEnrollProgram->program->name_ar,
 
-                    'details_en' => ' The student   ' . $mawhobEnrollProgram->mawhob->mawhob_full_name
+                    'details_en' => ' The Mawhoob   ' . $mawhobEnrollProgram->mawhob->mawhob_full_name_en
                         . ' Enrolled In This Program   ' . $mawhobEnrollProgram->program->name_en,
                     'notify_status' => 'send',
                     'notify_class' => 'unread',

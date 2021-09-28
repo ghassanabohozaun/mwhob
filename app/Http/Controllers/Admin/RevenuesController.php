@@ -37,6 +37,7 @@ class RevenuesController extends Controller
             $list = Revenue::join('mawhobs', 'revenues.mawhob_id', '=', 'mawhobs.id')
                 ->select('revenues.id as id', 'revenues.*', 'mawhobs.mawhob_full_name')
                 ->where('mawhobs.mawhob_full_name', 'like', "%{$searchQuery}%")
+                ->orWhere('mawhobs.mawhob_full_name_en', 'like', "%{$searchQuery}%")
                 ->get();
 
         } elseif (!empty($request->date_from) && !empty($request->date_to)) {

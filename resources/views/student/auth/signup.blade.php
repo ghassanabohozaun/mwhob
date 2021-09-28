@@ -12,7 +12,7 @@
 @section('content')
 
     <section class="c-panel">
-        <div class="  ">
+        <div class="">
 
             <div class="row mx-0 ">
 
@@ -27,16 +27,19 @@
 
 
                 <!-- begin:right ------------------------------------------------------------->
-                <div class="col-lg-6 d-flex align-items-center block-login">
+                <div class="col-lg-6 block-login">
                     <div class="row justify-content-center">
                         <div class="col-lg-12">
-                            <div class="  p-5 text-center">
+
+
+                            <!-- begin:sing up ------------------------------------------------------------->
+                            <div class="p-5 text-center sigin_up_section">
                                 <div class="title-block-login text-bold text-warning fs-24">
                                     {!! trans('site.signup_as_mawhoob') !!}
                                 </div>
 
                                 <form action="{!! route('student.signup.store') !!}"
-                                      style="width: 420px"
+                                     
                                       method="POST" enctype="multipart/form-data"
                                       id="student_signup_form">
                                     @csrf
@@ -46,6 +49,14 @@
                                         <input type="text" class="form-control" id="mawhob_full_name"
                                                name="mawhob_full_name" autocomplete="off"
                                                placeholder="{!! trans('site.full_name') !!}">
+                                    </div>
+
+
+                                    <div class="form-group text-left mt-4 ">
+                                        <label for="Name" class=" ">{!! trans('site.full_name_en') !!}.</label>
+                                        <input type="text" class="form-control" id="mawhob_full_name_en"
+                                               name="mawhob_full_name_en" autocomplete="off"
+                                               placeholder="{!! trans('site.full_name_en') !!}">
                                     </div>
 
 
@@ -110,32 +121,6 @@
                                     </div>
 
 
-                                <!--
-                                    <div class="form-group text-left">
-                                        <div class="js-upload uk-placeholder d-flex p-3 align-items-center bg-light">
-                                            <div class="mr-2">
-                                                <img width="60" src="{!! asset('site/img/uplod-icon.png') !!}"
-                                                     alt="">
-                                            </div>
-                                            <div>
-                                                <div
-                                                    class="fs-18-i">{!! trans('site.drag_and_drop_files_here') !!}</div>
-                                                <div
-                                                    class="fs-12-i">{!! trans('site._upload_files_manual_max_5_files') !!}</div>
-                                                <div uk-form-custom>
-                                                    <input type="file" multiple>
-                                                    <span class="uk-link">{!! trans('site.selecting_one') !!}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <progress id="js-progressbar" class="uk-progress" value="0" max="100"
-                                                  hidden>
-                                        </progress>
-
-                                    </div>
-                                    -->
-
-
                                     <div class="form-group text-left">
                                         <label for="nPassword">{!! trans('site.new_password') !!}</label>
                                         <input type="password" class="form-control"
@@ -164,10 +149,16 @@
                                     </button>
                                 </form>
                             </div>
+                            <!-- begin:sing up ------------------------------------------------------------->
+
                         </div>
                     </div>
+
+
+                    <!-- end:right ------------------------------------------------------------->
+
+
                 </div>
-                <!-- end:right ------------------------------------------------------------->
             </div>
         </div>
     </section>
@@ -183,6 +174,9 @@
         $('#student_signup_form').validate({
             rules: {
                 mawhob_full_name: {
+                    required: true,
+                },
+                mawhob_full_name_en: {
                     required: true,
                 },
                 mawhob_mobile_no: {
@@ -223,6 +217,10 @@
                 mawhob_full_name: {
                     required: '{{trans('site.it_is_required')}}',
                 },
+                mawhob_full_name_en: {
+                    required: '{{trans('site.it_is_required')}}',
+                },
+
                 mawhob_mobile_no: {
                     required: '{{trans('site.it_is_required')}}',
                     digits: '{{trans('site.digits')}}',
@@ -263,8 +261,10 @@
         $(document).on('submit', 'form', function (e) {
             e.preventDefault();
 
+
             //////////////////////////////////////////////////////////////
             $('#mawhob_full_name').css('border-color', '');
+            $('#mawhob_full_name_en').css('border-color', '');
             $('#mawhob_mobile_no').css('border-color', '');
             $('#mawhob_whatsapp_no').css('border-color', '');
             $('#mawhob_birthday').css('border-color', '');
@@ -276,6 +276,8 @@
 
 
             $('#mawhob_full_name_error').text('');
+            $('#mawhob_full_name_en_error').text('');
+
             $('#mawhob_mobile_no_error').text('');
             $('#mawhob_whatsapp_no_error').text('');
             $('#mawhob_birthday_error').text('');
@@ -320,9 +322,11 @@
                             icon: 'success',
                             title: data.msg
                         })
-                        setTimeout(function (){
-                            window.location.href = "{!! route('get.student.login') !!}";
-                        },2505)
+
+                        setTimeout(function () {
+                            window.location.href = "{!! route('student.registration.confirmation') !!}"
+                                + '/' +  $('#mawhob_mobile_no').val()  + '/' +  $('#mawhob_whatsapp_no').val();
+                        }, 2505)
                     } else {
 
                         Swal.fire({
@@ -333,10 +337,10 @@
                             showCancelButton: true,
                             cancelButtonText: `{!! trans('site.cancel') !!}`,
                             confirmButtonText: `{!! trans('site.login') !!}`,
-                            customClass: {confirmButton: 'login_button'}
+                            customClass: {confirmButton: 'registration_confirm_button'}
 
                         });
-                        $('.login_button').click(function () {
+                        $('.registration_confirm_button').click(function () {
                             window.location.href = "{!! route('get.student.login') !!}";
                         });
 

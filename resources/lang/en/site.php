@@ -38,7 +38,9 @@ return [
     'history' => 'History',
     'copy_right' => 'Copyright ©2021 Mawhoob . All Rights Reserved',
     'be_in_touch' => 'Be in Touch',
-    'full_name' => 'Full Name',
+    'full_name' => 'Full Arabic Name ',
+    'full_name_en' => 'Full English  Name ',
+
     'email' => 'Email',
     'title' => 'Message Title',
     'message' => 'Message',
@@ -165,7 +167,18 @@ return [
     'dont_have_account' => 'Do not Have an account ?',
     'logout' => 'Logout',
     'add_work' => 'Add Work',
-
+    'registration_confirmation'=>'Registration Confirmation',
+    'registration_confirmation_message'=>'In order to confirm your registration on our website, you must enter the correct mobile number, starting with the international number',
+    'validation_code'=>'Validation code',
+    'enter_validation_code'=>'Enter Validation code',
+    'validation_code_message'=>'Enter the verification code that was sent as a message to your mobile',
+    'validation'=>'Validation',
+    'please_enter_valid_mobile_number'=>'Please Enter Valid Mobile Number',
+    'your_account_has_been_successfully_activated'=>'Your account has been successfully activated',
+    'please_enter_validation_code'=>'Please Enter Validation code',
+   'please_verify_the_mobile_number'=>'Please verify the mobile number',
+    'bad_verification_code'=>'Please check the verification code',
+    'no_notifications' => 'No notifications',
 
     //////////////////////////////////////////////////
     /// Validations

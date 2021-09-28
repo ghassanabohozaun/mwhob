@@ -25,7 +25,7 @@
                 <!-- end:left ------------------------------------------------------------->
 
                 <!-- begin:right ------------------------------------------------------------->
-                <div class="col-lg-6 d-flex align-items-center block-login">
+                <div class="col-lg-6 block-login">
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
                             <div class="  p-5 text-center">
@@ -36,7 +36,7 @@
                                     {!! trans('site.login_description') !!}
 
                                 </div>
-                                <form style="width: 420px"  action="{!! route('student.login') !!}"
+                                <form   action="{!! route('student.login') !!}"
                                       method="POST" enctype="multipart/form-data">
                                     @csrf
 
@@ -55,8 +55,7 @@
                                                placeholder="{!! trans('site.enter_mobile_no') !!}">
 
                                         @error('mawhob_mobile_no')
-                                        <span class="text-danger font-weight-bold"
-                                              style="font-size: 14px ;">{{$message}}</span>
+                                        <span class="text-danger font-weight-bold">{{$message}}</span>
                                         @enderror
                                     </div>
 
@@ -67,7 +66,7 @@
                                                id="password" name="password"
                                                placeholder="{!! trans('site.enter_password') !!}">
                                         @error('password')
-                                        <span class="text-danger font-weight-bold" style="font-size: 14px ;">{{$message}}</span>
+                                        <span class="text-danger font-weight-bold" >{{$message}}</span>
                                         @enderror
                                     </div>
 

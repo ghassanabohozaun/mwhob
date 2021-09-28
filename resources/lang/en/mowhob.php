@@ -14,12 +14,12 @@ return [
     'search_name' => 'Name',
     'enter_search_name' => 'Enter Name',
     'date' => 'Date',
-    'status'=>'Status',
-
+    'status' => 'Status',
 
 
     'photo' => 'Photo',
-    'mawhob_full_name' => 'Mowhob Full Name',
+    'mawhob_full_name' => 'Mowhob Name | ar',
+    'mawhob_full_name_en' => 'Mowhob Name | en',
     'mawhob_mobile_no' => 'Mowhob Mobile No',
     'password' => 'Mowhob Password',
     'mawhob_whatsapp_no' => 'Mowhob Whatsapp No',
@@ -30,7 +30,8 @@ return [
     'freeze' => 'Freeze',
 
     'enter_photo' => 'Enter Photo',
-    'enter_mawhob_full_name' => 'Enter Mowhob Full Name',
+    'enter_mawhob_full_name' => 'Enter Arabic Mowhob  Name',
+    'enter_mawhob_full_name_en' => 'Enter English Mowhob Name',
     'enter_mawhob_mobile_no' => 'Enter Mowhob Mobile No',
     'enter_password' => 'Enter Mowhob Password',
     'enter_mawhob_whatsapp_no' => 'Enter Mowhob Whatsapp No',
@@ -50,8 +51,7 @@ return [
     'portfolio_max' => 'Max allow file size 5 mega',
 
 
-
-    'no_contests_exists'=>'The Mawhob  has not entered any Contests yet',
+    'no_contests_exists' => 'The Mawhob  has not entered any Contests yet',
     'mawhob_exists' => 'mawhob exists',
 
 

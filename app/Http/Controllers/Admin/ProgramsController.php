@@ -393,11 +393,13 @@ class ProgramsController extends Controller
         if (!empty($request->search_name)) {
 
             $searchQuery = $request->search_name;
+
             $list = MawhobEnrollProgram::join('mawhobs', 'mawhob_enroll_programs.mawhob_id', '=', 'mawhobs.id')
                 ->orderByDesc('mawhob_enroll_programs.created_at')
                 ->offset($offset)->take($perPage)
                 ->select('mawhob_enroll_programs.id as program_id', 'mawhobs.*', 'mawhob_enroll_programs.*')
                 ->where('mawhobs.mawhob_full_name', 'like', "%{$searchQuery}%")
+                ->orWhere('mawhobs.mawhob_full_name_en', 'like', "%{$searchQuery}%")
                 ->where('program_id', $request->my_program_id)->get();
 
         } else {
@@ -455,7 +457,7 @@ class ProgramsController extends Controller
 
         if ($MawhobEnrollProgram->isEmpty()) {
 
-            $mawhobEnrollProgram =  MawhobEnrollProgram::create([
+            $mawhobEnrollProgram = MawhobEnrollProgram::create([
                 'program_id' => $request->id,
                 'mawhob_id' => $request->mawhob_id,
                 'enrolled_date' => Carbon::now()->format('Y-m-d'),
@@ -480,10 +482,10 @@ class ProgramsController extends Controller
                 'title_ar' => 'تنبيه التسجيل في برنامج',
                 'title_en' => 'Enrolled In Program Notification',
 
-                'details_ar' => ' قام الطالب   ' . $mawhobEnrollProgram->mawhob->mawhob_full_name
+                'details_ar' => ' قام الموهوب   ' . $mawhobEnrollProgram->mawhob->mawhob_full_name
                     . ' بالتسجيل في البرنامج التالي   ' . $mawhobEnrollProgram->program->name_ar,
 
-                'details_en' => ' The student   ' . $mawhobEnrollProgram->mawhob->mawhob_full_name
+                'details_en' => ' The Mawhoob   ' . $mawhobEnrollProgram->mawhob->mawhob_full_name_en
                     . ' Enrolled In This Program   ' . $mawhobEnrollProgram->program->name_en,
                 'notify_status' => 'send',
                 'notify_class' => 'unread',
@@ -502,7 +504,7 @@ class ProgramsController extends Controller
                 'notify_status' => 'send',
                 'notify_class' => 'unread',
                 'notify_for' => 'mawhob',
-                'student_id'=> student()->id(),
+                'student_id' => student()->id(),
             ]);
 
 

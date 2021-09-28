@@ -35,7 +35,8 @@
                         <div class="row">
 
                             <div class="col-lg-12">
-                                <form action="{!! route('student.update.account') !!}" method="POST" enctype="multipart/form-data"
+                                <form action="{!! route('student.update.account') !!}" method="POST"
+                                      enctype="multipart/form-data"
                                       id="student_update_account_form">
                                     @csrf
 
@@ -71,6 +72,21 @@
                                                        placeholder="{!! trans('site.full_name') !!}">
                                             </div>
                                         </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group text-left">
+                                                <label for="Name" class=" ">{!! trans('site.full_name_en') !!}.</label>
+                                                <input type="text" class="form-control" id="mawhob_full_name_en"
+                                                       name="mawhob_full_name_en" autocomplete="off"
+                                                       value="{!! $student->mawhob_full_name_en !!}"
+                                                       placeholder="{!! trans('site.full_name_en') !!}">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group text-left ">
                                                 <label for="WhatsApp" class="">
@@ -82,10 +98,6 @@
                                                        placeholder="{!! trans('site.whatsapp_no') !!}">
                                             </div>
                                         </div>
-                                    </div>
-
-
-                                    <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group text-left">
                                                 <label for="Birth">{!! trans('site.birthday') !!}</label>
@@ -94,6 +106,9 @@
                                                        value="{!! $student->mawhob_birthday !!}">
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group text-left">
                                                 <label for="Talent">{!! trans('site.gender') !!}</label>
@@ -112,10 +127,6 @@
                                                 </select>
                                             </div>
                                         </div>
-
-                                    </div>
-
-                                    <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group text-left">
                                                 <label for="Talent">{!! trans('site.talent') !!}</label>
@@ -137,8 +148,10 @@
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-12">
                                             <div class="form-group text-left">
                                                 <label for="PortfolioInput">{!! trans('site.portfolio_link') !!}</label>
                                                 <input type="text" class="form-control"
@@ -147,9 +160,7 @@
                                                        value="{!! $student->portfolio !!}">
                                             </div>
                                         </div>
-
                                     </div>
-
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group text-left">
@@ -198,6 +209,9 @@
                 mawhob_full_name: {
                     required: true,
                 },
+                mawhob_full_name_en: {
+                    required: true,
+                },
                 mawhob_whatsapp_no: {
                     required: true,
                 },
@@ -225,6 +239,9 @@
             },
             messages: {
                 mawhob_full_name: {
+                    required: '{{trans('site.it_is_required')}}',
+                },
+                mawhob_full_name_en: {
                     required: '{{trans('site.it_is_required')}}',
                 },
                 mawhob_whatsapp_no: {
@@ -260,6 +277,7 @@
             //////////////////////////////////////////////////////////////
             $('#photo').css('border-color', '');
             $('#mawhob_full_name').css('border-color', '');
+            $('#mawhob_full_name_en').css('border-color', '');
             $('#mawhob_whatsapp_no').css('border-color', '');
             $('#mawhob_birthday').css('border-color', '');
             $('#mowhob_gender').css('border-color', '');
@@ -270,6 +288,7 @@
 
             $('#photo_error').text('');
             $('#mawhob_full_name_error').text('');
+            $('#mawhob_full_name_en_error').text('');
             $('#mawhob_whatsapp_no_error').text('');
             $('#mawhob_birthday_error').text('');
             $('#mowhob_gender_error').text('');
@@ -312,9 +331,9 @@
                             icon: 'success',
                             title: data.msg,
                         });
-                        setTimeout(function (){
-                           window.location.href="{!! route('student.update.account') !!}"
-                        },2500);
+                        setTimeout(function () {
+                            window.location.href = "{!! route('student.update.account') !!}"
+                        }, 2500);
                     }
 
                 },

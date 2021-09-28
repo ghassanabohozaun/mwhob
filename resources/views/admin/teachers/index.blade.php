@@ -32,9 +32,8 @@
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
                 <a href="{!! route('admin.teachers.trashed') !!}"
-                   class="btn btn-light-danger">
+                   class="btn btn-light-danger trash_btn" title="{{trans('general.trash')}}">
                     <i class="fa fa-trash"></i>
-                    {{trans('general.trash')}}
                 </a>
                 &nbsp;
                 <a href="{!! route('admin.teacher.create') !!}"
@@ -108,6 +107,7 @@
                                                     <th>#</th>
                                                     <th>@lang('teachers.teacher_photo')</th>
                                                     <th>@lang('teachers.teacher_full_name')</th>
+                                                    <th>@lang('teachers.teacher_full_name_en')</th>
                                                     <th>@lang('teachers.teacher_email')</th>
                                                     <th>@lang('teachers.teacher_mobile_no')</th>
                                                     <th>@lang('teachers.teacher_whatsapp_no')</th>
@@ -205,6 +205,7 @@
                     {data: "id"},
                     {data: "teacher_photo"},
                     {data: "teacher_full_name"},
+                    {data: "teacher_full_name_en"},
                     {data: "teacher_email"},
                     {data: "teacher_mobile_no"},
                     {data: "teacher_whatsapp_no"},
@@ -216,7 +217,7 @@
         }
 
         /////////////////////////////////////////////////////////////
-        // courses search btn
+        // teacher search btn
         $('body').on('click', '#teacher_search_btn', function (e) {
             e.preventDefault();
             var search_name = $('#search_name').val();
@@ -226,10 +227,9 @@
         })
         ////////////////////////////////////////////// ///////////////
         // course reset btn
-        $('body').on('click', '#mawhob_reset_btn', function (e) {
-
-            $('#name_ar').val('');
-            $('#my_teachers_data_table').DataTable().ajax.reload();
+        $('body').on('click', '#teacher_reset_btn', function (e) {
+            $('#search_name').val('');
+            loadData();
         });
         ///////////////////////////////////////////////////
         /// delete teacher

@@ -29,7 +29,7 @@
             </div>
             <!--end::Info-->
 
-            <!--begin::Toolbar-->
+            <!--begin::Toolbar--
             <div class="d-flex align-items-center">
                 <a href="{!! route('admin.support.center.create') !!}"
                    class="btn btn-primary btn-sm font-weight-bold font-size-base  mr-1">
@@ -42,7 +42,7 @@
                 </a>
                 &nbsp;
             </div>
-            <!--end::Toolbar-->
+            --end::Toolbar-->
         </div>
     </div>
     <!--end::Subheader-->

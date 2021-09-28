@@ -25,11 +25,16 @@
                                         style="background-image: url({!! asset(Storage::url($mawhob_winner->mawhob->photo)) !!});
                                             height: 400px;">
                                         <div class="uk-position-top-right p-3 ">
-                                            <img src="{!! asset('site/img/n1.svg') !!}" width="30" alt="{!! trans('site.winners') !!}">
+                                            <img src="{!! asset('site/img/n1.svg') !!}" width="30"
+                                                 alt="{!! trans('site.winners') !!}">
                                         </div>
                                         <div class=" p-3 text-white">
                                             <div class="uk-h4 text-white mb-1  text-bold text-warning">
-                                                {!! $mawhob_winner->mawhob->mawhob_full_name !!}
+                                                @if(Lang()=='ar')
+                                                    {!! $mawhob_winner->mawhob->mawhob_full_name !!}
+                                                @else
+                                                    {!! $mawhob_winner->mawhob->mawhob_full_name_en !!}
+                                                @endif
                                             </div>
                                             <p class=" text-white">
                                                 {!! Lang()=='ar'? $mawhob_winner->mawhob_winner_description_ar:$mawhob_winner->mawhob_winner_description_en !!}
@@ -46,7 +51,6 @@
                         <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
                            uk-slider-item="next"></a>
                     @endif
-
 
 
                 </div>

@@ -32,9 +32,8 @@
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
                 <a href="{!! route('admin.trashed.stories') !!}"
-                   class="btn btn-light-danger">
+                   class="btn btn-light-danger trash_btn" title="{{trans('general.trash')}}">
                     <i class="fa fa-trash"></i>
-                    {{trans('general.trash')}}
                 </a>
                 &nbsp;
                 <a href="{!! route('admin.create.story') !!}"
@@ -273,11 +272,11 @@
         //////////////////////////////////////////////////////////////////////////////////////
         // story reset btn
         $('body').on('click', '#story_reset_btn', function (e) {
-            $('#name_ar').val('');
+            $('#search_name').val('');
             $('#status').val('');
             $('#date_from').val('');
             $('#date_to').val('');
-            $('#my_stories_data_table').DataTable().ajax.reload();
+            loadData();
         });
 
 

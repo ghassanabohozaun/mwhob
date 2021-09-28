@@ -33,7 +33,7 @@ Route::group([
 
     ///////////////////////////////////////////////////////////////////
     /// Notifications Routes
-    Route::group(['prefix'=>'notifications', 'middleware' => 'can:admins'],function (){
+    Route::group(['prefix'=>'notifications', 'middleware' => 'can:notifications'],function (){
         Route::get('/', 'NotificationsController@index')->name('admin.notifications');
         Route::get('/get-notifications', 'NotificationsController@getNotificationsResource')
             ->name('get.admin.notifications.resource');

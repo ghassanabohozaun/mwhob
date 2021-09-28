@@ -23,7 +23,7 @@
 
             <!--begin::notifications Panel-->
             <div class="topbar-item">
-                <div class="btn btn-icon btn-clean btn-lg mr-1 notifications_count" id="kt_quick_panel_toggle" >
+                <div class="btn btn-icon btn-clean btn-lg mr-1 notifications_count" id="kt_quick_panel_toggle">
                     @if(App\Models\Mawhoob_Notification::where('notify_for', 'teacher')
                          ->where('teacher_id', teacher()->id())->where('notify_class','unread')->count() > 0)
                         <span class="notification_alert_dot"></span>
@@ -113,7 +113,7 @@
 
                                 </a>
                             </li>
-                        @endforeach
+                    @endforeach
                     <!--end::Item-->
                     </ul>
                     <!--end::Nav-->
@@ -123,24 +123,31 @@
             <!--end::Languages-->
 
             <!--begin::User  -->
-          <div class="topbar-item">
+            <div class="topbar-item">
                 <div
-                   class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
-                   id="kt_quick_user_toggle">
-                               <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1"></span>
+                    class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
+                    id="kt_quick_user_toggle">
+                    <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1"></span>
                     <span
                         class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
-                        {!! auth()->guard('teacher')->user()->teacher_full_name !!}</span>
-                   <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
+                           @if(Lang()=='ar')
+                            {!! auth()->guard('teacher')->user()->teacher_full_name !!}
+                        @else
+                            {!! auth()->guard('teacher')->user()->teacher_full_name_en !!}
+                        @endif
+
+                    </span>
+                    <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
 
                        @if(empty(auth()->guard('teacher')->user()->teacher_photo))
-                           <img src="{{asset('adminBoard/images/user.jpg')}}">
+                            <img src="{{asset('adminBoard/images/user.jpg')}}">
                         @else
-                           <img src="{!! \Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->teacher_photo) !!}">
-                       @endif
+                            <img
+                                src="{!! \Illuminate\Support\Facades\Storage::url(auth()->guard('teacher')->user()->teacher_photo) !!}">
+                        @endif
 		                    </span>
-               </div>
-          </div>
+                </div>
+            </div>
             <!--end::User-->
         </div>
         <!--end::Topbar-->
@@ -186,10 +193,10 @@
             var id = $(this).data('id');
             $.get("{!! route('teacher.get.one.notification') !!}", {id, id}, function (data) {
                 console.log(data);
-                if("{!! Lang()=='ar' !!}"){
+                if ("{!! Lang()=='ar' !!}") {
                     $('.notification_title').text(data.data.title_ar);
                     $('.notification_details').text(data.data.details_ar);
-                }else{
+                } else {
                     $('.notification_title').text(data.data.title_en);
                     $('.notification_details').text(data.data.details_en);
                 }

@@ -16,11 +16,11 @@
                     <span id="teacher_categories_section">
                      <div class="table-responsive" style="overflow:auto; height: 370px">
                         @if($teacherCategories->isEmpty())
-                            <img src="{!! asset('site/images/noRecordFound.svg') !!}"
-                                 class="img-fluid" id="no_data_img"
-                                 title="{!! trans('site.no_date') !!}">
-                        @else
-                            <table class="table" style="text-align: center;vertical-align: middle;">
+                             <img src="{!! asset('site/images/noRecordFound.svg') !!}"
+                                  class="img-fluid" id="no_data_img"
+                                  title="{!! trans('site.no_date') !!}">
+                         @else
+                             <table class="table" style="text-align: center;vertical-align: middle;">
                                 <thead>
                                 <tr>
                                     <th>#</th>
@@ -36,7 +36,11 @@
                                             {!! $key+1 !!}
                                         </td>
                                         <td>
-                                            {!! $teacherCategory->category->name_ar !!}
+                                               @if(Lang()=='ar')
+                                                {!! $teacherCategory->category->name_ar !!}
+                                            @else
+                                                {!! $teacherCategory->category->name_en !!}
+                                            @endif
                                         </td>
                                         <td>
                                             <a href="#"
@@ -51,7 +55,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                        @endif
+                         @endif
 
                     </div>
                    </span>

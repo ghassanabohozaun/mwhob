@@ -40,7 +40,7 @@ return [
     'success_stories' => 'Success Stories',
     'add_new_success_story' => 'Add New Success Story',
     'success_story_categories' => 'Success Story Categories',
-    'add_new_success_story_category' => 'Add New Success Story Category',
+    'add_new_success_story_category' => 'Add New Category',
     'revenues' => 'Revenues',
     'teacher_profile' => 'Teacher Profile',
     'landing_page' => 'Landing Page',

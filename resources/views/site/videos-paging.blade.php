@@ -3,9 +3,10 @@
         <div class="col-lg-4 col-md-6  mb-4">
             <div class="item-course">
                 <div class="video-with-icon">
-                    <div class="uk-background-cover uk-height-medium uk-panel  uk-flex uk-flex-center uk-flex-middle br-5"
-                         style="background-image: url({!! asset(Storage::url($video->video_image)) !!});
-                             height: 220px;">
+                    <div
+                        class="uk-background-cover uk-height-medium uk-panel  uk-flex uk-flex-center uk-flex-middle br-5"
+                        style="background-image: url({!! asset(Storage::url($video->video_image)) !!});
+                            height: 220px;">
                         <p class="uk-h4">
                             @if($video->video_class =='uploaded_video')
                                 <a href="{!! Storage::url($video->short_upload_video_link) !!}"
@@ -46,9 +47,20 @@
                                  width="30" class="rounded-circle" alt="">
                         </div>
 
-                        <div class="fs-12 ml-1">{!! App\Models\MawhobVideo::with('mawhob')
-                                               ->where('video_id',$video->id)->first()
-                                                ->mawhob->mawhob_full_name!!}
+                        <div class="fs-12 ml-1">
+                            @if(Lang()=='ar')
+                                {!! App\Models\MawhobVideo::with('mawhob')
+                                     ->where('video_id',$video->id)->first()
+                                      ->mawhob->mawhob_full_name
+                                 !!}
+                            @else
+                                {!! App\Models\MawhobVideo::with('mawhob')
+                                     ->where('video_id',$video->id)->first()
+                                      ->mawhob->mawhob_full_name_en
+                                 !!}
+                            @endif
+
+
                             - {!!  $video->views == null? '0': $video->views!!} {!! trans('site.view') !!}
                         </div>
                     </div>

@@ -42,7 +42,6 @@ Route::group(
     Route::post('/video/views', 'SiteController@videoViews')->name('video.views');
 
 
-
     Route::get('/success-stories-categories', 'SiteController@successStoriesCategories')
         ->name('success.stories.categories');
     Route::get('/success-stories-categories/paging', 'SiteController@successStoriesCategoriesPaging')
@@ -51,14 +50,9 @@ Route::group(
         ->name('success.stories');
     Route::get('/success-stories/paging/{cat?}', 'SiteController@successStoriesPaging')
         ->name('success.stories.paging');
-
-
     Route::get('/success-story/{id?}', 'SiteController@story')
         ->name('story');
 
 
-    Route::get('/sms',function (){
-       return view('sms');
-    });
 });
 

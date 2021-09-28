@@ -18,7 +18,8 @@ return [
     'status' => 'الحالة',
 
     'photo' => 'صورة الموهوب',
-    'mawhob_full_name' => 'اسم الموهوب كامل',
+    'mawhob_full_name' => 'اسم الموهوب | عربي',
+    'mawhob_full_name_en' => 'اسم الموهوب | انجليزي',
     'mawhob_mobile_no' => 'رقم الجوال',
     'password' => 'كلمة المرور',
     'mawhob_whatsapp_no' => 'رقم الواتس اب ',
@@ -29,7 +30,8 @@ return [
     'freeze' => 'تعطيل',
 
     'enter_photo' => 'ادخل صورة الموهوب',
-    'enter_mawhob_full_name' => 'ادخل اسم الموهوب كاملاً',
+    'enter_mawhob_full_name' => 'ادخل اسم الموهوب | عربي',
+    'enter_mawhob_full_name_en' => 'ادخل اسم الموهوب | انجليزي',
     'enter_mawhob_mobile_no' => 'ادخل رقم الجوال',
     'enter_password' => 'ادخل كلمة المرور',
     'enter_mawhob_whatsapp_no' => 'ادخل رقم الواتس اب ',

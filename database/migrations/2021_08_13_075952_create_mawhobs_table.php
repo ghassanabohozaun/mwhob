@@ -18,6 +18,7 @@ class CreateMawhobsTable extends Migration
             $table->string('photo')->nullable();
             $table->string('slug_mawhob_full_name')->nullable();
             $table->string('mawhob_full_name')->nullable();
+            $table->string('mawhob_full_name_en')->nullable();
             $table->string('mawhob_mobile_no')->nullable();
             $table->string('password')->nullable();
             $table->string('mawhob_whatsapp_no')->nullable();

@@ -276,7 +276,7 @@
             $('#active').val('');
             $('#date_from').val('');
             $('#date_to').val('');
-            $('#my_courses_data_table').DataTable().ajax.reload();
+            loadData();
         });
 
         /////////////////////////////////////////////////////////////////

@@ -42,7 +42,13 @@
                 </div>
                 <div class="col-lg-6 p-5">
                     <div class="fs-14 text-warning text-bold">{!! trans('site.iam_almowhob') !!}</div>
-                    <h2 class="my-4 text-bold">{!! $story->mawhob->mawhob_full_name !!}</h2>
+                    <h2 class="my-4 text-bold">
+                        @if(Lang()=='ar')
+                            {!! $story->mawhob->mawhob_full_name !!}
+                        @else
+                            {!! $story->mawhob->mawhob_full_name_en !!}
+                        @endif
+                    </h2>
                     <p>
                         @if(Lang() == 'ar')
                             {!! \Illuminate\Support\Str::limit(strip_tags($story->about_mawhob_ar),$limit = 250, $end = '...')!!}
@@ -170,15 +176,10 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center mt-1">
-                                            <div class="img-views">
-                                                <img src="{!! asset(Storage::url($mawhobVideo->mawhob->photo)) !!}"
-                                                     width="30" class="rounded-circle" alt="">
-                                            </div>
-                                            <div class="fs-12 ml-1">{!! $mawhobVideo->mawhob->mawhob_full_name !!}
-                                                -
+
+                                            <div class="fs-12 ml-1">
                                                 {!!  $mawhobVideo->video->views == null? '0': $mawhobVideo->video->views!!}
                                                 {!! trans('site.view') !!}
-
                                             </div>
                                         </div>
                                     </div>
@@ -191,7 +192,7 @@
 
                 <!--begin:sounds ----------------------------------------------->
 
-                <h3 class="my_text_decoration"  >{!! trans('site.sounds') !!}</h3>
+                <h3 class="my_text_decoration">{!! trans('site.sounds') !!}</h3>
                 @if($mawhobSounds->isEmpty())
 
                     <img src="{!! asset('site/images/noRecordFound.svg') !!}"
@@ -240,15 +241,9 @@
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center mt-1">
-                                            <div class="img-views">
-                                                <img src="{!! asset(Storage::url($mawhobSound->mawhob->photo)) !!}"
-                                                     width="30" class="rounded-circle" alt="">
-                                            </div>
-                                            <div class="fs-12 ml-1">{!! $mawhobSound->mawhob->mawhob_full_name !!}
-                                                -
+                                            <div class="fs-12 ml-1">
                                                 {!!  $mawhobSound->sound->views == null? '0': $mawhobSound->sound->views!!}
                                                 {!! trans('site.view') !!}
-
                                             </div>
                                         </div>
                                     </div>

@@ -20,6 +20,7 @@ class MowhobsResource extends JsonResource
             'id' => $this->id,
             'photo' => $photo,
             'mawhob_full_name' => $this->mawhob_full_name,
+            'mawhob_full_name_en' => $this->mawhob_full_name_en,
             'mawhob_mobile_no' => $this->mawhob_mobile_no,
             'mawhob_whatsapp_no' => $this->mawhob_whatsapp_no,
             'mawhob_birthday' => $this->mawhob_birthday,

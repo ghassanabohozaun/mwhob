@@ -32,9 +32,8 @@
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
                 <a href="{!! route('admin.trashed.courses') !!}"
-                   class="btn btn-light-danger">
+                   class="btn btn-light-danger trash_btn" title="{{trans('general.trash')}}">
                     <i class="fa fa-trash"></i>
-                    {{trans('general.trash')}}
                 </a>
                 &nbsp;
                 <a href="{!! route('admin.create.course') !!}"
@@ -260,11 +259,11 @@
         // course reset btn
         $('body').on('click', '#course_reset_btn', function (e) {
 
-            $('#name_ar').val('');
+            $('#search_name').val('');
             $('#status').val('');
             $('#date_from').val('');
             $('#date_to').val('');
-            $('#my_courses_data_table').DataTable().ajax.reload();
+            loadData();
         });
 
         /////////////////////////////////////////////////////////////////
@@ -324,7 +323,7 @@
                                 $('.delete_course_button').click(function () {
                                     $('#my_courses_data_table').DataTable().ajax.reload();
                                 });
-                            }else if (data.status == false) {
+                            } else if (data.status == false) {
                                 Swal.fire({
                                     title: "{!! trans('general.deleted') !!}",
                                     text: data.msg,

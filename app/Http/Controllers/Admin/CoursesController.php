@@ -483,11 +483,13 @@ class CoursesController extends Controller
         if (!empty($request->search_name)) {
 
             $searchQuery = $request->search_name;
+
             $list = MawhobEnrollCourse::join('mawhobs', 'mawhob_enroll_courses.mawhob_id', '=', 'mawhobs.id')
                 ->orderByDesc('mawhob_enroll_courses.created_at')
                 ->offset($offset)->take($perPage)
                 ->select('mawhob_enroll_courses.id as course_id', 'mawhobs.*', 'mawhob_enroll_courses.*')
                 ->where('mawhobs.mawhob_full_name', 'like', "%{$searchQuery}%")
+                ->orWhere('mawhobs.mawhob_full_name_en', 'like', "%{$searchQuery}%")
                 ->where('course_id', $request->my_course_id)->get();
 
         } else {
@@ -544,7 +546,7 @@ class CoursesController extends Controller
 
         if ($MawhobEnrollCourse->isEmpty()) {
 
-            $mawhobEnrollCourse =  MawhobEnrollCourse::create([
+            $mawhobEnrollCourse = MawhobEnrollCourse::create([
                 'course_id' => $request->id,
                 'mawhob_id' => $request->mawhob_id,
                 'enrolled_date' => Carbon::now()->format('Y-m-d'),
@@ -575,10 +577,10 @@ class CoursesController extends Controller
                 'title_ar' => 'تنبيه التسجيل في دورة',
                 'title_en' => 'Enrolled In Course Notification',
 
-                'details_ar' => ' قام الطالب   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                'details_ar' => ' قام الموهوب   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
                     . ' بالتسجيل في الدورة التالية  ' . $mawhobEnrollCourse->course->title_ar,
 
-                'details_en' => ' The student   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                'details_en' => ' The Mawhoob   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name_en
                     . ' Enrolled In This Course   ' . $mawhobEnrollCourse->course->title_en,
                 'notify_status' => 'send',
                 'notify_class' => 'unread',
@@ -592,10 +594,10 @@ class CoursesController extends Controller
                 'title_ar' => 'تنبيه التسجيل في دورة',
                 'title_en' => 'Enrolled In Course Notification',
 
-                'details_ar' => ' قام الطالب   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                'details_ar' => ' قام الموهوب   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
                     . ' بالتسجيل في دورتك التالية  ' . $mawhobEnrollCourse->course->title_ar,
 
-                'details_en' => ' The student   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name
+                'details_en' => ' The Mawhoob   ' . $mawhobEnrollCourse->mawhob->mawhob_full_name_en
                     . ' Enrolled In Your Course   ' . $mawhobEnrollCourse->course->title_en,
                 'notify_status' => 'send',
                 'notify_class' => 'unread',

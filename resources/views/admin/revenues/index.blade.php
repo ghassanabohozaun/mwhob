@@ -208,12 +208,12 @@
             $('#date_to').val('');
         })
         ////////////////////////////////////////////// ///////////////
-        // course reset btn
+        // revenues reset btn
         $('body').on('click', '#revenues_reset_btn', function (e) {
-            $('#name_ar').val('');
+            $('#search_name').val('');
             $('#date_from').val('');
             $('#date_to').val('');
-            $('#my_revenues_data_table').DataTable().ajax.reload();
+            loadData();
         });
 
         /////////////////////////////////////////////////////////////////

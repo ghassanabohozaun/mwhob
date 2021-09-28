@@ -59,6 +59,7 @@
                                                     <th>@lang('notifications.details_ar')</th>
                                                     <th>@lang('notifications.details_en')</th>
                                                     <th>@lang('notifications.date')</th>
+                                                    <th>@lang('general.actions')</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -97,8 +98,29 @@
         window.data_url = "{!! route('get.admin.notifications.resource') !!}";
         window.columns = [{data: "id"}, {data: "title_ar"},
             {data: "title_en"}, {data: "details_ar"},
-            {data: "details_en"}, {data: "date"},];
+            {data: "details_en"}, {data: "date"}, {data: "actions"}];
     </script>
 
+
+    <script type="text/javascript">
+        /////////////////////////////////////////////////////////////
+        // read Notification
+        $('body').on('click', '.read_admin_notification_btn', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            $.ajax({
+                url: "{!! route('admin.notification.make.read') !!}",
+                type: "post",
+                data: {id, id},
+                dataType: "JSON",
+                success: function (data) {
+                    console.log(data);
+                    $('#m_table_1').DataTable().ajax.reload();
+                    $('#notify_section').load("{!! route('admin.get.notifications') !!}");
+                    $(".notifications_count").load(location.href + " .notifications_count");
+                }
+            })
+        });
+    </script>
 
 @endpush

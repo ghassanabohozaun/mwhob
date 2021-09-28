@@ -22,64 +22,67 @@
         <!--begin::Topbar-->
         <div class="topbar">
 
+        @can('notifications')
             <!--begin::notifications Panel-->
-            <div class="topbar-item">
-                <div class="btn btn-icon btn-clean btn-lg mr-1 notifications_count" id="kt_quick_panel_toggle">
-                    @if(App\Models\Mawhoob_Notification::where('notify_for', 'admin')
-                        ->where('notify_class','unread')->count() > 0)
-                        <span class="notification_alert_dot"></span>
-                    @endif
-                    <span class="svg-icon svg-icon-xl svg-icon-primary">
+                <div class="topbar-item">
+                    <div class="btn btn-icon btn-clean btn-lg mr-1 notifications_count" id="kt_quick_panel_toggle">
+                        @if(App\Models\Mawhoob_Notification::where('notify_for', 'admin')
+                            ->where('notify_class','unread')->count() > 0)
+                            <span class="notification_alert_dot"></span>
+                        @endif
+                        <span class="svg-icon svg-icon-xl svg-icon-primary">
                               <i class="flaticon-bell text-info icon-2x"></i>
                         </span>
+                    </div>
                 </div>
-            </div>
-            <div id="kt_quick_panel" class="offcanvas offcanvas-right pt-5 pb-10">
-                <!--begin::Header-->
-                <div
-                    class="offcanvas-header offcanvas-header-navs d-flex align-items-center justify-content-between mb-5">
-                    <ul class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-primary flex-grow-1 px-10"
-                        role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#kt_quick_panel_notifications">
-                                {!! trans('notifications.notifications') !!}
+                <div id="kt_quick_panel" class="offcanvas offcanvas-right pt-5 pb-10">
+                    <!--begin::Header-->
+                    <div
+                        class="offcanvas-header offcanvas-header-navs d-flex align-items-center justify-content-between mb-5">
+                        <ul class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-primary flex-grow-1 px-10"
+                            role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#kt_quick_panel_notifications">
+                                    {!! trans('notifications.notifications') !!}
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="offcanvas-close mt-n1 pr-5">
+                            <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary"
+                               id="kt_quick_panel_close">
+                                <i class="ki ki-close icon-xs text-muted"></i>
                             </a>
-                        </li>
-                    </ul>
-                    <div class="offcanvas-close mt-n1 pr-5">
-                        <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_panel_close">
-                            <i class="ki ki-close icon-xs text-muted"></i>
-                        </a>
-                    </div>
-                </div>
-                <!--end::Header-->
-
-                <!--begin::Content-->
-                <div class="offcanvas-content px-10">
-                    <div class="tab-content">
-                        <!--begin::Tabpane-->
-
-                        <div class="tab-pane fade show pt-3 pr-5 mr-n5 active" id="kt_quick_panel_notifications"
-                             role="tabpanel">
-
-                            <!--begin::Section-->
-                            <div class="mb-5">
-
-                                <span id="notify_section"></span>
-
-                            </div>
-                            <!--end::Section-->
                         </div>
-                        <!--end::Tabpane-->
-
                     </div>
+                    <!--end::Header-->
+
+                    <!--begin::Content-->
+                    <div class="offcanvas-content px-10">
+                        <div class="tab-content">
+                            <!--begin::Tabpane-->
+
+                            <div class="tab-pane fade show pt-3 pr-5 mr-n5 active" id="kt_quick_panel_notifications"
+                                 role="tabpanel">
+
+                                <!--begin::Section-->
+                                <div class="mb-5">
+
+                                    <span id="notify_section"></span>
+
+                                </div>
+                                <!--end::Section-->
+                            </div>
+                            <!--end::Tabpane-->
+
+                        </div>
+                    </div>
+                    <!--end::Content-->
                 </div>
-                <!--end::Content-->
-            </div>
-            <!--end::notifications Panel-->
+                <!--end::notifications Panel-->
+        @endcan
 
 
-            <!--begin::Languages-->
+        <!--begin::Languages-->
             <div class="dropdown">
                 <!--begin::Toggle-->
                 <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">

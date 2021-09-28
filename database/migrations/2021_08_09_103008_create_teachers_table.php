@@ -18,6 +18,7 @@ class CreateTeachersTable extends Migration
             $table->string('teacher_photo')->nullable();
             $table->string('slug_teacher_full_name')->nullable();
             $table->string('teacher_full_name')->nullable();
+            $table->string('teacher_full_name_en')->nullable();
             $table->string('teacher_email')->nullable();
             $table->longText('teacher_bio')->nullable();
             $table->string('password')->nullable();

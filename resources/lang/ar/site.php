@@ -41,7 +41,9 @@ return [
     'copy_right' => '. 2021 جميع الحقوق محفوظة موهوب ©',
     'footer_images' => 'صور الفوتر',
     'be_in_touch' => 'كن علي اتصال',
-    'full_name' => 'الاسم كاملاً',
+    'full_name' => 'الاسم  كامل | عربي',
+    'full_name_en' => 'الاسم  كامل | انجليزي',
+
     'email' => 'الايميل',
     'title' => 'عنوان الرسالة',
     'message' => 'الرسالة',
@@ -104,8 +106,8 @@ return [
     'attempt_to_lecture' => 'عرض المحاضرة',
     'course' => 'المحاضرة',
     'no_lecture_dates_available' => 'لا يوجد مواعيد محاضرة متاحة الآن',
-    'go_to_lecture'=>'الذهاب الي المحاضرة',
-    'lecture_link_no_active'=>'رابط المحاضرة غير فعال',
+    'go_to_lecture' => 'الذهاب الي المحاضرة',
+    'lecture_link_no_active' => 'رابط المحاضرة غير فعال',
 
     'do_you_want_to_enroll_in_contest' => 'هل تريد التسجيل في المسابقة ؟',
     'enrolled_in_contest_successfully' => 'تم تسجيلك في المسابقة بنجاح ',
@@ -118,8 +120,8 @@ return [
     'do_you_want_to_enroll_in_program' => 'هل تريد التسجيل في البرنامج ؟',
     'enrolled_in_program_successfully' => 'تم تسجيلك في البرنامج بنجاح ',
     'already_enrolled_in_this_program' => 'قمت بالتسجيل في البرنامج سابقا',
-    'no_date'=>'لايوجد بيانات حاليا',
-    'iam_almowhob'=>'انا الموهوب',
+    'no_date' => 'لايوجد بيانات حاليا',
+    'iam_almowhob' => 'انا الموهوب',
     //////////////////////////////////////////////////
     /// not Exists
     'no_team_members_exists' => 'لا يوجد أعضاء في الفريق حالياً',
@@ -163,6 +165,19 @@ return [
     'dont_have_account' => ' لا تملك حساب ؟',
     'logout' => 'تسجيل الخروج',
     'add_work' => 'إضافة عمل',
+    'registration_confirmation' => 'تأكيد التسجيل',
+    'registration_confirmation_message' => 'لكي يتم تأكيد تسجيلك في موقعنا عليك بادخال رقم موبايل صحيح مبدوئاً برقم الدولي ',
+
+    'validation_code' => 'كود التحقق',
+    'enter_validation_code' => 'ادخل كود التحقق',
+    'validation_code_message' => 'قم بادخال كود التحقق الذي تم ارساله كرسالة الي موبايلك',
+    'validation' => 'التحقق',
+    'please_enter_valid_mobile_number' => 'الرجاء ادخل رقم موبايل صحيح ',
+    'your_account_has_been_successfully_activated' => 'تم تفعيل حسابك بنجاح',
+    'please_enter_validation_code' => 'الرجاء ادخل كود التحقق',
+    'please_verify_the_mobile_number' => 'الرجاء التأكد من رقم الموبايل',
+    'bad_verification_code' => 'الرجاء التاكد من كود التحقق ',
+    'no_notifications' => 'لا يوجد اشعارات ',
 
     //////////////////////////////////////////////////
     /// Validations

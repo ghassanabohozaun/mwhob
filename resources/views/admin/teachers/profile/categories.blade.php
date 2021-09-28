@@ -35,7 +35,11 @@
                                             {!! $key+1 !!}
                                         </td>
                                         <td>
-                                            {!! $teacherCategory->category->name_ar !!}
+                                            @if(Lang()=='ar')
+                                                {!! $teacherCategory->category->name_ar !!}
+                                            @else
+                                                {!! $teacherCategory->category->name_en  !!}
+                                            @endif
                                         </td>
                                         <td>
                                             <a href="#"

@@ -56,6 +56,24 @@ xmlns="http://www.w3.org/1999/xhtml">
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link href="{!! asset('site/css/my-sweet-alert-style.css') !!}" rel="stylesheet">
 
+
+<!-- Firebase files -->
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
+
+<script type="text/javascript" src="{{ asset('otp/js/firebase-conf.js') }}"></script>
+<script type="text/javascript" src="{{ asset('otp/js/phone.js') }}"></script>
+
+
 @stack('js')
 <script>
     AOS.init();
@@ -65,7 +83,7 @@ xmlns="http://www.w3.org/1999/xhtml">
         function refreshLectureDate() {
             setInterval(function() {
                 $( "#refresh_lecture_date" ).load(window.location.href + " #refresh_lecture_date" );
-            }, 5000);  //Delay here = 5 seconds
+            }, 1000);  //Delay here = 5 seconds
         }
     });
 </script>

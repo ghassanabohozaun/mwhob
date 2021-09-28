@@ -16,6 +16,7 @@ class Teacher extends Authenticatable
         'teacher_photo',
         'slug_teacher_full_name',
         'teacher_full_name',
+        'teacher_full_name_en',
         'teacher_email',
         'teacher_bio',
         'password',
@@ -48,5 +49,5 @@ class Teacher extends Authenticatable
         }
     }
 
-    
+
 }

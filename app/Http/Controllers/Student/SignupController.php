@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Student\SignupRequest;
 use App\Models\Category;
+use App\Models\Contest;
 use App\Models\Mawhob;
 use App\Models\Mawhoob_Notification;
 use App\Traits\GeneralTrait;
+use Illuminate\Http\Request;
 
 class SignupController extends Controller
 {
@@ -33,6 +35,7 @@ class SignupController extends Controller
             $mawhob = Mawhob::create([
                 'slug_mawhob_full_name' => slug($request->mawhob_full_name),
                 'mawhob_full_name' => $request->mawhob_full_name,
+                'mawhob_full_name_en' => $request->mawhob_full_name_en,
                 'mawhob_mobile_no' => $request->mawhob_mobile_no,
                 'mawhob_whatsapp_no' => $request->mawhob_whatsapp_no,
                 'mawhob_birthday' => $request->mawhob_birthday,
@@ -62,14 +65,13 @@ class SignupController extends Controller
                 'title_ar' => 'تم تسجيلك في الموقع بنجاح',
                 'title_en' => 'Successfully Sign Up In Website',
                 'details_ar' => ' تمت عملية تسجيلك ' . $mawhob->mawhob_full_name . ' كموهوب بنجاح ',
-                'details_en' => ' Your Sign Up ' . $mawhob->mawhob_full_name  .' As Mawhob Successfully  ',
+                'details_en' => ' Your Sign Up ' . $mawhob->mawhob_full_name_en . ' As Mawhob Successfully  ',
                 'notify_status' => 'send',
                 'notify_class' => 'unread',
                 'notify_for' => 'mawhob',
                 'student_id' => $mawhob->id,
 
             ]);
-
 
             return $this->returnSuccessMessage(trans('site.signup_success_message'));
         } else {
@@ -78,4 +80,28 @@ class SignupController extends Controller
 
 
     }
+
+
+    /////////////////////////////////////////
+    /// Registration Confirmation
+    public function registrationConfirmation($mobileNo=null,$whatsappNo=null)
+    {
+        $title = trans('site.registration_confirmation');
+        return view('student.auth.mobile-confirm', compact('title','mobileNo','whatsappNo'));
+    }
+
+
+    /////////////////////////////////////////
+    /// Active Student
+    public function activeStudent(Request $request)
+    {
+        if($request->ajax()){
+            $mawhob = Mawhob::where('mawhob_mobile_no', $request->mobile_no)->first();
+            $mawhob->freeze = 'on';
+            $mawhob->save();
+            return $this->returnSuccessMessage(trans('site.your_account_has_been_successfully_activated'));
+        }
+
+    }
+
 }

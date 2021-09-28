@@ -57,6 +57,7 @@
                                                     <th>#</th>
                                                     <th>@lang('teachers.teacher_photo')</th>
                                                     <th>@lang('teachers.teacher_full_name')</th>
+                                                    <th>@lang('teachers.teacher_full_name_en')</th>
                                                     <th>@lang('teachers.teacher_email')</th>
                                                     <th>@lang('teachers.teacher_mobile_no')</th>
                                                     <th>@lang('teachers.teacher_whatsapp_no')</th>
@@ -107,6 +108,7 @@
         window.columns = [{data: "id"},
             {data: "teacher_photo"},
             {data: "teacher_full_name"},
+            {data: "teacher_full_name_en"},
             {data: "teacher_email"},
             {data: "teacher_mobile_no"},
             {data: "teacher_whatsapp_no"},

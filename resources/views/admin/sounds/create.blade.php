@@ -200,7 +200,11 @@
 
                                                                 @foreach($mawhobs as $mawhob)
                                                                     <option value='{!! $mawhob->id !!}'>
-                                                                        {!! $mawhob->mawhob_full_name !!}
+                                                                        @if(Lang()=='ar')
+                                                                            {!! $mawhob->mawhob_full_name !!}
+                                                                        @else
+                                                                            {!! $mawhob->mawhob_full_name_en !!}
+                                                                        @endif
                                                                     </option>
                                                                 @endforeach
 

@@ -23,7 +23,13 @@
 
 
                 <div class="name-title">
-                    <div class="name">{!! student()->user()->mawhob_full_name !!}</div>
+                    <div class="name">
+                        @if(Lang()=='ar')
+                            {!! student()->user()->mawhob_full_name !!}
+                        @else
+                            {!! student()->user()->mawhob_full_name_en !!}
+                        @endif
+                    </div>
                     <div class="title">
                         {!!Lang()=='ar'?student()->user()->category->name_ar:student()->user()->category->name_en !!}
                     </div>

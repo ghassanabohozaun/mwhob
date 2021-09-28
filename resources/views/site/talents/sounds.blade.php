@@ -43,16 +43,24 @@
                                         </div>
                                         <div class="fs-12 ml-1">
 
-                                            {!! App\Models\MawhobSound::with('mawhob')
-                                               ->where('sound_id',$sound->id)->first()
-                                                ->mawhob->mawhob_full_name!!}
+                                            @if(Lang()=='ar')
+                                                {!! App\Models\MawhobSound::with('mawhob')
+                                                   ->where('sound_id',$sound->id)->first()
+                                                    ->mawhob->mawhob_full_name!!}
+                                            @else
+                                                {!! App\Models\MawhobSound::with('mawhob')
+                                                  ->where('sound_id',$sound->id)->first()
+                                                   ->mawhob->mawhob_full_name_en!!}
+                                            @endif
+
                                             -
                                             {!! $sound->views == null?'0': $sound->views  !!}
                                             {!! trans('site.view') !!}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3 fs-16 text-center">{!! $sound->length !!} {!! trans('site.minutes') !!}</div>
+                                <div
+                                    class="col-3 fs-16 text-center">{!! $sound->length !!} {!! trans('site.minutes') !!}</div>
                             </div>
                         </div>
                     @endforeach

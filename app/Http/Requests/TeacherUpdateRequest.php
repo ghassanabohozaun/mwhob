@@ -26,6 +26,7 @@ class TeacherUpdateRequest extends FormRequest
         return [
             'teacher_photo' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:1024',
             'teacher_full_name' => 'required',
+            'teacher_full_name_en' => 'required',
             'teacher_bio' => 'required',
             'password' => 'sometimes|nullable|min:6',
             'teacher_mobile_no' => 'required',

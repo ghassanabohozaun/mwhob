@@ -40,7 +40,7 @@ return [
     'success_stories' => 'قصص نجاح',
     'add_new_success_story' => 'اضافة قصة نجاح جديدة',
     'success_story_categories' => 'مجموعات قصص النجاح',
-    'add_new_success_story_category' => 'اضافة مجموعة قصص نجاح جديدة',
+    'add_new_success_story_category' => 'اضافة مجموعة جديدة',
     'revenues' => 'الايرادات',
     'teacher_profile' => 'الملف الشخصي ',
     'landing_page' => 'الصفحة الرئيسية للموقع',

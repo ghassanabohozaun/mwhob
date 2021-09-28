@@ -50,13 +50,13 @@
 
 
                                     <div class="form-group row">
-                                            <label class="col-xl-12 col-lg-12 col-form-label">
-                                                {{trans('stories.story_category_id')}}
-                                            </label>
-                                            <div class="col-lg-12 col-xl-12">
+                                        <label class="col-xl-12 col-lg-12 col-form-label">
+                                            {{trans('stories.story_category_id')}}
+                                        </label>
+                                        <div class="col-lg-12 col-xl-12">
                                                 <span class="form-control  form-control-lg"
                                                       id="story_category_id" type="text"></span>
-                                            </div>
+                                        </div>
                                     </div>
 
 
@@ -152,7 +152,11 @@
                 success: function (data) {
                     $('#about_mawhob_ar').text(data.data.about_mawhob_ar);
                     $('#about_mawhob_en').text(data.data.about_mawhob_en);
-                    $('#mawhob_id').text(data.data.mawhob.mawhob_full_name);
+                    if ("{!! Lang()=='ar' !!}") {
+                        $('#mawhob_id').text(data.data.mawhob.mawhob_full_name);
+                    } else {
+                        $('#mawhob_id').text(data.data.mawhob.mawhob_full_name_en);
+                    }
 
                     $('#story_category_id').text(data.data.story_category.name_{!! Lang() !!});
 
@@ -188,12 +192,12 @@
                     console.log(data);
                     $('#mawhob_experience_section').empty();
                     var trHTML = '';
-                        $.each(data, function (i, item) {
-                            trHTML += '<tr>' + '<td>' + i + '</td><td>' + item.experience_name_ar + '</td>' +
-                                + '<td>' + i + '</td><td>' + item.experience_name_en + '</td>' +
-                                + '<td>' + i + '</td><td>' + item.experience_percentage + ' % </td>' +
-                                '</tr>';
-                        });
+                    $.each(data, function (i, item) {
+                        trHTML += '<tr>' + '<td>' + i + '</td><td>' + item.experience_name_ar + '</td>' +
+                            +'<td>' + i + '</td><td>' + item.experience_name_en + '</td>' +
+                            +'<td>' + i + '</td><td>' + item.experience_percentage + ' % </td>' +
+                            '</tr>';
+                    });
                     $('#mawhob_experience_section').append(trHTML);
                 }
 

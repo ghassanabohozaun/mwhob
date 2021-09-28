@@ -143,13 +143,13 @@ header{
 
 
 
-
+ 
 .text-bold{
   font-weight: bold !important;
 }
 .navbar{
   .nav-item{
-
+   
     text-align: center;
     position: relative;
     &::after{
@@ -189,7 +189,7 @@ header{
       }
     }
   }
-
+ 
 }
 .slider{
   background-image: url('../img/back-slider.jpg');
@@ -215,17 +215,17 @@ html::-webkit-scrollbar {
 
 /* Track */
 html::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f1f1; 
 }
-
+ 
 /* Handle */
 html::-webkit-scrollbar-thumb {
-  background: $color;
+  background: $color; 
 }
 
 /* Handle on hover */
 html::-webkit-scrollbar-thumb:hover {
-  background: $color;
+  background: $color; 
 }
 .best-mwhobs-list{
   text-align: center;
@@ -236,7 +236,7 @@ html::-webkit-scrollbar-thumb:hover {
   }
 }
 section.best-app{
-  background-image: url('../img/back-blow.jpg');
+  background-image: url('../img/back-blow.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -273,7 +273,7 @@ section.best-app{
     }
   }
   .content-item{
-
+   
     padding: 10px;
     .date-item{
       color: #A1A1A1;
@@ -289,7 +289,7 @@ section.best-app{
     font-size: 30px;
     color: $color;
     font-weight:bold;
-
+    
   }
   .old-price{
     position: relative;
@@ -320,7 +320,7 @@ section.best-app{
   font-size: 30px;
   color: $color;
   font-weight:bold;
-
+  
 }
 .old-price{
   position: relative;
@@ -437,13 +437,13 @@ img{
   border-radius: 20px;
 }
 .section-footer{
-  background-image: url(../img/back-footer.jpg);
+  background-image: url(../img/back-footer.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   padding: 140px 0 50px;
-
+  
   .list-social-media{
     display: flex;
     margin: 0;
@@ -553,7 +553,7 @@ img{
   .back-sub-header{
     position: absolute;
     width: 100%;
-
+   
     top:0 ;
     right: 0;
     left: 0;
@@ -615,17 +615,17 @@ path{
 
 /* Track */
 &::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f1f1; 
 }
-
+ 
 /* Handle */
 &::-webkit-scrollbar-thumb {
-  background: $color;
+  background: $color; 
 }
 
 /* Handle on hover */
 &::-webkit-scrollbar-thumb:hover {
-  background: $color;
+  background: $color; 
 }
 }
 .form-group {
@@ -643,7 +643,7 @@ path{
   position: sticky;
   top: 15px;
   flex: 0 0 100%;
-    z-index: 99999;
+    z-index: 9;
 }
 .left-list-cp{
   position: sticky;
@@ -653,7 +653,7 @@ path{
     flex-direction: column;
 }
 .img-after-login{
-
+ 
   img{
     width: 35px;
     height: 35px;
@@ -666,9 +666,9 @@ path{
 
 .bell-after-login{
   color: #fff;
-
+ 
   transition: 0.3s ease-in-out;
-
+  
 div{
   position: relative;
   border: 1px solid #fff;
@@ -715,7 +715,7 @@ div{
     align-items: center;
     margin-bottom: 15px;
     margin-top: 10px;
-
+    
     .img-user{
       img{
         width: 50px;
@@ -779,18 +779,18 @@ ul{
     &:hover ,&.active{
       background-color: $color;
       color: #fff;
-      span.icon .a ,span.icon path{
+      span.icon .a ,span.icon path{  
         transition: 0.3s ease-in-out;
         fill: #fff !important;
       }
     }
     }
+   
 
-
-
+   
   }
 }
-
+ 
 }
 @media  (min-width: 787px) and (max-width: 995px){
   .sub-header .back-sub-header img {
@@ -883,7 +883,7 @@ img.cover{
     margin-left: -35px;
     &:first-child{
       margin-left: 0px;
-
+      
 
     }
     a{
@@ -900,7 +900,7 @@ img.cover{
         height: 80px;
         background-color: #EBEBEB;
         border:3px solid #f2f2f2;
-
+        
         border-radius: 50%;
         display: block;
         text-align: center;
@@ -919,8 +919,8 @@ img.cover{
       margin-left: -10px;
       &:first-child{
         margin-left: 0px;
-
-
+        
+  
       }
       a{
         img{
@@ -928,7 +928,7 @@ img.cover{
       height: 40px;
         }
       }
-
+      
     }
     &:hover{
       li{
@@ -1003,7 +1003,7 @@ p{
         padding: 4px 0px !important;
       }
     }
-
+    
   }
   .sub-header {
     height: 375px;
@@ -1046,11 +1046,11 @@ p{
     padding: 10px;
     a{
       text-align: center;
-
-
+      
+    
       &>img{
         width: 130px;
-
+        
       }
       div.item{
         background-color: #fff;
@@ -1095,4 +1095,24 @@ p{
 }
 .select2-results__option{
   font-size: 12px;
+}
+
+
+.box-noty{
+  width: 250px;
+  .item-noty{
+    background: #f5f5f5;
+    margin-bottom: 7px;
+    transition: 0.3s ease-in-out;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    &:hover{
+      background-color: #FCF2E6;
+      .text-primary{
+        transition: 0.3s ease-in-out;
+
+      }
+    }
+  }
 }

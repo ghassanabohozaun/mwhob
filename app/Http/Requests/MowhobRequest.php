@@ -25,6 +25,7 @@ class MowhobRequest extends FormRequest
     {
         return [
             'mawhob_full_name' => 'required',
+            'mawhob_full_name_en' => 'required',
             'mawhob_mobile_no' => 'required',
             'mawhob_whatsapp_no' => 'required',
             'mawhob_birthday' => 'required',

@@ -210,7 +210,11 @@
                                                                             @if($story->mawhob_id == old('mawhob_id',$mawhob->id))
                                                                             selected="selected"
                                                                         @endif>
-                                                                        {{ $mawhob->mawhob_full_name }}
+                                                                        @if(Lang()=='ar')
+                                                                            {{ $mawhob->mawhob_full_name }}
+                                                                        @else
+                                                                            {{ $mawhob->mawhob_full_name_en }}
+                                                                        @endif
                                                                     </option>
                                                                 @endforeach
 
@@ -381,7 +385,7 @@
 
 
         ////////////////////////////////////////////////////////////////
-        // Append Answer
+        //
         $('body').on('click', '.add_input', function (e) {
 
             e.preventDefault();
@@ -475,9 +479,17 @@
                 processResults: function (data) {
                     return {
                         results: $.map(data, function (item) {
-                            return {
-                                text: item.mawhob_full_name,
-                                id: item.id,
+
+                            if ("{!! Lang()=='ar' !!}") {
+                                return {
+                                    text: item.mawhob_full_name,
+                                    id: item.id,
+                                }
+                            } else {
+                                return {
+                                    text: item.mawhob_full_name_en,
+                                    id: item.id,
+                                }
                             }
                         })
                     };

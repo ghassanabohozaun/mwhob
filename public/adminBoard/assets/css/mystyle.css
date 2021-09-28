@@ -146,3 +146,6 @@ tr:nth-child(even) > td {
     font-weight: bold;
     text-align: center;
 }
+.trash_btn i {
+    padding-left: 0;
+}

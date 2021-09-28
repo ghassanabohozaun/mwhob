@@ -36,10 +36,42 @@
 
                             <a href="#" class="bell-after-login">
                                 <div>
-                                    <span>12</span>
+                            <span>
+                                {!! App\Models\Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'mawhob')
+                                 ->where('student_id', student()->id())->where('notify_class','unread')->count() !!}
+                            </span>
                                     <i class="fas fa-bell"></i>
                                 </div>
                             </a>
+                            <div class="p-2 br-5 box-noty" uk-dropdown="mode: click ; pos: top-right">
+
+                                @if(App\Models\Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'mawhob')
+                                         ->where('student_id', student()->id())->count() == 0)
+                                    <div class="item-noty  p-2 br-5">
+                                        <a href="#">
+                                            <div class="text-bold text-primary">{!! trans('site.no_notifications') !!}</div>
+                                        </a>
+                                    </div>
+                                @else
+                                    @foreach(App\Models\Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'mawhob')
+                                        ->where('student_id', student()->id())->take(5)->get() as $notifcation)
+                                        <div class="item-noty  p-2 br-5 text-right">
+                                            <a href="#">
+                                                <div class="text-bold text-primary">
+                                                    {!! Lang()=='ar'?$notifcation->title_ar:$notifcation->title_en !!}
+                                                </div>
+                                                <div class="fs-12 text-dark">
+                                                    {!! Lang()=='ar'?$notifcation->details_ar:$notifcation->details_en !!}
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                @endif
+
+
+
+                            </div>
+
                         </div>
                         <!-- end:user notifications --------------------------------------------------->
 

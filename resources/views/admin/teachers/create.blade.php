@@ -129,6 +129,26 @@
                                                     <!--end::Group-->
 
 
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('teachers.teacher_full_name_en')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input
+                                                                class="form-control  form-control-lg"
+                                                                name="teacher_full_name_en" id="teacher_full_name_en"
+                                                                type="text"
+                                                                placeholder=" {{trans('teachers.enter_teacher_full_name_en')}}"
+                                                                autocomplete="off"/>
+                                                            <span class="form-text text-danger"
+                                                                  id="teacher_full_name_en_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
@@ -337,6 +357,7 @@
             ////////////////////////////////////////////////////
             $('#teacher_photo_error').text('');
             $('#teacher_full_name_error').text('');
+            $('#teacher_full_name_en_error').text('');
             $('#teacher_email_error').text('');
             $('#teacher_bio_error').text('');
             $('#password_error').text('');
@@ -351,6 +372,7 @@
 
             $('#teacher_photo').css('border-color', '');
             $('#teacher_full_name').css('border-color', '');
+            $('#teacher_full_name_en').css('border-color', '');
             $('#teacher_email').css('border-color', '');
             $('#teacher_bio').css('border-color', '');
             $('#password').css('border-color', '');

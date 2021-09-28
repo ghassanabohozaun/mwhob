@@ -95,8 +95,6 @@ class CoursesController extends Controller
 
     }
 
-
-
     ///////////////////////////////////////////////////////////////
     /// create course
     public function create()
@@ -159,7 +157,7 @@ class CoursesController extends Controller
                 'title_ar' => 'تنبيه اضافة دورة جديدة',
                 'title_en' => 'Added New Course Notification',
                 'details_ar' => $course->title_ar . ' اضيف بواسطة ' . $teacher->teacher_full_name,
-                'details_en' => $course->title_en . ' Added By ' . $teacher->teacher_full_name,
+                'details_en' => $course->title_en . ' Added By ' . $teacher->teacher_full_name_en,
                 'notify_status' => 'send',
                 'notify_class' => 'unread',
                 'notify_for' => 'admin',

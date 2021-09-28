@@ -134,6 +134,7 @@ class TeacherController extends Controller
                 'teacher_photo' => $photo_path,
                 'slug_teacher_full_name' => slug($request->teacher_full_name),
                 'teacher_full_name' => $request->teacher_full_name,
+                'teacher_full_name_en' => $request->teacher_full_name_en,
                 'teacher_email' => $request->teacher_email,
                 'teacher_bio' => $request->teacher_bio,
                 'password' => bcrypt($request->password),
@@ -219,6 +220,7 @@ class TeacherController extends Controller
                 'teacher_photo' => $photo_path,
                 'slug_teacher_full_name' => slug($request->teacher_full_name),
                 'teacher_full_name' => $request->teacher_full_name,
+                'teacher_full_name_en' => $request->teacher_full_name_en,
                 'teacher_bio' => $request->teacher_bio,
                 'password' => $password,
                 'teacher_mobile_no' => $request->teacher_mobile_no,
@@ -442,10 +444,16 @@ class TeacherController extends Controller
         $data = [];
         if ($request->has('q')) {
             $search = $request->q;
+            $requestData = ['teacher_full_name','teacher_full_name_en'];
+
             $data = DB::table("teachers")
-                ->select("id", "teacher_full_name")
-                ->where('teacher_full_name', 'LIKE', "%$search%")
-                ->get();
+                ->select("id", "teacher_full_name", "teacher_full_name_en")
+                    ->where(function ($q) use ($requestData, $search) {
+                        foreach ($requestData as $field)
+                            $q->orWhere($field, 'like', "%{$search}%");
+                    })->get();
+
+
         }
         return response()->json($data);
     }

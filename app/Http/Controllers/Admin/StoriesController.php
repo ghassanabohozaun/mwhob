@@ -45,6 +45,7 @@ class StoriesController extends Controller
             $list = Story::join('mawhobs', 'stories.mawhob_id', '=', 'mawhobs.id')
                 ->select('stories.id as id', 'stories.*', 'mawhobs.mawhob_full_name')
                 ->where('mawhobs.mawhob_full_name', 'like', "%{$searchQuery}%")
+                ->orWhere('mawhobs.mawhob_full_name_en', 'like', "%{$searchQuery}%")
                 ->get();
         } elseif (!empty($request->status)) {
             if ($request->status == 'disable') {
@@ -333,7 +334,6 @@ class StoriesController extends Controller
                 if (!$mawhobExperience->isEmpty()) {
                     return $this->returnError([trans('stories.cannot_be_deleted_because_it_have_mawhob_experience')], 500);
                 }
-
 
 
                 $story->delete();

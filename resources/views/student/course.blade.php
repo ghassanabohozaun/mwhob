@@ -56,7 +56,11 @@
                                                 @endif
                                             </div>
                                             <div class="title">
-                                                {!! $course->teacher->teacher_full_name !!}
+                                                @if(Lang()=='ar')
+                                                    {!! $course->teacher->teacher_full_name !!}
+                                                @else
+                                                    {!! $course->teacher->teacher_full_name_en !!}
+                                                @endif
                                             </div>
                                         </div>
 

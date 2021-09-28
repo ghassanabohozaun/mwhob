@@ -30,7 +30,11 @@
                                     </div>
                                     <div class="uk-card-body p-3 text-center">
                                         <div class="uk-card-title fs-18 mb-0 text-dark">
-                                            {!! $bestMawhoob->mawhob->mawhob_full_name !!}
+                                            @if(Lang()=='ar')
+                                                {!! $bestMawhoob->mawhob->mawhob_full_name !!}
+                                            @else
+                                                {!! $bestMawhoob->mawhob->mawhob_full_name_en !!}
+                                            @endif
                                         </div>
                                         <div>
                                             <i class="fas fa-star text-warning"></i>

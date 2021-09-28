@@ -32,9 +32,8 @@
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
                 <a href="{!! route('mowhobs.trashed') !!}"
-                   class="btn btn-light-danger">
+                   class="btn btn-light-danger trash_btn" title="{{trans('general.trash')}}">
                     <i class="fa fa-trash"></i>
-                    {{trans('general.trash')}}
                 </a>
                 &nbsp;
                 <a href="{!! route('mowhob.create') !!}"
@@ -146,6 +145,7 @@
                                                     <th>#</th>
                                                     <th>@lang('mowhob.photo')</th>
                                                     <th>@lang('mowhob.mawhob_full_name')</th>
+                                                    <th>@lang('mowhob.mawhob_full_name_en')</th>
                                                     <th>@lang('mowhob.mawhob_mobile_no')</th>
                                                     <th>@lang('mowhob.mawhob_whatsapp_no')</th>
                                                     <th>@lang('mowhob.mawhob_birthday')</th>
@@ -234,6 +234,7 @@
                     {data: "id"},
                     {data: "photo"},
                     {data: "mawhob_full_name"},
+                    {data: "mawhob_full_name_en"},
                     {data: "mawhob_mobile_no"},
                     {data: "mawhob_whatsapp_no"},
                     {data: "mawhob_birthday"},
@@ -260,13 +261,13 @@
             $('#category_id').val('');
         })
         ////////////////////////////////////////////// ///////////////
-        // course reset btn
+        // mawhob reset btn
         $('body').on('click', '#mawhob_reset_btn', function (e) {
 
-            $('#name_ar').val('');
+            $('#search_name').val('');
             $('#status').val('')
             $('#category_id').val('');
-            $('#my_mawhobs_data_table').DataTable().ajax.reload();
+            loadData();
         });
 
         ///////////////////////////////////////////////////

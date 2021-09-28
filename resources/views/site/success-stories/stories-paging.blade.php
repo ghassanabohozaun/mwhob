@@ -7,16 +7,20 @@
                          alt="">
                 </div>
                 <div class="nameuser fs-20 text-bold text-primary">
-                    {!! $story->mawhob->mawhob_full_name !!}
+                    @if(Lang()=='ar')
+                        {!! $story->mawhob->mawhob_full_name !!}
+                    @else
+                        {!! $story->mawhob->mawhob_full_name_en !!}
+                    @endif
                 </div>
                 <div class="my-2 py-1">
                     <img class="mr-1" src="{!! asset('site/img/serv.svg') !!}" width="15"
                          alt="">
                     {!! App\Models\MawhobVideo::where('mawhob_id',$story->mawhob->id)->count() +
                         App\Models\MawhobSound::where('mawhob_id',$story->mawhob->id)->count()!!}
-                     {!! trans('site.service') !!}
+                    {!! trans('site.service') !!}
                 </div>
-                <p class=" fs-12" >
+                <p class=" fs-12">
 
                     @if(Lang() == 'ar')
                         {!! \Illuminate\Support\Str::limit(strip_tags($story->about_mawhob_ar),$limit = 200, $end = '...')!!}

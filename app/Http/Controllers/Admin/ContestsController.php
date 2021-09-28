@@ -425,6 +425,7 @@ class ContestsController extends Controller
                 ->offset($offset)->take($perPage)
                 ->select('mawhob_enrolled_contests.id as contest_id', 'mawhobs.*', 'mawhob_enrolled_contests.*')
                 ->where('mawhobs.mawhob_full_name', 'like', "%{$searchQuery}%")
+                ->orWhere('mawhobs.mawhob_full_name_en', 'like', "%{$searchQuery}%")
                 ->where('contest_id', $request->my_contest_id)->get();
 
         } else {
@@ -482,10 +483,10 @@ class ContestsController extends Controller
                     'title_ar' => 'تنبيه التسجيل في مسابقة',
                     'title_en' => 'Enrolled In Contest Notification',
 
-                    'details_ar' => ' قام الطالب   ' . $mawhobEnrolledContest->mawhob->mawhob_full_name
+                    'details_ar' => ' قام الموهوب   ' . $mawhobEnrolledContest->mawhob->mawhob_full_name
                         . ' بالتسجيل في المسابقة التالية  ' . $mawhobEnrolledContest->contest->name_ar,
 
-                    'details_en' => ' The student   ' . $mawhobEnrolledContest->mawhob->mawhob_full_name
+                    'details_en' => ' The Mawhoob   ' . $mawhobEnrolledContest->mawhob->mawhob_full_name_en
                         . ' Enrolled In This Contest   ' . $mawhobEnrolledContest->contest->name_en,
                     'notify_status' => 'send',
                     'notify_class' => 'unread',

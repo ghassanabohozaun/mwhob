@@ -32,9 +32,8 @@
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
                 <a href="{!! route('admin.trashed.sounds') !!}"
-                   class="btn btn-light-danger">
+                   class="btn btn-light-danger trash_btn" title="{{trans('general.trash')}}">
                     <i class="fa fa-trash"></i>
-                    {{trans('general.trash')}}
                 </a>
                 &nbsp;
                 <a href="{!! route('admin.create.sound') !!}"
@@ -273,11 +272,11 @@
         //////////////////////////////////////////////////////////////////////////////////////
         // sound reset btn
         $('body').on('click', '#sound_reset_btn', function (e) {
-            $('#name_ar').val('');
+            $('#search_name').val('');
             $('#status').val('');
             $('#date_from').val('');
             $('#date_to').val('');
-            $('#my_sounds_data_table').DataTable().ajax.reload();
+            loadData();
         });
 
 

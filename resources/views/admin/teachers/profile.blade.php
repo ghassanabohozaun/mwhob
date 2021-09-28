@@ -83,8 +83,13 @@
                                     <div>
                                         <a href="#"
                                            class="font-weight-bolder font-size-h5 text-dark-75 text-hover-primary">
-                                            {!! $teacher->teacher_full_name !!}
+                                            @if(Lang()=='ar')
+                                                {!! $teacher->teacher_full_name !!}
+                                            @else
+                                                {!! $teacher->teacher_full_name_en !!}
+                                            @endif
                                         </a>
+
                                         <div class="text-muted">
                                             @if($teacher->teacher_freeze =='on')
                                                 {!! trans('teachers.active') !!}
@@ -343,7 +348,6 @@
                         <!--end::Row-->
 
                         @include('admin.teachers.profile.courses')
-
 
 
                     </div>

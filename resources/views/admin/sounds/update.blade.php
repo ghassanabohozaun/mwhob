@@ -410,7 +410,7 @@
                         @foreach($mawhobs as $mawhob)
                     {
                         "id": "{{$mawhob->id}}",
-                        "text": "{{$mawhob->mawhob_full_name }}",
+                        "text": "{{ Lang()=='ar'? $mawhob->mawhob_full_name :$mawhob->mawhob_full_name_en  }}",
                         @if(check_mawhob($sound->id,$mawhob->id))
                         "selected": true,
                         @endif
