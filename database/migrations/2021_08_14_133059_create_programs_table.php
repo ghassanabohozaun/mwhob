@@ -26,6 +26,7 @@ class CreateProgramsTable extends Migration
             $table->string('work_plan')->nullable();
             $table->string('date')->nullable();
             $table->double('price')->nullable();
+            $table->double('discount')->nullable();
             $table->enum('language', ['ar', 'ar_en'])->default('ar');
             $table->string('status')->nullable();
             $table->softDeletes();

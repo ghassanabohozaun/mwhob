@@ -396,7 +396,7 @@
                 '<label>{{trans('stories.experience_name_ar')}}' +
                 ':</label>' +
                 '<input type="text"  ' +
-                'class="form-control m-input"' +
+                'class="form-control m-input" required' +
                 ' id="experience_name_ar"' +
                 'name="experience_name_ar[]"' +
                 'value=""' +
@@ -409,7 +409,7 @@
                 '<label>{{trans('stories.experience_name_en')}}' +
                 ':</label>' +
                 '<input type="text"  ' +
-                'class="form-control m-input" ' +
+                'class="form-control m-input" required' +
                 'id="experience_name_en"' +
                 'name="experience_name_en[]"' +
                 'value=""' +
@@ -421,7 +421,7 @@
                 '<div class="col-lg-3">' +
                 '<label>{{trans('stories.experience_percentage')}}' +
                 ':</label>' +
-                '<input  type="number"  oninput="this.value = Math.round(this.value);" ' +
+                '<input  type="number" required oninput="this.value = Math.round(this.value);" ' +
                 ' class="form-control m-input"' +
                 'id="experience_percentage"' +
                 'name="experience_percentage[]"' +

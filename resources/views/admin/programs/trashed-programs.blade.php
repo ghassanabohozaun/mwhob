@@ -14,7 +14,7 @@
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
                         <a href="javascript:void(0);" class="text-muted">
-                            {{trans('menu.programs')}}
+                            {{trans('programs.trashed_programs')}}
                         </a>
                     </li>
 
@@ -58,6 +58,8 @@
                                                     <th>@lang('programs.hours')</th>
                                                     <th>@lang('programs.date')</th>
                                                     <th>@lang('programs.price')</th>
+                                                    <th>@lang('programs.discount')</th>
+                                                    <th>@lang('programs.enrolled_count')</th>
                                                     <th>@lang('programs.work_plan')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
@@ -105,6 +107,8 @@
             {data: "hours"},
             {data: "date"},
             {data: "price"},
+            {data: "discount"},
+            {data: "enrolled_count"},
             {data: "work_plan"},
             {data: "actions"},
         ];

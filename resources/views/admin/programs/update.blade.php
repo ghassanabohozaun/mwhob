@@ -94,7 +94,7 @@
                                                             <div
                                                                 class="image-input image-input-outline"
                                                                 id="kt_program_icon">
-                                                            <!--  -->
+                                                                <!--  -->
                                                                 <div class="image-input-wrapper"
                                                                      style="background-image: url({{asset(Storage::url($program->icon))}})"></div>
                                                                 <label
@@ -128,10 +128,10 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="{!! $program->name_ar !!}"
-                                                                class="form-control  form-control-lg"
-                                                                name="name_ar" id="name_ar" type="text"
-                                                                placeholder=" {{trans('programs.enter_name_ar')}}"
-                                                                autocomplete="off"/>
+                                                                   class="form-control  form-control-lg"
+                                                                   name="name_ar" id="name_ar" type="text"
+                                                                   placeholder=" {{trans('programs.enter_name_ar')}}"
+                                                                   autocomplete="off"/>
                                                             <span class="form-text text-danger"
                                                                   id="name_ar_error"></span>
                                                         </div>
@@ -146,10 +146,10 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="{!! $program->name_en !!}"
-                                                                class="form-control  form-control-lg"
-                                                                name="name_en" id="name_en" type="text"
-                                                                placeholder=" {{trans('programs.enter_name_en')}}"
-                                                                autocomplete="off"/>
+                                                                   class="form-control  form-control-lg"
+                                                                   name="name_en" id="name_en" type="text"
+                                                                   placeholder=" {{trans('programs.enter_name_en')}}"
+                                                                   autocomplete="off"/>
                                                             <span class="form-text text-danger"
                                                                   id="name_en_error"></span>
                                                         </div>
@@ -238,10 +238,10 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="{!! $program->hours !!}"
-                                                                class="form-control  form-control-lg"
-                                                                name="hours" id="hours" type="text"
-                                                                placeholder=" {{trans('programs.enter_hours')}}"
-                                                                autocomplete="off"/>
+                                                                   class="form-control  form-control-lg"
+                                                                   name="hours" id="hours" type="text"
+                                                                   placeholder=" {{trans('programs.enter_hours')}}"
+                                                                   autocomplete="off"/>
                                                             <span class="form-text text-danger"
                                                                   id="hours_error"></span>
                                                         </div>
@@ -255,16 +255,36 @@
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input value="{!! $program->price !!}"
-                                                                class="form-control  form-control-lg"
-                                                                name="price" id="price" type="text"
-                                                                placeholder=" {{trans('programs.enter_price')}}"
-                                                                autocomplete="off"/>
+                                                                   class="form-control  form-control-lg"
+                                                                   name="price" id="price" type="text"
+                                                                   placeholder=" {{trans('programs.enter_price')}}"
+                                                                   autocomplete="off"/>
                                                             <span class="form-text text-danger"
                                                                   id="price_error"></span>
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
 
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('programs.discount')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input value="{!! $program->discount !!}"
+                                                                   class="form-control  form-control-lg"
+                                                                   name="discount" id="discount" type="text"
+                                                                   placeholder=" {{trans('programs.enter_discount')}}"
+                                                                   autocomplete="off"/>
+                                                            <span class="form-text text-danger"
+                                                                  id="discount_error"></span>
+                                                            <span class="form-text text-muted">
+                                                                {{trans('programs.discount_note')}}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
 
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
@@ -281,7 +301,6 @@
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
-
 
 
                                                     @if($program->work_plan == null)
@@ -363,6 +382,7 @@
             $('#work_plan').css('border-color', '');
             $('#date').css('border-color', '');
             $('#price').css('border-color', '');
+            $('#discount').css('border-color', '');
 
             $('#icon_error').text('');
             $('#name_ar_error').text('');
@@ -373,6 +393,8 @@
             $('#work_plan_error').text('');
             $('#date_error').text('');
             $('#price_error').text('');
+            $('#discount_error').text('');
+
             /////////////////////////////////////////////////////////////
             var data = new FormData(this);
             var type = $(this).attr('method');

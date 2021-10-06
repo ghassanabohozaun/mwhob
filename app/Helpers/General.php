@@ -86,6 +86,12 @@ function aboutMawob()
     return App\Models\AboutMawhob::orderBy('id', 'desc')->first();
 }
 
+function registrationPolicy()
+{
+    return App\Models\RegistrationPolicy::orderBy('id', 'desc')->first();
+}
+
+
 function indexPage()
 {
     return App\Models\IndexPage::orderBy('id', 'desc')->first();

@@ -30,6 +30,7 @@ class UserRequest extends FormRequest
             'gender' => 'required|in:male,female',
             'role_id' => 'required',
             'photo' => 'required|image|mimes:jpg,jpeg,png|max:1024',
+            'mobile' => 'required',
         ];
     }
 

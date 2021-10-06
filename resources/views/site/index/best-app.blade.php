@@ -7,7 +7,8 @@
                          alt=" {!! trans('site.mawhoob_the_best_app_to_show_your_talents') !!}">
                 </div>
                 <div data-aos="fade-left" data-aos-duration="1200" class="text-white fs-30 my-3 text-bold">
-                    {!! trans('site.mawhoob_the_best_app_to_show_your_talents') !!}
+                    {!! Lang()=='ar'?indexPage()->best_app_description_ar:indexPage()->best_app_description_en !!}
+
                 </div>
                 <div>
 
@@ -31,7 +32,7 @@
             </div>
             <div class="col-lg-5  d-none d-lg-block">
                 <div class="img-right">
-                    <img data-aos="fade-right" data-aos-duration="1500" src="{!! asset('site/img/woman.png') !!}"
+                    <img data-aos="fade-right" data-aos-duration="1500" src="{!! asset(Storage::url(indexPage()->best_app_image)) !!}"
                          alt="{!! trans('site.mawhoob_the_best_app_to_show_your_talents') !!}">
                 </div>
             </div>

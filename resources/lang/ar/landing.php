@@ -60,6 +60,12 @@ return [
     'best_courses_description_en' => 'وصف افضل الدورات | انجليزي',
     'about_team_ar' => 'عن الفريق | عربي',
     'about_team_en' => 'عن الفريق | انجليزي',
+    'about_team_image' => 'صورة عن الفريق',
+
+    'best_app_image' => 'صورة افضل تطبيق',
+    'best_app_description_ar' => 'وصف افضل تطبيق | عربي',
+    'best_app_description_en' => 'وصف افضل تطبيق | انجليزي',
+
     'our_mission_ar' => 'رؤيتنا | عربي',
     'our_mission_en' => 'رؤيتنا | انجليزي',
     'best_mawhobs' => 'افضل الموهوبين',
@@ -74,6 +80,12 @@ return [
     'enter_best_courses_description_en' => 'ادخل وصف افضل الدورات بالانجليزي',
     'enter_about_team_ar' => 'ادخل عن الفريق بالعربي',
     'enter_about_team_en' => 'ادخل عن الفريق بالانجليزي',
+
+    'enter_about_team_image' => 'ادخل صورة عن الفريق',
+    'enter_best_app_image' => 'ادخل صورة افضل تطبيق',
+    'enter_best_app_description_ar' => 'ادخل وصف افضل تطبيق بالعربي',
+    'enter_best_app_description_en' => 'ادخل وصف افضل تطبيق بالانجليزي',
+
     'enter_our_mission_ar' => 'ادخل رؤيتنا بالعربي',
     'enter_our_mission_en' => 'ادخل رؤيتنا بالانجليزي',
 
@@ -106,7 +118,7 @@ return [
     'latest_winners_description_ar' => 'أحدث الفائزين | عربي',
     'latest_winners_description_en' => 'أحدث الفائزين | انجليزي',
 
-    
+
     'enter_talents_description_ar' => 'ادخل وصف المواهب بالعربي',
     'enter_talents_description_en' => 'ادخل وصف المواهب بالانجليزي',
     'enter_soundtrack_description_ar' => 'ادخل وصف الصوتيات بالعربي',
@@ -169,6 +181,19 @@ return [
     'enter_reason_en_5' => 'ادخل السبب الخامس بالانجليزي',
     'enter_reason_en_6' => 'ادخل السبب السادس بالانجليزي',
     'enter_reason_en_7' => 'ادخل السبب السابع بالانجليزي',
+
+    /////////////////////////////////////////////////////////
+    /// Registration Policy
+
+    'policy_title_ar' => 'العنوان | عربي',
+    'policy_title_en' => 'العنوان | انجليزي',
+    'policy_details_ar' => 'التفاصيل | عربي',
+    'policy_details_en' => 'التفاصيل | انجليزي',
+
+    'enter_policy_title_ar' => 'ادخل العنوان  بالعربي',
+    'enter_policy_title_en' => 'ادخل العنوان  بالانجليزي',
+    'enter_policy_details_ar' => 'ادخل التفاصيل  بالعربي',
+    'enter_policy_details_en' => 'ادخل التفاصيل  بالانجليزي',
 
     /////////////////////////////////////////////////////////////////
     /// Validation

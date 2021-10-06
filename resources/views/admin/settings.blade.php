@@ -195,7 +195,7 @@
                                                             <hr/>
                                                             <br/>
                                                             <!--begin::Group-->
-                                                            <div class="form-group row">
+                                                            <div class="d-none form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">
                                                                     {{trans('settings.site_email')}}
                                                                 </label>
@@ -310,7 +310,7 @@
 
 
                                                             <!--begin::Group-->
-                                                            <div class="form-group row">
+                                                            <div class="d-none form-group row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">
                                                                     {{trans('settings.site_phone')}}
                                                                 </label>
@@ -383,6 +383,23 @@
                                                                     <div class="cst-switch switch-lg" >
                                                                         <input class="site_lang_en" type="checkbox" {{setting()->site_lang_en == 'on' ? 'checked':''}}
                                                                         name="site_lang_en" id="site_lang_en">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Group-->
+
+
+
+
+                                                            <!--begin::Group-->
+                                                            <div class="form-group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    {{trans('settings.lang_front_button_status')}}
+                                                                </label>
+                                                                <div class="col-lg-9 col-xl-9 " id="site_lang_en_section">
+                                                                    <div class="cst-switch switch-lg" >
+                                                                        <input class="lang_front_button_status" type="checkbox" {{setting()->lang_front_button_status == 'on' ? 'checked':''}}
+                                                                        name="lang_front_button_status" id="lang_front_button_status">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -535,7 +552,6 @@
             $('#site_phone_error').text('')
             $('#site_mobile_error').text('')
             $('#site_status_error').text('')
-            $('#site_language_error').text('')
             $('#site_description_ar_error').text('')
             $('#site_description_en_error').text('')
             $('#site_keywords_ar_error').text('')
@@ -555,7 +571,6 @@
             $('#site_phone').css('border-color', '');
             $('#site_mobile').css('border-color', '');
             $('#site_status').css('border-color', '');
-            $('#site_language').css('border-color', '');
             $('#site_description_ar').css('border-color', '');
             $('#site_description_en').css('border-color', '');
             $('#site_keywords_ar').css('border-color', '');
@@ -662,6 +677,53 @@
                 },//end success
             })
         });
+
+
+
+
+        ////////////////////////////////////////////////////
+        // switch language frontend button status
+        var switchFrontendLanguageStatus = false;
+        $("#lang_front_button_status").on('change', function(e) {
+            e.preventDefault();
+
+            if ($(this).is(':checked')) {
+                switchFrontendLanguageStatus = $(this).is(':checked');
+            }
+            else {
+                switchFrontendLanguageStatus = $(this).is(':checked');
+            }
+
+            $.ajax({
+                url: "{{route('switch.frontend.lang')}}",
+                data:{switchFrontendLanguageStatus:switchFrontendLanguageStatus},
+                type: 'post',
+                dataType: 'JSON',
+                beforeSend: function () {
+                    KTApp.blockPage({
+                        overlayColor: '#000000',
+                        state: 'danger',
+                        message: "{{trans('general.please_wait')}}",
+                    });
+                },//end beforeSend
+                success: function (data) {
+                    KTApp.unblockPage();
+                    console.log(data);
+                    if (data.status == true) {
+                        Swal.fire({
+                            title: data.msg,
+                            text: "",
+                            icon: "success",
+                            allowOutsideClick: false,
+                            customClass: {confirmButton: 'switch_frontend_lang_button'}
+                        });
+                        $('.switch_frontend_lang_button').click(function () {
+                        });
+                    }
+                },//end success
+            })
+        });
+
 
 
     </script>

@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'select_country' => 'Select Country',
+    'category_note' => 'Please select talent from the previous options',
+    'portfolio_note' => 'Please attach a file explaining the nature of the talent, including a picture of your drawings, an audio file of your voice, a video link',
+    'policy_approved'=>'Registration policy approved',
+    'policy_not_approved' => 'Registration policy Not approved',
 
     'update_mowhob' => 'Update Mowhob',
     'trashed_mowhobs' => 'Trashed Mowhobs',
@@ -22,24 +27,34 @@ return [
     'mawhob_full_name_en' => 'Mowhob Name | en',
     'mawhob_mobile_no' => 'Mowhob Mobile No',
     'password' => 'Mowhob Password',
-    'mawhob_whatsapp_no' => 'Mowhob Whatsapp No',
+    'mawhob_whatsapp_no' => 'Mowhob Guardian Whatsapp No',
     'mawhob_birthday' => 'Mowhob Birthday',
     'mowhob_gender' => 'Gender',
     'category_id' => 'Category',
     'portfolio' => 'Portfolio',
     'freeze' => 'Freeze',
+    'mawhob_email' => 'Email',
+    'country' => 'Country',
+    'other_talents' => 'Other Talents',
+    'agree_to_the_policy' => 'Agree To The Policy',
+
 
     'enter_photo' => 'Enter Photo',
     'enter_mawhob_full_name' => 'Enter Arabic Mowhob  Name',
     'enter_mawhob_full_name_en' => 'Enter English Mowhob Name',
     'enter_mawhob_mobile_no' => 'Enter Mowhob Mobile No',
     'enter_password' => 'Enter Mowhob Password',
-    'enter_mawhob_whatsapp_no' => 'Enter Mowhob Whatsapp No',
+    'enter_mawhob_whatsapp_no' => 'Enter Mowhob Guardian Whatsapp No',
     'enter_mawhob_birthday' => 'Enter Mowhob Birthday',
     'enter_mowhob_gender' => 'Enter Gender',
     'enter_category_id' => 'Enter Category',
     'enter_portfolio' => 'Enter Portfolio',
     'enter_freeze' => 'Enter Freeze',
+    'enter_mawhob_email' => 'Enter Email',
+    'enter_country' => 'Enter Country',
+    'enter_other_talents' => 'Enter Other Talents',
+    'enter_agree_to_the_policy' => 'Enter Agree To The Policy',
+
 
     'required' => 'This Field Required',
     'max' => 'Max allow characters 100',
@@ -49,12 +64,13 @@ return [
     'mimes' => 'image with this format jpeg,jpg,png',
     'photo_required' => 'Offer Photo Required',
     'portfolio_max' => 'Max allow file size 5 mega',
+    'email_email' => 'Email Must be in this format admin@admin.com',
+    'mwhob_birthday' => 'The Mawhob Must be at Least 10 years old',
+    'url' => 'The talent file must be a valid link',
 
 
     'no_contests_exists' => 'The Mawhob  has not entered any Contests yet',
     'mawhob_exists' => 'mawhob exists',
-
-
     'cannot_be_deleted_because_it_have_stories' => 'Mawhob Cannot Be Deleted Because It Have Success Stories',
     'cannot_be_deleted_because_it_have_sounds' => 'Mawhob Cannot Be Deleted Because It Have Success Sounds',
     'cannot_be_deleted_because_it_have_videos' => 'Mawhob Cannot Be Deleted Because It Have Success Videos',

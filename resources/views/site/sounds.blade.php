@@ -17,7 +17,10 @@
 
     <section class="sub-header">
         <div class=" container text-center content-header">
-            <h2>{!! trans('site.talents') !!} --> {!! trans('site.sound_tracks') !!}</h2>
+            <h2>
+                {!! trans('site.talents') !!}
+                @if(Lang()=='ar') / @else \ @endif
+                {!! trans('site.sound_tracks') !!}</h2>
             <p>
                 {!! Lang()=='ar'?staticStrings()->soundtrack_description_ar:staticStrings()->soundtrack_description_en  !!}
             </p>
@@ -38,45 +41,45 @@
                     <div class=" py-3 px-2">
 
 
-                            <div class="form-group">
-                                <label for="search_name" class=" fs-14">{!! trans('site.sound_name') !!}</label>
-                                <input class="form-control form-control-sm fs-14 py-1 px-1"
-                                       name="search_name" id="search_name"
-                                       autocomplete="off"
-                                       placeholder="{!! trans('site.enter_sound_name') !!}">
-                            </div>
+                        <div class="form-group">
+                            <label for="search_name" class=" fs-14">{!! trans('site.sound_name') !!}</label>
+                            <input class="form-control form-control-sm fs-14 py-1 px-1"
+                                   name="search_name" id="search_name"
+                                   autocomplete="off"
+                                   placeholder="{!! trans('site.enter_sound_name') !!}">
+                        </div>
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="fs-14 mb-1">{!! trans('site.sound_length') !!}</div>
-                                </div>
-                                <div class="col-6 pr-1">
-                                    <input class="form-control form-control-sm" type="number"
-                                           placeholder="{!! trans('site.from') !!}"
-                                           name="length_from" id="length_from">
-                                </div>
-                                <div class="col-6 pl-1">
-                                    <input class="form-control form-control-sm" type="number"
-                                           placeholder="{!! trans('site.to') !!}"
-                                           name="length_to" id="length_to">
-                                </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="fs-14 mb-1">{!! trans('site.sound_length') !!}</div>
                             </div>
+                            <div class="col-6 pr-1">
+                                <input class="form-control form-control-sm" type="number"
+                                       placeholder="{!! trans('site.from') !!}"
+                                       name="length_from" id="length_from">
+                            </div>
+                            <div class="col-6 pl-1">
+                                <input class="form-control form-control-sm" type="number"
+                                       placeholder="{!! trans('site.to') !!}"
+                                       name="length_to" id="length_to">
+                            </div>
+                        </div>
 
-                            <div class="row mt-3">
-                                <div class="col-12">
-                                    <div class="fs-14 mb-1">{!! trans('site.publish_date') !!}</div>
-                                </div>
-                                <div class="col-12">
-                                    <input class="form-control form-control-sm datepicker" type="text"
-                                           placeholder="{!! trans('site.from') !!}"
-                                           name="date_from" id="date_from">
-                                </div>
-                                <div class="col-12 mt-1">
-                                    <input class="form-control form-control-sm datepicker" type="text"
-                                           placeholder="{!! trans('site.to') !!}"
-                                           name="date_to" id="date_to">
-                                </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="fs-14 mb-1">{!! trans('site.publish_date') !!}</div>
                             </div>
+                            <div class="col-12">
+                                <input class="form-control form-control-sm datepicker" type="text"
+                                       placeholder="{!! trans('site.from') !!}"
+                                       name="date_from" id="date_from">
+                            </div>
+                            <div class="col-12 mt-1">
+                                <input class="form-control form-control-sm datepicker" type="text"
+                                       placeholder="{!! trans('site.to') !!}"
+                                       name="date_to" id="date_to">
+                            </div>
+                        </div>
 
 
                     </div>
@@ -99,7 +102,6 @@
                 <!-- end : Sounds ------------------------------------------>
             </div>
         </div>
-
 
 
     </section>

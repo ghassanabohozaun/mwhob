@@ -122,6 +122,14 @@
                                 showConfirmButton: true,
                                 confirmButtonText: `{!! trans('site.ok') !!}`,
                             });
+
+                            /////////////////////////////////////////////////////////////
+                            // reload student notifications
+                            $('#student_notify_section').load("{!! route('student.get.notifications') !!}");
+                            $(".student_notifications_count").load(location.href + " .student_notifications_count");
+
+
+
                         } else {
                             Swal.fire({
                                 title: data.msg,

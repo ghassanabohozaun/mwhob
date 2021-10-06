@@ -22,7 +22,7 @@ return [
     'best_courses' => 'Best Courses',
     'enroll_now' => 'Enroll Now !',
     'about_team' => 'About Team',
-    'our_mission' => 'Our Mission',
+    'our_vision' => 'Our Vision',
     'media' => 'Media',
     'facebook' => 'facebook',
     'instagram' => 'instagram',
@@ -92,6 +92,12 @@ return [
     'ok' => 'OK',
     'you_have_already_registered_with_us' => 'You have registered with us',
     'cancel' => 'Cancel',
+    'notifications' => 'Notifications',
+    'notification_title' => 'Title',
+    'notification_details' => 'Details',
+    'mark_as_read' => 'make as read',
+    'action'=>'Action',
+
     'update_account' => 'Update Account',
     'update' => 'Update',
     'photo' => 'Mawhooob Photo',
@@ -99,8 +105,8 @@ return [
     'sign_in_firstly' => 'Sign in first',
     'minutes' => 'Minutes',
     'min' => 'Min',
-    'go_to_lecture'=>'Go To Lecture',
-    'lecture_link_no_active'=>'Lecture Link Not Active',
+    'go_to_lecture' => 'Go To Lecture',
+    'lecture_link_no_active' => 'Lecture Link Not Active',
 
     'do_you_want_to_enroll_in_contest' => 'Do you want to enrolled in  the contest ?',
     'enrolled_in_contest_successfully' => 'You have been successfully enrolled into the contest',
@@ -113,8 +119,8 @@ return [
     'do_you_want_to_enroll_in_program' => 'Do you want to enrolled in  the Program ?',
     'enrolled_in_program_successfully' => 'You have been successfully enrolled into the Program',
     'already_enrolled_in_this_program' => 'You have already enrolled for the Program ',
-    'no_date'=>'No Data',
-    'iam_almowhob'=>'Iam Almowhob',
+    'no_date' => 'No Data',
+    'iam_almowhob' => 'Iam Almowhob',
 
     //////////////////////////////////////////////////
     /// not Exists
@@ -135,19 +141,32 @@ return [
     'my_sounds' => 'My Sounds',
     'course_details' => 'Course Details',
     'next_lecture' => 'Next Lecture',
-    'attempt_to_lecture'=>'Attempt To Lecture',
-    'course'=>'Course',
-    'no_lecture_dates_available'=>'No Lecture dates Available now',
+    'attempt_to_lecture' => 'Attempt To Lecture',
+    'course' => 'Course',
+    'no_lecture_dates_available' => 'No Lecture dates Available now',
 
 
     //////////////////////////////////////////////////////////////
     /// Student
+    'category_note' => 'Please select talent from the previous options',
+    'portfolio_note' => 'Please attach a file explaining the nature of the talent, including a picture of your drawings, an audio file of your voice, a video link',
+
+
     'signup' => 'Signup',
     'signup_as_mawhoob' => 'Signup as Mawhoob',
     'mobile_no' => 'Mobile no',
     'enter_mobile_no' => 'Enter Mobile no',
+    'whatsapp_no' => 'Guardian WhatsApp no',
+    'whatsapp_no_note' => 'WhatsApp no must me like +97259222222',
 
-    'whatsapp_no' => 'WhatsApp no',
+    'mawhob_email' => 'Email',
+    'country' => 'Country',
+    'select_country' => 'Select Country',
+    'other_talents' => 'Other Talents',
+    'enter_other_talents' => 'Enter Other Talents',
+    'mwhob_birthday' => 'The Mawhob Must be at Least 10 years old',
+    'url' => 'The talent file must be a valid link',
+
     'birthday' => 'Birth Date',
     'gender' => 'Gender',
     'talent' => 'Talent',
@@ -167,18 +186,23 @@ return [
     'dont_have_account' => 'Do not Have an account ?',
     'logout' => 'Logout',
     'add_work' => 'Add Work',
-    'registration_confirmation'=>'Registration Confirmation',
-    'registration_confirmation_message'=>'In order to confirm your registration on our website, you must enter the correct mobile number, starting with the international number',
-    'validation_code'=>'Validation code',
-    'enter_validation_code'=>'Enter Validation code',
-    'validation_code_message'=>'Enter the verification code that was sent as a message to your mobile',
-    'validation'=>'Validation',
-    'please_enter_valid_mobile_number'=>'Please Enter Valid Mobile Number',
-    'your_account_has_been_successfully_activated'=>'Your account has been successfully activated',
-    'please_enter_validation_code'=>'Please Enter Validation code',
-   'please_verify_the_mobile_number'=>'Please verify the mobile number',
-    'bad_verification_code'=>'Please check the verification code',
+    'registration_confirmation' => 'Registration Confirmation',
+    'registration_confirmation_message' => 'In order to confirm your registration on our website, you must enter the correct mobile number, starting with the international number',
+    'validation_code' => 'Validation code',
+    'enter_validation_code' => 'Enter Validation code',
+    'validation_code_message' => 'Enter the verification code that was sent as a message to your mobile',
+    'validation' => 'Validation',
+    'please_enter_valid_mobile_number' => 'Please Enter Valid Mobile Number',
+    'your_account_has_been_successfully_activated' => 'Your account has been successfully activated',
+    'please_enter_validation_code' => 'Please Enter Validation code',
+    'please_verify_the_mobile_number' => 'Please verify the mobile number',
+    'bad_verification_code' => 'Please check the verification code',
     'no_notifications' => 'No notifications',
+
+
+    'registration_policy' => 'Registration Policy and Agreement',
+    'i_agree_to_the_registration_policy_and_agreement' => 'I agree to the registration policy and agreement',
+
 
     //////////////////////////////////////////////////
     /// Validations

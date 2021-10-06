@@ -32,6 +32,18 @@
                                 <img src="{!! asset('site/img/youtube.svg') !!}" alt="{!! trans('site.youtube') !!}">
                             </a>
                         </li>
+
+                        <li>
+                            <a href="https://wa.me/{!! setting()->site_mobile !!}" target="_blank">
+                                <img src="{!! asset('site/img/whatsapp.svg') !!}" alt="{!! trans('site.whatsapp') !!}">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:{!! setting()->site_gmail !!}" target="_blank">
+                                <img src="{!! asset('site/img/gmail.svg') !!}" alt="{!! trans('site.gmail') !!}">
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
 

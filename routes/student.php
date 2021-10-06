@@ -25,7 +25,7 @@ Route::group([
     Route::get('/student/courses/paging', 'DashboardController@studentCoursePaging')
         ->name('student.courses.paging');
 
-    Route::get('/get-course/{id?}','DashboardController@getStudentCourse')->name('get.student.course');
+    Route::get('/get-course/{id?}', 'DashboardController@getStudentCourse')->name('get.student.course');
 
     Route::get('/contests', 'DashboardController@contests')->name('student.contests');
     Route::get('/student/contests/paging', 'DashboardController@studentContestsPaging')
@@ -35,14 +35,39 @@ Route::group([
     Route::get('/student/programs/paging', 'DashboardController@studentProgramsPaging')
         ->name('student.programs.paging');
 
+    Route::get('/student/show/all/notifications', 'DashboardController@showAllStudentNotifications')
+        ->name('student.show.all.notifications');
+
+    Route::get('/student/show/all/notifications/paging', 'DashboardController@showAllStudentNotificationsPaging')
+        ->name('student.notifications.paging');
+
+
     Route::get('/update-account', 'DashboardController@updateAccount')->name('student.update.account');
     Route::post('/update-account', 'DashboardController@updateStudentAccount')->name('student.update.account');
+
+
 
     Route::post('/student-enroll-contest', 'StudentController@enrollContest')->name('student.enroll.contest');
     Route::post('/student-enroll-course', 'StudentController@enrollCourse')->name('student.enroll.course');
     Route::post('/student-enroll-program', 'StudentController@enrollProgram')->name('student.enroll.program');
 
 
+
+
+    ///////////////////////////////////////////////////////////////////
+    /// Notifications Routes
+    Route::group(['prefix'=>'notifications'],function (){
+
+
+        Route::get('/get/student/notifications', 'NotificationsController@getNotifications')
+            ->name('student.get.notifications');
+
+        Route::get('/get/one/student/notification', 'NotificationsController@getOneNotification')
+            ->name('student.get.one.notification');
+
+        Route::post('/student/notification/make/read', 'NotificationsController@makeRead')
+            ->name('student.notification.make.read');
+    });
 
 });
 
@@ -52,15 +77,19 @@ Route::group([
 Route::group(['namespace' => 'Student', 'middleware' => 'guest:student'], function () {
 
 
+    Route::get('/registration-policy', 'SignupController@registrationPolicy')
+        ->name('student.registration.policy');
+
+
     Route::group(['prefix' => 'signup'], function () {
         Route::get('/', 'SignupController@index')->name('student.signup');
         Route::post('/store', 'SignupController@store')->name('student.signup.store');
     });
 
-    Route::get('/mobile-confirm/{mobileNo?}/{whatsappNo?}','SignupController@registrationConfirmation')
+    Route::get('/mobile-confirm/{mobileNo?}/{whatsappNo?}', 'SignupController@registrationConfirmation')
         ->name('student.registration.confirmation');
 
-    Route::post('/active-student','SignupController@activeStudent')
+    Route::post('/active-student', 'SignupController@activeStudent')
         ->name('student.active.student');
 
 

@@ -3,7 +3,7 @@
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="box-users  text-center itemuser p-3 br-10">
                 <div class="imguser">
-                    <img src="{!! asset(Storage::url($story->story_image)) !!}"
+                    <img src="{!! asset(Storage::url($story->story_icon)) !!}"
                          alt="">
                 </div>
                 <div class="nameuser fs-20 text-bold text-primary">

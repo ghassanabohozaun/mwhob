@@ -13,6 +13,7 @@ use App\Models\MawhobEnrolledContest;
 use App\Models\MawhobEnrollProgram;
 use App\Models\MawhobSound;
 use App\Models\MawhobVideo;
+use App\Models\Mawhoob_Notification;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -263,6 +264,7 @@ class DashboardController extends Controller
     }
 
 
+
     ////////////////////////////////////////////////////
     /// update Account
     public function updateAccount()
@@ -318,5 +320,26 @@ class DashboardController extends Controller
         return $this->returnSuccessMessage(trans('site.update_account_successfully'));
     }
 
+    ////////////////////////////////////////////////////
+    /// get all Notifications
+
+    public function showAllStudentNotifications()
+    {
+        $title = trans('site.notifications');
+
+        $notifications = Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'mawhob')
+            ->where('student_id', student()->id())->paginate(10);
+        return view('student.all-notifications', compact('title', 'notifications'));
+    }
+
+
+    public function showAllStudentNotificationsPaging(Request $request)
+    {
+        if ($request->ajax()) {
+            $notifications = Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'mawhob')
+                ->where('student_id', student()->id())->paginate(10);
+            return view('student.notifications-paging', compact('notifications'))->render();
+        }
+    }
 
 }

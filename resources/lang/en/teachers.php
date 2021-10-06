@@ -17,6 +17,7 @@ return [
     'category_name' => 'Category Name',
     'notifications' => 'Notifications',
     'change_teacher' => 'Change Teacher',
+    'select_county'=>'Select County',
 
 
     'teacher_photo' => 'Photo',
@@ -27,6 +28,7 @@ return [
     'password' => 'Password',
     'teacher_mobile_no' => 'Mobile No',
     'teacher_whatsapp_no' => 'Whatsapp No',
+    'country' => 'Country',
     'teacher_qualification' => 'Qualification',
     'teacher_cv' => 'CV',
     'teacher_photos_and_videos_link' => 'Photos And Videos Link',
@@ -38,12 +40,13 @@ return [
     'enter_teacher_photo' => 'Enter Photo',
     'enter_teacher_full_name' => 'Enter Arabic Teacher Full Name',
     'enter_teacher_full_name_en' => 'Enter English Teacher Full Name',
-
     'enter_teacher_email' => 'Enter Email',
     'enter_teacher_bio' => 'Enter BIO',
     'enter_password' => 'Enter Password',
     'enter_teacher_mobile_no' => 'Enter Mobile No',
     'enter_teacher_whatsapp_no' => 'Enter Whatsapp No',
+    'enter_country' => 'Enter Country',
+
     'enter_teacher_qualification' => 'Enter Qualification',
     'enter_teacher_cv' => 'Enter CV',
     'enter_teacher_photos_and_videos_link' => 'Enter Photos And Videos Link',

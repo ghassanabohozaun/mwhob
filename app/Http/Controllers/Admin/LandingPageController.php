@@ -6,6 +6,7 @@ use App\File;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AboutMawhobRequest;
 use App\Http\Requests\IndexPageRequest;
+use App\Http\Requests\RegistrationPolicyRequest;
 use App\Http\Requests\StaticStringRequest;
 use App\Http\Requests\TeamRequest;
 use App\Http\Requests\WhyChooseUsRequest;
@@ -14,6 +15,7 @@ use App\Models\AboutMawhob;
 use App\Models\BestMawhob;
 use App\Models\IndexPage;
 use App\Models\Mawhob;
+use App\Models\RegistrationPolicy;
 use App\Models\StaticString;
 use App\Models\Team;
 use App\Models\WhyChooseUs;
@@ -43,6 +45,20 @@ class LandingPageController extends Controller
 
         if ($indexPage->isEmpty()) {
 
+            if ($request->hasFile('about_team_image')) {
+                $about_team_image_path = $request->file('about_team_image')->store('AboutTeam');
+            } else {
+                $about_team_image_path = '';
+            }
+
+
+            if ($request->hasFile('best_app_image')) {
+                $best_app_image_path = $request->file('best_app_image')->store('BestApp');
+            } else {
+                $best_app_image_path = '';
+            }
+
+
             IndexPage::create([
                 'mawhobs_description_ar' => $request->mawhobs_description_ar,
                 'mawhobs_description_en' => $request->mawhobs_description_en,
@@ -50,8 +66,12 @@ class LandingPageController extends Controller
                 'courses_description_en' => $request->courses_description_en,
                 'best_mawhobs_description_ar' => $request->best_mawhobs_description_ar,
                 'best_mawhobs_description_en' => $request->best_mawhobs_description_en,
+                'best_app_image' => $best_app_image_path,
+                'best_app_description_ar' => $request->best_app_description_ar,
+                'best_app_description_en' => $request->best_app_description_en,
                 'best_courses_description_ar' => $request->best_courses_description_ar,
                 'best_courses_description_en' => $request->best_courses_description_en,
+                'about_team_image' => $about_team_image_path,
                 'about_team_ar' => $request->about_team_ar,
                 'about_team_en' => $request->about_team_en,
                 'our_mission_ar' => $request->our_mission_ar,
@@ -68,8 +88,42 @@ class LandingPageController extends Controller
 
             return $this->returnSuccessMessage(trans('general.add_success_message'));
         } else {
+            ///////////////////////////////////////////////////////////////////////////////////
+            /// update
 
             $indexPageUpdate = IndexPage::orderBy('id', 'desc')->first();
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            if ($request->hasFile('about_team_image')) {
+                if (!empty($indexPageUpdate->about_team_image)) {
+                    Storage::delete($indexPageUpdate->about_team_image);
+                    $about_team_image_path = $request->file('about_team_image')->store('AboutTeam');
+                } else {
+                    $about_team_image_path = $request->file('about_team_image')->store('AboutTeam');
+                }
+            } else {
+                if (!empty($indexPageUpdate->about_team_image)) {
+                    $about_team_image_path = $indexPageUpdate->about_team_image;
+                } else {
+                    $about_team_image_path = '';
+                }
+            }
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
+            if ($request->hasFile('best_app_image')) {
+                if (!empty($indexPageUpdate->best_app_image)) {
+                    Storage::delete($indexPageUpdate->best_app_image);
+                    $best_app_image_path = $request->file('best_app_image')->store('BestApp');
+                } else {
+                    $best_app_image_path = $request->file('best_app_image')->store('BestApp');
+                }
+            } else {
+                if (!empty($indexPageUpdate->best_app_image)) {
+                    $best_app_image_path = $indexPageUpdate->best_app_image;
+                } else {
+                    $best_app_image_path = '';
+                }
+            }
 
 
             $indexPageUpdate->update([
@@ -79,8 +133,12 @@ class LandingPageController extends Controller
                 'courses_description_en' => $request->courses_description_en,
                 'best_mawhobs_description_ar' => $request->best_mawhobs_description_ar,
                 'best_mawhobs_description_en' => $request->best_mawhobs_description_en,
+                'best_app_image' => $best_app_image_path,
+                'best_app_description_ar' => $request->best_app_description_ar,
+                'best_app_description_en' => $request->best_app_description_en,
                 'best_courses_description_ar' => $request->best_courses_description_ar,
                 'best_courses_description_en' => $request->best_courses_description_en,
+                'about_team_image' => $about_team_image_path,
                 'about_team_ar' => $request->about_team_ar,
                 'about_team_en' => $request->about_team_en,
                 'our_mission_ar' => $request->our_mission_ar,
@@ -378,7 +436,6 @@ class LandingPageController extends Controller
     }
 
 
-
     /////////////////////////////////////////////////////
     /// why choose us
     public function whyChooseUs()
@@ -440,5 +497,45 @@ class LandingPageController extends Controller
         }
 
     }
+
+
+    /////////////////////////////////////////////////////
+    /// Registration Policy
+    public function registrationPolicy()
+    {
+        $title = trans('menu.registration_policy');
+        return view('admin.landing-page.registration_policy', compact('title'));
+    }
+    /////////////////////////////////////////////////////
+    /// Store Registration Policy
+    public function storeRegistrationPolicy(RegistrationPolicyRequest $request)
+    {
+
+        $registrationPolicy = RegistrationPolicy::get();
+
+        if ($registrationPolicy->isEmpty()) {
+            RegistrationPolicy::create([
+                'policy_title_ar' => $request->policy_title_ar,
+                'policy_title_en' => $request->policy_title_en,
+                'policy_details_ar' => $request->policy_details_ar,
+                'policy_details_en' => $request->policy_details_en,
+            ]);
+            return $this->returnSuccessMessage(trans('general.add_success_message'));
+        } else {
+
+            $registrationPolicyUpdate = RegistrationPolicy::orderBy('id', 'desc')->first();
+
+            $registrationPolicyUpdate->update([
+                'policy_title_ar' => $request->policy_title_ar,
+                'policy_title_en' => $request->policy_title_en,
+                'policy_details_ar' => $request->policy_details_ar,
+                'policy_details_en' => $request->policy_details_en,
+            ]);
+
+            return $this->returnSuccessMessage(trans('general.update_success_message'));
+        }
+
+    }
+
 
 }

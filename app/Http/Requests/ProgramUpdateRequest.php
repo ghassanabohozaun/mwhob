@@ -34,6 +34,7 @@ class ProgramUpdateRequest extends FormRequest
                 'work_plan' => 'sometimes|nullable|max:1024',
                 'date' => 'required',
                 'price' => 'required|numeric',
+                'discount' => 'sometimes|nullable|numeric',
             ];
         } else {
             return [
@@ -41,9 +42,10 @@ class ProgramUpdateRequest extends FormRequest
                 'name_ar' => 'required',
                 'short_description_ar' => 'required',
                 'hours' => 'required|numeric',
-                'work_plan' => 'required',
+                'work_plan' => 'sometimes|nullable',
                 'date' => 'required',
                 'price' => 'required|numeric',
+                'discount' => 'sometimes|nullable|numeric',
             ];
         }
 

@@ -151,8 +151,27 @@
 
         function loadData(search_name = '', date_from = '', date_to = '') {
             $("#my_revenues_data_table").DataTable({
+
+                dom: "B<'row'<'col-sm-12'tr>>\n\t\t\t<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>",
+                buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        footer: true,
+                    },
+                    {
+                        extend: 'print',
+                        text: 'print',
+                        footer: true,
+                    },
+                    {
+                        extend: 'excel',
+                        text: 'excel',
+                        footer: true,
+                    },
+                ],
+
                 responsive: !0,
-                dom: "<'row'<'col-sm-12'tr>>\n\t\t\t<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>",
                 lengthMenu: [5, 10, 25, 50],
                 pageLength: 10,
                 language: {

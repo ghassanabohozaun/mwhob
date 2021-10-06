@@ -416,16 +416,14 @@
 
     ///////////////////////////////////////////////////////////////////////////
     ////////  Datatable Fonts
-    /*pdfMake.fonts = {
+    pdfMake.fonts = {
         Roboto: {
             normal: "{!! asset('adminBoard/assets/fonts/ArbFONTS-bein-ar-normal.ttf') !!}",
             bold: "{!! asset('adminBoard/assets/fonts/ArbFONTS-bein-ar-normal.ttf') !!}",
             italics: "{!! asset('adminBoard/assets/fonts/ArbFONTS-beIN Normal .ttf') !!}",
             bolditalics: "{!! asset('adminBoard/assets/fonts/ArbFONTS-beIN Normal .ttf') !!}"
         },
-    }*/
-
-
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     //////// Translate Datatable

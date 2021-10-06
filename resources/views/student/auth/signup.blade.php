@@ -39,7 +39,7 @@
                                 </div>
 
                                 <form action="{!! route('student.signup.store') !!}"
-                                     
+
                                       method="POST" enctype="multipart/form-data"
                                       id="student_signup_form">
                                     @csrf
@@ -72,20 +72,38 @@
                                         <label for="WhatsApp" class="">
                                             {!! trans('site.whatsapp_no') !!}.
                                         </label>
+                                        <input
+                                            type="text" class="form-control" autocomplete="off"
+                                            id="mawhob_whatsapp_no" name="mawhob_whatsapp_no"
+                                            placeholder="{!! trans('site.whatsapp_no') !!}">
+                                        <br/>
+                                        <span class="text-muted">
+                                            {!! trans('site.whatsapp_no_note') !!}
+                                        </span>
+                                    </div>
+
+
+                                    <div class="form-group text-left ">
+                                        <label for="mawhob_email" class="">
+                                            {!! trans('site.mawhob_email') !!}.
+                                        </label>
                                         <input type="text" class="form-control" autocomplete="off"
-                                               id="mawhob_whatsapp_no" name="mawhob_whatsapp_no"
-                                               placeholder="{!! trans('site.whatsapp_no') !!}">
+                                               id="mawhob_email" name="mawhob_email"
+                                               placeholder="{!! trans('site.mawhob_email') !!}">
                                     </div>
+
+                                    @include('student.auth.countries-create')
 
 
                                     <div class="form-group text-left">
-                                        <label for="Birth">{!! trans('site.birthday') !!}</label>
+                                        <label for="Birth">{!! trans('site.birthday') !!}.</label>
                                         <input type="date" class="form-control" placeholder="dd/mm/yyyy"
-                                               name="mawhob_birthday" id="mawhob_birthday">
+                                               name="mawhob_birthday" id="mawhob_birthday"
+                                               max="2010-01-01">
                                     </div>
 
                                     <div class="form-group text-left">
-                                        <label for="Talent">{!! trans('site.gender') !!}</label>
+                                        <label for="Talent">{!! trans('site.gender') !!}.</label>
                                         <select class="form-control" id="mowhob_gender" name="mowhob_gender">
                                             <option value="">
                                                 {{trans('general.select_from_list')}}
@@ -101,7 +119,7 @@
 
 
                                     <div class="form-group text-left">
-                                        <label for="Talent">{!! trans('site.talent') !!}</label>
+                                        <label for="Talent">{!! trans('site.talent') !!}.</label>
                                         <select class="form-control" id="category_id" name="category_id">
                                             <option value="">--{!! trans('site.select_your_talent') !!}--</option>
                                             @foreach($categories as $category)
@@ -110,26 +128,44 @@
                                                 </option>
                                             @endforeach
                                         </select>
+                                        <br/>
+                                        <span class="text-muted">
+                                            {!! trans('site.category_note') !!}
+                                        </span>
+                                    </div>
+
+
+                                    <div class="form-group text-left ">
+                                        <label for="other_talents" class="">
+                                            {!! trans('site.other_talents') !!}.
+                                        </label>
+                                        <textarea type="text" class="form-control" autocomplete="off"
+                                                  id="other_talents" name="other_talents" rows="3"
+                                                  placeholder="{!! trans('site.enter_other_talents') !!}"></textarea>
                                     </div>
 
 
                                     <div class="form-group text-left">
-                                        <label for="PortfolioInput">{!! trans('site.portfolio_link') !!}</label>
+                                        <label for="PortfolioInput">{!! trans('site.portfolio_link') !!}.</label>
                                         <input type="text" class="form-control"
                                                id="portfolio" name="portfolio" autocomplete="off"
                                                placeholder="https:\\www.example.com\...">
+                                        <br/>
+                                        <span class="text-muted">
+                                            {!! trans('site.portfolio_note') !!}
+                                        </span>
                                     </div>
 
 
                                     <div class="form-group text-left">
-                                        <label for="nPassword">{!! trans('site.new_password') !!}</label>
+                                        <label for="nPassword">{!! trans('site.new_password') !!}.</label>
                                         <input type="password" class="form-control"
                                                id="password" name="password" autocomplete="off"
                                                placeholder="{!! trans('site.new_password') !!}">
                                     </div>
 
                                     <div class="form-group text-left">
-                                        <label for="cnPassword">{!! trans('site.confirm_new_password') !!}</label>
+                                        <label for="cnPassword">{!! trans('site.confirm_new_password') !!}.</label>
                                         <input type="password" class="form-control"
                                                id="confirm_password" name="confirm_password" autocomplete="off"
                                                placeholder="{!! trans('site.confirm_new_password') !!}">
@@ -189,6 +225,16 @@
                 mawhob_whatsapp_no: {
                     required: true,
                 },
+
+                mawhob_email: {
+                    required: true,
+                    email: true,
+                },
+
+                country: {
+                    required: true,
+                },
+
                 mawhob_birthday: {
                     required: true,
                 },
@@ -200,6 +246,7 @@
                 },
                 portfolio: {
                     required: true,
+                    url: true,
                 },
                 password: {
                     required: true,
@@ -231,6 +278,14 @@
                 mawhob_whatsapp_no: {
                     required: '{{trans('site.it_is_required')}}',
                 },
+                mawhob_email: {
+                    required: '{{trans('site.it_is_required')}}',
+                    email: '{{trans('site.email_email')}}',
+                },
+                country: {
+                    required: '{{trans('site.it_is_required')}}',
+                },
+
                 mawhob_birthday: {
                     required: '{{trans('site.it_is_required')}}',
                 },
@@ -242,6 +297,8 @@
                 },
                 portfolio: {
                     required: '{{trans('site.it_is_required')}}',
+                    url: '{{trans('site.url')}}',
+
                 },
                 password: {
                     required: '{{trans('site.it_is_required')}}',
@@ -273,11 +330,12 @@
             $('#portfolio').css('border-color', '');
             $('#password').css('border-color', '');
             $('#confirm_password').css('border-color', '');
+            $('#mawhob_email').css('border-color', '');
+            $('#country').css('border-color', '');
 
 
             $('#mawhob_full_name_error').text('');
             $('#mawhob_full_name_en_error').text('');
-
             $('#mawhob_mobile_no_error').text('');
             $('#mawhob_whatsapp_no_error').text('');
             $('#mawhob_birthday_error').text('');
@@ -286,7 +344,8 @@
             $('#portfolio_error').text('');
             $('#password_error').text('');
             $('#confirm_password_error').text('');
-
+            $('#mawhob_email_error').text('');
+            $('#country_error').text('');
 
             /////////////////////////////////////////////////////////////
             var data = new FormData(this);
@@ -325,7 +384,7 @@
 
                         setTimeout(function () {
                             window.location.href = "{!! route('student.registration.confirmation') !!}"
-                                + '/' +  $('#mawhob_mobile_no').val()  + '/' +  $('#mawhob_whatsapp_no').val();
+                                + '/' + $('#mawhob_mobile_no').val() + '/' + $('#mawhob_whatsapp_no').val();
                         }, 2505)
                     } else {
 

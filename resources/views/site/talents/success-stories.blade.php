@@ -21,7 +21,7 @@
                     @foreach($successStories as $successStory)
                         <li>
                             <a href="javascript:void(0)">
-                                <img src="{!! Storage::url($successStory->story_image) !!}"
+                                <img src="{!! Storage::url($successStory->story_icon) !!}"
                                      alt="{!! trans('site.mawhoob') !!}">
                             </a>
                         </li>

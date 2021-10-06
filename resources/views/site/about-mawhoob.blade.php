@@ -34,9 +34,9 @@
                 <div class="box-video-right" data-aos="fade-left" data-aos-duration="1800">
                     <a href="#" class="link-to-video" uk-toggle="target: +">
                         <i class="fas fa-play-circle"></i></a>
-                <!--<iframe hidden
-                            src="{!! asset(Storage::url(aboutMawob()->video)) !!}"
-                            width="100%" height="400" frameborder="0" allowfullscreen uk-responsive></iframe> -->
+                <iframe hidden
+                            src="{!! asset(Storage::url(aboutMawob()->video)) !!}" sandbox
+                            width="100%" height="400" frameborder="0" allowfullscreen uk-responsive></iframe>
 
 
                 </div>

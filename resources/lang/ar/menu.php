@@ -53,5 +53,6 @@ return [
     'add_new_slider'=>'إضافة سلايدر جديد',
     'why_choose_us'=>'لماذا اخترتنا',
     'notifications' => 'الإشعارات',
+    'registration_policy'=>'سياسة التسجيل',
 
 ];

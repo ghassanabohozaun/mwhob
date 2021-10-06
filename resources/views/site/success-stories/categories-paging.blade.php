@@ -35,7 +35,7 @@
                                ->take(7)->get() as $story)
                             <li>
                                 <a href="javascript:void(0)">
-                                    <img src="{!! asset(Storage::url($story->story_image))  !!}"
+                                    <img src="{!! asset(Storage::url($story->story_icon))  !!}"
                                          alt="{!! Lang()=='ar'?$storyCategory->name_ar:$storyCategory->name_en!!}">
                                 </a>
                             </li>

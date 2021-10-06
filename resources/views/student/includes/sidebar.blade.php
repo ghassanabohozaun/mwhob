@@ -235,6 +235,19 @@
                         </span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{!! route('student.show.all.notifications') !!}"
+                       class="@if(str_contains(url()->current(), 'show-all-student-notifications')) active @endif">
+                        <span class="icon">
+                            <img src="{!! asset('site/img/bell-48.png') !!}">
+                        </span>
+                        <span class="title">
+                            {!! trans('site.notifications') !!}
+                        </span>
+                    </a>
+                </li>
+
                 <li>
                     <a href="{!! route('student.update.account') !!}"
                        class="@if(str_contains(url()->current(), 'update-account')) active @endif">
@@ -246,6 +259,8 @@
                         </span>
                     </a>
                 </li>
+
+
                 <li>
                     <a href="{!! route('student.logout') !!}">
                         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="30"

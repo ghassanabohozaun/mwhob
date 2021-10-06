@@ -233,23 +233,7 @@
                                                     </div>
                                                     <!--end::Group-->
 
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{trans('teachers.teacher_bio')}}
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <textarea rows="5"
-                                                                      class="form-control form-control-lg"
-                                                                      name="teacher_bio" id="teacher_bio"
-                                                                      type="text"
-                                                                      placeholder=" {{trans('teachers.enter_teacher_bio')}}"
-                                                                      autocomplete="off">{!! $teacher->teacher_bio !!}</textarea>
-                                                            <span class="form-text text-danger"
-                                                                  id="teacher_bio_error"></span>
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Group-->
+
 
 
                                                     <!--begin::Group-->
@@ -288,6 +272,8 @@
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
+
+                                                    @include('admin.teachers.countries-update')
 
 
                                                     <!--begin::Group-->
@@ -328,6 +314,23 @@
                                                     </div>
                                                     <!--end::Group-->
 
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('teachers.teacher_bio')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <textarea rows="5"
+                                                                      class="form-control form-control-lg"
+                                                                      name="teacher_bio" id="teacher_bio"
+                                                                      type="text"
+                                                                      placeholder=" {{trans('teachers.enter_teacher_bio')}}"
+                                                                      autocomplete="off">{!! $teacher->teacher_bio !!}</textarea>
+                                                            <span class="form-text text-danger"
+                                                                  id="teacher_bio_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
 
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
@@ -344,6 +347,7 @@
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
+
 
 
                                                     @if($teacher->teacher_cv == null)

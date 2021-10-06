@@ -28,6 +28,11 @@ class CreateMawhobsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->text('portfolio')->nullable();
             $table->string('freeze')->nullable();
+            $table->string('mawhob_email')->nullable();
+            $table->string('country')->nullable();
+            $table->text('other_talents')->nullable();
+            $table->string('agree_to_the_policy')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
         });

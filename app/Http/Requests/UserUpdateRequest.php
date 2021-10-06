@@ -24,6 +24,7 @@ class UserUpdateRequest extends FormRequest
             'gender' => 'required|in:male,female',
             'role_id' => 'required',
             'photo' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:1048',
+            'mobile' => 'required',
         ];
     }
 

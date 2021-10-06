@@ -31,6 +31,7 @@ class TeacherUpdateRequest extends FormRequest
             'password' => 'sometimes|nullable|min:6',
             'teacher_mobile_no' => 'required',
             'teacher_whatsapp_no' => 'required',
+            'country' => 'required',
             'teacher_qualification' => 'required',
             'teacher_cv' => 'sometimes|nullable|max:1024',
             'teacher_photos_and_videos_link' => 'required',

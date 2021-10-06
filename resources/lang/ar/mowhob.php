@@ -2,6 +2,11 @@
 
 return [
 
+    'select_country'=>'اختار الدولة',
+    'category_note'=>'يرجى تحديد الموهبة من الخيارات السابقة',
+    'portfolio_note'=>' الرجاء ارفاق ملف يوضح طبيعه الموهبه من " صوره لرسوماتك، ملف صوتي بصوتك، رابط فيديو',
+    'policy_approved'=>'تمت الموافقة علي سياسة التسجيل',
+    'policy_not_approved'=>'لم تمت الموافقة علي سياسة التسجيل',
 
     'update_mowhob' => 'تعديل الموهوب',
     'trashed_mowhobs' => 'الموهوبين المحذوفين',
@@ -22,24 +27,33 @@ return [
     'mawhob_full_name_en' => 'اسم الموهوب | انجليزي',
     'mawhob_mobile_no' => 'رقم الجوال',
     'password' => 'كلمة المرور',
-    'mawhob_whatsapp_no' => 'رقم الواتس اب ',
+    'mawhob_whatsapp_no' => 'رقم واتس اب ولي الامر',
     'mawhob_birthday' => 'تاريخ الميلاد',
     'mowhob_gender' => 'الجنس',
     'category_id' => 'المجموعة',
     'portfolio' => 'الملف',
     'freeze' => 'تعطيل',
+    'mawhob_email' => 'الايميل',
+    'country' => 'الدولة',
+    'other_talents' => 'مواهب اخري',
+    'agree_to_the_policy' => 'الموافقة علي السياسة',
+
 
     'enter_photo' => 'ادخل صورة الموهوب',
     'enter_mawhob_full_name' => 'ادخل اسم الموهوب | عربي',
     'enter_mawhob_full_name_en' => 'ادخل اسم الموهوب | انجليزي',
     'enter_mawhob_mobile_no' => 'ادخل رقم الجوال',
     'enter_password' => 'ادخل كلمة المرور',
-    'enter_mawhob_whatsapp_no' => 'ادخل رقم الواتس اب ',
+    'enter_mawhob_whatsapp_no' => 'ادخل رقم واتس اب ولي الامر',
     'enter_mawhob_birthday' => 'ادخل تاريخ الميلاد',
     'enter_mowhob_gender' => 'ادخل الجنس',
     'enter_category_id' => 'ادخل المجموعة',
     'enter_portfolio' => 'ادخل الملف',
     'enter_freeze' => 'ادخل تجميد',
+    'enter_mawhob_email' => 'ادخل الايميل',
+    'enter_country' => 'ادخل الدولة',
+    'enter_other_talents' => 'ادخل مواهب اخري',
+    'enter_agree_to_the_policy' => 'ادخل الموافقة علي السياسة',
 
 
     'required' => 'هذا الحقل مطلوب',
@@ -50,11 +64,14 @@ return [
     'mimes' => 'يجب ان تكون صورة باحدي الصيغ png ,jpeg,jpg',
     'image_required' => 'الصورة  مطلوبة',
     'portfolio_max' => 'حجم الملف المسموح به 5 ميجا فقط',
+    'email_email' => 'يجب ان تكون صيغة الايميل مثل admin@admin.com',
+    'mwhob_birthday'=>'يجب ان لا يقل عمر الموهوب عن عشر سنوات',
+    'url'=>'يجب ان يكون ملف الموهوب عبارة عن رابط صحيح',
+
+
 
     'mawhob_exists' => 'الموهوب تم اضافته مسبقا',
-
     'no_contests_exists' => 'الموهوب لم يتشرك في اي مسابقة بعد',
-
     'cannot_be_deleted_because_it_have_stories' => 'لا يمكن حذف الموهوب  لان له قصص نجاح',
     'cannot_be_deleted_because_it_have_sounds' => 'لا يمكن حذف الموهوب  لان له مهارة صوت',
     'cannot_be_deleted_because_it_have_videos' => 'لا يمكن حذف الموهوب  لان له مهارة فيديو',
@@ -64,7 +81,6 @@ return [
     'cannot_be_deleted_because_it_have_course' => 'لا يمكن حذف الموهوب  لانه مشترك في دورات',
     'cannot_be_deleted_because_it_have_program' => 'لا يمكن حذف الموهوب  لانه مشترك في برامج',
     'cannot_be_deleted_because_it_have_revenues ' => 'لا يمكن حذف الموهوب  لانه له ايرادات',
-
 
 
 ];

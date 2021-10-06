@@ -194,13 +194,22 @@ class StudentController extends Controller
                     'enrolled_date' => Carbon::now()->format('Y-m-d'),
                 ]);
 
-                ////////////////////////////////////////////////////////////////////
-                ///// add Revenue
-                $courePrice = Program::find($request->program_id)->price;
+                ///////////////////////////////////////////////////////
+                /// add  Revenue
+                $programPrice = Program::find($request->program_id)->price;
+                $programDiscount = Program::find($request->program_id)->discount;
+
+                if ($programDiscount == '' || $programDiscount == 0) {
+                    $value = $programPrice;
+                } else {
+                    $value = $programDiscount;
+                }
+
+
                 Revenue::create([
                     'mawhob_id' => $request->mawhob_id,
                     'date' => Carbon::now()->format('Y-m-d'),
-                    'value' => $courePrice,
+                    'value' => $value,
                     'revenue_for' => $request->program_id,
                     'details' => 'enroll_program',
                 ]);

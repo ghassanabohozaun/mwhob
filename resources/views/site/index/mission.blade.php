@@ -8,7 +8,7 @@
                     <img class="left-bottom" src="{!! asset('site/img/cotachen.svg') !!}"
                          alt=" {!! Lang()=='ar'?indexPage()->our_mission_ar:indexPage()->our_mission_en !!}">
                     <h2 class=" text-bold mb-2" data-aos="fade-down" data-aos-duration="1000">
-                        {!! trans('site.our_mission') !!}
+                        {!! trans('site.our_vision') !!}
                     </h2>
                     <p class=" fs-20" data-aos="fade-down" data-aos-duration="500" >
                         {!! Lang()=='ar'?indexPage()->our_mission_ar:indexPage()->our_mission_en !!}

@@ -24,6 +24,7 @@ class CreateTeachersTable extends Migration
             $table->string('password')->nullable();
             $table->string('teacher_mobile_no')->nullable();
             $table->string('teacher_whatsapp_no')->nullable();
+            $table->string('country')->nullable();
             $table->string('teacher_qualification')->nullable();
             $table->string('teacher_cv')->nullable();
             $table->string('teacher_photos_and_videos_link')->nullable();

@@ -166,6 +166,10 @@ class MowhobsController extends Controller
                     'mowhob_gender' => $request->mowhob_gender,
                     'category_id' => $request->category_id,
                     'portfolio' => $request->portfolio,
+                    'mawhob_email'=> $request->mawhob_email,
+                    'country'=> $request->country,
+                    'other_talents'=> $request->other_talents,
+                    'agree_to_the_policy'=> 'on',
 
                 ]);
                 return $this->returnSuccessMessage(trans('general.add_success_message'));
@@ -227,6 +231,10 @@ class MowhobsController extends Controller
                 'mowhob_gender' => $request->mowhob_gender,
                 'category_id' => $request->category_id,
                 'portfolio' => $request->portfolio,
+                'mawhob_email'=> $request->mawhob_email,
+                'country'=> $request->country,
+                'other_talents'=> $request->other_talents,
+                'agree_to_the_policy'=> 'on',
             ]);
             return $this->returnSuccessMessage(trans('general.update_success_message'));
         } catch (\Exception $exception) {

@@ -72,6 +72,7 @@
                                                     <th>@lang('supportCenter.customer_email')</th>
                                                     <th>@lang('supportCenter.title')</th>
                                                     <th>@lang('supportCenter.status')</th>
+                                                    <th>@lang('supportCenter.show_message')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
                                                 </thead>
@@ -191,9 +192,15 @@
 
     <script>
         window.data_url = "{!! route('get.admin.support.center') !!}";
-        window.columns = [{data: "id"}, {data: "customer_name"},
-            {data: "customer_email"}, {data: "title"},
-            {data: "status"}, {data: "actions"},];
+        window.columns = [
+            {data: "id"},
+            {data: "customer_name"},
+            {data: "customer_email"},
+            {data: "title"},
+            {data: "status"},
+            {data: "show_message"},
+            {data: "actions"},
+        ];
 
     </script>
 

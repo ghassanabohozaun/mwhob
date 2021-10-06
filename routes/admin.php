@@ -30,6 +30,8 @@ Route::group([
         ->name('store.admin.settings')->middleware('can:settings');
     Route::post('switch-en-lang', 'DashboardController@switchEnglishLang')
         ->name('switch.english.lang');
+    Route::post('switch-frontend-lang', 'DashboardController@switchFrontendLang')
+        ->name('switch.frontend.lang');
 
     ///////////////////////////////////////////////////////////////////
     /// Notifications Routes
@@ -47,14 +49,14 @@ Route::group([
     });
     ///////////////////////////////////////////////////////////////////
     /// Revenues Routes
-    Route::group(['prefix' => 'Revenues', 'middleware' => 'can:talents'], function () {
+    Route::group(['prefix' => 'Revenues', 'middleware' => 'can:revenues'], function () {
         Route::get('/', 'RevenuesController@index')->name('admin.revenues');
         Route::get('/get-revenues', 'RevenuesController@getRevenues')->name('admin.get.revenues');
     });
 
     ///////////////////////////////////////////////////////////////////
     /// Landing Page Routes
-    Route::group(['prefix' => 'landing-page', 'middleware' => 'can:dashboard'], function () {
+    Route::group(['prefix' => 'landing-page', 'middleware' => 'can:landing-page'], function () {
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// Sliders routes
@@ -101,6 +103,10 @@ Route::group([
             Route::post('/delete-footer-images', 'LandingPageController@deleteFooterImages')
                 ->name('admin.delete.footer.image');
         });
+
+        Route::get('/registration-policy', 'LandingPageController@registrationPolicy')->name('admin.registration.policy');
+        Route::post('/registration-policy', 'LandingPageController@storeRegistrationPolicy')->name('admin.registration.policy');
+
 
     });
 

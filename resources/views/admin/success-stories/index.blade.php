@@ -137,12 +137,11 @@
                                                 <thead>
                                                 <tr>
                                                     <th>#</th>
+                                                    <th>@lang('stories.story_icon')</th>
                                                     <th>@lang('stories.story_image')</th>
                                                     <th>@lang('stories.mawhob_id')</th>
                                                     <th>@lang('stories.story_category_id')</th>
                                                     <th>@lang('stories.created_at')</th>
-                                                    <th>@lang('stories.about_mawhob_ar')</th>
-                                                    <th>@lang('stories.about_mawhob_en')</th>
                                                     <th>@lang('stories.status')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
@@ -220,12 +219,11 @@
                 },
                 columns: [
                     {data: "id"},
+                    {data: "story_icon"},
                     {data: "story_image"},
                     {data: "mawhob_id"},
                     {data: "story_category_id"},
                     {data: "created_at"},
-                    {data: "about_mawhob_ar"},
-                    {data: "about_mawhob_en"},
                     {data: "status"},
                     {data: "actions"},
                 ],

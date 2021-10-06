@@ -27,6 +27,7 @@ class CreateSettingsTable extends Migration
             $table->string('site_mobile')->nullable();
             $table->string('site_lang_ar')->default('on');
             $table->string('site_lang_en')->nullable();
+            $table->string('lang_front_button_status')->nullable();
             $table->longText('site_description_ar')->nullable();
             $table->longText('site_description_en')->nullable();
             $table->longText('site_keywords_ar')->nullable();

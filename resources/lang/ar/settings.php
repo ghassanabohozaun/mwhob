@@ -35,8 +35,9 @@ return [
     'site_gmail' => ' جيميل ',
     'site_linkedin' => ' لينكد ان ',
     'site_phone' => ' تلفون ',
-    'site_mobile' => ' موبايل ',
-    'sponsors_status' => ' حالة الرعاة',
+    'site_mobile' => ' الواتس اب ',
+    'lang_front_button_status' => ' حالة زر اللغة في الواجهة',
+
 
 
     'enter_site_name_ar' => 'ادخل اسم الموقع | عربي',
@@ -61,7 +62,7 @@ return [
     'enter_site_gmail' => 'ادخل جيميل ',
     'enter_site_linkedin' => 'ادخل لينكد ان ',
     'enter_site_phone' => 'ادخل تلفون ',
-    'enter_site_mobile' => 'ادخل موبايل ',
+    'enter_site_mobile' => 'ادخل الواتس اب ',
     'enter_sponsors_status' => 'ادخل حالة الرعاة',
 
     'counter_one' => 'العداد الاول',

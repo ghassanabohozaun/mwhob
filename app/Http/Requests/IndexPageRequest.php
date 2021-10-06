@@ -30,8 +30,14 @@ class IndexPageRequest extends FormRequest
                 'courses_description_en' => 'required',
                 'best_mawhobs_description_ar' => 'required',
                 'best_mawhobs_description_en' => 'required',
+
+                'best_app_image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:1024',
+                'best_app_description_ar' => 'required',
+                'best_app_description_en' => 'required',
+
                 'best_courses_description_ar' => 'required',
                 'best_courses_description_en' => 'required',
+                'about_team_image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:1024',
                 'about_team_ar' => 'required',
                 'about_team_en' => 'required',
                 'our_mission_ar' => 'required',

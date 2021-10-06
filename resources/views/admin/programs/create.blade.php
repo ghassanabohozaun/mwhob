@@ -252,6 +252,26 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('programs.discount')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input
+                                                                class="form-control  form-control-lg"
+                                                                name="discount" id="discount" type="text"
+                                                                placeholder=" {{trans('programs.enter_discount')}}"
+                                                                autocomplete="off"/>
+                                                            <span class="form-text text-danger"
+                                                                  id="discount_error"></span>
+                                                            <span class="form-text text-muted">
+                                                                {{trans('programs.discount_note')}}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
                                                             {{trans('programs.work_plan')}}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
@@ -318,6 +338,7 @@
             $('#work_plan').css('border-color', '');
             $('#date').css('border-color', '');
             $('#price').css('border-color', '');
+            $('#dicount').css('border-color', '');
 
             $('#icon_error').text('');
             $('#name_ar_error').text('');
@@ -328,6 +349,9 @@
             $('#work_plan_error').text('');
             $('#date_error').text('');
             $('#price_error').text('');
+            $('#discount_error').text('');
+
+
             /////////////////////////////////////////////////////////////
             var data = new FormData(this);
             var type = $(this).attr('method');

@@ -32,6 +32,7 @@ class TeacherRequest extends FormRequest
             'password' => 'required|min:6',
             'teacher_mobile_no' => 'required',
             'teacher_whatsapp_no' => 'required',
+            'country' => 'required',
             'teacher_qualification' => 'required',
             'teacher_cv' => 'required|max:1024',
             'teacher_photos_and_videos_link' => 'required',

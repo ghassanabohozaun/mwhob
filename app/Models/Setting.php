@@ -20,6 +20,7 @@ class Setting extends Model
         'site_mobile',
         'site_lang_ar',
         'site_lang_en',
+        'lang_front_button_status',
         'site_description_ar',
         'site_description_en',
         'site_keywords_ar',

@@ -23,7 +23,7 @@ return [
     'best_courses' => 'أفضل الدورات',
     'enroll_now' => 'سجل الآن !',
     'about_team' => 'عن الفريق',
-    'our_mission' => 'مهمتنا',
+    'our_vision' => 'رؤيتنا',
     'media' => 'وسائط',
     'facebook' => 'الفيسبوك',
     'instagram' => 'الانستجرام',
@@ -93,6 +93,12 @@ return [
     'ok' => 'نعم',
     'you_have_already_registered_with_us' => 'قمت بالتسجيل معنا سابقا',
     'cancel' => 'الغاء',
+    'notifications' => 'الاشعارات',
+    'notification_title' => 'العنوان',
+    'notification_details' => 'التفاصيل',
+    'mark_as_read'=>'ضع إشارة مقروء',
+    'action'=>'الاجراءات',
+
     'update_account' => 'تعديل بيانات الحساب ',
     'update' => 'تعديل',
     'photo' => 'صورة الموهوب',
@@ -141,11 +147,24 @@ return [
 
     //////////////////////////////////////////////////////////////
     /// Student
+    'category_note' => 'يرجى تحديد الموهبة من الخيارات السابقة',
+    'portfolio_note' => ' الرجاء ارفاق ملف يوضح طبيعه الموهبه من " صوره لرسوماتك، ملف صوتي بصوتك، رابط فيديو',
+
     'signup' => 'الاشتراك',
     'signup_as_mawhoob' => 'تسجيل موهوب',
     'mobile_no' => 'رقم الموبايل',
     'enter_mobile_no' => 'ادخل رقم الموبايل',
-    'whatsapp_no' => 'رقم الواتس اب',
+    'whatsapp_no' => 'رقم واتس اب ولي الامر',
+    'whatsapp_no_note' => 'يجيب ان يكون رقم الواتس اب 97259222222+',
+
+    'mawhob_email' => 'الايميل',
+    'country' => 'الدولة',
+    'select_country' => 'اختار الدولة',
+    'other_talents' => 'مواهب اخري',
+    'enter_other_talents' => 'اضافة مواهب اخري',
+    'mwhob_birthday' => 'يجب ان لا يقل عمر الموهوب عن عشر سنوات',
+    'url' => 'يجب ان يكون ملف الموهوب عبارة عن رابط صحيح',
+
     'birthday' => 'تاريخ الميلاد',
     'gender' => 'الجنس',
     'talent' => 'المواهب',
@@ -178,6 +197,8 @@ return [
     'please_verify_the_mobile_number' => 'الرجاء التأكد من رقم الموبايل',
     'bad_verification_code' => 'الرجاء التاكد من كود التحقق ',
     'no_notifications' => 'لا يوجد اشعارات ',
+    'registration_policy' => 'سياسه واتفاقية التسجيل',
+    'i_agree_to_the_registration_policy_and_agreement' => 'أوافق علي سياسه واتفاقية التسجيل',
 
     //////////////////////////////////////////////////
     /// Validations

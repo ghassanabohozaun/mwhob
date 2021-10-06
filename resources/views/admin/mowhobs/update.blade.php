@@ -192,7 +192,8 @@
                                                             {{trans('mowhob.mawhob_whatsapp_no')}}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
-                                                            <input value="{!! $mowhob->mawhob_whatsapp_no !!}"
+                                                            <input dir="ltr"
+                                                                value="{!! $mowhob->mawhob_whatsapp_no !!}"
                                                                    class="form-control  form-control-lg"
                                                                    name="mawhob_whatsapp_no" id="mawhob_whatsapp_no"
                                                                    type="text"
@@ -204,6 +205,28 @@
                                                     </div>
                                                     <!--end::Group-->
 
+
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('mowhob.mawhob_email')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input value="{!! $mowhob->mawhob_email !!}"
+                                                                class="form-control  form-control-lg"
+                                                                name="mawhob_email" id="mawhob_email"
+                                                                type="text"
+                                                                placeholder=" {{trans('mowhob.enter_mawhob_email')}}"
+                                                                autocomplete="off"/>
+                                                            <span class="form-text text-danger"
+                                                                  id="mawhob_email_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
+                                                @include('admin.mowhobs.countries-update')
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
@@ -265,7 +288,6 @@
                                                             {{trans('mowhob.category_id')}}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
-
                                                             <select
                                                                 class="form-control  form-control-lg"
                                                                 name="category_id" id="category_id" type="text">
@@ -288,11 +310,34 @@
                                                                 @endif
 
                                                             </select>
+                                                            <span
+                                                                class="form-text text-muted">
+                                                                {{trans('mowhob.category_note')}}
+                                                            </span>
                                                             <span class="form-text text-danger"
                                                                   id="category_id_error"></span>
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('mowhob.other_talents')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <textarea
+                                                                class="form-control  form-control-lg"
+                                                                name="other_talents" id="other_talents"
+                                                                placeholder=" {{trans('mowhob.enter_other_talents')}}"
+                                                                autocomplete="off" rows="3">{!! $mowhob->other_talents !!}</textarea>
+                                                            <span class="form-text text-danger"
+                                                                  id="other_talents_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
 
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
@@ -305,6 +350,10 @@
                                                                    name="portfolio" id="portfolio" type="text"
                                                                    placeholder=" {{trans('mowhob.enter_portfolio')}}"
                                                                    autocomplete="off"/>
+                                                            <span
+                                                                class="form-text text-muted">
+                                                                {{trans('mowhob.portfolio_note')}}
+                                                            </span>
                                                             <span class="form-text text-danger"
                                                                   id="portfolio_error"></span>
                                                         </div>
@@ -363,6 +412,9 @@
             $('#mowhob_gender_error').text('');
             $('#category_id_error').text('');
             $('#portfolio_error').text('');
+            $('#mawhob_email_error').text('');
+            $('#country_error').text('');
+            $('#other_talents_error').text('');
 
             $('#photo').css('border-color', '');
             $('#mawhob_full_name').css('border-color', '');
@@ -373,7 +425,9 @@
             $('#mowhob_gender').css('border-color', '');
             $('#category_id').css('border-color', '');
             $('#portfolio').css('border-color', '');
-
+            $('#mawhob_email').css('border-color', '');
+            $('#country').css('border-color', '');
+            $('#other_talents').css('border-color', '');
             ////////////////////////////////////////////////////
 
             var data = new FormData(this);

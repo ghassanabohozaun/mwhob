@@ -173,7 +173,7 @@
                                                             {{trans('mowhob.mawhob_whatsapp_no')}}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
-                                                            <input
+                                                            <input dir="ltr"
                                                                 class="form-control  form-control-lg"
                                                                 name="mawhob_whatsapp_no" id="mawhob_whatsapp_no"
                                                                 type="text"
@@ -185,7 +185,29 @@
                                                     </div>
                                                     <!--end::Group-->
 
+
                                                     <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('mowhob.mawhob_email')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input
+                                                                class="form-control  form-control-lg"
+                                                                name="mawhob_email" id="mawhob_email"
+                                                                type="text"
+                                                                placeholder=" {{trans('mowhob.enter_mawhob_email')}}"
+                                                                autocomplete="off"/>
+                                                            <span class="form-text text-danger"
+                                                                  id="mawhob_email_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
+                                                @include('admin.mowhobs.countries-create')
+
+                                                <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
                                                             {{trans('mowhob.mawhob_birthday')}}
@@ -266,8 +288,30 @@
                                                                 @endif
 
                                                             </select>
+                                                            <span
+                                                                class="form-text text-muted">
+                                                                {{trans('mowhob.category_note')}}
+                                                            </span>
                                                             <span class="form-text text-danger"
                                                                   id="category_id_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('mowhob.other_talents')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <textarea
+                                                                class="form-control  form-control-lg"
+                                                                name="other_talents" id="other_talents"
+                                                                placeholder=" {{trans('mowhob.enter_other_talents')}}"
+                                                                autocomplete="off" rows="3"></textarea>
+                                                            <span class="form-text text-danger"
+                                                                  id="other_talents_error"></span>
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
@@ -283,6 +327,10 @@
                                                                 name="portfolio" id="portfolio" type="text"
                                                                 placeholder=" {{trans('mowhob.enter_portfolio')}}"
                                                                 autocomplete="off"/>
+                                                            <span
+                                                                class="form-text text-muted">
+                                                                {{trans('mowhob.portfolio_note')}}
+                                                            </span>
                                                             <span class="form-text text-danger"
                                                                   id="portfolio_error"></span>
                                                         </div>
@@ -341,6 +389,10 @@
             $('#mowhob_gender_error').text('');
             $('#category_id_error').text('');
             $('#portfolio_error').text('');
+            $('#mawhob_email_error').text('');
+            $('#country_error').text('');
+            $('#other_talents_error').text('');
+
 
             $('#photo').css('border-color', '');
             $('#mawhob_full_name').css('border-color', '');
@@ -351,6 +403,9 @@
             $('#mowhob_gender').css('border-color', '');
             $('#category_id').css('border-color', '');
             $('#portfolio').css('border-color', '');
+            $('#mawhob_email').css('border-color', '');
+            $('#country').css('border-color', '');
+            $('#other_talents').css('border-color', '');
 
             ////////////////////////////////////////////////////
 
@@ -387,9 +442,9 @@
                         $('.add_mowhob_button').click(function () {
                             window.location.href = "{{route('admin.mowhobs')}}";
                         });
-                    }else if (data.status == false) {
+                    } else if (data.status == false) {
                         Swal.fire({
-                            title:data.msg,
+                            title: data.msg,
                             text: '',
                             icon: "warning",
                             allowOutsideClick: false,
@@ -400,7 +455,6 @@
                     }
 
 
-
                 },
 
                 error: function (reject) {
@@ -408,7 +462,7 @@
                     $.each(response.errors, function (key, value) {
                         $('#' + key + '_error').text(value[0]);
                         $('#' + key).css('border-color', 'red');
-                        $('body,html').animate({scrollTop: 20}, 300);
+                        $('body,html').animate({scrollTop: 50}, 150);
                     });
                 },
                 complete: function () {

@@ -18,6 +18,12 @@ class IndexPage extends Model
         'best_courses_description_en',
         'about_team_ar',
         'about_team_en',
+
+        'about_team_image',
+        'best_app_image',
+        'best_app_description_ar',
+        'best_app_description_en',
+
         'our_mission_ar',
         'our_mission_en',
     ];

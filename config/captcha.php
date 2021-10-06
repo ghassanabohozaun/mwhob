@@ -10,6 +10,12 @@ return [
         'math' => true,
         'expire' => 60,
         'encrypt' => false,
+        'lines' => -1,
+        'bgImage' => false,
+        'bgColor' => '#ecf2f4',
+        'fontColors' => [ '#c0392b'],
+        'contrast' => -5,
+
     ],
     'math' => [
         'length' => 9,

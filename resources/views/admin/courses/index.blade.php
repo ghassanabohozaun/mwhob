@@ -141,7 +141,7 @@
                                                     <th>@lang('courses.hours')</th>
                                                     <th>@lang('courses.cost')</th>
                                                     <th>@lang('courses.discount')</th>
-                                                    <th>@lang('courses.category_id')</th>
+                                                    <th>@lang('courses.enrolled_count')</th>
                                                     <th>@lang('courses.teacher_id')</th>
                                                     <th>@lang('courses.zoom_link')</th>
                                                     <th>@lang('courses.status')</th>
@@ -228,7 +228,7 @@
                     {data: "hours"},
                     {data: "cost"},
                     {data: "discount"},
-                    {data: "category_id"},
+                    {data: "enrolled_count"},
                     {data: "teacher_id"},
                     {data: "zoom_link"},
                     {data: "status"},

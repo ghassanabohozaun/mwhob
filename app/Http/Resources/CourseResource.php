@@ -16,7 +16,7 @@ class CourseResource extends JsonResource
         $categoryID = view('admin.courses.parts.categoryID', ['instance' => $this->category])->render();
         $teacherID = view('admin.courses.parts.teacherID', ['instance' => $this->teacher])->render();
         $zoomLink = view('admin.courses.parts.zoomLink', ['instance' => $this])->render();
-
+        $enrolledCount = view('admin.courses.parts.enrolledCount', ['instance' => $this])->render();
 
 
         return [
@@ -27,8 +27,9 @@ class CourseResource extends JsonResource
             'hours' => $this->hours,
             'cost' => $this->cost,
             'discount' => $this->discount,
+            'enrolled_count' => $enrolledCount,
             'category_id' => $categoryID,
-            'teacher_id' =>$teacherID,
+            'teacher_id' => $teacherID,
             'zoom_link' => $zoomLink,
             'status' => $status,
             'active' => $active,

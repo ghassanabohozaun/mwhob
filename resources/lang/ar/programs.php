@@ -2,6 +2,12 @@
 
 return [
 
+    'discount_note' => 'اذا لم يكن هناك خصم اتركها فارغة او ادخل القيمة 0',
+    'enrolled_count'=>'عدد المسجلين',
+    'mawhob_mobile_no' => 'رقم جوال الموهوب',
+
+
+
     'update_program' => 'تعديل البرنامج',
     'trashed_programs' => 'البرامج المحذوفة',
     'search_name' => 'الاسم',
@@ -15,6 +21,7 @@ return [
     'work_plan' => 'خطة العمل',
     'date' => 'التاريخ',
     'price' => 'السعر',
+    'discount' => 'السعر بعد الخصم',
     'language' => 'اللغة',
     'status' => 'الحالة',
 
@@ -27,6 +34,7 @@ return [
     'enter_work_plan' => ' ادخل خطة العمل',
     'enter_date' => ' ادخل التاريخ',
     'enter_price' => ' ادخل السعر',
+    'enter_discount' => ' ادخل السعر بعد الخصم',
     'enter_language' => ' ادخل اللغة',
     'enter_status' => 'الحالة ادخل ',
 

@@ -162,6 +162,7 @@ class ProgramsController extends Controller
                     'work_plan' => $work_plane_path,
                     'date' => $request->date,
                     'price' => $request->price,
+                    'discount' => $request->discount,
                     'language' => 'ar_en',
 
                 ]);
@@ -175,6 +176,7 @@ class ProgramsController extends Controller
                     'work_plan' => $work_plane_path,
                     'date' => $request->date,
                     'price' => $request->price,
+                    'discount' => $request->discount,
                     'language' => 'ar',
                 ]);
             }
@@ -252,6 +254,7 @@ class ProgramsController extends Controller
                     'work_plan' => $work_plan_path,
                     'date' => $request->date,
                     'price' => $request->price,
+                    'discount' => $request->discount,
                     'language' => 'ar_en',
 
                 ]);
@@ -265,6 +268,7 @@ class ProgramsController extends Controller
                     'work_plan' => $work_plan_path,
                     'date' => $request->date,
                     'price' => $request->price,
+                    'discount' => $request->discount,
                     'language' => 'ar',
                 ]);
             }
@@ -467,10 +471,18 @@ class ProgramsController extends Controller
             ///////////////////////////////////////////////////////
             /// add  Revenue
             $programPrice = Program::find($request->id)->price;
+            $programDiscount = Program::find($request->id)->discount;
+
+            if ($programDiscount == '' || $programDiscount == 0) {
+                $value = $programPrice;
+            } else {
+                $value = $programDiscount;
+            }
+
             Revenue::create([
                 'mawhob_id' => $request->mawhob_id,
                 'date' => Carbon::now()->format('Y-m-d'),
-                'value' => $programPrice,
+                'value' => $value,
                 'revenue_for' => $request->id,
                 'details' => 'enroll_program',
             ]);

@@ -25,6 +25,10 @@ class CreateIndexPagesTable extends Migration
             $table->text('best_courses_description_en')->nullable();
             $table->text('about_team_ar')->nullable();
             $table->text('about_team_en')->nullable();
+            $table->string('about_team_image')->nullable();
+            $table->string('best_app_image')->nullable();
+            $table->text('best_app_description_ar')->nullable();
+            $table->text('best_app_description_en')->nullable();
             $table->text('our_mission_ar')->nullable();
             $table->text('our_mission_en')->nullable();
             $table->timestamps();

@@ -175,6 +175,73 @@
                                                     <!--end::Group-->
 
 
+                                                    <!-------------------------------------------------->
+                                                    <!--begin::Group-->
+                                                    <div class="form-group ">
+                                                        <label
+                                                            class="col-xl-3 col-lg-3 col-form-label text-left">{{trans('landing.best_app_image')}}</label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <div
+                                                                class="image-input image-input-outline"
+                                                                id="kt_best_app_image">
+                                                                <div class="image-input-wrapper"
+                                                                     style="background-image: url({{asset(Storage::url(indexPage()->best_app_image))}});"></div>
+                                                                <label
+                                                                    class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                                                    data-action="change" data-toggle="tooltip"
+                                                                    title=""
+                                                                    data-original-title="{{trans('general.change_image')}}">
+                                                                    <i class="fa fa-pen icon-sm text-muted"></i>
+                                                                    <input type="file" name="best_app_image"
+                                                                           id="best_app_image"/>
+                                                                    <input type="hidden"
+                                                                           name="best_app_image_remove"/>
+                                                                </label>
+
+                                                                <span
+                                                                    class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                                                    data-action="cancel" data-toggle="tooltip"
+                                                                    title="Cancel avatar">
+                                                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                 </span>
+                                                            </div>
+                                                            <span
+                                                                class="form-text text-muted">{{trans('settings.image_format_allow')}}</span>
+                                                            <span class="form-text text-danger"
+                                                                  id="best_app_image_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--begin::Group-->
+
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group">
+                                                        <label> {{trans('landing.best_app_description_ar')}}</label>
+                                                        <textarea class="form-control" rows="4"
+                                                                  placeholder="{{trans('landing.enter_best_app_description_ar')}}"
+                                                                  name="best_app_description_ar" dir="rtl"
+                                                                  id="best_app_description_ar">{!! indexPage()->best_app_description_ar !!}</textarea>
+                                                        <span class="form-text text-danger"
+                                                              id="best_app_description_ar_error"></span>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group">
+                                                        <label> {{trans('landing.best_app_description_en')}}</label>
+                                                        <textarea class="form-control" rows="4"
+                                                                  placeholder="{{trans('landing.enter_best_app_description_en')}}"
+                                                                  name="best_app_description_en" dir="ltr"
+                                                                  id="best_app_description_en">{!! indexPage()->best_app_description_en !!}</textarea>
+                                                        <span class="form-text text-danger"
+                                                              id="best_app_description_en_error"></span>
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!-------------------------------------------------->
+
+
                                                     <!--begin::Group-->
                                                     <div class="form-group">
                                                         <label> {{trans('landing.best_courses_description_ar')}}</label>
@@ -199,6 +266,44 @@
                                                               id="best_courses_description_en_error"></span>
                                                     </div>
                                                     <!--end::Group-->
+
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group ">
+                                                        <label
+                                                            class="col-xl-3 col-lg-3 col-form-label text-left">{{trans('landing.about_team_image')}}</label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <div
+                                                                class="image-input image-input-outline"
+                                                                id="kt_about_team_image">
+                                                                <div class="image-input-wrapper"
+                                                                     style="background-image: url({{asset(Storage::url(indexPage()->about_team_image))}});"></div>
+                                                                <label
+                                                                    class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                                                    data-action="change" data-toggle="tooltip"
+                                                                    title=""
+                                                                    data-original-title="{{trans('general.change_image')}}">
+                                                                    <i class="fa fa-pen icon-sm text-muted"></i>
+                                                                    <input type="file" name="about_team_image"
+                                                                           id="about_team_image"/>
+                                                                    <input type="hidden"
+                                                                           name="about_team_image_remove"/>
+                                                                </label>
+
+                                                                <span
+                                                                    class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                                                    data-action="cancel" data-toggle="tooltip"
+                                                                    title="Cancel avatar">
+                                                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                 </span>
+                                                            </div>
+                                                            <span
+                                                                class="form-text text-muted">{{trans('settings.image_format_allow')}}</span>
+                                                            <span class="form-text text-danger"
+                                                                  id="about_team_image_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--begin::Group-->
 
 
                                                     <!--begin::Group-->
@@ -301,6 +406,11 @@
 
     <script type="text/javascript">
 
+
+        var about_team_image = new KTImageInput('kt_about_team_image');
+        var best_app_image = new KTImageInput('kt_best_app_image');
+
+
         /////////////////////////////////////////////////////////////////////
         // Data of Select 2
         var dataSelect = [
@@ -360,9 +470,13 @@
             $('#courses_description_en').css('border-color', '');
             $('#best_mawhobs_description_ar').css('border-color', '');
             $('#best_mawhobs_description_en').css('border-color', '');
+            $('#best_app_image').css('border-color', '');
+            $('#best_app_description_ar').css('border-color', '');
+            $('#best_app_description_en').css('border-color', '');
             $('#best_courses_description_ar').css('border-color', '');
             $('#best_courses_description_en').css('border-color', '');
             $('#about_team_ar').css('border-color', '');
+            $('#about_team_image').css('border-color', '');
             $('#about_team_en').css('border-color', '');
             $('#our_mission_ar').css('border-color', '');
             $('#our_mission_en').css('border-color', '');
@@ -375,8 +489,12 @@
             $('#courses_description_en_error').text('');
             $('#best_mawhobs_description_ar_error').text('');
             $('#best_mawhobs_description_en_error').text('');
+            $('#best_app_image_error').text('');
+            $('#best_app_description_ar_error').text('');
+            $('#best_app_description_en_error').text('');
             $('#best_courses_description_ar_error').text('');
             $('#best_courses_description_en_error').text('');
+            $('#about_team_image_error').text('');
             $('#about_team_ar_error').text('');
             $('#about_team_en_error').text('');
             $('#our_mission_ar_error').text('');

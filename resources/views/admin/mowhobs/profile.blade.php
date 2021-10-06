@@ -242,6 +242,74 @@
                                 </div>
                                 <!--end::Nav-->
 
+
+                                <!--begin::Nav-->
+                                <div class="navi navi-bold  navi-active navi-link-rounded">
+                                    <div class="navi-item mb-2">
+                                        <a href="javascript:void(0);"
+                                           class="navi-link py-4 active">
+                                            <span class="navi-icon mr-2">
+                                                            <span class="symbol-label">
+                                                                <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Mail-at.svg--><svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                        width="24px" height="24px"
+                                                                        viewBox="0 0 24 24" version="1.1">
+                                                                <g stroke="none" stroke-width="1" fill="none"
+                                                                   fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                <path
+                                                                    d="M11.575,21.2 C6.175,21.2 2.85,17.4 2.85,12.575 C2.85,6.875 7.375,3.05 12.525,3.05 C17.45,3.05 21.125,6.075 21.125,10.85 C21.125,15.2 18.825,16.925 16.525,16.925 C15.4,16.925 14.475,16.4 14.075,15.65 C13.3,16.4 12.125,16.875 11,16.875 C8.25,16.875 6.85,14.925 6.85,12.575 C6.85,9.55 9.05,7.1 12.275,7.1 C13.2,7.1 13.95,7.35 14.525,7.775 L14.625,7.35 L17,7.35 L15.825,12.85 C15.6,13.95 15.85,14.825 16.925,14.825 C18.25,14.825 19.025,13.725 19.025,10.8 C19.025,6.9 15.95,5.075 12.5,5.075 C8.625,5.075 5.05,7.75 5.05,12.575 C5.05,16.525 7.575,19.1 11.575,19.1 C13.075,19.1 14.625,18.775 15.975,18.075 L16.8,20.1 C15.25,20.8 13.2,21.2 11.575,21.2 Z M11.4,14.525 C12.05,14.525 12.7,14.35 13.225,13.825 L14.025,10.125 C13.575,9.65 12.925,9.425 12.3,9.425 C10.65,9.425 9.45,10.7 9.45,12.375 C9.45,13.675 10.075,14.525 11.4,14.525 Z"
+                                                                    fill="#000000"/>
+                                                                </g>
+                                                                </svg><!--end::Svg Icon--></span>
+                                                            </span>
+                                              </span>
+                                            <span class="navi-text font-size-lg">
+                                            {!! $mowhob->mawhob_email!!}
+                                              </span>
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                                <!--end::Nav-->
+
+                                <!--begin::Nav-->
+                                <div class="navi navi-bold  navi-active navi-link-rounded">
+                                    <div class="navi-item mb-2">
+                                        <a href="javascript:void(0);"
+                                           class="navi-link py-4 active">
+                                            <span class="navi-icon mr-2">
+                                                            <span class="symbol-label">
+                                                                <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Flag.svg--><svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                        width="24px" height="24px" viewBox="0 0 24 24"
+                                                                        version="1.1">
+                                                                <g stroke="none" stroke-width="1" fill="none"
+                                                                   fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24" height="24"/>
+                                                                <path
+                                                                    d="M3.5,3 L5,3 L5,19.5 C5,20.3284271 4.32842712,21 3.5,21 L3.5,21 C2.67157288,21 2,20.3284271 2,19.5 L2,4.5 C2,3.67157288 2.67157288,3 3.5,3 Z"
+                                                                    fill="#000000"/>
+                                                                <path
+                                                                    d="M6.99987583,2.99995344 L19.754647,2.99999303 C20.3069317,2.99999474 20.7546456,3.44771138 20.7546439,3.99999613 C20.7546431,4.24703684 20.6631995,4.48533385 20.497938,4.66895776 L17.5,8 L20.4979317,11.3310353 C20.8673908,11.7415453 20.8341123,12.3738351 20.4236023,12.7432941 C20.2399776,12.9085564 20.0016794,13 19.7546376,13 L6.99987583,13 L6.99987583,2.99995344 Z"
+                                                                    fill="#000000" opacity="0.3"/>
+                                                                </g>
+                                                                </svg><!--end::Svg Icon--></span>
+                                                            </span>
+                                              </span>
+                                            <span class="navi-text font-size-lg">
+                                                {!! trans('countries.'.$mowhob->country) !!}
+                                              </span>
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                                <!--end::Nav-->
+
                                 <!--begin::Nav-->
                                 <div class="navi navi-bold  navi-active navi-link-rounded">
                                     <div class="navi-item mb-2">
@@ -275,6 +343,42 @@
                                 </div>
                                 <!--end::Nav-->
 
+
+                                <!--begin::Nav-->
+                                <div class="navi navi-bold  navi-active navi-link-rounded">
+                                    <div class="navi-item mb-2">
+                                        <a href="javascript:void(0);"
+                                           class="navi-link py-4 active">
+                                            <span class="navi-icon mr-2">
+                                                   <span class="symbol-label">
+                                                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Design\Difference.svg--><svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                    width="24px" height="24px" viewBox="0 0 24 24"
+                                                                    version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none"
+                                                               fill-rule="evenodd">
+                                                            <rect x="0" y="0" width="24" height="24"/>
+                                                            <path
+                                                                d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z"
+                                                                fill="#000000" fill-rule="nonzero"/>
+                                                            <path
+                                                                d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z"
+                                                                fill="#000000" opacity="0.3"/>
+                                                            </g>
+                                                            </svg><!--end::Svg Icon--></span>
+                                                   </span>
+                                              </span>
+                                            <span class="navi-text font-size-lg">
+                                               {!! $mowhob->other_talents !!}
+                                              </span>
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                                <!--end::Nav-->
+
                                 <!--begin::Nav-->
                                 <div class="navi navi-bold  navi-active navi-link-rounded">
                                     <div class="navi-item mb-2">
@@ -282,10 +386,10 @@
                                            class="navi-link py-4 active">
                                             <span class="navi-icon mr-2">
                                                 <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Adress-book2.svg--><svg
-                                                                                                                           xmlns="http://www.w3.org/2000/svg"
-                                                                                                                           xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                                                                           width="24px" height="24px" viewBox="0 0 24 24"
-                                                                                                                           version="1.1">
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                        width="24px" height="24px" viewBox="0 0 24 24"
+                                                        version="1.1">
                                                             <g stroke="none" stroke-width="1" fill="none"
                                                                fill-rule="evenodd">
                                                             <rect x="0" y="0" width="24" height="24"/>
@@ -309,6 +413,49 @@
                                 </div>
                                 <!--end::Nav-->
 
+
+                                <!--begin::Nav-->
+                                <div class="navi navi-bold  navi-active navi-link-rounded">
+                                    <div class="navi-item mb-2">
+                                        <a href="javascript:void(0);"
+                                           class="navi-link py-4 active">
+                                            <span class="navi-icon mr-2">
+                                                   <span class="symbol-label">
+                                                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Write.svg--><svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                    width="24px" height="24px" viewBox="0 0 24 24"
+                                                                    version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none"
+                                                               fill-rule="evenodd">
+                                                            <rect x="0" y="0" width="24" height="24"/>
+                                                            <path
+                                                                d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z"
+                                                                fill="#000000" fill-rule="nonzero"
+                                                                transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953) "/>
+                                                            <path
+                                                                d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z"
+                                                                fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                                            </g>
+                                                            </svg><!--end::Svg Icon--></span>
+                                                         </span>
+                                              </span>
+                                            <span class="navi-text font-size-lg">
+                                               @if($mowhob->agree_to_the_policy == 'on')
+                                                    {!! trans('mowhob.policy_approved') !!}
+                                                @else
+                                                    <span style="color: red">
+                                                      {!! trans('mowhob.policy_not_approved') !!}
+                                                 </span>
+                                                @endif
+                                              </span>
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                                <!--end::Nav-->
+
                             </div>
                             <!--end::Body-->
                         </div>
@@ -324,7 +471,6 @@
                         @include('admin.mowhobs.profile.contests')
                         @include('admin.mowhobs.profile.enrolled-courses')
                         @include('admin.mowhobs.profile.programs')
-
 
 
                     </div>

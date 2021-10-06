@@ -35,8 +35,8 @@ return [
     'site_gmail'=>'Gmail',
     'site_linkedin'=>'Linked In',
     'site_phone'=>'Phone',
-    'site_mobile'=>'Mobile',
-    'sponsors_status'=>'Sponsors Status',
+    'site_mobile'=>'Whatsapp',
+    'lang_front_button_status' => 'Language button status in the frontend',
 
 
 
@@ -65,7 +65,7 @@ return [
     'enter_site_gmail'=>'Enter  Gmail',
     'enter_site_linkedin'=>'Enter  Linked In',
     'enter_site_phone'=>'Enter  Phone',
-    'enter_site_mobile'=>'Enter  Mobile',
+    'enter_site_mobile'=>'Enter  WhatsApp',
     'enter_sponsors_status'=>'Enter Sponsors Status',
 
     'counter_one'=>'Counter No 1',

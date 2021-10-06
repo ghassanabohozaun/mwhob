@@ -34,9 +34,9 @@
                         <!-- begin:user notifications --------------------------------------------------->
                         <div class="col-auto px-2">
 
-                            <a href="#" class="bell-after-login">
+                            <a href="#" class="bell-after-login orange_student_notifications_count">
                                 <div>
-                            <span>
+                            <span class="">
                                 {!! App\Models\Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'mawhob')
                                  ->where('student_id', student()->id())->where('notify_class','unread')->count() !!}
                             </span>
@@ -45,29 +45,7 @@
                             </a>
                             <div class="p-2 br-5 box-noty" uk-dropdown="mode: click ; pos: top-right">
 
-                                @if(App\Models\Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'mawhob')
-                                         ->where('student_id', student()->id())->count() == 0)
-                                    <div class="item-noty  p-2 br-5">
-                                        <a href="#">
-                                            <div class="text-bold text-primary">{!! trans('site.no_notifications') !!}</div>
-                                        </a>
-                                    </div>
-                                @else
-                                    @foreach(App\Models\Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'mawhob')
-                                        ->where('student_id', student()->id())->take(5)->get() as $notifcation)
-                                        <div class="item-noty  p-2 br-5 text-right">
-                                            <a href="#">
-                                                <div class="text-bold text-primary">
-                                                    {!! Lang()=='ar'?$notifcation->title_ar:$notifcation->title_en !!}
-                                                </div>
-                                                <div class="fs-12 text-dark">
-                                                    {!! Lang()=='ar'?$notifcation->details_ar:$notifcation->details_en !!}
-                                                </div>
-                                            </a>
-                                        </div>
-                                    @endforeach
-                                @endif
-
+                                <span id="orange_student_notify_section"></span>
 
 
                             </div>
@@ -86,7 +64,8 @@
 
                         <!-- begin:signup --------------------------------------------------->
                         <div class="col-auto px-2">
-                            <a href="{!! route('student.signup') !!}" class=" btn btn-outline-light br-20 mx-1 fs-14">
+                            <a href="{!! route('student.registration.policy') !!}"
+                               class=" btn btn-outline-light br-20 mx-1 fs-14">
                                 {!! trans('site.sign_up') !!}
                             </a>
                         </div>
@@ -95,20 +74,22 @@
                 @endif
 
                 <!-- begin:language --------------------------------------------------->
-                    <div class="col-auto pl-0">
+                    @if(setting()->lang_front_button_status == 'on')
+                        <div class="col-auto pl-0">
 
-                        @if(Lang()=='ar')
-                            <a href="/en" class="btn btn-outline-light br-50 fs-14 w-h">
-                                {!! trans('site.en') !!}
-                            </a>
-                        @else
-                            <a href="/ar" class="btn btn-outline-light br-20 fs-14 w-h">
-                                {!! trans('site.ar') !!}
-                            </a>
-                        @endif
+                            @if(Lang()=='ar')
+                                <a href="/en" class="btn btn-outline-light br-50 fs-14 w-h">
+                                    {!! trans('site.en') !!}
+                                </a>
+                            @else
+                                <a href="/ar" class="btn btn-outline-light br-20 fs-14 w-h">
+                                    {!! trans('site.ar') !!}
+                                </a>
+                            @endif
 
-                    </div>
-                    <!-- begin:language --------------------------------------------------->
+                        </div>
+                @endif
+                <!-- begin:language --------------------------------------------------->
 
                 </div>
 
@@ -178,3 +159,17 @@
         </nav>
     </div>
 </header>
+@push('js')
+    <script type="text/javascript">
+        ////////////////////////////////////////////////////////////////////////////
+        //Notifications
+        $('#orange_student_notify_section').load("{!! route('student.get.notifications') !!}");
+        $(".orange_student_notifications_count").load(location.href + " .orange_student_notifications_count");
+
+        setInterval(
+            function () {
+                $('#orange_student_notify_section').load("{!! route('student.get.notifications') !!}");
+                $(".orange_student_notifications_count").load(location.href + " .orange_student_notifications_count");
+            }, 50000);
+    </script>
+@endpush

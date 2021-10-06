@@ -57,8 +57,6 @@
                                                     <th>@lang('stories.mawhob_id')</th>
                                                     <th>@lang('stories.story_category_id')</th>
                                                     <th>@lang('stories.created_at')</th>
-                                                    <th>@lang('stories.about_mawhob_ar')</th>
-                                                    <th>@lang('stories.about_mawhob_en')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
                                                 </thead>
@@ -104,8 +102,6 @@
             {data: "mawhob_id"},
             {data: "story_category_id"},
             {data: "created_at"},
-            {data: "about_mawhob_ar"},
-            {data: "about_mawhob_en"},
             {data: "actions"},
         ];
     </script>

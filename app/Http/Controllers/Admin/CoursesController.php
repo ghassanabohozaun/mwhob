@@ -556,6 +556,7 @@ class CoursesController extends Controller
             ///////////////////////////////////////////////////////
             /// add  Revenue
             $coureCost = Course::find($request->id)->cost;
+
             $coureDiscount = Course::find($request->id)->discount;
 
             if ($coureDiscount == '' || $coureDiscount == 0) {

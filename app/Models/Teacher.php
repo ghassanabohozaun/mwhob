@@ -22,6 +22,7 @@ class Teacher extends Authenticatable
         'password',
         'teacher_mobile_no',
         'teacher_whatsapp_no',
+        'country',
         'teacher_qualification',
         'teacher_cv',
         'teacher_photos_and_videos_link',

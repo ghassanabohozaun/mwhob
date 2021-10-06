@@ -18,7 +18,7 @@
                                 <div class="col-lg-8">
                                     <div class="row">
                                         @if($teams->isEmpty())
-                                            <img src="{!! asset('site/images/noRecordFound.svg') !!}"
+                                            <img src="{!! asset(Storage::url(indexPage()->about_team_image)) !!}"
                                                  class="img-fluid" id="no_data_img"
                                                  title="{!! trans('site.no_date') !!}">
                                         @else

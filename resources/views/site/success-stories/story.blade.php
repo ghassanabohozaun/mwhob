@@ -17,8 +17,13 @@
 
     <section class="sub-header">
         <div class=" container text-center content-header">
-            <h2>{!! trans('site.talents') !!} --> {!! trans('site.success_stories_categories') !!}
-                --> {!! trans('site.story') !!}</h2>
+            <h2>
+                {!! trans('site.talents') !!}
+                @if(Lang()=='ar') / @else \ @endif
+                {!! trans('site.success_stories_categories') !!}
+                @if(Lang()=='ar') / @else \ @endif
+                {!! trans('site.story') !!}
+            </h2>
 
             <p>
                 {!! Lang()=='ar'?staticStrings()->success_story_person_description_ar:staticStrings()->success_story_person_description_en !!}
@@ -37,7 +42,7 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-4">
                     <div class="img-left">
-                        <img src="{!! asset('site/img/woman-left.png') !!}" width="100%" alt="">
+                        <img src="{!! asset(Storage::url($story->story_image)) !!}" width="100%" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 p-5">
@@ -88,7 +93,7 @@
                                  class="img-fluid" id="no_data_img"
                                  title="{!! trans('site.no_date') !!}">
                         @else
-                            @foreach(App\Models\MawhobExperience::where('story_id',$story->id)->get() as $experience )
+                            @foreach(App\Models\MawhobExperience::orderBy('experience_percentage','desc')->where('story_id',$story->id)->get() as $experience )
 
                                 <div class=" mb-3">
                                     <p class=" text-right mb-1 fs-12 text-dark">

@@ -50,9 +50,10 @@ return [
     'footer_images' => 'Footer Images',
     'static_strings' => 'Static Strings',
     'sliders' => 'Slider',
-    'add_new_slider'=>'Add New Slider',
-    'why_choose_us'=>'Why Choose Us',
+    'add_new_slider' => 'Add New Slider',
+    'why_choose_us' => 'Why Choose Us',
     'notifications' => 'Notifications',
+    'registration_policy' => 'Registration Policy',
 
 ];
 

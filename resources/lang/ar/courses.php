@@ -9,6 +9,8 @@ return [
     'date' => 'التاريخ',
     'change_teacher' => 'تغير المدرس',
     'discount_note' => 'اذا لم يكن هناك خصم اتركها فارغة او ادخل القيمة 0',
+    'enrolled_count' => 'عدد المسجلين',
+    'mawhob_mobile_no' => 'رقم جوال الموهوب',
 
 
     'course_image' => 'الصورة',
@@ -84,7 +86,7 @@ return [
     'cannot_be_deleted_because_it_enrolled_by_mawhob' => 'لا يمكن حذف الدورة  لانها مسجلة من قبل موهوب',
     'add_new_mawhob_success_message' => 'تمت عملية اضافة الموهوب بنجاح',
     'mawhob_enrolled_in_this_course' => 'عذرا الموهوب سجل في هذه الدورة ',
-    'this_time_enrolled_for_anther_course'=>'هذا الوقت محجوز لدورة اخري',
+    'this_time_enrolled_for_anther_course' => 'هذا الوقت محجوز لدورة اخري',
     /////////////////////////////////////////////////////////
     /// enrolled List
     'mawhobs_enrolled_in_course' => 'الموهوبين المسجلين في الدورة',

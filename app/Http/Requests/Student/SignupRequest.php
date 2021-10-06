@@ -31,9 +31,12 @@ class SignupRequest extends FormRequest
             'mawhob_birthday' => 'required',
             'mowhob_gender' => 'required|in:male,female',
             'category_id' => 'required',
-            'portfolio' => 'required|max:5024',
+            'portfolio' => 'required',
             'password' => 'required|min:6',
-            'confirm_password' => 'required|same:password'
+            'confirm_password' => 'required|same:password',
+            'mawhob_email' => 'required|email',
+            'country' => 'required',
+            'other_talents' => 'sometimes|nullable',
 
         ];
     }
@@ -48,6 +51,9 @@ class SignupRequest extends FormRequest
             'photo.mimes' => trans('mowhob.mimes'),
             'photo.max' => trans('mowhob.image_max'),
             'portfolio.max' => trans('mowhob.portfolio_max'),
+            'mawhob_email.email'=>trans('mowhob.email_email'),
+            'mawhob_birthday.before'=>trans('mowhob.mwhob_birthday'),
+            'portfolio.url'=>trans('mowhob.url'),
         ];
     }
 }

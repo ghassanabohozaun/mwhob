@@ -141,6 +141,8 @@
                                                     <th>@lang('programs.hours')</th>
                                                     <th>@lang('programs.date')</th>
                                                     <th>@lang('programs.price')</th>
+                                                    <th>@lang('programs.discount')</th>
+                                                    <th>@lang('programs.enrolled_count')</th>
                                                     <th>@lang('programs.work_plan')</th>
                                                     <th>@lang('programs.status')</th>
                                                     <th>@lang('general.actions')</th>
@@ -225,6 +227,8 @@
                     {data: "hours"},
                     {data: "date"},
                     {data: "price"},
+                    {data: "discount"},
+                    {data: "enrolled_count"},
                     {data: "work_plan"},
                     {data: "status"},
                     {data: "actions"},

@@ -109,12 +109,13 @@ class DashboardController extends Controller
                     'site_phone' => $request->site_phone,
                     'site_mobile' => $request->site_mobile,
                     'site_lang_en' => $request->site_lang_en,
+                    'lang_front_button_status' => $request->lang_front_button_status,
                     'site_description_ar' => $request->site_description_ar,
                     'site_description_en' => $request->site_description_en,
                     'site_keywords_ar' => $request->site_keywords_ar,
                     'site_keywords_en' => $request->site_keywords_en,
                     'site_icon' => $site_icon,
-                    'site_logo' => '',
+                    'site_logo' => $site_logo,
                 ]);
                 return $this->returnSuccessMessage(trans('general.add_success_message'));
 
@@ -164,6 +165,7 @@ class DashboardController extends Controller
                     'site_phone' => $request->site_phone,
                     'site_mobile' => $request->site_mobile,
                     'site_lang_en' => $request->site_lang_en,
+                    'lang_front_button_status' => $request->lang_front_button_status,
                     'site_description_ar' => $request->site_description_ar,
                     'site_description_en' => $request->site_description_en,
                     'site_keywords_ar' => $request->site_keywords_ar,
@@ -179,6 +181,8 @@ class DashboardController extends Controller
         }//end catch
 
     }
+
+
     ////////////////////////////////////////////////////////
     ///  switchEnglishLang
     public function switchEnglishLang(Request $request)
@@ -190,6 +194,28 @@ class DashboardController extends Controller
                 $settings->save();
             } else {
                 $settings->site_lang_en = 'on';
+                $settings->save();
+            }
+
+            return $this->returnSuccessMessage(trans('general.change_status_success_message'));
+        } catch (\Exception $exception) {
+            return $this->returnError(trans('general.try_catch_error_message'), 500);
+        }//end catch
+
+    }
+
+
+    ////////////////////////////////////////////////////////
+    ///  switchFrontend Language
+    public function switchFrontendLang(Request $request)
+    {
+        try {
+            $settings = Setting::orderBy('id', 'desc')->first();
+            if ($request->switchFrontendLanguageStatus == 'false') {
+                $settings->lang_front_button_status = null;
+                $settings->save();
+            } else {
+                $settings->lang_front_button_status = 'on';
                 $settings->save();
             }
 

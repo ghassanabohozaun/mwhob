@@ -7,6 +7,7 @@ use App\Http\Requests\Student\SignupRequest;
 use App\Models\Category;
 use App\Models\Contest;
 use App\Models\Mawhob;
+use App\Models\MawhobEnrollProgram;
 use App\Models\Mawhoob_Notification;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
@@ -14,6 +15,15 @@ use Illuminate\Http\Request;
 class SignupController extends Controller
 {
     use GeneralTrait;
+
+    ///////////////////////////////////////////////////
+    /// Registration Policy
+    public function registrationPolicy()
+    {
+        $title = trans('site.registration_policy');
+        return view('student.auth.registration-policy', compact('title'));
+    }
+
 
     ///////////////////////////////////////////////////
     /// index
@@ -38,12 +48,15 @@ class SignupController extends Controller
                 'mawhob_full_name_en' => $request->mawhob_full_name_en,
                 'mawhob_mobile_no' => $request->mawhob_mobile_no,
                 'mawhob_whatsapp_no' => $request->mawhob_whatsapp_no,
+                'mawhob_email' => $request->mawhob_email,
+                'country' => $request->country,
                 'mawhob_birthday' => $request->mawhob_birthday,
                 'mowhob_gender' => $request->mowhob_gender,
                 'category_id' => $request->category_id,
+                'other_talents' => $request->other_talents,
                 'portfolio' => $request->portfolio,
+                'agree_to_the_policy' => 'on',
                 'password' => bcrypt($request->password),
-
             ]);
 
             ////////////////////////////////////////////////////
@@ -84,10 +97,10 @@ class SignupController extends Controller
 
     /////////////////////////////////////////
     /// Registration Confirmation
-    public function registrationConfirmation($mobileNo=null,$whatsappNo=null)
+    public function registrationConfirmation($mobileNo = null, $whatsappNo = null)
     {
         $title = trans('site.registration_confirmation');
-        return view('student.auth.mobile-confirm', compact('title','mobileNo','whatsappNo'));
+        return view('student.auth.mobile-confirm', compact('title', 'mobileNo', 'whatsappNo'));
     }
 
 
@@ -95,7 +108,7 @@ class SignupController extends Controller
     /// Active Student
     public function activeStudent(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $mawhob = Mawhob::where('mawhob_mobile_no', $request->mobile_no)->first();
             $mawhob->freeze = 'on';
             $mawhob->save();

@@ -10,6 +10,8 @@ return [
     'date' => 'Date',
     'change_teacher' => 'Change Teacher',
     'discount_note' => 'If there is no discount, leave it blank or enter the value 0',
+    'enrolled_count'=>'Enrolled Count',
+    'mawhob_mobile_no' => 'Mawhob Mobile No',
 
 
     'course_image' => 'Image',

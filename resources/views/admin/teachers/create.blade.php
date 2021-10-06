@@ -129,7 +129,6 @@
                                                     <!--end::Group-->
 
 
-
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
@@ -212,23 +211,6 @@
                                                     </div>
                                                     <!--end::Group-->
 
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{trans('teachers.teacher_bio')}}
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <textarea rows="5"
-                                                                      class="form-control form-control-lg"
-                                                                      name="teacher_bio" id="teacher_bio"
-                                                                      type="text"
-                                                                      placeholder=" {{trans('teachers.enter_teacher_bio')}}"
-                                                                      autocomplete="off"></textarea>
-                                                            <span class="form-text text-danger"
-                                                                  id="teacher_bio_error"></span>
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Group-->
 
 
                                                     <!--begin::Group-->
@@ -269,7 +251,11 @@
                                                     <!--end::Group-->
 
 
-                                                    <!--begin::Group-->
+                                                @include('admin.teachers.countries-create')
+
+
+
+                                                <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
                                                             {{trans('teachers.teacher_qualification')}}
@@ -303,6 +289,24 @@
                                                                 autocomplete="off"/>
                                                             <span class="form-text text-danger"
                                                                   id="teacher_photos_and_videos_link_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('teachers.teacher_bio')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <textarea rows="5"
+                                                                      class="form-control form-control-lg"
+                                                                      name="teacher_bio" id="teacher_bio"
+                                                                      type="text"
+                                                                      placeholder=" {{trans('teachers.enter_teacher_bio')}}"
+                                                                      autocomplete="off"></textarea>
+                                                            <span class="form-text text-danger"
+                                                                  id="teacher_bio_error"></span>
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
@@ -363,6 +367,7 @@
             $('#password_error').text('');
             $('#teacher_mobile_no_error').text('');
             $('#teacher_whatsapp_no_error').text('');
+            $('#country_error').text('');
             $('#teacher_qualification_error').text('');
             $('#teacher_cv_error').text('');
             $('#teacher_photos_and_videos_link_error').text('');
@@ -378,6 +383,7 @@
             $('#password').css('border-color', '');
             $('#teacher_mobile_no').css('border-color', '');
             $('#teacher_whatsapp_no').css('border-color', '');
+            $('#country').css('border-color', '');
             $('#teacher_qualification').css('border-color', '');
             $('#teacher_cv').css('border-color', '');
             $('#teacher_photos_and_videos_link').css('border-color', '');

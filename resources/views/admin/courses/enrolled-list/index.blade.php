@@ -111,6 +111,7 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>@lang('courses.mawhob_id')</th>
+                                                    <th>@lang('courses.mawhob_mobile_no')</th>
                                                     <th>@lang('courses.enrolled_date')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
@@ -160,8 +161,25 @@
             var my_course_id = $('#my_course_id').val();
 
             $("#my_courses_enrolled_mawhob_data_table").DataTable({
+                dom: "B<'row'<'col-sm-12'tr>>\n\t\t\t<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>",
+                buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        footer: true,
+                    },
+                    {
+                        extend: 'print',
+                        text: 'print',
+                        footer: true,
+                    },
+                    {
+                        extend: 'excel',
+                        text: 'excel',
+                        footer: true,
+                    },
+                ],
                 responsive: !0,
-                dom: "<'row'<'col-sm-12'tr>>\n\t\t\t<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>",
                 lengthMenu: [5, 10, 25, 50],
                 pageLength: 10,
                 searchDelay: 500,
@@ -194,6 +212,7 @@
                 columns: [
                     {data: "id"},
                     {data: "mawhob_id"},
+                    {data: "mawhob_mobile_no"},
                     {data: "enrolled_date"},
                     {data: "actions"},
                 ],

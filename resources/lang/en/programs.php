@@ -2,11 +2,16 @@
 
 return [
 
+    'discount_note' => 'If there is no discount, leave it blank or enter the value 0',
+    'enrolled_count'=>'Enrolled Count',
+    'mawhob_mobile_no' => 'Mawhob Mobile No',
+
+
 
     'update_program' => 'Update New Program',
     'trashed_programs' => 'Trashed Programs',
-    'search_name'=>'Name',
-    'enter_search_name'=>'Enter Name',
+    'search_name' => 'Name',
+    'enter_search_name' => 'Enter Name',
 
 
     'icon' => 'Icon',
@@ -18,6 +23,7 @@ return [
     'work_plan' => 'Work Plane',
     'date' => 'Date',
     'price' => 'Price',
+    'discount' => 'Cost after Discount',
     'language' => 'Language',
     'status' => 'Status',
 
@@ -30,6 +36,7 @@ return [
     'enter_work_plan' => 'Enter Work Plane',
     'enter_date' => 'Enter Date',
     'enter_price' => 'Enter Price',
+    'enter_discount' => 'Enter Cost after Discount',
     'enter_language' => 'Enter Language',
     'enter_status' => 'Enter Status',
 

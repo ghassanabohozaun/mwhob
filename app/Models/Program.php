@@ -22,6 +22,7 @@ class Program extends Model
         'work_plan',
         'date',
         'price',
+        'discount',
         'language',
         'status',
     ];

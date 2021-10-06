@@ -27,7 +27,7 @@
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-lg-12 col-xl-12">
-                                            <img src="" id="story_image" width="20%" height="200"
+                                            <img src="" id="story_image" width="35%" height="350"
                                                  style=" display:block; margin:auto;"/>
                                         </div>
                                     </div>

@@ -25,6 +25,11 @@ class Mawhob extends Authenticatable
         'category_id',
         'portfolio',
         'freeze',
+        'mawhob_email',
+        'country',
+        'other_talents',
+        'agree_to_the_policy'
+
     ];
 
     protected $hidden = ['updated_at'];
@@ -34,30 +39,36 @@ class Mawhob extends Authenticatable
     {
         return $this->belongsTo('App\Models\Category', 'category_id', 'id');
     }
+
     //////////////////////////////////////////////////////////////
     public function mawhobEnrolledContest()
     {
         return $this->hasMany('App\Models\MawhobEnrolledContest', 'mawhob_id', 'id');
     }
 
-    public function mawhobSound(){
-        return $this->hasMany('App\Models\MawhobSound','mawhob_id','id');
+    public function mawhobSound()
+    {
+        return $this->hasMany('App\Models\MawhobSound', 'mawhob_id', 'id');
     }
 
-    public function revenue(){
-        return $this->hasMany('App\Models\Revenue','mawhob_id','id');
+    public function revenue()
+    {
+        return $this->hasMany('App\Models\Revenue', 'mawhob_id', 'id');
     }
 
-    public function bestMawhob(){
-        return $this->hasMany('App\Models\BestMawhob','mawhob_id','id');
+    public function bestMawhob()
+    {
+        return $this->hasMany('App\Models\BestMawhob', 'mawhob_id', 'id');
     }
 
-    public function mawhobEnrollCourse(){
-        return $this->hasMany('App\Models\MawhobEnrollCourse','mawhob_id','id');
+    public function mawhobEnrollCourse()
+    {
+        return $this->hasMany('App\Models\MawhobEnrollCourse', 'mawhob_id', 'id');
     }
 
-    public function mawhobEnrollProgram(){
-        return $this->hasMany('App\Models\MawhobEnrollProgram','mawhob_id','id');
+    public function mawhobEnrollProgram()
+    {
+        return $this->hasMany('App\Models\MawhobEnrollProgram', 'mawhob_id', 'id');
     }
 
 
