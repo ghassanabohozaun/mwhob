@@ -114,6 +114,21 @@ return [
     'no_lecture_dates_available' => 'لا يوجد مواعيد محاضرة متاحة الآن',
     'go_to_lecture' => 'الذهاب الي المحاضرة',
     'lecture_link_no_active' => 'رابط المحاضرة غير فعال',
+    'lecture_name' => 'اسم المحاضرة',
+    'lecture_date' => 'تاريخ المحاضرة',
+    'lecture_from' => 'من',
+    'lecture_to' => 'الي',
+    'status' => 'الحالة',
+    'attendance_and_absence_record'=>'سجل الحضور والغياب',
+    'lecture_number' => ' محاضرة رقم : ',
+    'lecture_cancel'=>'المحاضرة ملغاة',
+    'start_at'=>'يبدأ في',
+    'end_at'=>'ينتهي في',
+
+
+
+
+
 
     'do_you_want_to_enroll_in_contest' => 'هل تريد التسجيل في المسابقة ؟',
     'enrolled_in_contest_successfully' => 'تم تسجيلك في المسابقة بنجاح ',

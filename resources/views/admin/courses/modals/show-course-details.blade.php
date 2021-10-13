@@ -110,6 +110,33 @@
                                     <!--end::Group-->
 
 
+                                    <!--begin::Group-->
+                                    <div class="form-group row">
+                                        <div class="col-lg-6">
+                                            <label class="col-xl-12 col-lg-12 col-form-label">
+                                                {{trans('courses.start_at')}}
+                                            </label>
+                                            <div class="col-lg-12 col-xl-12">
+                                                <span class="form-control  form-control-lg"
+                                                      id="start_at" type="text"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <label class="col-xl-12 col-lg-12 col-form-label">
+                                                {{trans('courses.end_at')}}
+                                            </label>
+                                            <div class="col-lg-12 col-xl-12">
+                                                <span class="form-control  form-control-lg"
+                                                      id="end_at" type="text"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!--end::Group-->
+
+
+                                    <!--begin::Group-->
                                     <div class="form-group row">
 
                                         <div class="col-lg-6">
@@ -132,7 +159,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!--end::Group-->
 
                                     <!--begin::Group-->
                                     <div class="form-group row">
@@ -203,6 +230,8 @@
                     $('#hours').text(data.data.hours);
                     $('#cost').text(data.data.cost);
                     $('#discount').text(data.data.discount);
+                    $('#start_at').text(data.data.start_at);
+                    $('#end_at').text(data.data.end_at);
                     $('#category_id').text(data.data.category.name_{!! Lang() !!});
 
                     if("{!! Lang()=='ar' !!}"){

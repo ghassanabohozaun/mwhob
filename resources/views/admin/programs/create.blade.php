@@ -269,6 +269,56 @@
                                                     </div>
                                                     <!--end::Group-->
 
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('programs.start_at')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <div class="input-group start_at">
+                                                                <input type="text" class="form-control"
+                                                                       id="start_at" name="start_at"
+                                                                       readonly
+                                                                       placeholder="{{trans('programs.enter_start_at')}}"/>
+                                                                <div class="input-group-append">
+                                                             <span class="input-group-text"><i
+                                                                     class="la la-calendar-check-o"></i>
+                                                             </span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="form-text text-danger"
+                                                                  id="start_at_error"></span>
+                                                        </div>
+                                                        <!--end::Group-->
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('programs.end_at')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <div class="input-group end_at">
+                                                                <input type="text" class="form-control"
+                                                                       id="end_at" name="end_at"
+                                                                       readonly
+                                                                       placeholder="{{trans('programs.enter_end_at')}}"/>
+                                                                <div class="input-group-append">
+                                                             <span class="input-group-text"><i
+                                                                     class="la la-calendar-check-o"></i>
+                                                             </span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="form-text text-danger"
+                                                                  id="end_at_error"></span>
+                                                        </div>
+                                                        <!--end::Group-->
+                                                    </div>
+                                                    <!--end::Group-->
+
+
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
@@ -312,6 +362,26 @@
     <script type="text/javascript">
 
         //////////////////////////////////////////////////////
+        $('#start_at').datepicker({
+            format: "yyyy-mm-dd",
+            todayBtn: true,
+            clearBtn: false,
+            orientation: "bottom auto",
+            language: "{{LaravelLocalization::getCurrentLocale()}}",
+            autoclose: true,
+            todayHighlight: true,
+        });
+        //////////////////////////////////////////////////////
+        $('#end_at').datepicker({
+            format: "yyyy-mm-dd",
+            todayBtn: true,
+            clearBtn: false,
+            orientation: "bottom auto",
+            language: "{{LaravelLocalization::getCurrentLocale()}}",
+            autoclose: true,
+            todayHighlight: true,
+        });
+        //////////////////////////////////////////////////////
         $('#date').datepicker({
             format: "yyyy-mm-dd",
             todayBtn: true,
@@ -327,7 +397,6 @@
 
         $('#form_program_add').on('submit', function (e) {
             e.preventDefault();
-            $.notifyClose();
             //////////////////////////////////////////////////////////////
             $('#icon').css('border-color', '');
             $('#name_ar').css('border-color', '');
@@ -339,6 +408,8 @@
             $('#date').css('border-color', '');
             $('#price').css('border-color', '');
             $('#dicount').css('border-color', '');
+            $('#start_at').css('border-color', '');
+            $('#end_at').css('border-color', '');
 
             $('#icon_error').text('');
             $('#name_ar_error').text('');
@@ -350,7 +421,8 @@
             $('#date_error').text('');
             $('#price_error').text('');
             $('#discount_error').text('');
-
+            $('#start_at_error').text('');
+            $('#end_at_error').text('');
 
             /////////////////////////////////////////////////////////////
             var data = new FormData(this);

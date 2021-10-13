@@ -25,7 +25,7 @@ class CourseRequest extends FormRequest
     {
         if (setting()->site_lang_en == 'on') {
             return [
-                'course_image'=> 'required|image|mimes:jpg,jpeg,png|max:1024',
+                'course_image' => 'required|image|mimes:jpg,jpeg,png|max:1024',
                 'title_ar' => 'required',
                 'title_en' => 'required',
                 'description_ar' => 'required',
@@ -33,18 +33,22 @@ class CourseRequest extends FormRequest
                 'hours' => 'required|numeric',
                 'cost' => 'required|numeric',
                 'discount' => 'sometimes|nullable|numeric',
+                'start_at' => 'required',
+                'end_at' => 'required',
                 'category_id' => 'required|numeric',
                 'teacher_id' => 'required|numeric',
                 'zoom_link' => 'required',
             ];
         } else {
             return [
-                'course_image'=> 'required|image|mimes:jpg,jpeg,png|max:1024',
+                'course_image' => 'required|image|mimes:jpg,jpeg,png|max:1024',
                 'title_ar' => 'required',
                 'description_ar' => 'required',
                 'hours' => 'required|numeric',
                 'cost' => 'required|numeric',
                 'discount' => 'sometimes|nullable|numeric',
+                'start_at' => 'required',
+                'end_at' => 'required',
                 'category_id' => 'required|numeric',
                 'teacher_id' => 'required|numeric',
                 'zoom_link' => 'required',

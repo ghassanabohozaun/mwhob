@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ActiveLecture;
+use App\Console\Commands\CourseLectureStatus;
 use App\Console\Commands\TestTask;
 use App\Models\Lecture;
 use Illuminate\Console\Scheduling\Schedule;
@@ -11,15 +13,13 @@ use Illuminate\Support\Carbon;
 class Kernel extends ConsoleKernel
 {
 
-    public $ll;
     /**
      * The Artisan commands provided by your application.
      *
      * @var array
      */
     protected $commands = [
-        TestTask::class,
-
+        CourseLectureStatus::class
     ];
 
     /**
@@ -30,53 +30,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-
-        $Lecture = Lecture::get();
-        foreach ($Lecture as $l) {
-
-
-            if ($l->lecture_date == Carbon::now()->format('Y-m-d')) {
-                $this->ll = $l;
-
-                $fl = strtotime($l->lecture_from);
-                $f = date('G:i', $fl);
-                $tl = strtotime($l->lecture_to);
-                $t = date('G:i', $tl);
-
-
-                $schedule->command('test:test')
-                    ->timezone('Asia/Gaza')
-//                    ->everyMinute()
-                    ->at($f)
-                    ->before(function () {
-                       echo "status   = " ;
-                        $this->ll->status = 'on';
-                        $this->ll->save();
-                        echo $this->ll->status ;
-
-                    })
-
-                    ->sendOutputTo($this->ll->id);
-
-
-               $schedule->command('test:test')
-                  ->timezone('Asia/Gaza')
-//                  ->hourly()
-                  ->at($t)
-                  ->before(function () {
-                      $this->ll->update(['status' => 'null']);
-                      echo "status  = " .  $this->ll->status  ;
-                  })
-
-                  ->sendOutputTo($this->ll->id);
-            }
-
-        }
-
-
-        // $schedule->command('inspire')->hourly();
-
-
+        $schedule->command('lecture:status')->everyMinute();
     }
 
     /**

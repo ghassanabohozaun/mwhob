@@ -160,10 +160,13 @@ class CoursesController extends Controller
                     'hours' => $request->hours,
                     'cost' => $request->cost,
                     'discount' => $request->discount,
+                    'start_at' => $request->start_at,
+                    'end_at' => $request->end_at,
                     'category_id' => $request->category_id,
                     'teacher_id' => $request->teacher_id,
                     'zoom_link' => $request->zoom_link,
                     'language' => 'ar_en',
+
                 ]);
             } else {
                 Course::create([
@@ -174,6 +177,8 @@ class CoursesController extends Controller
                     'hours' => $request->hours,
                     'cost' => $request->cost,
                     'discount' => $request->discount,
+                    'start_at' => $request->start_at,
+                    'end_at' => $request->end_at,
                     'category_id' => $request->category_id,
                     'teacher_id' => $request->teacher_id,
                     'zoom_link' => $request->zoom_link,
@@ -243,6 +248,8 @@ class CoursesController extends Controller
                     'hours' => $request->hours,
                     'cost' => $request->cost,
                     'discount' => $request->discount,
+                    'start_at' => $request->start_at,
+                    'end_at' => $request->end_at,
                     'category_id' => $request->category_id,
                     'teacher_id' => $request->teacher_id,
                     'zoom_link' => $request->zoom_link,
@@ -257,6 +264,8 @@ class CoursesController extends Controller
                     'hours' => $request->hours,
                     'cost' => $request->cost,
                     'discount' => $request->discount,
+                    'start_at' => $request->start_at,
+                    'end_at' => $request->end_at,
                     'category_id' => $request->category_id,
                     'teacher_id' => $request->teacher_id,
                     'zoom_link' => $request->zoom_link,

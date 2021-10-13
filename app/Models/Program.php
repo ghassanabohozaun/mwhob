@@ -25,6 +25,8 @@ class Program extends Model
         'discount',
         'language',
         'status',
+        'start_at',
+        'end_at',
     ];
 
     protected $hidden = ['updated_at'];

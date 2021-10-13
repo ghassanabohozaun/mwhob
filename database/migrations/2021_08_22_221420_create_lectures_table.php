@@ -21,6 +21,7 @@ class CreateLecturesTable extends Migration
             $table->time('lecture_from');
             $table->time('lecture_to');
             $table->string('status')->nullable();
+            $table->string('lecture_cancel')->nullable();
             $table->timestamps();
         });
     }

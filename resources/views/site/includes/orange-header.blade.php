@@ -56,7 +56,7 @@
                 @else
                     <!-- begin:login --------------------------------------------------->
                         <div class="col-auto pr-0">
-                            <a href="{!! route('get.student.login') !!}" class="btn btn-primary px-3 br-20 fs-14">
+                            <a href="{!! route('get.student.login') !!}" class="btn btn-light px-3 br-20 fs-14">
                                 {!! trans('site.login') !!}
                             </a>
                         </div>

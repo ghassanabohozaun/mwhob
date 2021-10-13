@@ -228,6 +228,9 @@
             <!--end::Last Courses-->
 
 
+
+
+
             <!--begin::Last Courses-->
             <div class="card card-custom gutter-b">
                 <!--begin::Header-->
@@ -422,10 +425,7 @@
 
 @push('js')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"
-            integrity="sha512-vBmx0N/uQOXznm/Nbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script type="text/javascript" src="{!! asset('adminBoard/assets/js/Chart.bundle.min.js') !!}"></script>
     <script type="text/javascript">
 
         $(function () {
@@ -434,7 +434,7 @@
             var barChart = new Chart(barCanvas, {
                 type: 'bar',
                 data: {
-                    labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     datasets: [
                         {
                             label: '{!! trans('dashboard.new_mawobs_growth') !!}',

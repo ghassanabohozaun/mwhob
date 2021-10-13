@@ -3,9 +3,8 @@
 return [
 
     'discount_note' => 'If there is no discount, leave it blank or enter the value 0',
-    'enrolled_count'=>'Enrolled Count',
+    'enrolled_count' => 'Enrolled Count',
     'mawhob_mobile_no' => 'Mawhob Mobile No',
-
 
 
     'update_program' => 'Update New Program',
@@ -26,6 +25,9 @@ return [
     'discount' => 'Cost after Discount',
     'language' => 'Language',
     'status' => 'Status',
+    'start_at' => 'Program Start At',
+    'end_at' => 'Program End At',
+
 
     'enter_icon' => 'Enter Icon',
     'enter_name_ar' => 'Enter Arabic Name ',
@@ -39,6 +41,9 @@ return [
     'enter_discount' => 'Enter Cost after Discount',
     'enter_language' => 'Enter Language',
     'enter_status' => 'Enter Status',
+    'enter_start_at' => 'Enter Program Start At',
+    'enter_end_at' => 'Enter Program End At',
+
 
     'required' => 'This Field Required',
     'max' => 'Max allow characters 100',

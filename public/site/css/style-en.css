@@ -555,13 +555,11 @@ img.cover { -o-object-fit: cover; object-fit: cover; }
 .list-users-w { list-style: none; padding: 0; margin: 0; overflow: auto; }
 .list-users-w li { float: left; margin-left: -35px; }
 .list-users-w li:first-child { margin-left: 0px; }
-.list-users-w li a img { width: 80px; height: 80px; -o-object-fit: cover; object-fit: cover; border-radius: 50%; display: block; border: 3px solid #f2f2f2; }
-.list-users-w li a .number { width: 80px; height: 80px; background-color: #EBEBEB; border: 3px solid #f2f2f2; border-radius: 50%; display: block; text-align: center; line-height: 80px; color: #575757; }
-.list-users-w:hover li { margin-left: 5px; }
+.list-users-w li * img { width: 80px; height: 80px; -o-object-fit: cover; object-fit: cover; border-radius: 50%; display: block; border: 3px solid #f2f2f2; }
+.list-users-w li * .number { width: 80px; height: 80px; background-color: #EBEBEB; border: 3px solid #f2f2f2; border-radius: 50%; display: block; text-align: center; line-height: 80px; color: #575757; }
 .list-users-w.sm li { margin-left: -10px; }
 .list-users-w.sm li:first-child { margin-left: 0px; }
 .list-users-w.sm li a img { width: 40px; height: 40px; }
-.list-users-w.sm:hover li { margin-left: 0px; }
 
 .box-program { border: 1px solid #ccc; }
 .box-program:hover { -webkit-box-shadow: 0 0 10px #ccc; box-shadow: 0 0 10px #ccc; }
@@ -578,7 +576,8 @@ p { line-height: 1.4; }
 
 .imguser img { -o-object-fit: cover; object-fit: cover; width: 90px; height: 90px; border-radius: 50%; }
 
-@media screen and (max-width: 787px) { .left-img-h-100 { height: 250px; }
+@media screen and (max-width: 787px) { .best-app { overflow: hidden; }
+  .left-img-h-100 { height: 250px; }
   header .logo-header img { width: 100px; }
   header .btn { padding: 4px 8px !important; }
   header .btn.w-h { width: 30px; height: 30px; line-height: 22px; padding: 4px 0px !important; }

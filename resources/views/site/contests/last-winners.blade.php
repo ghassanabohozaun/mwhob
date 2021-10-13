@@ -17,7 +17,7 @@
                              class="img-fluid" id="no_data_img"
                              title="{!! trans('site.no_date') !!}">
                     @else
-                        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-4@m uk-grid">
+                        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-4@m uk-grid d-flex  justify-content-center">
                             @foreach($mawhob_winners as $mawhob_winner)
                                 <li>
                                     <div

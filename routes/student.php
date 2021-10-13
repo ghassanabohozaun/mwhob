@@ -50,6 +50,8 @@ Route::group([
     Route::post('/student-enroll-contest', 'StudentController@enrollContest')->name('student.enroll.contest');
     Route::post('/student-enroll-course', 'StudentController@enrollCourse')->name('student.enroll.course');
     Route::post('/student-enroll-program', 'StudentController@enrollProgram')->name('student.enroll.program');
+    Route::post('/student-attendance-enroll-in-lecture', 'StudentController@studentAttendanceEnrollInLecture')
+        ->name('student.attendance.enroll.in.lecture');
 
 
 

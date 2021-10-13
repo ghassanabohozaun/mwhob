@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\lecture_mawhob;
 use App\Models\MawhobEnrollCourse;
 use App\Models\MawhobEnrolledContest;
 use App\Models\MawhobEnrollProgram;
@@ -242,7 +243,7 @@ class StudentController extends Controller
                     'notify_status' => 'send',
                     'notify_class' => 'unread',
                     'notify_for' => 'mawhob',
-                    'student_id'=> student()->id(),
+                    'student_id' => student()->id(),
                 ]);
 
                 return $this->returnSuccessMessage(trans('site.enrolled_in_program_successfully'));
@@ -250,6 +251,31 @@ class StudentController extends Controller
                 return $this->returnError(trans('site.already_enrolled_in_this_program'), 500);
             }
         }
+    }
+
+    ///////////////////////////////////////////////////
+    /// Student Attendance Enroll In Lecture
+    public function studentAttendanceEnrollInLecture(Request $request)
+    {
+        $lectureMawhobExists = lecture_mawhob::where('course_id', '=', $request->course_id)
+            ->where('lecture_id', '=', $request->lecture_id)
+            ->where('mawhob_id', '=', $request->student_id)
+            ->get();
+
+        if ($lectureMawhobExists->isEmpty()) {
+            lecture_mawhob::create([
+                'course_id' => $request->course_id,
+                'lecture_id' => $request->lecture_id,
+                'mawhob_id' => $request->student_id,
+                'status' => 'on',
+            ]);
+            return $this->returnSuccessMessage('OK', 200);
+        } else {
+
+            return $this->returnError('error', 500);
+        }
+
+
     }
 
 

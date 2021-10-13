@@ -143,6 +143,7 @@
                                                     <th>@lang('courses.lecture_from')</th>
                                                     <th>@lang('courses.lecture_to')</th>
                                                     <th>@lang('courses.status')</th>
+                                                    <th>@lang('courses.lecture_cancel')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
                                                 </thead>
@@ -185,6 +186,8 @@
             {data: "lecture_from"},
             {data: "lecture_to"},
             {data: "status"},
+            {data: "lecture_cancel"},
+
             {data: "actions"},
         ];
 
@@ -377,6 +380,52 @@
             })
         });
 
+
+
+        /////////////////////////////////////////////////////////////////
+        // lecture Cancel
+        var lectureCancel = false;
+        $('body').on('change', '.change_lecture_cancel', function (e) {
+            e.preventDefault();
+
+            var id = $(this).data('id');
+
+            if ($(this).is(':checked')) {
+                lectureCancel = $(this).is(':checked');
+            } else {
+                lectureCancel = $(this).is(':checked');
+            }
+
+            $.ajax({
+                url: "{{route('teacher.lecture.cancel')}}",
+                data: {lectureCancel: lectureCancel, id: id},
+                type: 'post',
+                dataType: 'JSON',
+                beforeSend: function () {
+                    KTApp.blockPage({
+                        overlayColor: '#000000',
+                        state: 'danger',
+                        message: "{{trans('general.please_wait')}}",
+                    });
+                },//end beforeSend
+                success: function (data) {
+                    KTApp.unblockPage();
+                    console.log(data);
+                    if (data.status == true) {
+                        Swal.fire({
+                            title: data.msg,
+                            text: "",
+                            icon: "success",
+                            allowOutsideClick: false,
+                            customClass: {confirmButton: 'switch_status_toggle'}
+                        });
+                        $('.switch_status_toggle').click(function () {
+                            updateDataTable();
+                        });
+                    }
+                },//end success
+            })
+        });
     </script>
 @endpush
 

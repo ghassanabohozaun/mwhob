@@ -50,11 +50,13 @@ class DashboardController extends Controller
             ->pluck('month');
         $datas = array(0,0,0,0,0,0,0,0,0,0,0,0);
         foreach ($months as $index=>$month){
-            $datas[$month] = $mawhobs[$index];
+            $datas[$month-1] = $mawhobs[$index];
         }
+
+
         /////////////////////////////////////////////////////////////////////////////////////////////
         /// Revenues Chart
-        $Revenues = Revenue::select(DB::raw("COUNT(*) as count"))
+        $Revenues = Revenue::select(DB::raw("Sum(value) as count"))
             ->whereYear('created_at', date('Y'))
             ->groupBy(DB::raw("Month(created_at)"))
             ->pluck('count');
@@ -64,10 +66,8 @@ class DashboardController extends Controller
             ->pluck('month');
         $RevenueData = array(0,0,0,0,0,0,0,0,0,0,0,0);
         foreach ($RevenueMonths as $index=>$month){
-            $RevenueData[$month] = $Revenues[$index];
+            $RevenueData[$month-1] = $Revenues[$index];
         }
-
-
 
         return view('admin.dashboard', compact('title',
             'teachersCount', 'mawhobsCount', 'coursesCount', 'RevenuesValue',

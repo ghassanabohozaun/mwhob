@@ -224,10 +224,10 @@
         ////////////////////////////////////////////////////////////////////////////
         //Notifications
         $('#notify_section').load("{!! route('admin.get.notifications') !!}");
-        setInterval(
+        /*setInterval(
             function () {
                 $('#notify_section').load("{!! route('admin.get.notifications') !!}");
                 $(".notifications_count").load(location.href + " .notifications_count");
-            }, 6000);
+            }, 6000);*/
     </script>
 @endpush

@@ -73,3 +73,8 @@
 p {
     text-align: justify;
 }
+
+.story_experience {
+    background: #ffffffab;
+    border-radius: 50px 0;
+}

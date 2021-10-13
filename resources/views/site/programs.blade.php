@@ -18,8 +18,8 @@
 
     <section class="sub-header">
         <div class=" container text-center content-header">
-            <h2>{!! trans('site.our_programs') !!}</h2>
-            <p>
+            <h2 class="mb-3">{!! trans('site.our_programs') !!}</h2>
+            <p class="text-center">
                 {!! Lang()=='ar'?staticStrings()->programs_description_ar:staticStrings()->programs_description_en !!}
             </p>
         </div>

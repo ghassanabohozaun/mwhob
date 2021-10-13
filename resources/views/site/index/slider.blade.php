@@ -11,15 +11,12 @@
                         <div class=" container">
                             <div class=" row align-items-center">
                                 <div class="col">
-
                                     @if($slider->details_status == trans('sliders.show'))
-                                        <h2 class="text-bold">{!! Lang()=='ar'?$slider->title_ar:$slider->title_en !!}</h2>
-
-                                        <p class="my-3 text-white">
+                                        <h2 class="text-bold fs-31-i">{!! Lang()=='ar'?$slider->title_ar:$slider->title_en !!}</h2>
+                                        <p class="my-3 text-white fs-16-i">
                                             {!! Lang()=='ar'?$slider->details_ar:$slider->details_en !!}
                                         </p>
                                     @endif
-
                                     @if($slider->button_status == trans('sliders.show'))
                                         <div>
                                             <a href="{!! route('programs') !!}"
@@ -40,7 +37,6 @@
 
                                         </div>
                                     @endif
-
                                 </div>
                             </div>
                         </div>

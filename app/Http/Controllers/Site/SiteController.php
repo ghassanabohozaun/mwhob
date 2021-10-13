@@ -8,7 +8,9 @@ use App\Models\BestMawhob;
 use App\Models\Category;
 use App\Models\Contest;
 use App\Models\Course;
+use App\Models\Lecture;
 use App\Models\Mawhob;
+use App\Models\MawhobEnrollCourse;
 use App\Models\MawhobEnrolledContest;
 use App\Models\MawhobSound;
 use App\Models\MawhobVideo;
@@ -22,6 +24,7 @@ use App\Models\SupportCenter;
 use App\Models\Team;
 use App\Models\Video;
 use App\Traits\GeneralTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -120,12 +123,12 @@ class SiteController extends Controller
                 ->where(function ($q) {
                     $q->where('language', 'ar')
                         ->orWhere('language', 'ar_en');
-                })->paginate(9);
+                })->paginate(2);
         } else {
             $programs = Program::withoutTrashed()->orderByDesc('id')->where('status', 'on')
                 ->where(function ($q) {
                     $q->where('language', 'ar_en');
-                })->paginate(9);
+                })->paginate(2);
         }
         return view('site.programs', compact('title', 'programs'));
 
@@ -140,12 +143,12 @@ class SiteController extends Controller
                     ->where(function ($q) {
                         $q->where('language', 'ar')
                             ->orWhere('language', 'ar_en');
-                    })->paginate(9);
+                    })->paginate(2);
             } else {
                 $programs = Program::withoutTrashed()->orderByDesc('id')->where('status', 'on')
                     ->where(function ($q) {
                         $q->where('language', 'ar_en');
-                    })->paginate(9);
+                    })->paginate(2);
             }
 
             return view('site.programs-paging', compact('programs'))->render();
@@ -646,7 +649,6 @@ class SiteController extends Controller
         }
 
 
-
         if (LaravelLocalization::getCurrentLocale() == 'ar') {
             $mawhobSounds = MawhobSound::join('mawhobs', 'mawhob_sounds.mawhob_id', '=', 'mawhobs.id')
                 ->join('sounds', 'mawhob_sounds.sound_id', '=', 'sounds.id')
@@ -671,5 +673,12 @@ class SiteController extends Controller
             'mawhobID', 'mawhobVideos', 'mawhobSounds'));
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////
+    ///  Test
+    public function myTest()
+    {
+
+
+    }
 
 }

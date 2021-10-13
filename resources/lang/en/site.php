@@ -144,6 +144,17 @@ return [
     'attempt_to_lecture' => 'Attempt To Lecture',
     'course' => 'Course',
     'no_lecture_dates_available' => 'No Lecture dates Available now',
+    'lecture_name' => 'Lecture Name',
+    'lecture_date' => 'Lecture Date',
+    'lecture_from' => 'Lecture From',
+    'lecture_to' => 'Lecture To',
+    'status' => 'Status',
+    'attendance_and_absence_record'=>'Attendance and absence record',
+    'lecture_number' => ' Lecture Number :  ',
+    'lecture_cancel'=>'Lecture Cancel',
+
+    'start_at'=>'Start At',
+    'end_at'=>'End At',
 
 
     //////////////////////////////////////////////////////////////

@@ -14,7 +14,7 @@
                          class="img-fluid" id="no_data_img" title="{!! trans('site.no_date') !!}">
                 @else
                     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-                        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
+                        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid d-flex  justify-content-center">
 
                             @foreach($latestCourses as $latestCourse)
                                 <li>
@@ -40,6 +40,21 @@
                                             <p class="mb-3 fs-12">
                                                 {!! Lang()=='ar'?$latestCourse->description_ar:$latestCourse->description_en !!}
                                             </p>
+
+                                            <div class="row mt-4 mb-4 mx-0 bg-light text-dark p-2 br-5">
+                                                <div class="col-lg-6 px-1">
+                                                    <div class="fs-12">
+                                                        <span>{!! trans('site.start_at') !!}</span>
+                                                        <span dir="{!! Lang()=='ar'?'rtl':'ltr' !!}"> {!! $latestCourse->start_at !!} </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 px-1">
+                                                    <div class="fs-12">
+                                                        <span>{!! trans('site.end_at') !!}</span>
+                                                        <span dir="{!! Lang()=='ar'?'rtl':'ltr' !!}"> {!! $latestCourse->end_at !!} </span>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                             <div class="row justify-content-between align-items-center">
                                                 <div class="col-auto">

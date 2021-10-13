@@ -54,5 +54,8 @@ Route::group(
         ->name('story');
 
 
+    Route::get('/my-test', 'SiteController@myTest')
+        ->name('my.test');
+
 });
 

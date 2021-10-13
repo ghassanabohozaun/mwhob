@@ -17,7 +17,7 @@
 
     <section class="sub-header">
         <div class=" container text-center content-header">
-            <h2 class="mb-3">
+            <h2  class="mb-3">
                 {!! trans('site.talents') !!}
                 @if(Lang()=='ar') / @else \ @endif
                 {!! trans('site.success_stories_categories') !!}
@@ -28,7 +28,7 @@
                     {!! $cat !!}
                 @endif
             </h2>
-            <p>
+            <p class="text-center">
                 {!! Lang()=='ar'?staticStrings()->success_story_description_ar:staticStrings()->success_story_description_en !!}
             </p>
         </div>

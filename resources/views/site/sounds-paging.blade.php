@@ -1,4 +1,4 @@
-<div class="row" uk-lightbox>
+<div class="row justify-content-center" uk-lightbox>
     @foreach($sounds as $sound)
 
         <div class="col-lg-4 col-md-6  mb-4">

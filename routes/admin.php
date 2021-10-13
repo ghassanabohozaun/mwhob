@@ -22,6 +22,8 @@ Route::group([
     /// dashboard
     Route::get('/', 'DashboardController@index')->name('admin.dashboard')->middleware('can:dashboard');
     Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard')->middleware('can:dashboard');
+
+
     //////////////////////////////////////////////////////////////////
     /// settings
     Route::get('settings', 'DashboardController@getSettings')
@@ -35,7 +37,7 @@ Route::group([
 
     ///////////////////////////////////////////////////////////////////
     /// Notifications Routes
-    Route::group(['prefix'=>'notifications', 'middleware' => 'can:notifications'],function (){
+    Route::group(['prefix' => 'notifications', 'middleware' => 'can:notifications'], function () {
         Route::get('/', 'NotificationsController@index')->name('admin.notifications');
         Route::get('/get-notifications', 'NotificationsController@getNotificationsResource')
             ->name('get.admin.notifications.resource');
@@ -297,6 +299,13 @@ Route::group([
             Route::post('/destroy', 'LecturesController@destroy')->name('admin.destroy.lecture');
             Route::post('/change-status', 'LecturesController@changeStatus')
                 ->name('admin.lecture.change.status');
+            Route::get('/attendance-record/{cid?}/{lid?}', 'LecturesController@AttendanceRecord')
+                ->name('admin.attendance.record');
+            Route::get('/get-attendance-record/{cid?}/{lid?}', 'LecturesController@getAttendanceRecord')
+                ->name('admin.get.attendance.record');
+            Route::post('/lecture-cancel', 'LecturesController@changeLectureCancel')
+                ->name('admin.lecture.cancel');
+
         });
     });
 

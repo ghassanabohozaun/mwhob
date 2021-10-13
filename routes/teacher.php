@@ -81,6 +81,14 @@ Route::group([
             Route::post('/destroy', 'LecturesController@destroy')->name('teacher.destroy.lecture');
             Route::post('/change-status', 'LecturesController@changeStatus')
                 ->name('teacher.lecture.change.status');
+            Route::get('/attendance-record/{cid?}/{lid?}', 'LecturesController@AttendanceRecord')
+                ->name('teacher.attendance.record');
+            Route::get('/get-attendance-record/{cid?}/{lid?}', 'LecturesController@getAttendanceRecord')
+                ->name('teacher.get.attendance.record');
+
+            Route::post('/lecture-cancel', 'LecturesController@changeLectureCancel')
+                ->name('teacher.lecture.cancel');
+
         });
 
 

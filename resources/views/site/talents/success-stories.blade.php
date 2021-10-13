@@ -20,13 +20,13 @@
                 <ul class=" list-users-w">
                     @foreach($successStories as $successStory)
                         <li>
-                            <a href="javascript:void(0)">
+                            <div>
                                 <img src="{!! Storage::url($successStory->story_icon) !!}"
                                      alt="{!! trans('site.mawhoob') !!}">
-                            </a>
+                            </div>
                         </li>
                     @endforeach
-                    <li><a href="#"><span class="number fs-20 text-bold">{!! $storiesCount !!}+</span></a></li>
+                    <li><div><span class="number fs-20 text-bold">{!! $storiesCount !!}+</span></div></li>
                 </ul>
             @endif
 

@@ -27,7 +27,8 @@ return [
     'language' => 'اللغة',
     'status' => 'الحالة',
     'active' => 'فعال',
-
+    'start_at' => 'الدورة تبدأ في',
+    'end_at' => 'الدورة تنتهي في',
 
     'enter_course_image' => ' ادخل الصورة',
     'enter_title_ar' => ' ادخل العنوان بالعربي',
@@ -43,6 +44,9 @@ return [
     'enter_language' => ' ادخل اللغة',
     'enter_status' => ' ادخل الحالة',
     'enter_active' => ' ادخل فعال',
+    'enter_start_at' => 'ادخل الدورة تبدأ في',
+    'enter_end_at' => 'ادخل الدورة تنتهي في',
+
 
 
     'required' => 'هذا الحقل مطلوب',
@@ -63,18 +67,24 @@ return [
     /// Lectures
 
     'lectures' => 'المحاضرات',
+    'lecture' => 'المحاضرة',
     'add_new_lecture' => 'اضافة محاضرة جديدة',
+    'attendance_record' => 'سجل حضور الموهوبين',
 
     'course_id' => 'الدورة',
     'lecture_date' => 'تاريخ المحاضرة',
     'lecture_from' => 'وقت بدأ المحاضرة ',
     'lecture_to' => 'وقت انتهاء المحاضرة',
+    'lecture_cancel' => 'الغاء المحاضرة',
 
     'enter_course_id' => 'ادخل الدورة',
     'enter_lecture_date' => 'ادخل تاريخ المحاضرة',
     'enter_lecture_from' => 'ادخل وقت بدأ المحاضرة',
     'enter_lecture_to' => 'ادخل وقت انتهاء المحاضرة',
 
+    //////////////////////////////////////////////////////////////////////
+    /// Attendance Record
+    'mwhob_name' => 'اسم  الموهوب',
 
     'the_lecture_start_time_does_not_match_the_format_H_i' => 'وقت بدأ المحاضرة  يجيب ان يكون علي صيغة 09:00 AM',
     'the_lecture_end_time_does_not_match_the_format_H_i' => ' وقت انتهاء المحاضرة يجيب ان يكون علي صيغة 09:00 AM',
@@ -82,7 +92,9 @@ return [
     'lecture_exists' => 'المحاضرة اضيفت سابقا',
 
 
-    'cannot_be_deleted_because_it_have_lectures' => 'لا يمكن حذف الدورة  لانه تحتوي علي محاضرات',
+    'cannot_be_deleted_because_it_have_lectures' => 'لا يمكن حذف الدورة  لانها تحتوي علي محاضرات',
+    'lecture_cannot_be_deleted_because_it_have_attendance_records' => 'لا يمكن حذف المحاضرة  لانها تحتوي علي سجلات حضور',
+
     'cannot_be_deleted_because_it_enrolled_by_mawhob' => 'لا يمكن حذف الدورة  لانها مسجلة من قبل موهوب',
     'add_new_mawhob_success_message' => 'تمت عملية اضافة الموهوب بنجاح',
     'mawhob_enrolled_in_this_course' => 'عذرا الموهوب سجل في هذه الدورة ',

@@ -18,8 +18,10 @@
 
     <section class="sub-header">
         <div class=" container text-center content-header">
-            <h2>{!! trans('site.talents') !!}</h2>
-            <p>{!! Lang()=='ar'?staticStrings()->talents_description_ar:staticStrings()->talents_description_en !!}</p>
+            <h2 class="mb-3">{!! trans('site.talents') !!}</h2>
+            <p class="text-center">
+                {!! Lang()=='ar'?staticStrings()->talents_description_ar:staticStrings()->talents_description_en !!}
+            </p>
         </div>
         <div class="back-sub-header">
             <img src="{!! asset('site/img/header-2.jpg') !!}" alt="">

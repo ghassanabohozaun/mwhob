@@ -28,6 +28,8 @@ class Course extends Model
         'language',
         'status',
         'active',
+        'start_at',
+        'end_at',
     ];
     protected $hidden = ['updated_at'];
 
@@ -41,12 +43,12 @@ class Course extends Model
 
     public function teacher()
     {
-       return $this->belongsTo('App\Models\Teacher','teacher_id','id');
+        return $this->belongsTo('App\Models\Teacher', 'teacher_id', 'id');
     }
 
-   //////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////
     public function mawhobEnrollCourse()
-     {
+    {
         return $this->hasMany('App\Models\MawhobEnrollCourse', 'course_id', 'id');
     }
 

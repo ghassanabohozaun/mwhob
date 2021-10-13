@@ -1,4 +1,4 @@
-<div class="row" uk-lightbox>
+<div class="row justify-content-center" uk-lightbox>
     @foreach($videos as $video)
         <div class="col-lg-4 col-md-6  mb-4">
             <div class="item-course">

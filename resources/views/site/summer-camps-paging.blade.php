@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row justify-content-center">
     @foreach($summerCamps as $summerCamp)
         <div class="col-lg-4 col-md-6 mb-4">
             <div

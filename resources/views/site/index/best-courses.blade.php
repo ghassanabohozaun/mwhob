@@ -13,13 +13,12 @@
                  class="img-fluid" id="no_data_img" title="{!! trans('site.no_date') !!}">
 
         @else
-            <div class="row mt-5">
+            <div class="row mt-5 justify-content-center">
                 @foreach($courses as $course)
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="item-course " data-aos="fade-in" data-aos-duration="1200">
                             <div class="img-course">
-                                <img
-                                    src="{!! asset(Storage::url($course->course_image)) !!}"
+                                <img src="{!! asset(Storage::url($course->course_image)) !!}"
                                     alt="">
                             </div>
                             <div class="content-item">

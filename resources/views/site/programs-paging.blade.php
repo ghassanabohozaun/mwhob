@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row justify-content-center">
     @foreach($programs as $program)
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-lg-6 col-md-6 mb-6">
             <div class="box-program p-4 br-5">
                 <div class="row align-items-center justify-content-between mb-3">
                     <div class="col-auto">
@@ -15,10 +15,26 @@
                 <div class="title-pr fs-18 text-bold mt-4">
                     {!! Lang()=='ar'?$program->name_ar:$program->name_en !!}
                 </div>
-                <p>
+                <p class="mt-3">
                     {!! Lang()=='ar'?$program->short_description_ar:$program->short_description_en !!}
                 </p>
-                <div class="work-plan text-bold fs-16 mt-3 mb-2">{!! trans('site.work_plane') !!}</div>
+
+                <div class="row mt-3 mx-0 bg-light p-2 br-5">
+                    <div class="col-lg-6 px-1">
+                        <div class="fs-12">
+                            <span>{!! trans('site.start_at') !!}</span>
+                            <span dir="{!! Lang()=='ar'?'rtl':'ltr' !!}"> {!! $program->start_at !!} </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 px-1">
+                        <div class="fs-12">
+                            <span>{!! trans('site.end_at') !!}</span>
+                            <span dir="{!! Lang()=='ar'?'rtl':'ltr' !!}"> {!! $program->end_at !!} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-plan text-bold fs-16 mt-4 mb-2">{!! trans('site.work_plane') !!}</div>
                 <div
                     class="file-link d-flex justify-content-between align-items-center   px-2 py-2 br-5">
                     <div class="fs-14">
@@ -35,7 +51,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="mt-3 text-center">
+                <div class="mt-4 text-center">
 
 
                     @if(student()->check())

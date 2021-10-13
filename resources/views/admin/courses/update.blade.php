@@ -265,6 +265,58 @@
                                                     </div>
                                                     <!--end::Group-->
 
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('courses.start_at')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <div class="input-group start_at">
+                                                                <input value="{!! $course->start_at !!}"
+                                                                    type="text" class="form-control"
+                                                                       id="start_at" name="start_at"
+                                                                       readonly
+                                                                       placeholder="{{trans('courses.enter_start_at')}}"/>
+                                                                <div class="input-group-append">
+                                                             <span class="input-group-text"><i
+                                                                     class="la la-calendar-check-o"></i>
+                                                             </span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="form-text text-danger"
+                                                                  id="start_at_error"></span>
+                                                        </div>
+                                                        <!--end::Group-->
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('courses.end_at')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <div class="input-group end_at">
+                                                                <input value="{!! $course->end_at !!}"
+                                                                    type="text" class="form-control"
+                                                                       id="end_at" name="end_at"
+                                                                       readonly
+                                                                       placeholder="{{trans('courses.enter_end_at')}}"/>
+                                                                <div class="input-group-append">
+                                                             <span class="input-group-text"><i
+                                                                     class="la la-calendar-check-o"></i>
+                                                             </span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="form-text text-danger"
+                                                                  id="end_at_error"></span>
+                                                        </div>
+                                                        <!--end::Group-->
+                                                    </div>
+                                                    <!--end::Group-->
+
+
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
@@ -367,6 +419,25 @@
     <script type="text/javascript">
 
         //////////////////////////////////////////////////////
+        $('#start_at').datepicker({
+            format: "yyyy-mm-dd",
+            todayBtn: true,
+            clearBtn: false,
+            orientation: "bottom auto",
+            language: "{{LaravelLocalization::getCurrentLocale()}}",
+            autoclose: true,
+            todayHighlight: true,
+        });
+        //////////////////////////////////////////////////////
+        $('#end_at').datepicker({
+            format: "yyyy-mm-dd",
+            todayBtn: true,
+            clearBtn: false,
+            orientation: "bottom auto",
+            language: "{{LaravelLocalization::getCurrentLocale()}}",
+            autoclose: true,
+            todayHighlight: true,
+        });
         //////////////////////////////////////////////////////
         /// Teacher select2
         $('#teacher_id_select2').select2({
@@ -441,7 +512,8 @@
             $('#category_id').css('border-color', '');
             $('#teacher_id').css('border-color', '');
             $('#zoom_link').css('border-color', '');
-
+            $('#start_at').css('border-color', '');
+            $('#end_at').css('border-color', '');
 
             $('#course_image_error').text('');
             $('#title_ar_error').text('');
@@ -454,6 +526,8 @@
             $('#category_id_error').text('');
             $('#teacher_id_error').text('');
             $('#zoom_link_error').text('');
+            $('#start_at_error').text('');
+            $('#end_at_error').text('');
             /////////////////////////////////////////////////////////////
             var data = new FormData(this);
             var type = $(this).attr('method');

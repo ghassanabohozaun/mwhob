@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LectureRequest;
+use App\Http\Resources\AttendanceRecordResource;
 use App\Http\Resources\LectureResource;
 use App\Models\Lecture;
+use App\Models\lecture_mawhob;
+use App\Models\MawhobEnrollCourse;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
 
@@ -18,7 +21,7 @@ class LecturesController extends Controller
     public function index($id = null)
     {
         if (!$id) {
-            return redirect()->route('teacher.not.found');
+            return redirect()->route('admin.not.found');
         }
         $title = trans('courses.lectures');
         return view('admin.courses.lectures.index', compact('title', 'id'));
@@ -36,10 +39,8 @@ class LecturesController extends Controller
             $offset = $request->start;
         }
 
-
         $list = Lecture::orderByDesc('created_at')->where('course_id', $id)
             ->offset($offset)->take($perPage)->get();
-
 
         $arr = LectureResource::collection($list);
         $recordsTotal = Lecture::get()->count();
@@ -52,33 +53,30 @@ class LecturesController extends Controller
         ]);
 
     }
-
     ///////////////////////////////////////////////////////////////
     /// store Lecture
     public function store(LectureRequest $request)
     {
-
+        //// check lecture exists
         $lectures = Lecture::where('lecture_date', $request->lecture_date)
             ->where('lecture_from', $request->lecture_from)
             ->where('lecture_to', $request->lecture_to)
             ->get();
 
-
         if ($lectures->isEmpty()) {
-
             $lectureExists = Lecture::where('lecture_date', $request->lecture_date)
                 ->where('lecture_from', '<', $request->lecture_from)
                 ->where('lecture_to', '>', $request->lecture_to)
                 ->get();
 
-            if($lectureExists->isEmpty()){
-                Lecture::create([
+            if ($lectureExists->isEmpty()) {
+                $lecture = Lecture::create([
                     'course_id' => $request->id,
                     'lecture_date' => $request->lecture_date,
                     'lecture_from' => $request->lecture_from,
                     'lecture_to' => $request->lecture_to,
                 ]);
-            }else{
+            } else {
                 return $this->returnError(trans('courses.this_time_enrolled_for_anther_course'), 500);
             }
             return $this->returnSuccessMessage(trans('general.add_success_message'));
@@ -100,8 +98,16 @@ class LecturesController extends Controller
             if ($request->ajax()) {
                 $lecture = Lecture::find($request->id);
                 if (!$lecture) {
-                    return redirect()->route('teacher.not.found');
+                    return redirect()->route('admin.not.found');
                 }
+                ////////////////////////////////////////////////////////////////////////
+                /// Check lectures
+                $lectures = lecture_mawhob::where('lecture_id', $request->id)->get();
+                if (!$lectures->isEmpty()) {
+                    return $this->returnError([trans('courses.lecture_cannot_be_deleted_because_it_have_attendance_records')], 500);
+                }
+
+
                 $lecture->delete();
                 return $this->returnSuccessMessage(trans('general.delete_success_message'));
             }
@@ -133,4 +139,73 @@ class LecturesController extends Controller
             return $this->returnError(trans('general.try_catch_error_message'), 500);
         }//end catch
     }
+
+    ///////////////////////////////////////////////////////////////
+    /// change Lecture Cancel
+    public function changeLectureCancel(Request $request)
+    {
+
+        try {
+            $lecture = Lecture::find($request->id);
+            if (!$lecture) {
+                return redirect()->route('admin.not.found');
+            }
+            if ($request->lectureCancel == 'false') {
+                $lecture->status = null;
+                $lecture->lecture_cancel = null;
+                $lecture->save();
+            } else {
+                $lecture->status = null;
+                $lecture->lecture_cancel = 'on';
+                $lecture->save();
+            }
+            return $this->returnSuccessMessage(trans('general.change_status_success_message'));
+
+        } catch (\Exception $exception) {
+            return $this->returnError(trans('general.try_catch_error_message'), 500);
+        }//end catch
+    }
+
+    ///////////////////////////////////////////////////////////////
+    /// Attendance Record
+    ///////////////////////////////////////////////////////////////
+    /// index
+    public function AttendanceRecord($cid = null, $lid = null)
+    {
+        if (!$lid) {
+            return redirect()->route('admin.not.found');
+        }
+        $title = trans('courses.attendance_record');
+        return view('admin.courses.lectures.attendance-record', compact('title', 'cid', 'lid'));
+    }
+
+    ///////////////////////////////////////////////////////////////
+    /// Get Courses
+    public function getAttendanceRecord(Request $request, $cid = null, $lid = null)
+    {
+
+        $perPage = 100;
+        if ($request->has('length')) {
+            $perPage = $request->length;
+        }
+        $offset = 0;
+        if ($request->has('start')) {
+            $offset = $request->start;
+        }
+
+        $list = MawhobEnrollCourse::orderByDesc('created_at')->where('course_id', $cid)
+            ->offset($offset)->take($perPage)->get();
+
+        $arr = AttendanceRecordResource::collection($list);
+        $recordsTotal = MawhobEnrollCourse::where('course_id', $cid)->get()->count();
+        $recordsFiltered = MawhobEnrollCourse::where('course_id', $cid)->get()->count();
+        return response()->json([
+            'draw' => $request->draw,
+            'recordsTotal' => $recordsTotal,
+            'recordsFiltered' => $recordsFiltered,
+            'data' => $arr
+        ]);
+
+    }
+
 }

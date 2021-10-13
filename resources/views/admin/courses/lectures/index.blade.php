@@ -143,6 +143,7 @@
                                                     <th>@lang('courses.lecture_from')</th>
                                                     <th>@lang('courses.lecture_to')</th>
                                                     <th>@lang('courses.status')</th>
+                                                    <th>@lang('courses.lecture_cancel')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
                                                 </thead>
@@ -185,10 +186,11 @@
             {data: "lecture_from"},
             {data: "lecture_to"},
             {data: "status"},
+            {data: "lecture_cancel"},
             {data: "actions"},
         ];
 
-
+        /////////////////////////////////////////////////////////////////
         $('#lecture_date').datepicker({
             format: "yyyy-mm-dd",
             todayBtn: true,
@@ -248,7 +250,7 @@
                             updateDataTable();
                             $("#form_lecture_add")[0].reset();
                         });
-                    }else if (data.status == false) {
+                    } else if (data.status == false) {
                         Swal.fire({
                             title: data.msg,
                             text: "",
@@ -277,7 +279,6 @@
             })
 
         });//end submit
-
 
         /////////////////////////////////////////////////////////////////
         ///  lecture Delete
@@ -315,6 +316,16 @@
                                 $('.delete_course_button').click(function () {
                                     updateDataTable();
                                 });
+                            } else if (data.status == false) {
+                                Swal.fire({
+                                    title: "{!! trans('general.deleted') !!}",
+                                    text: data.msg,
+                                    icon: "warning",
+                                    allowOutsideClick: false,
+                                    customClass: {confirmButton: 'delete_course_button'}
+                                });
+                                $('.delete_course_button').click(function () {
+                                });
                             }
                         },//end success
                     });
@@ -349,6 +360,52 @@
             $.ajax({
                 url: "{{route('admin.lecture.change.status')}}",
                 data: {switchStatus: switchStatus, id: id},
+                type: 'post',
+                dataType: 'JSON',
+                beforeSend: function () {
+                    KTApp.blockPage({
+                        overlayColor: '#000000',
+                        state: 'danger',
+                        message: "{{trans('general.please_wait')}}",
+                    });
+                },//end beforeSend
+                success: function (data) {
+                    KTApp.unblockPage();
+                    console.log(data);
+                    if (data.status == true) {
+                        Swal.fire({
+                            title: data.msg,
+                            text: "",
+                            icon: "success",
+                            allowOutsideClick: false,
+                            customClass: {confirmButton: 'switch_status_toggle'}
+                        });
+                        $('.switch_status_toggle').click(function () {
+                            updateDataTable();
+                        });
+                    }
+                },//end success
+            })
+        });
+
+
+        /////////////////////////////////////////////////////////////////
+        // lecture Cancel
+        var lectureCancel = false;
+        $('body').on('change', '.change_lecture_cancel', function (e) {
+            e.preventDefault();
+
+            var id = $(this).data('id');
+
+            if ($(this).is(':checked')) {
+                lectureCancel = $(this).is(':checked');
+            } else {
+                lectureCancel = $(this).is(':checked');
+            }
+
+            $.ajax({
+                url: "{{route('admin.lecture.cancel')}}",
+                data: {lectureCancel: lectureCancel, id: id},
                 type: 'post',
                 dataType: 'JSON',
                 beforeSend: function () {

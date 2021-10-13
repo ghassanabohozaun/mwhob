@@ -163,6 +163,8 @@ class ProgramsController extends Controller
                     'date' => $request->date,
                     'price' => $request->price,
                     'discount' => $request->discount,
+                    'start_at' => $request->start_at,
+                    'end_at' => $request->end_at,
                     'language' => 'ar_en',
 
                 ]);
@@ -177,6 +179,8 @@ class ProgramsController extends Controller
                     'date' => $request->date,
                     'price' => $request->price,
                     'discount' => $request->discount,
+                    'start_at' => $request->start_at,
+                    'end_at' => $request->end_at,
                     'language' => 'ar',
                 ]);
             }
@@ -255,6 +259,8 @@ class ProgramsController extends Controller
                     'date' => $request->date,
                     'price' => $request->price,
                     'discount' => $request->discount,
+                    'start_at' => $request->start_at,
+                    'end_at' => $request->end_at,
                     'language' => 'ar_en',
 
                 ]);
@@ -269,6 +275,8 @@ class ProgramsController extends Controller
                     'date' => $request->date,
                     'price' => $request->price,
                     'discount' => $request->discount,
+                    'start_at' => $request->start_at,
+                    'end_at' => $request->end_at,
                     'language' => 'ar',
                 ]);
             }

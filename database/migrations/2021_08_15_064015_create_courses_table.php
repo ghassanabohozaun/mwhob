@@ -33,6 +33,8 @@ class CreateCoursesTable extends Migration
             $table->enum('language', ['ar', 'ar_en'])->default('ar');
             $table->string('status')->nullable();
             $table->string('active')->nullable();
+            $table->string('start_at')->nullable();
+            $table->string('end_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

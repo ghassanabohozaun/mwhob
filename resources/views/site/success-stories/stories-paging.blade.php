@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row justify-content-center">
     @foreach($stories as $story)
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="box-users  text-center itemuser p-3 br-10">

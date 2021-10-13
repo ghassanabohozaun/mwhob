@@ -13,9 +13,18 @@ class Lecture extends Model
         'lecture_date',
         'lecture_from',
         'lecture_to',
-        'status'
+        'status',
+        'lecture_cancel',
     ];
 
     protected $hidden = ['updated_at'];
+
+    //////////////////////////////////////////////////////////////
+    /// Relations
+
+    public function lectureMawhobs()
+    {
+        return $this->hasMany('App\Models\lecture_mawhob', 'lecture_id', 'id');
+    }
 
 }

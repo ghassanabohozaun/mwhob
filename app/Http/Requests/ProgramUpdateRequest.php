@@ -35,6 +35,8 @@ class ProgramUpdateRequest extends FormRequest
                 'date' => 'required',
                 'price' => 'required|numeric',
                 'discount' => 'sometimes|nullable|numeric',
+                'start_at' => 'required',
+                'end_at' => 'required',
             ];
         } else {
             return [
@@ -46,6 +48,8 @@ class ProgramUpdateRequest extends FormRequest
                 'date' => 'required',
                 'price' => 'required|numeric',
                 'discount' => 'sometimes|nullable|numeric',
+                'start_at' => 'required',
+                'end_at' => 'required',
             ];
         }
 

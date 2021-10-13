@@ -17,12 +17,12 @@
 
     <section class="sub-header">
         <div class=" container text-center content-header">
-            <h2>
+            <h2 class="mb-3">
                 {!! trans('site.talents') !!}
                 @if(Lang()=='ar') / @else \ @endif
                 {!! trans('site.videos') !!}
             </h2>
-            <p>
+            <p class="text-center">
                 {!! Lang()=='ar'?staticStrings()->videos_description_ar:staticStrings()->videos_description_en  !!}
             </p>
         </div>

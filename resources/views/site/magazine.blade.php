@@ -16,8 +16,10 @@
     @include('site.includes.header')
     <section class="sub-header">
         <div class=" container text-center content-header">
-            <h2>{!! trans('site.mawhoob_magazine') !!}</h2>
-            <p>{!! Lang()=='ar'? staticStrings()->magazine_description_ar:staticStrings()->magazine_description_en  !!}</p>
+            <h2 class="mb-3">{!! trans('site.mawhoob_magazine') !!}</h2>
+            <p class="text-center">
+                {!! Lang()=='ar'? staticStrings()->magazine_description_ar:staticStrings()->magazine_description_en  !!}
+            </p>
         </div>
         <div class="back-sub-header"><img src="{!! asset('site/img/Magazine.jpg') !!}" alt=""></div>
     </section>

@@ -895,7 +895,7 @@ img.cover{
       
 
     }
-    a{
+    *{
       img{
         width: 80px;
     height: 80px;
@@ -918,11 +918,7 @@ img.cover{
       }
     }
   }
-  &:hover{
-    li{
-      margin-left: 5px;
-    }
-  }
+ 
   &.sm{
     li{
       margin-left: -10px;
@@ -939,11 +935,7 @@ img.cover{
       }
       
     }
-    &:hover{
-      li{
-        margin-left: 0px;
-      }
-    }
+
   }
 }
 
@@ -993,7 +985,11 @@ p{
 }
 
 
+
 @media screen and (max-width: 787px){
+  .best-app{
+    overflow: hidden;
+  }
   .left-img-h-100{
     height: 250px;
   }

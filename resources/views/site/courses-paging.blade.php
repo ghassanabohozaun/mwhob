@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row justify-content-center">
     @foreach($courses as $course)
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="item-course">
@@ -24,6 +24,24 @@
                     <p class="mb-3 fs-12">
                         {!! Lang()=='ar'?$course->description_ar:$course->description_en !!}
                     </p>
+
+
+                    <div class="row mt-4 mb-4 mx-0 bg-light p-2 br-5">
+                        <div class="col-lg-6 px-1">
+                            <div class="fs-12">
+                                <span>{!! trans('site.start_at') !!}</span>
+                                <span dir="{!! Lang()=='ar'?'rtl':'ltr' !!}"> {!! $course->start_at !!} </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 px-1">
+                            <div class="fs-12">
+                                <span>{!! trans('site.end_at') !!}</span>
+                                <span dir="{!! Lang()=='ar'?'rtl':'ltr' !!}"> {!! $course->end_at !!} </span>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="row justify-content-between align-items-center">
                         <div class="col-auto">
 

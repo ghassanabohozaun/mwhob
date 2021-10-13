@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LectureRequest;
+use App\Http\Resources\AttendanceRecordResource;
 use App\Http\Resources\LectureResource;
+use App\Http\Resources\teachers\TeacherAttendanceRecordResource;
+use App\Http\Resources\teachers\TeacherLectureResource;
 use App\Models\Lecture;
+use App\Models\MawhobEnrollCourse;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
 
@@ -41,7 +45,7 @@ class LecturesController extends Controller
             ->offset($offset)->take($perPage)->get();
 
 
-        $arr = LectureResource::collection($list);
+        $arr = TeacherLectureResource::collection($list);
         $recordsTotal = Lecture::get()->count();
         $recordsFiltered = Lecture::get()->count();
         return response()->json([
@@ -133,4 +137,72 @@ class LecturesController extends Controller
             return $this->returnError(trans('general.try_catch_error_message'), 500);
         }//end catch
     }
+
+    ///////////////////////////////////////////////////////////////
+    /// change Lecture Cancel
+    public function changeLectureCancel(Request $request)
+    {
+
+        try {
+            $lecture = Lecture::find($request->id);
+            if (!$lecture) {
+                return redirect()->route('teacher.not.found');
+            }
+            if ($request->lectureCancel == 'false') {
+                $lecture->status = null;
+                $lecture->lecture_cancel = null;
+                $lecture->save();
+            } else {
+                $lecture->status = null;
+                $lecture->lecture_cancel = 'on';
+                $lecture->save();
+            }
+            return $this->returnSuccessMessage(trans('general.change_status_success_message'));
+
+        } catch (\Exception $exception) {
+            return $this->returnError(trans('general.try_catch_error_message'), 500);
+        }//end catch
+    }
+    ///////////////////////////////////////////////////////////////
+    /// Attendance Record
+    ///////////////////////////////////////////////////////////////
+    /// index
+    public function AttendanceRecord($cid = null, $lid = null)
+    {
+        if (!$lid) {
+            return redirect()->route('teacher.not.found');
+        }
+        $title = trans('courses.attendance_record');
+        return view('teacher.courses.lectures.attendance-record', compact('title', 'cid', 'lid'));
+    }
+
+    ///////////////////////////////////////////////////////////////
+    /// Get Courses
+    public function getAttendanceRecord(Request $request, $cid = null, $lid = null)
+    {
+
+        $perPage = 100;
+        if ($request->has('length')) {
+            $perPage = $request->length;
+        }
+        $offset = 0;
+        if ($request->has('start')) {
+            $offset = $request->start;
+        }
+
+        $list = MawhobEnrollCourse::orderByDesc('created_at')->where('course_id', $cid)
+            ->offset($offset)->take($perPage)->get();
+
+        $arr = TeacherAttendanceRecordResource::collection($list);
+        $recordsTotal = MawhobEnrollCourse::where('course_id', $cid)->get()->count();
+        $recordsFiltered = MawhobEnrollCourse::where('course_id', $cid)->get()->count();
+        return response()->json([
+            'draw' => $request->draw,
+            'recordsTotal' => $recordsTotal,
+            'recordsFiltered' => $recordsFiltered,
+            'data' => $arr
+        ]);
+
+    }
+
 }
