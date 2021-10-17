@@ -1,4 +1,4 @@
-<section class="best-app ">
+<section class="best-app">
     <div class=" container">
         <div class="row justify-content-around align-items-center">
             <div class="col-lg-6">

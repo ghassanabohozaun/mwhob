@@ -15,7 +15,7 @@ class NotificationsController extends Controller
     public function getNotifications()
     {
         $notifications = Mawhoob_Notification::orderByDesc('id')->where('notify_for', 'mawhob')
-            ->where('student_id', student()->id())->take(10)->get();
+            ->where('student_id', student()->id())->take(5)->get();
         return view('site.includes.notifications', compact('notifications'));
     }
 

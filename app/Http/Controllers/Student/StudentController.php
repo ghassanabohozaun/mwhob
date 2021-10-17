@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Student\contestRegistrationTermsRequest;
 use App\Models\Course;
 use App\Models\lecture_mawhob;
 use App\Models\MawhobEnrollCourse;
@@ -20,22 +21,37 @@ class StudentController extends Controller
     use GeneralTrait;
 
     ///////////////////////////////////////////////////
-    /// Student Enroll Contest
-    public function enrollContest(Request $request)
+    /// Student Enroll Program
+    public function contestRegistrationTerms($id = null)
     {
-        if ($request->ajax()) {
+        if (!$id) {
+            return redirect()->route('contests');
+        }
+        $title = trans('site.terms_of_registration_for_the_contest');
+        return view('student.contest-registration-terms', compact('title', 'id'));
+    }
 
-            $MawhobEnrolledContest = MawhobEnrolledContest::
-            where('contest_id', $request->contest_id)
+    ///////////////////////////////////////////////////
+    /// Student Enroll Contest
+    public function enrollContest(contestRegistrationTermsRequest $request)
+    {
+            $MawhobEnrolledContest = MawhobEnrolledContest::where('contest_id', $request->contest_id)
                 ->where('mawhob_id', $request->mawhob_id)->get();
 
             if ($MawhobEnrolledContest->isEmpty()) {
 
+                if ($request->has('file')) {
+                    $file_path = $request->file('file')->store('ContestFiles');
+                } else {
+                    $file_path = '';
+                }
                 ////////////////////////////////////////////////////////////////////
                 ///// enroll contest
                 $mawhobEnrolledContest = MawhobEnrolledContest::create([
                     'contest_id' => $request->contest_id,
                     'mawhob_id' => $request->mawhob_id,
+                    'file' => $file_path,
+                    'link' => $request->link,
                     'enrolled_date' => Carbon::now()->format('Y-m-d'),
                 ]);
 
@@ -75,7 +91,7 @@ class StudentController extends Controller
             } else {
                 return $this->returnError(trans('site.already_enrolled_in_this_contest'), 500);
             }
-        }
+
     }
 
 

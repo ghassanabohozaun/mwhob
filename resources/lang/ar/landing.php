@@ -117,7 +117,8 @@ return [
     'magazine_description_en' => 'وصف المجلة |انجليزي',
     'latest_winners_description_ar' => 'أحدث الفائزين | عربي',
     'latest_winners_description_en' => 'أحدث الفائزين | انجليزي',
-
+    'terms_of_registration_for_the_contest_ar' => 'شروط التسجيل في المسابقة | عربي',
+    'terms_of_registration_for_the_contest_en' => 'شروط التسجيل في المسابقة | انجليزي',
 
     'enter_talents_description_ar' => 'ادخل وصف المواهب بالعربي',
     'enter_talents_description_en' => 'ادخل وصف المواهب بالانجليزي',
@@ -143,6 +144,8 @@ return [
     'enter_magazine_description_en' => 'ادخل وصف المجلة بالانجليزي',
     'enter_latest_winners_description_ar' => 'ادخل أحدث الفائزين بالعربي',
     'enter_latest_winners_description_en' => 'ادخل أحدث الفائزين بالانجليزي',
+    'enter_terms_of_registration_for_the_contest_ar' => 'ادخل شروط التسجيل في المسابقة بالعربي',
+    'enter_terms_of_registration_for_the_contest_en' => 'ادخل شروط التسجيل في المسابقة بالانجليزي',
 
     /////////////////////////////////////////////////////////
     /// Why Choose Us

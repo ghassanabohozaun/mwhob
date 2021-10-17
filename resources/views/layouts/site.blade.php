@@ -31,7 +31,7 @@ xmlns="http://www.w3.org/1999/xhtml">
     <link href="{!! asset('site/css/pagination.css') !!}" rel="stylesheet">
     <link rel="stylesheet" href="{!! asset('site/css/bootstrap-datepicker.min.css') !!}"/>
     <link href="{!! asset('site/css/my-style.css') !!}" rel="stylesheet">
-
+    <link href="{!! asset('site/player/css/audioplayer.css') !!}" rel="stylesheet">
 
     @stack('css')
 

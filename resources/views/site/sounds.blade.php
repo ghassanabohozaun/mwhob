@@ -13,6 +13,8 @@
 @endpush
 @section('content')
 
+
+
     @include('site.includes.header')
 
     <section class="sub-header">
@@ -30,11 +32,9 @@
     </section>
 
 
-
     <section id="sounds_section">
         <div class=" container my-5">
             <div class="row">
-
                 <!-- begin : Filter ------------------------------------------>
                 <div class="col-lg-3">
                     <div class=" bg-warning p-2 text-white text-bold br-10 ">{!! trans('site.filters') !!}</div>
@@ -81,7 +81,6 @@
                             </div>
                         </div>
 
-
                     </div>
                 </div>
                 <!-- end : Filter ------------------------------------------>
@@ -105,11 +104,19 @@
 
 
     </section>
+
+
+
+
+
+
 @endsection
 
 @push('js')
     <script type="text/javascript">
 
+        ////////////////////////////////////////////////////////////////////////
+        // datepicker
         $('.datepicker').datepicker({
             format: "yyyy-mm-dd",
             todayBtn: true,
@@ -209,6 +216,7 @@
                 }
             });
         }
+
 
     </script>
 @endpush

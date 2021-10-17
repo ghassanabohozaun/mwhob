@@ -1,3 +1,6 @@
+
+
+
 <div class="row shadow br-10 mb-5">
     <div class="col-lg-4 p-0">
         <img class="left-img-h-100 cover" width="100%"

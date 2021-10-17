@@ -130,64 +130,11 @@ class SoundsController extends Controller
         return view('admin.sounds.create', compact('title', 'mawhobs'));
     }
 
-    ////////////////////////////////////////////
-    /// user define get Youtube  Link function
-    protected function YoutubeLink($link)
-    {
-        /// YouTube
-        if (preg_match('@^(?:https://(?:www\\.)?youtube.com/)(watch\\?v=|v/)([a-zA-Z0-9_]*)@', $link, $match)) {
-            if (strlen($link) > 11) {
-                if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i',
-                    $link, $match)) {
-                    $shortLink = $match[1];
-                    $fullLink = 'https://www.youtube.com/embed/' . $match[1];
-                    return [$shortLink, $fullLink];
-                } else {
-                    $shortLink = '0';
-                    $fullLink = 'https://www.youtube.com/embed/' . '0';
-                    return [$shortLink, $fullLink];
-                }
-            }
-        } else {
-            return $this->returnError(trans('sounds.url_invalid'), '500');
-        }
-    }
-
-    ////////////////////////////////////////////
-    /// user define get vimeo  Link function
-
-    protected function VimeoLink($link)
-    {
-        if (preg_match('@^(?:https://(?:www\\.)?vimeo.com/)([a-zA-Z0-9_]*)@', $link, $match)) {
-            $stringParts = explode("com/", $link);
-            $shortLink = $stringParts[1];
-            $fullLink = "https://player.vimeo.com/video/" . $shortLink . "?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media";
-            return [$shortLink, $fullLink];
-        } else {
-            return $this->returnError(trans('sounds.url_invalid'), '500');
-        }
-    }
 
     /////////////////////////////////////////////
     /// store sound
     public function store(SoundRequest $request)
     {
-
-        if ($request->input('sound_class') == 'youtube') {
-            $shortLink = $this->YoutubeLink($request->input('youtube_link'))[0];
-            $fullLink = $this->YoutubeLink($request->input('youtube_link'))[1];
-
-            /// vimeo
-        } elseif ($request->input('sound_class') == 'vimeo') {
-            $shortLink = $this->VimeoLink($request->input('vimeo_link'))[0];
-            $fullLink = $this->VimeoLink($request->input('vimeo_link'))[1];
-
-            /// uploaded_video
-        } elseif ($request->input('sound_class') == 'uploaded_sound') {
-            $shortLink = $request->file('upload_sound_link')->store('SoundsFile');
-            $fullLink = url('/') . '/storage/' . $shortLink;
-        }
-
 
         //// upload image
         if ($request->has('sound_image')) {
@@ -196,129 +143,39 @@ class SoundsController extends Controller
             $image_path = '';
         }
 
+        //// upload sound File
+        if ($request->has('sound_file')) {
+            $sound_file_path = $request->file('sound_file')->store('SoundsFile');
+        } else {
+            $sound_file_path = '';
+        }
+
 
         if (setting()->site_lang_en == 'on') {
             ////////////////////////////////////////////////////////////////////
-            /// Youtube
-            if ($request->input('sound_class') == 'youtube') {
-                $sound = Sound::create([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => slug($request->name_en),
-                    'name_ar' => $request->name_ar,
-                    'name_en' => $request->name_en,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $request->sound_class,
-                    'youtube_link' => $fullLink,
-                    'vimeo_link' => null,
-                    'upload_sound_link' => null,
-                    'short_youtube_link' => $shortLink,
-                    'short_vimeo_link' => null,
-                    'short_upload_sound_link' => null,
-                    'language' => 'ar_en',
-                ]);
-                ////////////////////////////////////////////////////////////////////
-                /// vimeo
-            } else if ($request->input('sound_class') == 'vimeo') {
-                $sound = Sound::create([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => slug($request->name_en),
-                    'name_ar' => $request->name_ar,
-                    'name_en' => $request->name_en,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $request->sound_class,
-                    'youtube_link' => null,
-                    'vimeo_link' => $fullLink,
-                    'upload_sound_link' => null,
-                    'short_youtube_link' => null,
-                    'short_vimeo_link' => $shortLink,
-                    'short_upload_sound_link' => null,
-                    'language' => 'ar_en',]);
-                ////////////////////////////////////////////////////////////////////
-                /// Uploaded Video
-            } else {
-                $sound = Sound::create([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => slug($request->name_en),
-                    'name_ar' => $request->name_ar,
-                    'name_en' => $request->name_en,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $request->sound_class,
-                    'youtube_link' => null,
-                    'vimeo_link' => null,
-                    'upload_sound_link' => $fullLink,
-                    'short_youtube_link' => null,
-                    'short_vimeo_link' => null,
-                    'short_upload_sound_link' => $shortLink,
-                    'language' => 'ar_en',
-                ]);
-            }
+            $sound = Sound::create([
+                'sound_image' => $image_path,
+                'slug_name_ar' => slug($request->name_ar),
+                'slug_name_en' => slug($request->name_en),
+                'name_ar' => $request->name_ar,
+                'name_en' => $request->name_en,
+                'date' => $request->date,
+                'length' => $request->length,
+                'sound_file' => $sound_file_path,
+                'language' => 'ar_en',
+            ]);
         } else {
-            ////////////////////////////////////////////////////////////////////
-            /// Youtube
-            if ($request->input('sound_class') == 'youtube') {
-                $sound = Sound::create([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => null,
-                    'name_ar' => $request->name_ar,
-                    'name_en' => null,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $request->sound_class,
-                    'youtube_link' => $fullLink,
-                    'vimeo_link' => null,
-                    'upload_sound_link' => null,
-                    'short_youtube_link' => $shortLink,
-                    'short_vimeo_link' => null,
-                    'short_upload_sound_link' => null,
-                    'language' => 'ar',
-                ]);
-                ////////////////////////////////////////////////////////////////////
-                /// vimeo
-            } else if ($request->input('sound_class') == 'vimeo') {
-                $sound = Sound::create([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => null,
-                    'name_ar' => $request->name_ar,
-                    'name_en' => null,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $request->sound_class,
-                    'youtube_link' => null,
-                    'vimeo_link' => $fullLink,
-                    'upload_sound_link' => null,
-                    'short_youtube_link' => null,
-                    'short_vimeo_link' => $shortLink,
-                    'short_upload_sound_link' => null,
-                    'language' => 'ar',]);
-                ////////////////////////////////////////////////////////////////////
-                /// Uploaded Video
-            } else {
-                $sound = Sound::create([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => null,
-                    'name_ar' => $request->name_ar,
-                    'name_en' => null,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $request->sound_class,
-                    'youtube_link' => null,
-                    'vimeo_link' => null,
-                    'upload_sound_link' => $fullLink,
-                    'short_youtube_link' => null,
-                    'short_vimeo_link' => null,
-                    'short_upload_sound_link' => $shortLink,
-                    'language' => 'ar',
-                ]);
-            }
+            $sound = Sound::create([
+                'sound_image' => $image_path,
+                'slug_name_ar' => slug($request->name_ar),
+                'slug_name_en' => null,
+                'name_ar' => $request->name_ar,
+                'name_en' => null,
+                'date' => $request->date,
+                'length' => $request->length,
+                'sound_file' => $sound_file_path,
+                'language' => 'ar',
+            ]);
         }
 
         if ($request->has('mawhobs')) {
@@ -330,8 +187,6 @@ class SoundsController extends Controller
             }
         }
         return $this->returnSuccessMessage(trans('general.add_success_message'));
-
-
     }
 
     /////////////////////////////////////////
@@ -361,44 +216,6 @@ class SoundsController extends Controller
             return redirect()->route('admin.not.found');
         }
 
-
-        if ($request->input('sound_class') == 'youtube') {
-            $statusClass = 'youtube';
-            $shortLink = $this->YoutubeLink($request->input('youtube_link'))[0];
-            $fullLink = $this->YoutubeLink($request->input('youtube_link'))[1];
-
-            /// vimeo
-        } elseif ($request->input('sound_class') == 'vimeo') {
-            $statusClass = 'vimeo';
-            $shortLink = $this->VimeoLink($request->input('vimeo_link'))[0];
-            $fullLink = $this->VimeoLink($request->input('vimeo_link'))[1];
-
-            /// uploaded_video
-        } elseif ($request->input('sound_class') == 'uploaded_sound') {
-            if ($request->hasFile('upload_sound_link')) {
-                if (!empty($sound->upload_sound_link)) {
-                    Storage::delete($sound->short_upload_sound_link);
-                    $shortLink = $request->file('upload_sound_link')->store('SoundsFile');
-                    $fullLink = url('/') . '/storage/' . $shortLink;
-                    $statusClass = 'uploaded_sound';
-                } else {
-                    $shortLink = $request->file('upload_sound_link')->store('SoundsFile');
-                    $fullLink = url('/') . '/storage/' . $shortLink;
-                    $statusClass = 'uploaded_sound';
-                }
-            } else {
-                if (!empty($sound->upload_sound_link)) {
-                    $shortLink = $sound->short_upload_sound_link;
-                    $fullLink = $sound->upload_sound_link;
-                    $statusClass = $sound->sound_class;
-                } else {
-                    $shortLink = '';
-                    $fullLink = '';
-                    $statusClass = 'uploaded_sound';
-                }
-            }
-        }
-
         /// upload image
         if ($request->hasFile('sound_image')) {
             if (!empty($sound->sound_image)) {
@@ -416,130 +233,47 @@ class SoundsController extends Controller
         }
 
 
-        if (setting()->site_lang_en == 'on') {
-            ////////////////////////////////////////////////////////////////////
-            /// Youtube
-            if ($request->input('sound_class') == 'youtube') {
-                $sound->update([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => slug($request->name_en),
-                    'name_ar' => $request->name_ar,
-                    'name_en' => $request->name_en,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $statusClass,
-                    'youtube_link' => $fullLink,
-                    'vimeo_link' => null,
-                    'upload_sound_link' => null,
-                    'short_youtube_link' => $shortLink,
-                    'short_vimeo_link' => null,
-                    'short_upload_sound_link' => null,
-                    'language' => 'ar_en',
-                ]);
-                ////////////////////////////////////////////////////////////////////
-                /// vimeo
-            } else if ($request->input('sound_class') == 'vimeo') {
-                $sound->update([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => slug($request->name_en),
-                    'name_ar' => $request->name_ar,
-                    'name_en' => $request->name_en,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $statusClass,
-                    'youtube_link' => null,
-                    'vimeo_link' => $fullLink,
-                    'upload_sound_link' => null,
-                    'short_youtube_link' => null,
-                    'short_vimeo_link' => $shortLink,
-                    'short_upload_sound_link' => null,
-                    'language' => 'ar_en',
-                    ]);
-                ////////////////////////////////////////////////////////////////////
-                /// Uploaded Video
+        /// upload sound file
+        if ($request->hasFile('sound_file')) {
+            if (!empty($sound->sound_file)) {
+                Storage::delete($sound->sound_file);
+                $sound_file_path = $request->file('sound_file')->store('SoundsFile');
             } else {
-                $sound->update([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => slug($request->name_en),
-                    'name_ar' => $request->name_ar,
-                    'name_en' => $request->name_en,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $statusClass,
-                    'youtube_link' => null,
-                    'vimeo_link' => null,
-                    'upload_sound_link' => $fullLink,
-                    'short_youtube_link' => null,
-                    'short_vimeo_link' => null,
-                    'short_upload_sound_link' => $shortLink,
-                    'language' => 'ar_en',
-                ]);
+                $sound_file_path = $request->file('sound_file')->store('SoundsFile');
             }
         } else {
-            ////////////////////////////////////////////////////////////////////
-            /// Youtube
-            if ($request->input('sound_class') == 'youtube') {
-                $sound->update([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => null,
-                    'name_ar' => $request->name_ar,
-                    'name_en' => null,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $statusClass,
-                    'youtube_link' => $fullLink,
-                    'vimeo_link' => null,
-                    'upload_sound_link' => null,
-                    'short_youtube_link' => $shortLink,
-                    'short_vimeo_link' => null,
-                    'short_upload_sound_link' => null,
-                    'language' => 'ar',
-                ]);
-                ////////////////////////////////////////////////////////////////////
-                /// vimeo
-            } else if ($request->input('sound_class') == 'vimeo') {
-                $sound->update([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => null,
-                    'name_ar' => $request->name_ar,
-                    'name_en' => null,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $statusClass,
-                    'youtube_link' => null,
-                    'vimeo_link' => $fullLink,
-                    'upload_sound_link' => null,
-                    'short_youtube_link' => null,
-                    'short_vimeo_link' => $shortLink,
-                    'short_upload_sound_link' => null,
-                    'language' => 'ar',
-                    ]);
-                ////////////////////////////////////////////////////////////////////
-                /// Uploaded Video
+            if (!empty($sound->sound_file)) {
+                $sound_file_path = $sound->sound_file;
             } else {
-                $sound->update([
-                    'sound_image' => $image_path,
-                    'slug_name_ar' => slug($request->name_ar),
-                    'slug_name_en' => null,
-                    'name_ar' => $request->name_ar,
-                    'name_en' => null,
-                    'date' => $request->date,
-                    'length' => $request->length,
-                    'sound_class' => $statusClass,
-                    'youtube_link' => null,
-                    'vimeo_link' => null,
-                    'upload_sound_link' => $fullLink,
-                    'short_youtube_link' => null,
-                    'short_vimeo_link' => null,
-                    'short_upload_sound_link' => $shortLink,
-                    'language' => 'ar',
-                ]);
+                $sound_file_path = '';
             }
+        }
+
+
+        if (setting()->site_lang_en == 'on') {
+            $sound->update([
+                'sound_image' => $image_path,
+                'slug_name_ar' => slug($request->name_ar),
+                'slug_name_en' => slug($request->name_en),
+                'name_ar' => $request->name_ar,
+                'name_en' => $request->name_en,
+                'date' => $request->date,
+                'length' => $request->length,
+                'sound_file' => $sound_file_path,
+                'language' => 'ar_en',
+            ]);
+        } else {
+            $sound->update([
+                'sound_image' => $image_path,
+                'slug_name_ar' => slug($request->name_ar),
+                'slug_name_en' => null,
+                'name_ar' => $request->name_ar,
+                'name_en' => null,
+                'date' => $request->date,
+                'length' => $request->length,
+                'sound_file' => $sound_file_path,
+                'language' => 'ar',
+            ]);
         }
 
 

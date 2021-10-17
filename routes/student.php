@@ -17,7 +17,7 @@ Route::group([
 
     //////////////////////////////////////////////////////////////////
     /// not found page
-    /// Route::get('/notFound', 'DashboardController@notFound')->name('student.not.found');
+     //Route::get('/notFound', 'DashboardController@notFound')->name('student.not.found');
 
     Route::get('/portfolio', 'DashboardController@portfolio')->name('student.portfolio');
 
@@ -31,6 +31,10 @@ Route::group([
     Route::get('/student/contests/paging', 'DashboardController@studentContestsPaging')
         ->name('student.contests.paging');
 
+    Route::get('/contest-registration-terms/{id?}', 'StudentController@contestRegistrationTerms')
+        ->name('student.contest.registration.terms');
+
+
     Route::get('/programs', 'DashboardController@programs')->name('student.programs');
     Route::get('/student/programs/paging', 'DashboardController@studentProgramsPaging')
         ->name('student.programs.paging');
@@ -41,11 +45,8 @@ Route::group([
     Route::get('/student/show/all/notifications/paging', 'DashboardController@showAllStudentNotificationsPaging')
         ->name('student.notifications.paging');
 
-
     Route::get('/update-account', 'DashboardController@updateAccount')->name('student.update.account');
     Route::post('/update-account', 'DashboardController@updateStudentAccount')->name('student.update.account');
-
-
 
     Route::post('/student-enroll-contest', 'StudentController@enrollContest')->name('student.enroll.contest');
     Route::post('/student-enroll-course', 'StudentController@enrollCourse')->name('student.enroll.course');
@@ -59,7 +60,6 @@ Route::group([
     ///////////////////////////////////////////////////////////////////
     /// Notifications Routes
     Route::group(['prefix'=>'notifications'],function (){
-
 
         Route::get('/get/student/notifications', 'NotificationsController@getNotifications')
             ->name('student.get.notifications');
@@ -79,6 +79,7 @@ Route::group([
 Route::group(['namespace' => 'Student', 'middleware' => 'guest:student'], function () {
 
 
+
     Route::get('/registration-policy', 'SignupController@registrationPolicy')
         ->name('student.registration.policy');
 
@@ -94,9 +95,10 @@ Route::group(['namespace' => 'Student', 'middleware' => 'guest:student'], functi
     Route::post('/active-student', 'SignupController@activeStudent')
         ->name('student.active.student');
 
-
     Route::get('login', 'StudentLoginController@getLogin')->name('get.student.login');
     Route::post('login', 'StudentLoginController@doLogin')->name('student.login');
+
+
 });
 
 //////////////////////////////////////////////////////////////////////////////

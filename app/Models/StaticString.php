@@ -17,14 +17,12 @@ class StaticString extends Model
         'videos_description_en',
         'success_stories_description_ar',
         'success_stories_description_en',
-
         'success_story_categories_description_ar',
         'success_story_categories_description_en',
         'success_story_description_ar',
         'success_story_description_en',
         'success_story_person_description_ar',
         'success_story_person_description_en',
-
         'programs_description_ar',
         'programs_description_en',
         'courses_description_ar',
@@ -37,7 +35,8 @@ class StaticString extends Model
         'magazine_description_en',
         'latest_winners_description_ar',
         'latest_winners_description_en',
-
+        'terms_of_registration_for_the_contest_ar',
+        'terms_of_registration_for_the_contest_en',
     ];
     protected $hidden = ['created_at', 'updated_at'];
 }

@@ -96,8 +96,8 @@ return [
     'notifications' => 'الاشعارات',
     'notification_title' => 'العنوان',
     'notification_details' => 'التفاصيل',
-    'mark_as_read'=>'ضع إشارة مقروء',
-    'action'=>'الاجراءات',
+    'mark_as_read' => 'ضع إشارة مقروء',
+    'action' => 'الاجراءات',
 
     'update_account' => 'تعديل بيانات الحساب ',
     'update' => 'تعديل',
@@ -119,16 +119,15 @@ return [
     'lecture_from' => 'من',
     'lecture_to' => 'الي',
     'status' => 'الحالة',
-    'attendance_and_absence_record'=>'سجل الحضور والغياب',
+    'attendance_and_absence_record' => 'سجل الحضور والغياب',
     'lecture_number' => ' محاضرة رقم : ',
-    'lecture_cancel'=>'المحاضرة ملغاة',
-    'start_at'=>'يبدأ في',
-    'end_at'=>'ينتهي في',
-
-
-
-
-
+    'lecture_cancel' => 'المحاضرة ملغاة',
+    'start_at' => 'يبدأ في',
+    'end_at' => 'ينتهي في',
+    'terms_of_registration_for_the_contest'=>'شروط التسجيل في المسابقة',
+    'link'=>'رابط',
+    'file'=>'ملف',
+    'previously_registered'=>'مسجلة مسبقا',
 
     'do_you_want_to_enroll_in_contest' => 'هل تريد التسجيل في المسابقة ؟',
     'enrolled_in_contest_successfully' => 'تم تسجيلك في المسابقة بنجاح ',

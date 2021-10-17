@@ -221,111 +221,22 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{trans('sounds.sound_class')}}
-                                                        </label>
-                                                        <div class="col-lg-9 col-md-9">
-                                                            <div class="form-check pl-0 radio-inline">
-                                                                <label class="radio radio-outline">
-                                                                    <input type="radio" id="sound_class"
-                                                                           name="sound_class" checked
-                                                                           value="youtube"/>
-                                                                    <span></span>
-                                                                    {{trans('sounds.youtube')}}
-                                                                </label>
-                                                                <label class="radio radio-outline">
-                                                                    <input type="radio" id="sound_class"
-                                                                           name="sound_class"
-                                                                           value="vimeo"/>
-                                                                    <span></span>
-                                                                    {{trans('sounds.vimeo')}}
-                                                                </label>
-
-                                                                <label class="radio radio-outline">
-                                                                    <input type="radio" id="sound_class"
-                                                                           name="sound_class"
-                                                                           value="uploaded_sound"/>
-                                                                    <span></span>
-                                                                    {{trans('sounds.uploaded_sound')}}
-                                                                </label>
-
-                                                            </div>
-                                                        </div>
-                                                        <!--begin::body-->
-
-                                                    </div>
-                                                    <!--end::Group-->
-
-
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row youtube_section">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{trans('sounds.youtube_link')}}
+                                                            {{trans('sounds.sound_file')}}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
                                                             <input
                                                                 class="form-control form-control-lg"
-                                                                name="youtube_link" id="youtube_link" type="text"
-                                                                placeholder=" {{trans('sounds.enter_youtube_link')}}"
-                                                                autocomplete="off"/>
-
-                                                            <span class="form-text text-muted">
-                                                                {{trans('general.example')}} : &nbsp;
-                                                                https://www.youtube.com/watch?v=7bOptq-NPJQ
-                                                            </span>
+                                                                type="file" name="sound_file"
+                                                                id="sound_file"
+                                                                placeholder=""/>
                                                             <span class="form-text text-danger"
-                                                                  id="youtube_link_error"></span>
-                                                        </div>
-
-                                                    </div>
-                                                    <!--end::Group-->
-
-
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row vimeo_section">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{trans('sounds.vimeo_link')}}
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <input
-                                                                class="form-control form-control-lg"
-                                                                name="vimeo_link" id="vimeo_link" type="text"
-                                                                placeholder=" {{trans('sounds.enter_vimeo_link')}}"
-                                                                autocomplete="off"/>
-
-                                                            <span class="form-text text-muted">
-                                                                {{trans('general.example')}} : &nbsp;
-                                                              https://vimeo.com/232955578
-                                                            </span>
-                                                            <span class="form-text text-danger"
-                                                                  id="vimeo_link_error"></span>
-                                                        </div>
-
-                                                    </div>
-                                                    <!--end::Group-->
-
-
-                                                    <!--begin::Group-->
-                                                    <div class="upload_sound_section">
-                                                        <div class="form-group row">
-                                                            <label class="col-xl-3 col-lg-3 col-form-label">
-                                                                {{trans('sounds.upload_sound_link')}}
-                                                            </label>
-                                                            <div class="col-lg-9 col-xl-9">
-                                                                <input
-                                                                    class="form-control form-control-lg"
-                                                                    type="file" name="upload_sound_link"
-                                                                    id="upload_sound_link"
-                                                                    placeholder=""/>
-                                                                <span class="form-text text-danger"
-                                                                      id="uploadStatus">
+                                                                  id="uploadStatus">
                                                                     <img
                                                                         src="{!! asset('adminBoard/images/ajax-loader.gif') !!}"/>
                                                                 </span>
-                                                                <span class="form-text text-danger"
-                                                                      id="upload_sound_link_error"></span>
-                                                            </div>
+                                                            <span class="form-text text-danger"
+                                                                  id="sound_file_error"></span>
                                                         </div>
-
                                                     </div>
                                                     <!--end::Group-->
 
@@ -387,29 +298,6 @@
         );
 
 
-        ////////////////////////////////////////////////////////////////////////////////////
-        $('.vimeo_section').addClass('d-none');
-        $('.upload_sound_section').addClass('d-none');
-
-        $('input[type=radio][name=sound_class]').change(function () {
-            if (this.value == 'youtube') {
-                $(".progress-bar").width('0');
-                $('.youtube_section').removeClass('d-none');
-                $('.vimeo_section').addClass('d-none');
-                $('.upload_sound_section').addClass('d-none');
-            } else if (this.value == 'vimeo') {
-                $(".progress-bar").width('0');
-                $('.youtube_section').addClass('d-none');
-                $('.vimeo_section').removeClass('d-none');
-                $('.upload_sound_section').addClass('d-none');
-            } else if (this.value == 'uploaded_sound') {
-                $(".progress-bar").width('0');
-                $('.youtube_section').addClass('d-none');
-                $('.vimeo_section').addClass('d-none');
-                $('.upload_sound_section').removeClass('d-none');
-            }
-        });
-
         //////////////////////////////////////////////////////
         $('#date').datepicker({
             format: "yyyy-mm-dd",
@@ -434,10 +322,7 @@
             $('#name_en').css('border-color', '');
             $('#date').css('border-color', '');
             $('#length').css('border-color', '');
-            $('#sound_class').css('border-color', '');
-            $('#vimeo_link').css('border-color', '');
-            $('#youtube_link').css('border-color', '');
-            $('#upload_sound_link').css('border-color', '');
+            $('#sound_file').css('border-color', '');
             $('#mawhobs').css('border-color', '');
 
             $('#sound_image_error').text('');
@@ -445,10 +330,7 @@
             $('#name_en_error').text('');
             $('#date_error').text('');
             $('#length_error').text('');
-            $('#sound_class_error').text('');
-            $('#vimeo_link_error').text('');
-            $('#youtube_link_error').text('');
-            $('#upload_sound_link_error').text('');
+            $('#sound_file_error').text('');
             $('#mawhobs_error').text('');
             /////////////////////////////////////////////////////////////
 

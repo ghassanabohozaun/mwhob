@@ -105,6 +105,8 @@
                                                     <th>#</th>
                                                     <th>@lang('contests.mawhob_id')</th>
                                                     <th>@lang('contests.enrolled_date')</th>
+                                                    <th>@lang('contests.link')</th>
+                                                    <th>@lang('contests.file')</th>
                                                     <th>@lang('contests.mawhob_winner')</th>
                                                     <th>@lang('contests.mawhob_winner_description_ar')</th>
                                                     <th>@lang('contests.mawhob_winner_description_en')</th>
@@ -161,7 +163,7 @@
                 lengthMenu: [5, 10, 25, 50],
                 pageLength: 10,
                 searchDelay: 500,
-                language:{
+                language: {
                     lengthMenu: "@lang('general.show') _MENU_",
                     info: "@lang('general.entries_from') _START_ @lang('general.to') _END_ @lang('general.form') _TOTAL_",
                     infoEmpty: "@lang('general.entries_from') 0 @lang('general.to') 0 @lang('general.form') 0",
@@ -191,6 +193,8 @@
                     {data: "id"},
                     {data: "mawhob_id"},
                     {data: "enrolled_date"},
+                    {data: "link"},
+                    {data: "file"},
                     {data: "mawhob_winner"},
                     {data: "mawhob_winner_description_ar"},
                     {data: "mawhob_winner_description_en"},
@@ -253,7 +257,7 @@
                                 $('.delete_enrolled_mawhob_from_contest_button').click(function () {
                                     $('#my_enrolled_mawhob_data_table').DataTable().ajax.reload();
                                 });
-                            }else {
+                            } else {
                                 Swal.fire({
                                     title: data.msg,
                                     text: "",

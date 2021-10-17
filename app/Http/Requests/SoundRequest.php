@@ -23,8 +23,6 @@ class SoundRequest extends FormRequest
      */
     public function rules()
     {
-
-        if ($this->input('sound_class') == 'youtube') {
             if (setting()->site_lang_en == 'on') {
                 return [
                     'sound_image' =>  'required|image|mimes:jpg,jpeg,png|max:1024',
@@ -32,69 +30,19 @@ class SoundRequest extends FormRequest
                     'name_en' => 'required',
                     'date' => 'required',
                     'length' => 'required|numeric',
-                    'sound_class' => 'required',
-                    'youtube_link'=> 'required',
                     'mawhobs'=> 'required',
+                    'sound_file' => 'required|mimes:mp3|max:10024',
                 ];
             }else{
                 return [
-                    'sound_image' =>  'required|image|mimes:jpg,jpeg,png|max:1024',
+                    'sound_imagesound_image' =>  'required|image|mimes:jpg,jpeg,png|max:1024',
                     'name_ar' => 'required',
                     'date' => 'required',
                     'length' => 'required|numeric',
-                    'sound_class' => 'required',
-                    'youtube_link'=> 'required',
                     'mawhobs'=> 'required',
+                    'sound_filesound_file' => 'required|mimes:mp3|max:10024',
                 ];
             }
-
-        } else  if ($this->input('sound_class') == 'vimeo') {
-            if (setting()->site_lang_en == 'on') {
-                return [
-                    'sound_image' => 'required|image|mimes:jpg,jpeg,png|max:1024',
-                    'name_ar' => 'required',
-                    'name_en' => 'required',
-                    'date' => 'required',
-                    'length' => 'required|numeric',
-                    'sound_class' => 'required',
-                    'vimeo_link' => 'required',
-                    'mawhobs'=> 'required',
-                ];
-            }else{
-                return [
-                    'sound_image' => 'required|image|mimes:jpg,jpeg,png|max:1024',
-                    'name_ar' => 'required',
-                    'date' => 'required',
-                    'length' => 'required|numeric',
-                    'sound_class' => 'required',
-                    'vimeo_link' => 'required',
-                    'mawhobs'=> 'required',
-                ];
-            }
-        } else  if ($this->input('sound_class') == 'uploaded_sound') {
-            if (setting()->site_lang_en == 'on') {
-                return [
-                    'sound_image' => 'required|image|mimes:jpg,jpeg,png|max:1024',
-                    'name_ar' => 'required',
-                    'name_en' => 'required',
-                    'date' => 'required',
-                    'length' => 'required|numeric',
-                    'sound_class' => 'required',
-                    'upload_sound_link' => 'required',
-                    'mawhobs'=> 'required',
-                ];
-            }else{
-                return [
-                    'sound_image' => 'required|image|mimes:jpg,jpeg,png|max:1024',
-                    'name_ar' => 'required',
-                    'date' => 'required',
-                    'length' => 'required|numeric',
-                    'sound_class' => 'required',
-                    'upload_sound_link' => 'required',
-                    'mawhobs'=> 'required',
-                ];
-            }
-        }
     }
 
     public function messages()
@@ -103,8 +51,10 @@ class SoundRequest extends FormRequest
             'required' => trans('sounds.required'),
             'in' => trans('sounds.in'),
             'image' => trans('sounds.image'),
-            'mimes' => trans('sounds.mimes'),
-            'max' => trans('sounds.image_max'),
+            'sound_file.mimes' => trans('sounds.sound_mimes'),
+            'sound_image.mimes' => trans('sounds.photo_mimes'),
+            'sound_file.max' => trans('sounds.sound_max'),
+            'sound_image.max' => trans('sounds.photo_max'),
             'photo.required' => trans('sounds.photo_required'),
             'numeric' => trans('sounds.numeric'),
 

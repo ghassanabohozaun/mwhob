@@ -13,12 +13,10 @@ return [
     'uploaded_video' => 'Uploaded Video',
     'url_invalid' => 'Invalid URL',
     'upload_sound_file' => 'upload Sound File',
-    'upload_error'=>'Upload Failed',
-    'mawhobs'=>'Mawhobs',
-    'no_video'=>'No Video Exists',
-    'show_video'=>'Show Video',
-
-
+    'upload_error' => 'Upload Failed',
+    'mawhobs' => 'Mawhobs',
+    'no_sound' => 'No sound File Exists',
+    'show_sound' => 'Download Sound File',
 
 
     'sound_image' => 'Image',
@@ -27,9 +25,7 @@ return [
     'date' => 'Date',
     'length' => 'Length',
     'sound_class' => 'Sound class',
-    'youtube_link' => 'Youtube Link',
-    'vimeo_link' => 'Vimeo Link',
-    'upload_sound_link' => 'Upload Sound Link',
+    'sound_file' => 'Sound File',
     'views' => 'Views',
     'language' => 'Language',
     'status' => 'Status',
@@ -41,9 +37,7 @@ return [
     'enter_date' => 'Enter Date',
     'enter_length' => 'Enter Length',
     'enter_sound_class' => 'Enter Sound class',
-    'enter_youtube_link' => 'Enter Youtube Link',
-    'enter_vimeo_link' => 'Enter Vimeo Link',
-    'enter_upload_sound_link' => 'Enter Upload Sound Link',
+    'enter_sound_file' => 'Enter Sound File',
     'enter_views' => 'Enter Views',
     'enter_language' => 'Enter Language',
     'enter_status' => 'Enter Status',
@@ -57,8 +51,11 @@ return [
     'max' => 'Max allow characters 100',
     'in' => 'The entered value is not valid',
     'image' => 'must be image ',
-    'image_max' => 'Max allow image size 1 mega',
-    'mimes' => 'image with this format jpeg,jpg,png',
+    'sound_max' => 'Max allow sound file size 10 mega',
+    'photo_max' => 'Max allow image size 1 mega',
+    'sound_mimes' => 'Sound with this format mp3 only',
+    'photo_mimes' => 'Image with this formats jpeg,jpg,png',
+
     'photo_required' => 'Offer Photo Required',
     'numeric' => 'Must Be Numeric',
 

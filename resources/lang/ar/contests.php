@@ -39,6 +39,8 @@ return [
     'enrolled_list' => 'قائمة المسجلين',
     'add_new_mawhob' => 'اضافة موهوب جديد',
     'choose_winner' => 'اختيار الفائز',
+    'no_file'=>'لا يوجد ملف',
+    'no_link'=>'لا يوجد رابط',
 
     'contest_id' => 'المسابقة',
     'mawhob_id' => 'الموهوب',
@@ -46,7 +48,8 @@ return [
     'mawhob_winner' => 'الموهوب الفائز',
     'mawhob_winner_description_ar' => 'وصف الفائز | عربي',
     'mawhob_winner_description_en' => 'وصف الفائز | انجليزي',
-
+    'file'=>'الملف',
+    'link'=>'الرابط',
 
     'enter_contest_id' => 'ادخل المسابقة',
     'enter_mawhob_id' => 'ادخل الموهوب',

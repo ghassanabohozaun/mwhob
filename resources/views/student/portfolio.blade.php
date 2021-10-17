@@ -125,7 +125,7 @@
                                  class="img-fluid" id="no_data_img"
                                  title="{!! trans('site.no_date') !!}">
                         @else
-                            <div class="row" uk-lightbox>
+                            <div class="row">
 
                                 @foreach($mawhobSounds as $mawhobSound)
                                     <div class="col-lg-4 col-md-6  mb-4">
@@ -135,33 +135,19 @@
                                                     class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle br-5"
                                                     style="background-image: url({!! asset(Storage::url($mawhobSound->sound->sound_image)) !!});
                                                         height: 220px;">
-                                                    <p class="uk-h4">
-                                                        @if($mawhobSound->sound->sound_class =='uploaded_sound')
-                                                            <a href="{!! Storage::url($mawhobSound->sound->short_upload_sound_link) !!}"
-                                                               class="my_sound_count"
-                                                               data-id="{{$mawhobSound->sound->id}}">
-                                                                <i class="fas fs-28 text-white fa-play-circle"></i>
-                                                            </a>
-                                                        @elseif($mawhobSound->sound->sound_class =='youtube')
-                                                            <a href="https://www.youtube.com/watch?v={!!$mawhobSound->sound->short_youtube_link !!}"
-                                                               class="my_sound_count"
-                                                               data-id="{{$mawhobSound->sound->id}}">
-                                                                <i class="fas fs-28 text-white fa-play-circle"></i>
-                                                            </a>
-                                                        @else
-                                                            <a href="https://vimeo.com/{!! $mawhobSound->sound->short_vimeo_link !!}"
-                                                               class="my_sound_count"
-                                                               data-id="{{$mawhobSound->sound->id}}">
-                                                                <i class="fas fs-28 text-white fa-play-circle"></i>
-                                                            </a>
-                                                        @endif
+                                                    <p>
+                                                        <a href="{!! Storage::url($mawhobSound->sound->sound_file) !!}"
+                                                           target="_blank"
+                                                           data-id="{{$mawhobSound->sound->id}}">
+                                                            <i class="fas fs-28 text-white fa-download"></i>
+                                                        </a>
                                                     </p>
                                                 </div>
                                             </div>
                                             <div class="content-item">
                                                 <div class="row justify-content-between align-items-center mb-3">
                                                     <div class=" col-auto date-item fs-14 text-bold text-dark">
-                                                        <a href="#" class="text-dark">
+                                                        <a href="javascript:void(0)" class="text-dark">
                                                             {!! Lang()=='ar'? $mawhobSound->sound->name_ar:$mawhobSound->sound->name_en !!}
                                                         </a>
                                                     </div>

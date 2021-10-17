@@ -110,6 +110,8 @@ return [
     'magazine_description_en' => 'Magazine Description | en',
     'latest_winners_description_ar' => 'Latest Winners Description | ar',
     'latest_winners_description_en' => 'Latest Winners Description | en',
+    'terms_of_registration_for_the_contest_ar' => 'Terms Of Registration For The Contest | ar',
+    'terms_of_registration_for_the_contest_en' => 'Terms Of Registration For The Contest | en',
 
 
     'enter_talents_description_ar' => 'Enter Arabic Talents Description',
@@ -138,7 +140,8 @@ return [
     'enter_magazine_description_en' => 'Enter English Magazine Description',
     'enter_latest_winners_description_ar' => 'Latest Arabic Winners Description ',
     'enter_latest_winners_description_en' => 'Latest English Winners Description ',
-
+    'enter_terms_of_registration_for_the_contest_ar' => 'Enter Arabic Terms Of Registration For The Contest',
+    'enter_terms_of_registration_for_the_contest_en' => 'Enter English Terms Of Registration For The Contest',
 
     /////////////////////////////////////////////////////////
     /// Why Choose Us
@@ -181,7 +184,6 @@ return [
 
     /////////////////////////////////////////////////////////
     /// Registration Policy
-
 
 
     /////////////////////////////////////////////////////////////////

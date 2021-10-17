@@ -24,6 +24,8 @@ class CreateMawhobEnrolledContestsTable extends Migration
             $table->longText('mawhob_winner_description_ar')->nullable();
             $table->longText('mawhob_winner_description_en')->nullable();
             $table->enum('language', ['ar', 'ar_en'])->default('ar');
+            $table->text('link')->nullable();
+            $table->text('file')->nullable();
             $table->timestamps();
         });
     }

@@ -393,7 +393,8 @@ class LandingPageController extends Controller
                 'magazine_description_en' => $request->magazine_description_en,
                 'latest_winners_description_ar' => $request->latest_winners_description_ar,
                 'latest_winners_description_en' => $request->latest_winners_description_en,
-
+                'terms_of_registration_for_the_contest_ar' => $request->terms_of_registration_for_the_contest_ar,
+                'terms_of_registration_for_the_contest_en' => $request->terms_of_registration_for_the_contest_en,
             ]);
             return $this->returnSuccessMessage(trans('general.add_success_message'));
         } else {
@@ -428,6 +429,8 @@ class LandingPageController extends Controller
                 'magazine_description_en' => $request->magazine_description_en,
                 'latest_winners_description_ar' => $request->latest_winners_description_ar,
                 'latest_winners_description_en' => $request->latest_winners_description_en,
+                'terms_of_registration_for_the_contest_ar' => $request->terms_of_registration_for_the_contest_ar,
+                'terms_of_registration_for_the_contest_en' => $request->terms_of_registration_for_the_contest_en,
             ]);
 
             return $this->returnSuccessMessage(trans('general.update_success_message'));

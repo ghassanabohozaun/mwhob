@@ -15,8 +15,8 @@ return [
     'upload_sound_file' => 'رفع ملف الصوت',
     'upload_error' => 'فشل عملية الرفع',
     'mawhobs' => 'الموهوبين',
-    'no_video'=>'لا يوجد فيديو',
-    'show_video'=>'عرض الفيديو',
+    'no_sound'=>'لا يوجد ملف صوت',
+    'show_sound'=>'تحميل ملف الصوت',
 
 
     'sound_image' => 'الصورة',
@@ -24,10 +24,7 @@ return [
     'name_en' => 'الاسم | انجليزي',
     'date' => 'التاريخ',
     'length' => 'المدة',
-    'sound_class' => 'تصنيف الصوت',
-    'youtube_link' => 'رابط يوتيوب',
-    'vimeo_link' => 'رابط فيميو',
-    'upload_sound_link' => 'رابط فيديو مرفوع',
+    'sound_file' => ' ملف الصوت',
     'views' => 'عدد المشاهدات',
     'language' => 'اللغة',
     'status' => 'الحالة',
@@ -38,10 +35,7 @@ return [
     'enter_name_en' => 'ادخل الاسم  بالانجليزي',
     'enter_date' => 'ادخل التاريخ',
     'enter_length' => 'ادخل المدة',
-    'enter_sound_class' => 'ادخل تصنيف الصوت',
-    'enter_youtube_link' => ' ادخل رابط يوتيوب',
-    'enter_vimeo_link' => ' ادخل رابط فيميو',
-    'enter_upload_sound_link' => ' ادخل رابط فيديو مرفوع',
+    'enter_sound_file' => ' ادخل ملف الصوت',
     'enter_views' => 'ادخل عدد المشاهدات',
     'enter_language' => 'ادخل اللغة',
     'enter_status' => 'ادخل الحالة',
@@ -56,8 +50,13 @@ return [
     'max' => 'الحد الاقصي المسموح به للحروف 100',
     'in' => 'القيمة المدخلة غير صحيحة',
     'image' => 'يجب ان تكون صورة',
-    'image_max' => 'حجم الصورة المسموح به 1 ميجا فقط',
-    'mimes' => 'يجب ان تكون صورة باحدي الصيغ png ,jpeg,jpg',
+    'sound_max' => 'حجم ملف الصوت المسموح به 10 ميجا فقط',
+    'photo_max' => 'حجم الصورة المسموح به 1 ميجا فقط',
+
+    'sound_mimes' => 'يجب ان يكون الصوت بصيغة mp3 فقط',
+    'photo_mimes' => 'يجب ان تكون صورة باحدي الصيغ jpeg , jpg,png',
+
+
     'photo_required' => 'صورة العرض مطلوبة',
     'numeric' => 'القيمية المدخلة يجب ان تكون عددية',
 

@@ -20,13 +20,7 @@ class Sound extends Model
         'name_en',
         'date',
         'length',
-        'sound_class',
-        'youtube_link',
-        'vimeo_link',
-        'upload_sound_link',
-        'short_youtube_link',
-        'short_vimeo_link',
-        'short_upload_sound_link',
+        'sound_file',
         'views',
         'language',
         'status',
@@ -53,7 +47,7 @@ class Sound extends Model
                     $q->where('language', 'ar')
                         ->orWhere('language', 'ar_en');
                 });
-        }else{
+        } else {
             $sounds = DB::table('sounds')->orderByDesc('id')
                 ->where('status', 'on')->where(function ($q) {
                     $q->where('language', 'ar_en');

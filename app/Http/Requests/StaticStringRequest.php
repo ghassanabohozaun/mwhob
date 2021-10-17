@@ -50,7 +50,8 @@ class StaticStringRequest extends FormRequest
                 'magazine_description_en' => 'required',
                 'latest_winners_description_ar' => 'required',
                 'latest_winners_description_en' => 'required',
-
+                'terms_of_registration_for_the_contest_ar' => 'required',
+                'terms_of_registration_for_the_contest_en' => 'required',
 
             ];
     }

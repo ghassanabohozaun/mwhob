@@ -20,11 +20,20 @@
                         <div class="col-auto">
 
                             @if(student()->check())
-                                <a href="#" class="btn btn-primary br-30 text-bold
+                                @if( App\Models\MawhobEnrolledContest::where('contest_id', $contest->id)
+                                ->where('mawhob_id', student()->id())->get()->count() >0)
+                                    <a href="javascript:void(0)" class="btn btn-primary br-30 text-bold">
+                                        {!! trans('site.previously_registered') !!}
+                                    </a>
+                                @else
+                                    <a href="#" class="btn btn-primary br-30 text-bold
                                              auth_student_contest_enroll_button"
-                                   data-id="{!! $contest->id !!}">
-                                    {!! trans('site.enroll_now') !!}
-                                </a>
+                                       data-id="{!! $contest->id !!}">
+                                        {!! trans('site.enroll_now') !!}
+                                    </a>
+                                @endif
+
+
                             @else
                                 <a href="#" class="btn btn-primary br-30 text-bold
                                             not_auth_student_contest_enroll_button">
@@ -83,7 +92,7 @@
         $('body').on('click', '.auth_student_contest_enroll_button', function (e) {
 
             var contest_id = $(this).data('id');
-            var mawhob_id = $('#mawhob_id').val();
+
             e.preventDefault();
             Swal.fire({
                 title: '{!! trans('site.do_you_want_to_enroll_in_contest') !!}',
@@ -96,38 +105,7 @@
 
             });
             $('.ok_enroll_in_contest_button').click(function () {
-
-                /////////////////////////////////////////////////////////////
-                // enroll Student
-                $.ajax({
-                    url: '{!! route('student.enroll.contest') !!}',
-                    data: {contest_id: contest_id, mawhob_id: mawhob_id},
-                    type: 'post',
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log();
-                        if (data.status == true) {
-                            Swal.fire({
-                                title: data.msg,
-                                allowOutsideClick: false,
-                                showDenyButton: false,
-                                showCancelButton: false,
-                                showConfirmButton: true,
-                                confirmButtonText: `{!! trans('site.ok') !!}`,
-                            });
-                        } else {
-                            Swal.fire({
-                                title: data.msg,
-                                allowOutsideClick: false,
-                                showDenyButton: false,
-                                showCancelButton: false,
-                                showConfirmButton: true,
-                                confirmButtonText: `{!! trans('site.ok') !!}`,
-                            });
-                        }
-                    }
-                }); // end ajax
-
+                window.location.href = "{!! route('student.contest.registration.terms') !!}" + '/' + contest_id;
             });
 
         });
@@ -145,7 +123,6 @@
                 cancelButtonText: `{!! trans('site.cancel') !!}`,
                 confirmButtonText: `{!! trans('site.login') !!}`,
                 customClass: {confirmButton: 'login_button'}
-
             });
             $('.login_button').click(function () {
                 window.location.href = "{!! route('get.student.login') !!}";

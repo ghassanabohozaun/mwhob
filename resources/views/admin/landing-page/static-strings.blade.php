@@ -337,6 +337,32 @@
                                                     </div>
                                                     <!--end::Group-->
 
+                                                    <!--begin::Group-->
+                                                    <div class="form-group">
+                                                        <label> {{trans('landing.terms_of_registration_for_the_contest_ar')}}</label>
+                                                        <textarea rows="10" dir="rtl"
+                                                                  class="form-control summernote"
+                                                                  placeholder="{{trans('landing.enter_terms_of_registration_for_the_contest_ar')}}"
+                                                                  name="terms_of_registration_for_the_contest_ar"
+                                                                  id="terms_of_registration_for_the_contest_ar">{!!  staticStrings()->terms_of_registration_for_the_contest_ar !!}</textarea>
+                                                        <span class="form-text text-danger"
+                                                              id="terms_of_registration_for_the_contest_ar_error"></span>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group">
+                                                        <label> {{trans('landing.terms_of_registration_for_the_contest_en')}}</label>
+                                                        <textarea  rows="10" dir="ltr"
+                                                                  class="form-control summernote "
+                                                                  placeholder="{{trans('landing.enter_terms_of_registration_for_the_contest_en')}}"
+                                                                  name="terms_of_registration_for_the_contest_en"
+                                                                  id="terms_of_registration_for_the_contest_en">{!!  staticStrings()->terms_of_registration_for_the_contest_en !!}</textarea>
+                                                        <span class="form-text text-danger"
+                                                              id="terms_of_registration_for_the_contest_en_error"></span>
+                                                    </div>
+                                                    <!--end::Group-->
 
                                                     <!--begin::Group-->
                                                     <div class="form-group">
@@ -436,14 +462,13 @@
         <!--end::content-->
 
     </form>
+
 @endsection
 
 @push('js')
 
 
     <script type="text/javascript">
-
-
         //////////////////////////////////////////////////////
         $('#form_static_string_store').on('submit', function (e) {
             e.preventDefault();
@@ -474,6 +499,9 @@
             $('#magazine_description_en').css('border-color', '');
             $('#latest_winners_description_ar').css('border-color', '');
             $('#latest_winners_description_en').css('border-color', '');
+            $('#terms_of_registration_for_the_contest_ar').css('border-color', '');
+            $('#terms_of_registration_for_the_contest_en').css('border-color', '');
+
 
             $('#talents_description_ar_error').text('');
             $('#talents_description_en_error').text('');
@@ -501,7 +529,8 @@
             $('#magazine_description_en_error').text('');
             $('#latest_winners_description_ar_error').text('');
             $('#latest_winners_description_en_error').text('');
-
+            $('#terms_of_registration_for_the_contest_ar_error').text('');
+            $('#terms_of_registration_for_the_contest_en_error').text('');
 
             /////////////////////////////////////////////////////////////
 
@@ -555,7 +584,6 @@
             })
 
         });//end submit
-
 
     </script>
 @endpush

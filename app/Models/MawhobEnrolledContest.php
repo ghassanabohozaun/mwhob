@@ -15,6 +15,8 @@ class MawhobEnrolledContest extends Model
         'mawhob_winner',
         'mawhob_winner_description_ar',
         'mawhob_winner_description_en',
+        'link',
+        'file',
     ];
 
     protected $hidden = ['updated_at'];

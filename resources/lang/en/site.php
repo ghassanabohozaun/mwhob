@@ -152,10 +152,12 @@ return [
     'attendance_and_absence_record'=>'Attendance and absence record',
     'lecture_number' => ' Lecture Number :  ',
     'lecture_cancel'=>'Lecture Cancel',
-
     'start_at'=>'Start At',
     'end_at'=>'End At',
-
+    'terms_of_registration_for_the_contest' => 'Terms Of Registration For The Contest',
+    'link'=>'Link',
+    'file'=>'File',
+    'previously_registered'=>'previously registered',
 
     //////////////////////////////////////////////////////////////
     /// Student

@@ -7,7 +7,7 @@
     </div>
 @else
     @foreach($notifications as $notification)
-        <div class="item-noty  p-2 br-5 text-right">
+        <div class="item-noty  p-2 br-5 text-left">
             <a href="#">
                 <div class="text-bold text-primary">
                     {!! Lang()=='ar'?$notification->title_ar:$notification->title_en !!}

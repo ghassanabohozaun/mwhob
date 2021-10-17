@@ -78,3 +78,14 @@ p {
     background: #ffffffab;
     border-radius: 50px 0;
 }
+.box-noty{
+    top: 51px !important;
+}
+.player-screen{
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    background: #fff;
+    left: 0;
+    width: 100%;
+}

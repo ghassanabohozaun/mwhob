@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 px-1">
-                        <div class="fs-12">
+                        <div class="fs-12 text-right">
                             <span>{!! trans('site.end_at') !!}</span>
                             <span dir="{!! Lang()=='ar'?'rtl':'ltr' !!}"> {!! $program->end_at !!} </span>
                         </div>

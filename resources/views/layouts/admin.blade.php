@@ -358,11 +358,12 @@
 <script src="{{asset('adminBoard/assets/js/pages/features/miscellaneous/sweetalert2.js')}}"></script>
 <script src="{{asset('adminBoard/assets/js/pages/widgets.js')}}"></script>
 <script src="{{asset('adminBoard/assets/js/pages/custom/profile/profile.js')}}"></script>
+
+
 <!--end::Page Scripts-->
 
 
 @stack('js')
-
 
 <!--Start:: Scripts-->
 <script type="text/javascript">
@@ -372,6 +373,7 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
 
     ///////////////////////////////////////////////////////////////////////////
     //////// Textarea Limit characters

@@ -30,8 +30,6 @@ class CreateStaticStringsTable extends Migration
             $table->text('success_story_description_en')->nullable();
             $table->text('success_story_person_description_ar')->nullable();
             $table->text('success_story_person_description_en')->nullable();
-
-
             $table->text('programs_description_ar')->nullable();
             $table->text('programs_description_en')->nullable();
             $table->text('courses_description_ar')->nullable();
@@ -44,6 +42,9 @@ class CreateStaticStringsTable extends Migration
             $table->text('magazine_description_en')->nullable();
             $table->text('latest_winners_description_ar')->nullable();
             $table->text('latest_winners_description_en')->nullable();
+            $table->longText('terms_of_registration_for_the_contest_ar')->nullable();
+            $table->longText('terms_of_registration_for_the_contest_en')->nullable();
+
             $table->timestamps();
         });
     }

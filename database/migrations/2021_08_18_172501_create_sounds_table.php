@@ -22,13 +22,7 @@ class CreateSoundsTable extends Migration
             $table->string('name_en')->nullable();
             $table->string('date')->nullable();
             $table->integer('length')->nullable();
-            $table->string('sound_class')->nullable();
-            $table->string('youtube_link')->nullable();
-            $table->string('vimeo_link')->nullable();
-            $table->string('upload_sound_link')->nullable();
-            $table->string('short_youtube_link')->nullable();
-            $table->string('short_vimeo_link')->nullable();
-            $table->string('short_upload_sound_link')->nullable();
+            $table->string('sound_file')->nullable();
             $table->string('views')->nullable();
             $table->enum('language', ['ar', 'ar_en'])->default('ar');
             $table->string('status')->nullable();

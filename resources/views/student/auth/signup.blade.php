@@ -39,7 +39,6 @@
                                 </div>
 
                                 <form action="{!! route('student.signup.store') !!}"
-
                                       method="POST" enctype="multipart/form-data"
                                       id="student_signup_form">
                                     @csrf
@@ -317,8 +316,6 @@
         ////////////////////////////////////////////////////
         $(document).on('submit', 'form', function (e) {
             e.preventDefault();
-
-
             //////////////////////////////////////////////////////////////
             $('#mawhob_full_name').css('border-color', '');
             $('#mawhob_full_name_en').css('border-color', '');

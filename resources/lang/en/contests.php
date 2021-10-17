@@ -24,6 +24,7 @@ return [
     'renew_contest' => 'Renew Contest',
 
 
+
     'enter_summer_camp_image' => 'Enter Image',
     'enter_name_ar' => 'Enter Arabic Name',
     'enter_name_en' => 'Enter English Name',
@@ -41,6 +42,8 @@ return [
     'add_new_mawhob' => 'Add New Mawhob',
     'choose_winner' => 'Choose Winner',
 
+    'no_file'=>'File Not Exists',
+    'no_link'=>'Link Not Exists',
 
     'contest_id' => 'Contest',
     'mawhob_id' => 'Mawhob',
@@ -48,6 +51,8 @@ return [
     'mawhob_winner' => 'Mowhob Winner',
     'mawhob_winner_description_ar' => 'Winner Description | ar',
     'mawhob_winner_description_en' => 'Winner Description | en',
+    'file'=>'File',
+    'link'=>'Link',
 
 
     'enter_contest_id' => 'Enter Contest',

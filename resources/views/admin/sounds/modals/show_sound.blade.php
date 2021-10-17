@@ -53,6 +53,8 @@
 <!-- end Modal-->
 
 @push('js')
+    <script src="{!! asset('site/player/js/audioplayer.js') !!}"></script>
+
     <script type="text/javascript">
 
 
@@ -61,7 +63,7 @@
         $('#model_show_sound').on('hidden.bs.modal', function (e) {
             e.preventDefault();
             $("#sound_view iframe").attr('src', '');
-            $('video').trigger('pause');
+            $('audio').trigger('pause');
             $('#model_show_sound').modal('hide');
         });
         //////////////////////////////////////////////////////
@@ -74,22 +76,11 @@
 
             $.get("{{route('admin.sound.view')}}", {id, id}, function (data) {
                 console.log(data);
-                if (data.data.sound_class == 'uploaded_sound') {
-                    $('#sound_view').html('<div class="col-md-4 col-xxl-3"><video  width="470" height="250"  controls><source src="' + data.data.upload_sound_link + '"></video></div>');
-                    $('#model_show_sound').modal('show');
-                } else if (data.data.sound_class == 'vimeo') {
-                    $('#sound_view').html('<iframe width="470" height="250"' +
-                        'src="' + data.data.vimeo_link + '"></iframe>');
-                    $('#model_show_sound').modal('show');
-                } else if (data.data.sound_class == 'youtube') {
-                    $('#sound_view').html('<iframe width="470" height="250"' +
-                        'src="' + data.data.youtube_link + '"></iframe>');
-                    $('#model_show_sound').modal('show');
-                }
-
-                $('#model_show_video').modal('show');
+                $('#sound_view').html('<div class="col-lg-12"><audio   id="my_audio" preload="auto" controls>' +
+                    '<source src="{{url('/')}}/storage/' + data.data.sound_file + '"></audio></div>');
+                $('#model_show_sound').modal('show');
+                document.getElementById('my_audio').play();
             });
-
         });
     </script>
 @endpush
