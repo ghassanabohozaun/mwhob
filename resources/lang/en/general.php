@@ -125,6 +125,11 @@ return [
     'character_limit_reached'=>'character limit reached',
     'character_limit'=>'character limit',
     'remaining'=>'remaining',
-
+    ///////////////////////////////////////////////////////////////
+    ///  Export File Name
+    'contest_enrolled_list'=>'contest enrolled list',
+    'course_enrolled_list'=>'course enrolled list',
+    'summer_camp_enrolled_list'=>'summer camp enrolled list',
+    'program_enrolled_list'=>'program enrolled list',
 
 ];

@@ -13,6 +13,12 @@
                 <!--begin::Actions-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
+                        <a href="{!! route('admin.summer.camps') !!}" class="text-muted">
+                            {{trans('menu.summer_camps')}}
+                        </a>
+                    </li>
+
+                    <li class="breadcrumb-item">
                         <a href="javascript:void(0);" class="text-muted">
                             {{trans('summerCamps.trashed_summer_camps')}}
                         </a>
@@ -56,8 +62,9 @@
                                                     <th>@lang('summerCamps.summer_camp_image')</th>
                                                     <th>@lang('summerCamps.name_ar')</th>
                                                     <th>@lang('summerCamps.name_en')</th>
-                                                    <th>@lang('summerCamps.short_description_ar')</th>
-                                                    <th>@lang('summerCamps.short_description_en')</th>
+                                                    <th>@lang('summerCamps.cost')</th>
+                                                    <th>@lang('summerCamps.discount')</th>
+                                                    <th>@lang('summerCamps.year')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
                                                 </thead>
@@ -102,8 +109,9 @@
             {data: "summer_camp_image"},
             {data: "name_ar"},
             {data: "name_en"},
-            {data: "short_description_ar"},
-            {data: "short_description_en"},
+            {data: "cost"},
+            {data: "discount"},
+            {data: "year"},
             {data: "actions"},
         ];
     </script>

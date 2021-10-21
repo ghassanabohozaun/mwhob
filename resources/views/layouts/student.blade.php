@@ -80,11 +80,12 @@ xmlns="http://www.w3.org/1999/xhtml">
     $(document).ready(function () {
         $(".multiselect").select2();
         refreshLectureDate();
+
         function refreshLectureDate() {
-            setInterval(function() {
-                $( "#refresh_lecture_date" ).load(window.location.href + " #refresh_lecture_date" );
-                $( "#course_lectures_table" ).load(window.location.href + " #course_lectures_table" );
-            }, 10000);  //Delay here = 1 seconds
+            setInterval(function () {
+                $("#refresh_lecture_date").load(window.location.href + " #refresh_lecture_date");
+                $("#course_lectures_table").load(window.location.href + " #course_lectures_table");
+            }, 1000);  //Delay here = 1 seconds
         }
     });
 </script>

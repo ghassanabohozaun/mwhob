@@ -20,6 +20,7 @@ return [
     'prize' => 'جائزة',
     'language' => 'اللغة',
     'status' => 'الحالة',
+    'enrolled_count'=>'عدد المسجلين',
 
 
     'enter_contest_image' => 'ادخل الصورة',

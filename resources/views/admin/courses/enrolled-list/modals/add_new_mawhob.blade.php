@@ -157,6 +157,7 @@
             $.notifyClose();
             $('#modal_add_new_course_mawhob').modal('hide');
             $('#form_add_new_course_mawhob')[0].reset();
+            $("#mawhob_id_select2").val('').trigger('change');
             $('#mawhob_id').css('border-color', '');
             $('#mawhob_id_error').text('');
         });
@@ -168,6 +169,7 @@
                 $.notifyClose();
                 $('#modal_add_new_course_mawhob').modal('hide');
                 $('#form_add_new_course_mawhob')[0].reset();
+                $("#mawhob_id_select2").val('').trigger('change');
                 $('#mawhob_id').css('border-color', '');
                 $('#mawhob_id_error').text('');
             });

@@ -14,6 +14,10 @@ class Revenue extends Model
         'value',
         'revenue_for',
         'details',
+        'payer_id',
+        'payment_id',
+        'token',
+        'payment_method',
     ];
     protected $hidden = ['updated_at'];
     //////////////////////////////////////////////////////////////
@@ -34,6 +38,8 @@ class Revenue extends Model
             return trans('revenues.enroll_program');
         } elseif ($value == 'enroll_contest') {
             return trans('revenues.enroll_contest');
+        }elseif ($value == 'enroll_summer_camp') {
+            return trans('revenues.enroll_summer_camp');
         }
 
     }

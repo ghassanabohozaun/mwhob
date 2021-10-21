@@ -128,11 +128,17 @@ Route::group([
             ->name('admin.support.center.create');
         Route::post('/send', 'SupportCenterController@send')
             ->name('admin.support.center.send');
+
+        Route::post('/destroy', 'SupportCenterController@destroy')
+            ->name('admin.support.center.message.destroy');
+
         Route::post('/change-status', 'SupportCenterController@changeStatus')
             ->name('admin.support.center.change.status');
 
         Route::get('/get-one-message', 'SupportCenterController@getOneMessage')
             ->name('admin.support.center.get.one.message');
+
+
     });
     //////////////////////////////////////////////////////////////////
     /// users Routes
@@ -242,6 +248,8 @@ Route::group([
         Route::post('/restore', 'ProgramsController@restore')->name('admin.restore.program');
         Route::post('/force-destroy', 'ProgramsController@forceDestroy')->name('admin.force.destroy.program');
         Route::post('/change-status', 'ProgramsController@changeStatus')->name('program.change.status');
+        Route::get('/show-program-details', 'ProgramsController@showProgramDetails')
+            ->name('admin.show.program.details');
 
         Route::get('/enrolled-list/{id?}', 'ProgramsController@enrolledList')
             ->name('admin.programs.enrolled.list');
@@ -324,7 +332,20 @@ Route::group([
         Route::post('/destroy', 'SummerCampsController@destroy')->name('admin.destroy.summer.camp');
         Route::post('/restore', 'SummerCampsController@restore')->name('admin.restore.summer.camp');
         Route::post('/force-destroy', 'SummerCampsController@forceDestroy')->name('admin.force.destroy.summer.camp');
-        Route::post('/change-status', 'SummerCampsController@changeStatus')->name('summer.camp.change.status');
+        Route::post('/change-status', 'SummerCampsController@changeStatus')->name('admin.summer.camp.change.status');
+        Route::post('/enable_enrolling', 'SummerCampsController@enableEnrolling')->name('admin.summer.camp.enable.enrolling');
+        Route::get('/show-summer-camp-details', 'SummerCampsController@showSummerCampDetails')
+            ->name('admin.show.summer.camp.details');
+
+
+        Route::get('/enrolled-list/{id?}', 'SummerCampsController@enrolledList')
+            ->name('admin.summer.camp.enrolled.list');
+        Route::get('/get-enrolled-list', 'SummerCampsController@getEnrolledList')
+            ->name('admin.get.summer.camp.enrolled.list');
+        Route::post('/store-new-summer-camp-mawhob', 'SummerCampsController@storeNewSummerCampMawhob')
+            ->name('admin.store.new.summer.camp.mawhob');
+        Route::post('/destroy-mawhob-from-summer-camp', 'SummerCampsController@DestroyMawhobFromSummerCamp')
+            ->name('admin.destroy.mawhob.from.summer.camp');
 
     });
 

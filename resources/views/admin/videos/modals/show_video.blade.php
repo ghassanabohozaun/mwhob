@@ -14,6 +14,9 @@
         padding-left: 5px;
         padding-top: 30px;
     }
+    .modal .modal-header .close {
+        margin: 5px 0;
+    }
 </style>
 
 <!-- begin Modal-->

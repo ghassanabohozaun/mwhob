@@ -12,6 +12,9 @@ class SummerCampsResource extends JsonResource
         $options = view('admin.summer-camps.parts.options', ['instance' => $this])->render();
         $image = view('admin.summer-camps.parts.image', ['instance' => $this])->render();
         $status = view('admin.summer-camps.parts.status', ['instance' => $this])->render();
+        $enrolledCount = view('admin.summer-camps.parts.enrolled-count', ['instance' => $this])->render();
+        $enableEnrolling = view('admin.summer-camps.parts.enable-enrolling', ['instance' => $this])->render();
+
 
         return [
             'id' => $this->id,
@@ -20,7 +23,12 @@ class SummerCampsResource extends JsonResource
             'name_en' => $this->name_en,
             'short_description_ar' => $this->short_description_ar,
             'short_description_en' => $this->short_description_en,
+            'cost' => $this->cost,
+            'discount' => $this->discount,
+            'year'=> $this->year,
+            'enrolled_count' => $enrolledCount,
             'status' => $status,
+            'enable_enrolling' => $enableEnrolling,
             'actions' => $options
         ];
     }

@@ -13,6 +13,12 @@
                 <!--begin::Actions-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
+                        <a href="{!! route('admin.contests') !!}" class="text-muted">
+                            {{trans('menu.contests')}}
+                        </a>
+                    </li>
+
+                    <li class="breadcrumb-item">
                         <a href="javascript:void(0);" class="text-muted">
                             {{trans('contests.trashed_contests')}}
                         </a>

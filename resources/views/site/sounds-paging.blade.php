@@ -75,11 +75,7 @@
     <script src="{!! asset('site/player/js/audioplayer.js') !!}"></script>
 
     <script type="text/javascript">
-
-
-            $('audio').audioPlayer();
-
-
+        $('audio').audioPlayer();
         ////////////////////////////////////////////////////////////////////////
         // Player
         $(document).on('click', '.play_sound_btn', function (e) {
@@ -87,7 +83,7 @@
             var id = $(this).data('id');
             $.get("{{route('admin.sound.view')}}", {id, id}, function (data) {
                 console.log(data);
-                $('.player-screen').find('source').attr("src", "{{url('/')}}/storage/"+ data.data.sound_file );
+                $('.player-screen').find('source').attr("src", "{{url('/')}}/storage/" + data.data.sound_file);
                 document.getElementById('my_audio').play();
             });
         });

@@ -17,6 +17,8 @@ class RevenueResource extends JsonResource
             'mawhob_id' =>$mawhobID,
             'value' => $this->value,
             'date' => $date,
+            'payment_id' => $this->payment_id,
+            'payment_method' => $this->payment_method,
             'details' => $this->details,
         ];
     }

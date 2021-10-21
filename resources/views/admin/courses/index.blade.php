@@ -437,7 +437,3 @@
 
     </script>
 @endpush
-
-@push('css')
-
-@endpush

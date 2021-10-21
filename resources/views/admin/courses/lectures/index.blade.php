@@ -20,10 +20,18 @@
                     </li>
                     <li class="breadcrumb-item">
                         <a href="javascript:void(0);" class="text-muted">
+                            @if(Lang()=='ar')
+                                {!! App\Models\Course::find($id)->title_ar !!}
+                            @else
+                                {!! App\Models\Course::find($id)->title_en !!}
+                            @endif
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0);" class="text-muted">
                             {{trans('courses.lectures')}}
                         </a>
                     </li>
-
                     <li class="breadcrumb-item">
                         <a href="" class="text-muted">
                             {{trans('menu.show_all')}}

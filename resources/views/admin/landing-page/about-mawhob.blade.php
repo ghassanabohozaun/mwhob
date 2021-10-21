@@ -159,20 +159,16 @@
                                                         <label>
                                                             {{trans('landing.video')}}
                                                         </label>
-                                                        <input
-                                                            class="form-control form-control-lg"
-                                                            type="file" name="video"
-                                                            id="video"
-                                                            placeholder=""/>
-                                                        <span class="form-text text-danger"
-                                                              id="uploadStatus">
-                                                                    <img
-                                                                        src="{!! asset('adminBoard/images/ajax-loader.gif') !!}"/>
-                                                                </span>
+                                                        <input value="https://www.youtube.com/watch?v={!! aboutMawob()->video !!}"
+                                                               class="form-control form-control-lg"
+                                                               type="text" name="video" id="video"
+                                                               placeholder="{!! trans('landing.enter_video') !!}"/>
+                                                        <span class="form-text text-muted">
+                                                                {{trans('general.example')}} :
+                                                                 https://www.youtube.com/watch?v=c2pz2mlSfXA
+                                                            </span>
                                                         <span class="form-text text-danger" id="video_error">
                                                         </span>
-
-
                                                     </div>
                                                     <!--end::Group-->
 
@@ -191,9 +187,8 @@
                                                                 &nbsp;
                                                             </label>
                                                             <span class="label label-dark label-inline label-lg ">
-                                                                      <a href="{{Storage::url(aboutMawob()->video) }}"
-                                                                         class="text-white"
-                                                                         target="_blank">
+                                                                      <a href="https://www.youtube.com/watch?v={!! aboutMawob()->video !!}"
+                                                                         class="text-white" target="_blank">
                                                                     {{trans('landing.show_video')}}
                                                                 </a>
                                                                 </span>
@@ -228,7 +223,6 @@
     <script type="text/javascript">
 
 
-        $('#uploadStatus').addClass('d-none');
         //////////////////////////////////////////////////////
         $('#form_about_mawhob_store').on('submit', function (e) {
             e.preventDefault();
@@ -269,7 +263,6 @@
                         state: 'danger',
                         message: "{{trans('general.please_wait')}}",
                     });
-                    $('#uploadStatus').removeClass('d-none');
                 },
                 success: function (data) {
                     KTApp.unblockPage();
@@ -285,13 +278,10 @@
                         $('.udate_about_mawhob_button').click(function () {
                             $("#video_section").load(location.href + " #video_section");
                             $('html, body').animate({scrollTop: 5}, 300);
-                            $('#uploadStatus').addClass('d-none');
                         });
                     }
                 },
-
                 error: function (reject) {
-                    $('#uploadStatus').addClass('d-none');
                     var response = $.parseJSON(reject.responseText);
                     $.each(response.errors, function (key, value) {
                         $('#' + key + '_error').text(value[0]);

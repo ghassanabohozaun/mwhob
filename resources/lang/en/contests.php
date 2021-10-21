@@ -10,6 +10,7 @@ return [
     'date' => 'Date',
     'not_winner' => 'Not Winner',
     'winner' => 'Winner',
+    'enrolled_count'=>'Enrolled Count',
 
 
     'contest_image' => 'Image',

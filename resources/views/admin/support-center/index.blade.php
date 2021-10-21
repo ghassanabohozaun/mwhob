@@ -29,18 +29,18 @@
             </div>
             <!--end::Info-->
 
-            <!--begin::Toolbar--
+        <!--begin::Toolbar--
             <div class="d-flex align-items-center">
                 <a href="{!! route('admin.support.center.create') !!}"
                    class="btn btn-primary btn-sm font-weight-bold font-size-base  mr-1">
                     @if(Lang()=='ar')
-                        <i class="fa fa-angle-double-left"></i>
-                    @else
-                        <i class="fa fa-angle-double-right"></i>
-                    @endif
-                    {{trans('supportCenter.send_message')}}
-                </a>
-                &nbsp;
+            <i class="fa fa-angle-double-left"></i>
+@else
+            <i class="fa fa-angle-double-right"></i>
+@endif
+        {{trans('supportCenter.send_message')}}
+            </a>
+&nbsp;
             </div>
             --end::Toolbar-->
         </div>
@@ -74,6 +74,7 @@
                                                     <th>@lang('supportCenter.status')</th>
                                                     <th>@lang('supportCenter.show_message')</th>
                                                     <th>@lang('general.actions')</th>
+                                                    <th>@lang('general.delete')</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -84,9 +85,7 @@
                                 </div>
                             </div>
                             <!--end: Datatable-->
-
                         </div>
-
                         <form class="d-none" id="form_category_delete">
                             <input type="hidden" id="offer_category_id">
                         </form>
@@ -200,6 +199,7 @@
             {data: "status"},
             {data: "show_message"},
             {data: "actions"},
+            {data: "delete"},
         ];
 
     </script>
@@ -317,6 +317,67 @@
             e.preventDefault();
             $('#modal_support_center_message_show').modal('hide');
         });
+
+        /////////////////////////////////////////////////////////////////
+        ///  delete support Center Message
+        $(document).on('click', '.delete_support_center_message_btn', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+
+            Swal.fire({
+                title: "{{trans('general.ask_delete_record')}}",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "{{trans('general.yes')}}",
+                cancelButtonText: "{{trans('general.no')}}",
+                reverseButtons: false,
+                allowOutsideClick: false,
+            }).then(function (result) {
+                if (result.value) {
+                    //////////////////////////////////////
+                    // Delete User
+                    $.ajax({
+                        url: '{!! route('admin.support.center.message.destroy') !!}',
+                        data: {id, id},
+                        type: 'post',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            if (data.status == true) {
+                                Swal.fire({
+                                    title: "{!! trans('general.deleted') !!}",
+                                    text: data.msg,
+                                    icon: "success",
+                                    allowOutsideClick: false,
+                                    customClass: {confirmButton: 'delete_support_center_message_button'}
+                                });
+                                $('.delete_support_center_message_button').click(function () {
+                                    updateDataTable();
+                                });
+                            } else if (data.status == false) {
+                                Swal.fire({
+                                    title: "{!! trans('general.deleted') !!}",
+                                    text: data.msg,
+                                    icon: "warning",
+                                    allowOutsideClick: false,
+                                    customClass: {confirmButton: 'delete_support_center_message_button'}
+                                });
+                            }
+                        },//end success
+                    });
+
+                } else if (result.dismiss === "cancel") {
+                    Swal.fire({
+                        title: "{!! trans('general.cancelled') !!}",
+                        text: "{!! trans('general.cancelled_message') !!}",
+                        icon: "error",
+                        allowOutsideClick: false,
+                        customClass: {confirmButton: 'cancel_delete_support_center_message_button'}
+                    })
+                }
+            });
+
+        })
 
 
     </script>

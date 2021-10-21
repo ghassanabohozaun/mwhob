@@ -18,9 +18,21 @@ class SummerCamp extends Model
         'name_en',
         'short_description_ar',
         'short_description_en',
+        'year',
+        'start_at',
+        'end_at',
+        'cost',
+        'discount',
         'status',
+        'enable_enrolling',
         'language',
     ];
 
     protected $hidden = ['updated_at'];
+
+    //////////////////////////////////////////////////////////////
+    public function mawhobEnrollSummerCamp()
+    {
+        return $this->hasMany('App\Models\MawhobEnrollSummerCamp', 'summer_camp_id', 'id');
+    }
 }

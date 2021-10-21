@@ -24,7 +24,7 @@
                         class=" with-screen-titel row justify-content-between align-items-center p-2 br-10 bg-light mx-0 mb-3 mt-3 mt-md-0">
                         <div class="col-auto title-with-icon d-flex align-items-center px-1">
                             <span class="mr-2">
-                                <img src="{!! asset('site/img/Contests.svg') !!}" width="20" alt="">
+                                 <img src="{!! asset('site/img/icons8-sandbox-24.png') !!}" width="20">
                             </span>
                             <span class="fs-14 text-bold">
                                 {!! trans('site.programs') !!}

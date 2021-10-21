@@ -19,6 +19,9 @@ class SummerCampsTrashedResource extends JsonResource
             'name_en' => $this->name_en,
             'short_description_ar' => $this->short_description_ar,
             'short_description_en' => $this->short_description_en,
+            'cost' => $this->cost,
+            'discount' => $this->discount,
+            'year'=> $this->year,
             'actions' => $options
         ];
     }

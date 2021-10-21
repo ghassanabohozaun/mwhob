@@ -59,19 +59,26 @@
                                             <div class="row justify-content-between align-items-center">
                                                 <div class="col-auto">
 
-                                                    @if(student()->check())
-                                                        <a href="#" class="btn btn-primary br-30 text-bold
-                                                                    auth_student_course_enroll_button"
-                                                           data-id="{!! $latestCourse->id !!}">
-                                                            {!! trans('site.enroll_now') !!}
-                                                        </a>
-                                                    @else
-                                                        <a href="#" class="btn btn-primary br-30 text-bold
-                                                                  not_auth_student_course_enroll_button">
-                                                            {!! trans('site.enroll_now') !!}
-                                                        </a>
-                                                    @endif
 
+                                                        @if(student()->check())
+                                                            @if( App\Models\MawhobEnrollCourse::where('course_id', $latestCourse->id)
+                                                        ->where('mawhob_id', student()->id())->get()->count() >0)
+                                                                <a  href="javascript:void(0)"  class="btn btn-primary br-30 text-bold">
+                                                                    {!! trans('site.previously_registered') !!}
+                                                                </a>
+                                                            @else
+                                                                <a href="#" class="btn btn-primary br-30 text-bold
+                                                                       auth_student_course_enroll_button"
+                                                                   data-id="{!! $latestCourse->id !!}">
+                                                                    {!! trans('site.enroll_now') !!}
+                                                                </a>
+                                                            @endif
+                                                        @else
+                                                            <a href="#" class="btn btn-primary br-30 text-bold
+                                                                  not_auth_student_course_enroll_button">
+                                                                {!! trans('site.enroll_now') !!}
+                                                            </a>
+                                                        @endif
 
                                                 </div>
                                                 <div class="col-auto d-flex align-items-center">

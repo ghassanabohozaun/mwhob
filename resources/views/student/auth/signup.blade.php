@@ -383,8 +383,7 @@
                             window.location.href = "{!! route('student.registration.confirmation') !!}"
                                 + '/' + $('#mawhob_mobile_no').val() + '/' + $('#mawhob_whatsapp_no').val();
                         }, 2505)
-                    } else {
-
+                    } else if (data.status == false) {
                         Swal.fire({
                             title: data.msg,
                             icon: "warning",

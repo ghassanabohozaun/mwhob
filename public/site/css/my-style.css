@@ -89,3 +89,7 @@ p {
     left: 0;
     width: 100%;
 }
+.net-price {
+    font-size: 16px !important;
+    font-weight: bold;
+}

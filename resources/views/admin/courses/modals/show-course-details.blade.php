@@ -86,7 +86,7 @@
 
                                     <!--begin::Group-->
                                     <div class="form-group row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <label class="col-xl-12 col-lg-12 col-form-label">
                                                 {{trans('courses.hours')}}
                                             </label>
@@ -95,14 +95,22 @@
                                                       id="hours" type="text"></span>
                                             </div>
                                         </div>
-
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <label class="col-xl-12 col-lg-12 col-form-label">
                                                 {{trans('courses.cost')}}
                                             </label>
                                             <div class="col-lg-12 col-xl-12">
                                                 <span class="form-control  form-control-lg"
                                                       id="cost" type="text"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label class="col-xl-12 col-lg-12 col-form-label">
+                                                {{trans('courses.discount')}}
+                                            </label>
+                                            <div class="col-lg-12 col-xl-12">
+                                                <span class="form-control  form-control-lg"
+                                                      id="discount" type="text"></span>
                                             </div>
                                         </div>
 

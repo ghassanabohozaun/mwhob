@@ -23,7 +23,6 @@ class ProgramResource extends JsonResource
             'name_ar' => $this->name_ar,
             'name_en' => $this->name_en,
             'hours' => $this->hours,
-            'date' => $this->date,
             'price' =>  $this->price,
             'discount' => $this->discount,
             'enrolled_count' => $enrolledCount,

@@ -13,6 +13,11 @@
                 <!--begin::Actions-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
+                        <a href="{!! route('admin.programs') !!}" class="text-muted">
+                            {{trans('menu.programs')}}
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
                         <a href="javascript:void(0);" class="text-muted">
                             {{trans('programs.trashed_programs')}}
                         </a>
@@ -56,10 +61,8 @@
                                                     <th>@lang('programs.name_ar')</th>
                                                     <th>@lang('programs.name_en')</th>
                                                     <th>@lang('programs.hours')</th>
-                                                    <th>@lang('programs.date')</th>
                                                     <th>@lang('programs.price')</th>
                                                     <th>@lang('programs.discount')</th>
-                                                    <th>@lang('programs.enrolled_count')</th>
                                                     <th>@lang('programs.work_plan')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
@@ -105,10 +108,8 @@
             {data: "name_ar"},
             {data: "name_en"},
             {data: "hours"},
-            {data: "date"},
             {data: "price"},
             {data: "discount"},
-            {data: "enrolled_count"},
             {data: "work_plan"},
             {data: "actions"},
         ];

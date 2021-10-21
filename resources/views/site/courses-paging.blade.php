@@ -46,11 +46,18 @@
                         <div class="col-auto">
 
                             @if(student()->check())
-                                <a href="#" class="btn btn-primary br-30 text-bold
+                                @if( App\Models\MawhobEnrollCourse::where('course_id', $course->id)
+                                     ->where('mawhob_id', student()->id())->get()->count() >0)
+                                    <a  href="javascript:void(0)"  class="btn btn-primary br-30 text-bold">
+                                        {!! trans('site.previously_registered') !!}
+                                    </a>
+                                @else
+                                    <a href="#" class="btn btn-primary br-30 text-bold
                                              auth_student_course_enroll_button"
-                                   data-id="{!! $course->id !!}">
-                                    {!! trans('site.enroll_now') !!}
-                                </a>
+                                       data-id="{!! $course->id !!}">
+                                        {!! trans('site.enroll_now') !!}
+                                    </a>
+                                @endif
                             @else
                                 <a href="#" class="btn btn-primary br-30 text-bold
                                             not_auth_student_course_enroll_button">
@@ -60,7 +67,7 @@
 
                         </div>
                         <div class="col-auto d-flex align-items-center">
-                            @if($course->discount!=null)
+                            @if($course->discount!=null || $course->discount!=0)
                                 <span class="net-price mr-2">{!! $course->discount !!}$</span>
                                 <span class="old-price">{!! $course->cost !!}$</span>
                             @else
@@ -106,6 +113,7 @@
             var mawhob_id = $('#mawhob_id').val();
             e.preventDefault();
             Swal.fire({
+                icon: 'question',
                 title: '{!! trans('site.do_you_want_to_enroll_in_course') !!}',
                 allowOutsideClick: false,
                 showDenyButton: false,
@@ -116,38 +124,7 @@
 
             });
             $('.ok_enroll_in_course_button').click(function () {
-
-                /////////////////////////////////////////////////////////////
-                // enroll Student
-                $.ajax({
-                    url: '{!! route('student.enroll.course') !!}',
-                    data: {course_id: course_id, mawhob_id: mawhob_id},
-                    type: 'post',
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log();
-                        if (data.status == true) {
-                            Swal.fire({
-                                title: data.msg,
-                                allowOutsideClick: false,
-                                showDenyButton: false,
-                                showCancelButton: false,
-                                showConfirmButton: true,
-                                confirmButtonText: `{!! trans('site.ok') !!}`,
-                            });
-                        } else {
-                            Swal.fire({
-                                title: data.msg,
-                                allowOutsideClick: false,
-                                showDenyButton: false,
-                                showCancelButton: false,
-                                showConfirmButton: true,
-                                confirmButtonText: `{!! trans('site.ok') !!}`,
-                            });
-                        }
-                    }
-                }); // end ajax
-
+                window.location.href = "{!! route('student.course.checkout') !!}" + '/' + course_id;
             });
 
         });
@@ -158,6 +135,7 @@
         $('body').on('click', '.not_auth_student_course_enroll_button', function (e) {
             e.preventDefault();
             Swal.fire({
+                icon:'info',
                 title: '{!! trans('site.sign_in_firstly') !!}',
                 allowOutsideClick: false,
                 showDenyButton: false,

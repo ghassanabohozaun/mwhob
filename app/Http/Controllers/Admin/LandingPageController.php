@@ -167,6 +167,10 @@ class LandingPageController extends Controller
         $title = trans('menu.about_mawhob');
         return view('admin.landing-page.about-mawhob', compact('title'));
     }
+
+
+
+
     /////////////////////////////////////////////////////
     /// Store About Mawob
     public function storeAboutMawob(AboutMawhobRequest $request)
@@ -174,14 +178,16 @@ class LandingPageController extends Controller
 
         $aboutMawhob = AboutMawhob::get();
 
-        if ($aboutMawhob->isEmpty()) {
+        if ($request->has('video')) {
 
-            if ($request->hasFile('video')) {
-                $video_path = $request->file('video')->store('AboutMawhobVideo');
+            if (preg_match('@^(?:https://(?:www\\.)?youtube.com/)(watch\\?v=|v/)([a-zA-Z0-9_]*)@', $request->video, $match)) {
+                $VideoLink = $this->getVideoLink($request->video);
             } else {
-                $video_path = '';
+                return $this->returnError(trans('videos.url_invalid'), '500');
             }
+        }
 
+        if ($aboutMawhob->isEmpty()) {
             AboutMawhob::create([
                 'title_ar' => $request->title_ar,
                 'title_en' => $request->title_en,
@@ -189,28 +195,12 @@ class LandingPageController extends Controller
                 'summary_en' => $request->summary_en,
                 'details_ar' => $request->details_ar,
                 'details_en' => $request->details_en,
-                'video' => $video_path,
+                'video' => $VideoLink,
             ]);
             return $this->returnSuccessMessage(trans('general.add_success_message'));
         } else {
 
             $aboutMawhobUpdate = AboutMawhob::orderBy('id', 'desc')->first();
-
-
-            if ($request->hasFile('video')) {
-                if (!empty($aboutMawhobUpdate->video)) {
-                    Storage::delete($aboutMawhobUpdate->video);
-                    $video_path_update = $request->file('video')->store('AboutMawhobVideo');
-                } else {
-                    $video_path_update = $request->file('video')->store('AboutMawhobVideo');
-                }
-            } else {
-                if (!empty($aboutMawhobUpdate->video)) {
-                    $video_path_update = $aboutMawhobUpdate->video;
-                } else {
-                    $video_path_update = '';
-                }
-            }
 
             $aboutMawhobUpdate->update([
                 'title_ar' => $request->title_ar,
@@ -219,12 +209,27 @@ class LandingPageController extends Controller
                 'summary_en' => $request->summary_en,
                 'details_ar' => $request->details_ar,
                 'details_en' => $request->details_en,
-                'video' => $video_path_update,
+                'video' => $VideoLink,
             ]);
 
             return $this->returnSuccessMessage(trans('general.update_success_message'));
         }
 
+    }
+
+
+    ////////////////////////////////////////////
+    /// user define get Video Link function
+    protected function getVideoLink($link)
+    {
+        //// Get YouTube Video Key
+        if (strlen($link) > 11) {
+            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i',
+                $link, $match)) {
+                return $match[1];
+            } else
+                return '0';
+        }
     }
 
     /////////////////////////////////////////////////////

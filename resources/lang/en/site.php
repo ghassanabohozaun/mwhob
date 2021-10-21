@@ -33,6 +33,9 @@ return [
     'trainings' => 'Trainings',
     'contests' => 'Contests',
     'summer_camps' => 'Summer Camps',
+    'oldest_summer_camps' => 'previous Summer Camps',
+
+
     'mawhoob_magazine' => 'Mawhoob Magazine',
     'gallery' => 'Gallery',
     'history' => 'History',
@@ -96,7 +99,7 @@ return [
     'notification_title' => 'Title',
     'notification_details' => 'Details',
     'mark_as_read' => 'make as read',
-    'action'=>'Action',
+    'action' => 'Action',
 
     'update_account' => 'Update Account',
     'update' => 'Update',
@@ -113,6 +116,8 @@ return [
     'already_enrolled_in_this_contest' => 'You have already enrolled for the contest ',
     'you_have_not_joined_any_contest_yet' => 'You have not joined any contest yet',
     'do_you_want_to_enroll_in_course' => 'Do you want to enrolled in  the Course ?',
+    'do_you_want_to_enroll_in_summer_camp' => 'Do you want to enrolled in  the Summer Camp ?',
+
     'enrolled_in_course_successfully' => 'You have been successfully enrolled into the Course',
     'already_enrolled_in_this_course' => 'You have already enrolled for the Course ',
     'you_have_not_joined_any_course_yet' => 'You have not joined any course yet',
@@ -149,15 +154,34 @@ return [
     'lecture_from' => 'Lecture From',
     'lecture_to' => 'Lecture To',
     'status' => 'Status',
-    'attendance_and_absence_record'=>'Attendance and absence record',
+    'attendance_and_absence_record' => 'Attendance and absence record',
     'lecture_number' => ' Lecture Number :  ',
-    'lecture_cancel'=>'Lecture Cancel',
-    'start_at'=>'Start At',
-    'end_at'=>'End At',
+    'lecture_cancel' => 'Lecture Cancel',
+    'start_at' => 'Start At',
+    'end_at' => 'End At',
     'terms_of_registration_for_the_contest' => 'Terms Of Registration For The Contest',
-    'link'=>'Link',
-    'file'=>'File',
-    'previously_registered'=>'previously registered',
+    'link' => 'Link',
+    'file' => 'File',
+    'previously_registered' => 'previously registered',
+    'you_are_the_winner' => 'The Winner',
+    'prize' => 'Prize',
+    'show_all_notification' => 'Show All Notification',
+
+    'checkout' => 'Checkout',
+    'pay' => 'Pay',
+    'pay_by_paypal' => 'Pay By Paypal',
+    'pay_by_palpay' => 'Pay By PalPay - Palestine Bank',
+    'price' => 'Price',
+    'The_price_after_discount' => 'The price after discount',
+    'summer_camp_details' => 'Summer Camp Details',
+
+    'program_has_been_purchased' => 'The program has been successfully purchased',
+    'you_have_already_purchased_the_program' => 'You have already purchased the program',
+    'course_has_been_purchased' => 'The course has been successfully purchased',
+    'you_have_already_purchased_the_course' => 'You have already purchased the course',
+    'you_have_already_purchased_the_summer_camp' => 'You have already purchased the Summer Camp',
+    'summer_camp_has_been_purchased' => 'The summer camp has been successfully purchased',
+
 
     //////////////////////////////////////////////////////////////
     /// Student

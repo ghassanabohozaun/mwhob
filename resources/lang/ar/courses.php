@@ -11,6 +11,8 @@ return [
     'discount_note' => 'اذا لم يكن هناك خصم اتركها فارغة او ادخل القيمة 0',
     'enrolled_count' => 'عدد المسجلين',
     'mawhob_mobile_no' => 'رقم جوال الموهوب',
+    'total_of_course_lectures'=>'العدد الكلي للمحاضرات',
+    'mawhob_lectures_number'=>'عدد محاضرات  الموهوب',
 
 
     'course_image' => 'الصورة',

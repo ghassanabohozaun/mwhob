@@ -102,4 +102,23 @@ class SupportCenterController extends Controller
         }
 
     }
+
+
+    /////////////////////////////////////////
+    /// support center message delete
+    public function destroy(Request $request)
+    {
+        try {
+            if ($request->ajax()) {
+                $supportCenterMesssage = SupportCenter::find($request->id);
+                if (!$supportCenterMesssage) {
+                    return redirect()->route('admin.not.found');
+                }
+                $supportCenterMesssage->delete();
+                return $this->returnSuccessMessage(trans('general.delete_success_message'));
+            }
+        } catch (\Exception $exception) {
+            return $this->returnError(trans('general.try_catch_error_message'), 500);
+        }//end catch
+    }
 }

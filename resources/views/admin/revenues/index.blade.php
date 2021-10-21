@@ -114,6 +114,8 @@
                                                     <th>@lang('revenues.value')</th>
                                                     <th>@lang('revenues.date')</th>
                                                     <th>@lang('revenues.details')</th>
+                                                    <th>@lang('revenues.payment_method')</th>
+                                                    <th>@lang('revenues.payment_id')</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -207,6 +209,8 @@
                     {data: "value"},
                     {data: "date"},
                     {data: "details"},
+                    {data: "payment_method"},
+                    {data: "payment_id"},
                 ],
 
             });

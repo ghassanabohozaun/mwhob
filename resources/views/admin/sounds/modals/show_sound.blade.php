@@ -14,6 +14,23 @@
         padding-left: 5px;
         padding-top: 30px;
     }
+
+    element.style {
+    }
+    .modal .modal-header .close:hover {
+        -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+        transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+        transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+        transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+        color: #3699FF;
+    }
+    .close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
+        opacity: .75;
+    }
+
+    .modal .modal-header .close {
+        margin: 5px 0;
+    }
 </style>
 
 <!-- begin Modal-->
@@ -32,7 +49,7 @@
             <!--begin::Card-->
             <div class="card card-custom card-shadowless rounded-top-0">
                 <!--begin::Body-->
-                <div class="card-body p-1">
+                <div class="card-body p-3">
 
                     <div class="col-xl-12 col-xxl-10">
 

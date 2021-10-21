@@ -128,9 +128,11 @@ class LecturesController extends Controller
             }
             if ($request->switchStatus == 'false') {
                 $lecture->status = null;
+                $lecture->lecture_cancel = null;
                 $lecture->save();
             } else {
                 $lecture->status = 'on';
+                $lecture->lecture_cancel = null;
                 $lecture->save();
             }
             return $this->returnSuccessMessage(trans('general.change_status_success_message'));
@@ -155,13 +157,19 @@ class LecturesController extends Controller
                 $lecture->lecture_cancel = null;
                 $lecture->save();
             } else {
+                //// Delete All Mawhob On Lecture When Cancel Lecture
+                $lecture_mawhobs = lecture_mawhob::where('lecture_id', $lecture->id)->get();
+                foreach ($lecture_mawhobs as $lecture_mawhob) {
+                    $lecture_mawhob->delete();
+                }
                 $lecture->status = null;
                 $lecture->lecture_cancel = 'on';
                 $lecture->save();
             }
             return $this->returnSuccessMessage(trans('general.change_status_success_message'));
 
-        } catch (\Exception $exception) {
+        } catch
+        (\Exception $exception) {
             return $this->returnError(trans('general.try_catch_error_message'), 500);
         }//end catch
     }

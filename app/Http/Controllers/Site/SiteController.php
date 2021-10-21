@@ -58,7 +58,7 @@ class SiteController extends Controller
                 })->take(2)->get();
 
             /// Course
-            $courses = Course::orderByDesc('id')->where('status', 'on')
+            $courses = Course::orderByDesc('id')->where('status', 'on')->where('active', 'on')
                 ->where(function ($q) {
                     $q->where('language', 'ar')
                         ->orWhere('language', 'ar_en');
@@ -74,7 +74,7 @@ class SiteController extends Controller
                     $q->where('language', 'ar_en');
                 })->take(2)->get();
             /// Course
-            $courses = Course::orderByDesc('id')->where('status', 'on')
+            $courses = Course::orderByDesc('id')->where('status', 'on')->where('active', 'on')
                 ->where(function ($q) {
                     $q->where('language', 'ar_en');
                 })->take(6)->get();
@@ -166,7 +166,7 @@ class SiteController extends Controller
 
             ////// Latest Courses
             $latestCourses = Course::withoutTrashed()->with('category')
-                ->orderByDesc('id')->where('status', 'on')
+                ->orderByDesc('id')->where('status', 'on')->where('active', 'on')
                 ->where(function ($q) {
                     $q->where('language', 'ar')
                         ->orWhere('language', 'ar_en');
@@ -174,7 +174,7 @@ class SiteController extends Controller
 
             //////  Courses
             $courses = Course::withoutTrashed()->with('category')
-                ->orderByDesc('id')->where('status', 'on')
+                ->orderByDesc('id')->where('status', 'on')->where('active', 'on')
                 ->where(function ($q) {
                     $q->where('language', 'ar')
                         ->orWhere('language', 'ar_en');
@@ -193,14 +193,14 @@ class SiteController extends Controller
         } else {
             ////// Latest Courses
             $latestCourses = Course::withoutTrashed()->with('category')
-                ->orderByDesc('id')->where('status', 'on')
+                ->orderByDesc('id')->where('status', 'on')->where('active', 'on')
                 ->where(function ($q) {
                     $q->where('language', 'ar_en');
                 })->take(6)->get();
 
             //////  Courses
             $courses = Course::withoutTrashed()->with('category')
-                ->orderByDesc('id')->where('status', 'on')
+                ->orderByDesc('id')->where('status', 'on')->where('active', 'on')
                 ->where(function ($q) {
                     $q->where('language', 'ar_en');
                 })->paginate(12);
@@ -222,7 +222,7 @@ class SiteController extends Controller
             if (LaravelLocalization::getCurrentLocale() == 'ar') {
                 //////  Courses
                 $courses = Course::withoutTrashed()->with('category')
-                    ->orderByDesc('id')->where('status', 'on')
+                    ->orderByDesc('id')->where('status', 'on')->where('active', 'on')
                     ->where(function ($q) {
                         $q->where('language', 'ar')
                             ->orWhere('language', 'ar_en');
@@ -230,7 +230,7 @@ class SiteController extends Controller
             } else {
                 //////  Courses
                 $courses = Course::withoutTrashed()->with('category')
-                    ->orderByDesc('id')->where('status', 'on')
+                    ->orderByDesc('id')->where('status', 'on')->where('active', 'on')
                     ->where(function ($q) {
                         $q->where('language', 'ar_en');
                     })->paginate(12);
@@ -297,21 +297,59 @@ class SiteController extends Controller
     public function summerCamps()
     {
         $title = trans('site.summer_camps');
+
+
         if (LaravelLocalization::getCurrentLocale() == 'ar') {
-            $summerCamps = SummerCamp::withoutTrashed()->orderByDesc('id')
+
+            ////// Latest Summer Camps
+            $latestSummerCamps = SummerCamp::withoutTrashed()->orderByDesc('id')
                 ->where('status', 'on')
+                ->where('year', '=', Carbon::now()->year)
                 ->where(function ($q) {
                     $q->where('language', 'ar')
                         ->orWhere('language', 'ar_en');
-                })->paginate(12);
-        } else {
+                })->paginate(2);
+
+            ////// Summer Camps
             $summerCamps = SummerCamp::withoutTrashed()->orderByDesc('id')
                 ->where('status', 'on')
+                ->where('year', '!=', Carbon::now()->year)
+                ->where(function ($q) {
+                    $q->where('language', 'ar')
+                        ->orWhere('language', 'ar_en');
+                })->paginate(4);
+
+            ////// Categories
+            $categories = Category::orderByDesc('id')
+                ->where(function ($q) {
+                    $q->where('language', 'ar')
+                        ->orWhere('language', 'ar_en');
+                })->take(8)->get();
+
+        } else {
+
+            ////// Latest Summer Camps
+            $latestSummerCamps = SummerCamp::withoutTrashed()->orderByDesc('id')
+                ->where('status', 'on')
+                ->where('year', '=', Carbon::now()->year)
                 ->where(function ($q) {
                     $q->where('language', 'ar_en');
-                })->paginate(12);
+                })->paginate(2);
+
+            $summerCamps = SummerCamp::withoutTrashed()->orderByDesc('id')
+                ->where('status', 'on')
+                ->where('year', '!=', Carbon::now()->year)
+                ->where(function ($q) {
+                    $q->where('language', 'ar_en');
+                })->paginate(4);
+
+            ////// Categories
+            $categories = Category::orderByDesc('id')
+                ->where(function ($q) {
+                    $q->where('language', 'ar_en');
+                })->take(8)->get();
         }
-        return view('site.summer-camps', compact('title', 'summerCamps'));
+        return view('site.summer-camps', compact('title', 'summerCamps', 'latestSummerCamps','categories'));
     }
     //////////////////////////////////////////////////////////////////////////////////////////
     /// Summer Camps paging
@@ -321,20 +359,20 @@ class SiteController extends Controller
             if (LaravelLocalization::getCurrentLocale() == 'ar') {
                 $summerCamps = SummerCamp::withoutTrashed()->orderByDesc('id')
                     ->where('status', 'on')
+                    ->where('year', '!=', Carbon::now()->year)
                     ->where(function ($q) {
                         $q->where('language', 'ar')
                             ->orWhere('language', 'ar_en');
-                    })->paginate(12);
+                    })->paginate(4);
             } else {
                 $summerCamps = SummerCamp::withoutTrashed()->orderByDesc('id')
                     ->where('status', 'on')
+                    ->where('year', '!=', Carbon::now()->year)
                     ->where(function ($q) {
                         $q->where('language', 'ar_en');
-                    })->paginate(12);
+                    })->paginate(4);
             }
-
             return view('site.summer-camps-paging', compact('summerCamps'))->render();
-
         }
     }
 

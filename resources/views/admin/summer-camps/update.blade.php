@@ -24,7 +24,7 @@
 
                         <li class="breadcrumb-item">
                             <a href="" class="text-muted">
-                                {{trans('categories.update_summer_camp')}}
+                                {{trans('summerCamps.update_summer_camp')}}
                             </a>
                         </li>
                     </ul>
@@ -212,6 +212,111 @@
                                                     <!--end::Group-->
 
 
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('summerCamps.start_at')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <div class="input-group start_at">
+                                                                <input value="{!! $summerCamp->start_at !!}"
+                                                                    type="text" class="form-control"
+                                                                       id="start_at" name="start_at"
+                                                                       readonly
+                                                                       placeholder="{{trans('summerCamps.enter_start_at')}}"/>
+                                                                <div class="input-group-append">
+                                                             <span class="input-group-text"><i
+                                                                     class="la la-calendar-check-o"></i>
+                                                             </span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="form-text text-danger"
+                                                                  id="start_at_error"></span>
+                                                        </div>
+                                                        <!--end::Group-->
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('summerCamps.end_at')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <div class="input-group end_at">
+                                                                <input value="{!! $summerCamp->end_at !!}"
+                                                                    type="text" class="form-control"
+                                                                       id="end_at" name="end_at"
+                                                                       readonly
+                                                                       placeholder="{{trans('summerCamps.enter_end_at')}}"/>
+                                                                <div class="input-group-append">
+                                                             <span class="input-group-text"><i
+                                                                     class="la la-calendar-check-o"></i>
+                                                             </span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="form-text text-danger"
+                                                                  id="end_at_error"></span>
+                                                        </div>
+                                                        <!--end::Group-->
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('summerCamps.year')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input value="{!! $summerCamp->year !!}"
+                                                                   class="form-control  form-control-lg"
+                                                                   name="year" id="year" type="text"
+                                                                   placeholder=" {{trans('summerCamps.enter_year')}}"
+                                                                   autocomplete="off"/>
+                                                            <span class="form-text text-danger"
+                                                                  id="year_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('summerCamps.cost')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input  value="{!! $summerCamp->cost !!}"
+                                                                class="form-control  form-control-lg"
+                                                                name="cost" id="cost" type="text"
+                                                                placeholder=" {{trans('summerCamps.enter_cost')}}"
+                                                                autocomplete="off"/>
+                                                            <span class="form-text text-danger"
+                                                                  id="cost_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('summerCamps.discount')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <input  value="{!! $summerCamp->discount !!}"
+                                                                class="form-control  form-control-lg"
+                                                                name="discount" id="discount" type="text"
+                                                                placeholder=" {{trans('summerCamps.enter_discount')}}"
+                                                                autocomplete="off"/>
+                                                            <span class="form-text text-danger"
+                                                                  id="discount_error"></span>
+                                                            <span class="form-text text-muted">
+                                                                {{trans('summerCamps.discount_note')}}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+
                                                 </div>
                                                 <!--begin::body-->
 
@@ -237,11 +342,33 @@
 
 @push('js')
     <script type="text/javascript">
+        /////////////////////////////////////////////////////////////////////////
+        $('#start_at').datepicker({
+            format: "yyyy-mm-dd",
+            todayBtn: true,
+            clearBtn: false,
+            orientation: "bottom auto",
+            language: "{{LaravelLocalization::getCurrentLocale()}}",
+            autoclose: true,
+            todayHighlight: true,
+        });
+        /////////////////////////////////////////////////////////////////////////
+        $('#end_at').datepicker({
+            format: "yyyy-mm-dd",
+            todayBtn: true,
+            clearBtn: false,
+            orientation: "bottom auto",
+            language: "{{LaravelLocalization::getCurrentLocale()}}",
+            autoclose: true,
+            todayHighlight: true,
+        });
 
         ////////////////////////////////////////////////////
-
         var summer_camp_image = new KTImageInput('kt_summer_camp_image');
 
+
+        /////////////////////////////////////////////////////////////////////////
+        /// summer camp update
         $('#form_summer_camp_update').on('submit', function (e) {
             e.preventDefault();
             $.notifyClose();
@@ -251,12 +378,23 @@
             $('#name_en').css('border-color', '');
             $('#short_description_ar').css('border-color', '');
             $('#short_description_en').css('border-color', '');
+            $('#year').css('border-color', '');
+            $('#start_at').css('border-color', '');
+            $('#end_at').css('border-color', '');
+            $('#cost').css('border-color', '');
+            $('#discount').css('border-color', '');
+
 
             $('#summer_camp_image_error').text('');
             $('#name_ar_error').text('');
             $('#name_en_error').text('');
             $('#short_description_ar_error').text('');
             $('#short_description_en_error').text('');
+            $('#year_error').text('');
+            $('#start_at_error').text('');
+            $('#end_at_error').text('');
+            $('#cost_error').text('');
+            $('#discount_error').text('');
             /////////////////////////////////////////////////////////////
             var data = new FormData(this);
             var type = $(this).attr('method');

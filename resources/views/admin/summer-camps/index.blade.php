@@ -142,9 +142,12 @@
                                                     <th>@lang('summerCamps.summer_camp_image')</th>
                                                     <th>@lang('summerCamps.name_ar')</th>
                                                     <th>@lang('summerCamps.name_en')</th>
-                                                    <th>@lang('summerCamps.short_description_ar')</th>
-                                                    <th>@lang('summerCamps.short_description_en')</th>
+                                                    <th>@lang('summerCamps.cost')</th>
+                                                    <th>@lang('summerCamps.discount')</th>
+                                                    <th>@lang('summerCamps.year')</th>
+                                                    <th>@lang('summerCamps.enrolled_count')</th>
                                                     <th>@lang('summerCamps.status')</th>
+                                                    <th>@lang('summerCamps.enable_enrolling')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
                                                 </thead>
@@ -172,7 +175,7 @@
     </div>
     <!--end::content-->
 
-
+    @include('admin.summer-camps.modals.show-summer-camp-details')
 
 @endsection
 @push('js')
@@ -221,9 +224,12 @@
                     {data: "summer_camp_image"},
                     {data: "name_ar"},
                     {data: "name_en"},
-                    {data: "short_description_ar"},
-                    {data: "short_description_en"},
+                    {data: "cost"},
+                    {data: "discount"},
+                    {data: "year"},
+                    {data: "enrolled_count"},
                     {data: "status"},
+                    {data: "enable_enrolling"},
                     {data: "actions"},
                 ],
                 "bDestroy": true
@@ -345,7 +351,7 @@
             }
 
             $.ajax({
-                url: "{{route('summer.camp.change.status')}}",
+                url: "{{route('admin.summer.camp.change.status')}}",
                 data: {switchStatus: switchStatus, id: id},
                 type: 'post',
                 dataType: 'JSON',
@@ -368,6 +374,50 @@
                             customClass: {confirmButton: 'switch_status_toggle'}
                         });
                         $('.switch_status_toggle').click(function () {
+                        });
+                    }
+                },//end success
+            })
+        });
+
+
+        //////////////////////////////////////////////////////////////
+        // enable enrolling in Summer Camp
+        var enableEnrollingStatus = false;
+        $('body').on('change', '.enable_enrolling', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+
+            if ($(this).is(':checked')) {
+                enableEnrollingStatus = $(this).is(':checked');
+            } else {
+                enableEnrollingStatus = $(this).is(':checked');
+            }
+
+            $.ajax({
+                url: "{{route('admin.summer.camp.enable.enrolling')}}",
+                data: {enableEnrollingStatus: enableEnrollingStatus, id: id},
+                type: 'post',
+                dataType: 'JSON',
+                beforeSend: function () {
+                    KTApp.blockPage({
+                        overlayColor: '#000000',
+                        state: 'danger',
+                        message: "{{trans('general.please_wait')}}",
+                    });
+                },//end beforeSend
+                success: function (data) {
+                    KTApp.unblockPage();
+                    console.log(data);
+                    if (data.status == true) {
+                        Swal.fire({
+                            title: data.msg,
+                            text: "",
+                            icon: "success",
+                            allowOutsideClick: false,
+                            customClass: {confirmButton: 'switch_enable_enrolling_toggle'}
+                        });
+                        $('.switch_enable_enrolling_toggle').click(function () {
                         });
                     }
                 },//end success

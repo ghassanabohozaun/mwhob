@@ -13,6 +13,11 @@
                 <!--begin::Actions-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
+                        <a href="{!! route('admin.contests') !!}" class="text-muted">
+                            {{trans('menu.contests')}}
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
                         <a href="javascript:void(0);" class="text-muted">
                             {{trans('contests.enrolled_list')}}
                         </a>
@@ -105,11 +110,11 @@
                                                     <th>#</th>
                                                     <th>@lang('contests.mawhob_id')</th>
                                                     <th>@lang('contests.enrolled_date')</th>
-                                                    <th>@lang('contests.link')</th>
-                                                    <th>@lang('contests.file')</th>
                                                     <th>@lang('contests.mawhob_winner')</th>
                                                     <th>@lang('contests.mawhob_winner_description_ar')</th>
                                                     <th>@lang('contests.mawhob_winner_description_en')</th>
+                                                    <th>@lang('contests.link')</th>
+                                                    <th>@lang('contests.file')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
                                                 </thead>
@@ -158,8 +163,38 @@
             var my_contest_id = $('#my_contest_id').val();
 
             $("#my_enrolled_mawhob_data_table").DataTable({
+
+                dom: "B<'row'<'col-sm-12'tr>>\n\t\t\t<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>",
+                buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        footer: true,
+                        title: "{!! trans('general.contest_enrolled_list') !!}",
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        },
+                    },
+                    {
+                        extend: 'print',
+                        text: 'print',
+                        footer: true,
+                        title: "{!! trans('general.contest_enrolled_list') !!}",
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        },
+                    },
+                    {
+                        extend: 'excel',
+                        text: 'excel',
+                        footer: true,
+                        title: "{!! trans('general.contest_enrolled_list') !!}",
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        },
+                    },
+                ],
                 responsive: !0,
-                dom: "<'row'<'col-sm-12'tr>>\n\t\t\t<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>",
                 lengthMenu: [5, 10, 25, 50],
                 pageLength: 10,
                 searchDelay: 500,
@@ -193,11 +228,11 @@
                     {data: "id"},
                     {data: "mawhob_id"},
                     {data: "enrolled_date"},
-                    {data: "link"},
-                    {data: "file"},
                     {data: "mawhob_winner"},
                     {data: "mawhob_winner_description_ar"},
                     {data: "mawhob_winner_description_en"},
+                    {data: "link"},
+                    {data: "file"},
                     {data: "actions"},
                 ],
                 "bDestroy": true

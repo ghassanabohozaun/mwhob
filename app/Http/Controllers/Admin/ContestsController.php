@@ -547,6 +547,19 @@ class ContestsController extends Controller
                 'mawhob_winner_description_en' => $request->mawhob_winner_description_en,
             ]);
 
+            ////////////////////////////////////////////////////
+            ///   enrolled contest student notification
+            Mawhoob_Notification::create([
+                'title_ar' => 'رسالة تهنئة بالفوز في مسابقة',
+                'title_en' => 'Congratulation for winning a contest',
+                'details_ar' => ' لقد فزت في المسابقة التالية ' . $Contest_by_id->contest->name_ar .' سوف نتواصل معك في اقرب وقت لاستلام جائزتك ',
+                'details_en' => ' You won the following contest  ' .  $Contest_by_id->contest->name_en .' We will contact you as soon as possible to collect your prize ',
+                'notify_status' => 'send',
+                'notify_class' => 'unread',
+                'notify_for' => 'mawhob',
+                'student_id' => $Contest_by_id->mawhob_id,
+            ]);
+
             return $this->returnSuccessMessage(trans('contests.winner_of_contest_chosen'));
         } catch (\Exception $exception) {
             return $this->returnError(trans('general.try_catch_error_message'), 500);

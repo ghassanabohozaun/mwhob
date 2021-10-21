@@ -571,7 +571,7 @@ img.cover { -o-object-fit: cover; object-fit: cover; }
 .bg-dark-opcity { position: relative; }
 .bg-dark-opcity > div { z-index: 9; position: relative; }
 .bg-dark-opcity > div p { line-height: 1.4; }
-.bg-dark-opcity::before { content: ''; display: block; width: 100%; position: absolute; background: #0000004f; height: 100%; border-radius: 10px; }
+.bg-dark-opcity::before { content: ''; display: block; width: 100%; position: absolute; background: rgba(0, 0, 0, 0.25); height: 100%; border-radius: 10px; }
 
 p { line-height: 1.4; }
 

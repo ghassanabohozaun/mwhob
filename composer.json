@@ -19,6 +19,7 @@
         "laravel/ui": "^3.0",
         "mcamara/laravel-localization": "^1.5",
         "mews/captcha": "^3.2",
+        "paypal/rest-api-sdk-php": "*",
         "pusher/pusher-php-server": "~4.0",
         "tymon/jwt-auth": "^1.0"
     },

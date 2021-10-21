@@ -194,6 +194,54 @@
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('courses.start_at')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <div class="input-group start_at">
+                                                                <input type="text" class="form-control"
+                                                                       id="start_at" name="start_at"
+                                                                       readonly
+                                                                       placeholder="{{trans('courses.enter_start_at')}}"/>
+                                                                <div class="input-group-append">
+                                                             <span class="input-group-text"><i
+                                                                     class="la la-calendar-check-o"></i>
+                                                             </span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="form-text text-danger"
+                                                                  id="start_at_error"></span>
+                                                        </div>
+                                                        <!--end::Group-->
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            {{trans('courses.end_at')}}
+                                                        </label>
+                                                        <div class="col-lg-9 col-xl-9">
+                                                            <div class="input-group end_at">
+                                                                <input type="text" class="form-control"
+                                                                       id="end_at" name="end_at"
+                                                                       readonly
+                                                                       placeholder="{{trans('courses.enter_end_at')}}"/>
+                                                                <div class="input-group-append">
+                                                             <span class="input-group-text"><i
+                                                                     class="la la-calendar-check-o"></i>
+                                                             </span>
+                                                                </div>
+                                                            </div>
+                                                            <span class="form-text text-danger"
+                                                                  id="end_at_error"></span>
+                                                        </div>
+                                                        <!--end::Group-->
+                                                    </div>
+                                                    <!--end::Group-->
+
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
                                                             {{trans('courses.hours')}}
                                                         </label>
                                                         <div class="col-lg-9 col-xl-9">
@@ -246,55 +294,6 @@
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
-
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{trans('courses.start_at')}}
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <div class="input-group start_at">
-                                                                <input type="text" class="form-control"
-                                                                       id="start_at" name="start_at"
-                                                                       readonly
-                                                                       placeholder="{{trans('courses.enter_start_at')}}"/>
-                                                                <div class="input-group-append">
-                                                             <span class="input-group-text"><i
-                                                                     class="la la-calendar-check-o"></i>
-                                                             </span>
-                                                                </div>
-                                                            </div>
-                                                            <span class="form-text text-danger"
-                                                                  id="start_at_error"></span>
-                                                        </div>
-                                                        <!--end::Group-->
-                                                    </div>
-                                                    <!--end::Group-->
-
-                                                    <!--begin::Group-->
-                                                    <div class="form-group row">
-                                                        <label class="col-xl-3 col-lg-3 col-form-label">
-                                                            {{trans('courses.end_at')}}
-                                                        </label>
-                                                        <div class="col-lg-9 col-xl-9">
-                                                            <div class="input-group end_at">
-                                                                <input type="text" class="form-control"
-                                                                       id="end_at" name="end_at"
-                                                                       readonly
-                                                                       placeholder="{{trans('courses.enter_end_at')}}"/>
-                                                                <div class="input-group-append">
-                                                             <span class="input-group-text"><i
-                                                                     class="la la-calendar-check-o"></i>
-                                                             </span>
-                                                                </div>
-                                                            </div>
-                                                            <span class="form-text text-danger"
-                                                                  id="end_at_error"></span>
-                                                        </div>
-                                                        <!--end::Group-->
-                                                    </div>
-                                                    <!--end::Group-->
-
 
 
                                                     <!--begin::Group-->

@@ -13,6 +13,7 @@ class SupportCenterResourece extends JsonResource
         $options = view('admin.support-center.parts.options', ['instance' => $this])->render();
         $status = view('admin.support-center.parts.status', ['instance' => $this])->render();
         $show_message = view('admin.support-center.parts.show-message', ['instance' => $this])->render();
+        $delete = view('admin.support-center.parts.delete', ['instance' => $this])->render();
 
         return [
             'id' => $this->id,
@@ -23,6 +24,7 @@ class SupportCenterResourece extends JsonResource
             'status' => $status,
             'show_message' => $show_message,
             'actions' => $options,
+            'delete' => $delete,
         ];
     }
 }

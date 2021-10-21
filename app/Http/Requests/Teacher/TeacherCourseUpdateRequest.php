@@ -32,6 +32,8 @@ class TeacherCourseUpdateRequest extends FormRequest
                 'description_en' => 'required',
                 'hours' => 'required|numeric',
                 'cost' => 'required|numeric',
+                'start_at' => 'required',
+                'end_at' => 'required',
                 'category_id' => 'required|numeric',
                 'zoom_link' => 'required',
             ];
@@ -42,6 +44,8 @@ class TeacherCourseUpdateRequest extends FormRequest
                 'description_ar' => 'required',
                 'hours' => 'required|numeric',
                 'cost' => 'required|numeric',
+                'start_at' => 'required',
+                'end_at' => 'required',
                 'category_id' => 'required|numeric',
                 'zoom_link' => 'required',
             ];

@@ -580,6 +580,7 @@ class CoursesController extends Controller
                 'value' => $value,
                 'revenue_for' => $request->id,
                 'details' => 'enroll_course',
+                'payment_method'=>'dashboard',
             ]);
             ////////////////////////////////////////////////////
             ///   enrolled course Admin notification

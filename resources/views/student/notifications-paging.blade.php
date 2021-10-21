@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table" style="text-align: center;vertical-align: middle; font-size: 14px">
+    <table class="table" style="vertical-align: middle; font-size: 14px">
         <thead>
         <tr>
             <th scope="col">#</th>

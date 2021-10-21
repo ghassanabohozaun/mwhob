@@ -144,6 +144,7 @@
                                                     <th>@lang('contests.short_description_en')</th>
                                                     <th>@lang('contests.end_date')</th>
                                                     <th>@lang('contests.prize')</th>
+                                                    <th>@lang('contests.enrolled_count')</th>
                                                     <th>@lang('contests.status')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
@@ -227,6 +228,7 @@
                     {data: "short_description_en"},
                     {data: "end_date"},
                     {data: "prize"},
+                    {data: "enrolled_count"},
                     {data: "status"},
                     {data: "actions"},
                 ],

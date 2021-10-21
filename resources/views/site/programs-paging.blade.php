@@ -53,20 +53,40 @@
                 </div>
                 <div class="mt-4 text-center">
 
-
                     @if(student()->check())
-                        <a href="#" class=" btn btn-primary br-30  w-75 auth_student_program_enroll_button"
-                           data-id="{!! $program->id !!}">
-                            <div class=" d-flex align-items-center justify-content-between">
-                                <div>{!! trans('site.enroll_now') !!}</div>
-                                <div>{!! $program->price !!}$</div>
-                            </div>
-                        </a>
+                        @if( App\Models\MawhobEnrollProgram::where('program_id', $program->id)
+                               ->where('mawhob_id', student()->id())->get()->count() >0)
+                            <a href="javascript:void(0)" class=" btn btn-primary br-30  w-75 ">
+                                {!! trans('site.previously_registered') !!}
+                            </a>
+                        @else
+                            <a href="#" class=" btn btn-primary br-30  w-75 auth_student_program_enroll_button"
+                               data-id="{!! $program->id !!}">
+                                <div class=" d-flex align-items-center justify-content-between">
+                                    <div>{!! trans('site.enroll_now') !!}</div>
+                                    <div>
+                                        @if($program->discount!=null || $program->discount!=0)
+                                            <span class="net-price  text-light mr-2">{!! $program->discount !!}$</span>
+                                            <span class="old-price">{!! $program->price !!}$</span>
+                                        @else
+                                            <span class="my_price text-light">{!! $program->price !!}$</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </a>
+                        @endif
                     @else
                         <a href="#" class=" btn btn-primary br-30  w-75 not_auth_student_program_enroll_button">
                             <div class=" d-flex align-items-center justify-content-between">
                                 <div>{!! trans('site.enroll_now') !!}</div>
-                                <div>{!! $program->price !!}$</div>
+                                <div>
+                                    @if($program->discount!=null || $program->discount!=0)
+                                        <span class="net-price mr-2 text-light">{!! $program->discount !!}$</span>
+                                        <span class="old-price ">{!! $program->price !!}$</span>
+                                    @else
+                                        <span class="my_price text-light">{!! $program->price !!}$</span>
+                                    @endif
+                                </div>
                             </div>
                         </a>
                     @endif
@@ -109,6 +129,7 @@
             var mawhob_id = $('#mawhob_id').val();
             e.preventDefault();
             Swal.fire({
+                icon: 'question',
                 title: '{!! trans('site.do_you_want_to_enroll_in_program') !!}',
                 allowOutsideClick: false,
                 showDenyButton: false,
@@ -119,46 +140,7 @@
 
             });
             $('.ok_enroll_in_program_button').click(function () {
-
-                /////////////////////////////////////////////////////////////
-                // enroll Student
-                $.ajax({
-                    url: '{!! route('student.enroll.program') !!}',
-                    data: {program_id: program_id, mawhob_id: mawhob_id},
-                    type: 'post',
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log();
-                        if (data.status == true) {
-                            Swal.fire({
-                                title: data.msg,
-                                allowOutsideClick: false,
-                                showDenyButton: false,
-                                showCancelButton: false,
-                                showConfirmButton: true,
-                                confirmButtonText: `{!! trans('site.ok') !!}`,
-                            });
-
-                            /////////////////////////////////////////////////////////////
-                            // reload student notifications
-                            $('#student_notify_section').load("{!! route('student.get.notifications') !!}");
-                            $(".student_notifications_count").load(location.href + " .student_notifications_count");
-
-
-
-                        } else {
-                            Swal.fire({
-                                title: data.msg,
-                                allowOutsideClick: false,
-                                showDenyButton: false,
-                                showCancelButton: false,
-                                showConfirmButton: true,
-                                confirmButtonText: `{!! trans('site.ok') !!}`,
-                            });
-                        }
-                    }
-                }); // end ajax
-
+                window.location.href = "{!! route('student.program.checkout') !!}" + '/' + program_id;
             });
 
         });
@@ -169,6 +151,7 @@
         $('body').on('click', '.not_auth_student_program_enroll_button', function (e) {
             e.preventDefault();
             Swal.fire({
+                icon: 'info',
                 title: '{!! trans('site.sign_in_firstly') !!}',
                 allowOutsideClick: false,
                 showDenyButton: false,

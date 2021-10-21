@@ -85,7 +85,6 @@ class SignupController extends Controller
                 'student_id' => $mawhob->id,
 
             ]);
-
             return $this->returnSuccessMessage(trans('site.signup_success_message'));
         } else {
             return $this->returnError(trans('site.you_have_already_registered_with_us'), 500);

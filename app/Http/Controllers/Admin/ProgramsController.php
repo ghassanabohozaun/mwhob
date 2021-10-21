@@ -376,6 +376,21 @@ class ProgramsController extends Controller
         }//end catch
     }
 
+
+    ///////////////////////////////////////////////////////////////
+    /// Show Program Details
+    public function showProgramDetails(Request $request)
+    {
+        if ($request->ajax()) {
+            $program = Program::find($request->id);
+            if (!$program) {
+                return redirect()->route('admin.not.found');
+            }
+            return $this->returnData('OK', 'data', $program);
+        }
+    }
+
+
     /////////////////////////////////////////
     /// enrolled List
     public function enrolledList($id = null)
@@ -493,6 +508,7 @@ class ProgramsController extends Controller
                 'value' => $value,
                 'revenue_for' => $request->id,
                 'details' => 'enroll_program',
+                'payment_method'=>'dashboard',
             ]);
 
 

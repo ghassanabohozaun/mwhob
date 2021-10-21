@@ -71,6 +71,10 @@ class Mawhob extends Authenticatable
         return $this->hasMany('App\Models\MawhobEnrollProgram', 'mawhob_id', 'id');
     }
 
+    public function mawhobEnrollSummerCamp()
+    {
+        return $this->hasMany('App\Models\MawhobEnrollSummerCamp', 'mawhob_id', 'id');
+    }
 
 
     //////////////////////////////////// accessors ///////////////////////

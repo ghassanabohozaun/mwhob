@@ -1,163 +1,82 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<!--begin::Head-->
+
 <head>
-    <base href="../../../">
-    <meta charset="utf-8"/>
-    <title>{!! trans('general.not_found') !!}</title>
-    <meta name="description" content=""/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!--begin::Fonts-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
-    <!--end::Fonts-->
+    <title>404 HTML Template by Colorlib</title>
 
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Kanit:200" rel="stylesheet">
 
-    <!--begin::Page Custom Styles(used by this page)-->
-    <link href="{{asset('adminBoard/assets/css/pages/error/error-5.css')}}" rel="stylesheet" type="text/css"/>
-    <!--end::Page Custom Styles-->
+    <!-- Font Awesome Icon -->
+    <link type="text/css" rel="stylesheet" href="{!! asset('notFound/css/font-awesome.min.css') !!}"/>
 
-    <!--begin::Global Theme Styles(used by all pages)-->
-    <link href="{{asset('adminBoard/assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('adminBoard/assets/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{{asset('adminBoard/assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
-    <!--end::Global Theme Styles-->
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="{!! asset('notFound/css/style.css') !!}"/>
 
-    <!--begin::Layout Themes(used by all pages)-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    <link href="{{asset('adminBoard/assets/css/themes/layout/header/base/light.css')}}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{{asset('adminBoard/assets/css/themes/layout/header/menu/light.css')}}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{{asset('adminBoard/assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('adminBoard/assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css"/>
-    <!--end::Layout Themes-->
-
-    <link rel="shortcut icon" href="{{asset(Storage::url(setting()->site_icon))}}"/>
 </head>
-<!--end::Head-->
 
-<!--begin::Body-->
-<body id="kt_body"
-      class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed subheader-mobile-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+<body>
 
-<!--begin::Main-->
-<div class="d-flex flex-column flex-root">
-    <!--begin::Error-->
-    <div class="error error-5 d-flex flex-row-fluid bgi-size-cover bgi-position-center"
-         style="background-image: url({{asset('adminBoard/assets/media/error/bg5.jpg')}});">
+<div id="notfound">
 
-
-        @if(LaravelLocalization::getCurrentLocale() =='ar')
-            <!--begin::Content-->
-                <div class="container d-flex flex-row-fluid flex-column justify-content-md-center p-12">
-                    <h1 class="error-title font-weight-boldest text-info mt-10 mt-md-0 mb-12">Oops!</h1>
-                    <br/>
-                    <p class="font-weight-boldest display-4">
-                       . عذراً الصفحة غير متاحة حالياً
-                    </p>
-                    <p class="font-size-h3">
-                   .    يمكنك الرجوع الي الصفحة السابقة او التواصل مع الدعم الفني
-                    </p>
-                </div>
-                <!--end::Content-->
-        @else
-        <!--begin::Content-->
-            <div class="container d-flex flex-row-fluid flex-column justify-content-md-center p-12">
-                <h1 class="error-title font-weight-boldest text-info mt-10 mt-md-0 mb-12">Oops!</h1>
-                <br/>
-                <p class="font-weight-boldest display-4">
-                    Page Not Found.
-                </p>
-                <p class="font-size-h3">
-                    You can back or use our Help Center.
-                </p>
+    @if(LaravelLocalization::getCurrentLocale() =='ar')
+        <div class="notfound">
+            <div class="notfound-404">
+                <h1>404</h1>
             </div>
-            <!--end::Content-->
-        @endif
+            <h2>عذراً ! لم يتم العثور علي شئ</h2>
+            <p>الصفحة التي تبحث عنها ربما تم ازالتها او تغير اسمها او غير متاحة حالياً
+            </p>
+            <p><a href="{!! route('index') !!}">العودة الي الصفحة الرئيسية</a></p>
+            <div class="notfound-social">
+                <a href="{!! setting()->site_facebook !!}"><i class="fa fa-facebook"></i></a>
+                <a href="{!! setting()->site_twitter !!}"><i class="fa fa-twitter"></i></a>
+                <a href="{!! setting()->site_instagram !!}"><i class="fa fa-instagram"></i></a>
+                <a href="{!! setting()->site_youtube !!}"><i class="fa fa-youtube"></i></a>
+                <a href="https://wa.me/{!! setting()->site_mobile !!}"><i class="fa fa-whatsapp"></i></a>
+                <a href="mailto:{!! setting()->site_gmail !!}"><i class="fa fa-envelope"></i></a>
+
+            </div>
+        </div>
+    @else
+        <div class="notfound">
+            <div class="notfound-404">
+                <h1>404</h1>
+            </div>
+            <h2>Oops! Nothing was found</h2>
+            <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.
+            </p>
+            <p>
+                <a href="{!! route('index') !!}">Return to homepage</a>
+            </p>
+
+            <div class="notfound-social">
+                <a href="{!! setting()->site_facebook !!}"><i class="fa fa-facebook"></i></a>
+                <a href="{!! setting()->site_twitter !!}"><i class="fa fa-twitter"></i></a>
+                <a href="{!! setting()->site_instagram !!}"><i class="fa fa-instagram"></i></a>
+                <a href="{!! setting()->site_youtube !!}"><i class="fa fa-youtube"></i></a>
+                <a href="https://wa.me/{!! setting()->site_mobile !!}"><i class="fa fa-whatsapp"></i></a>
+                <a href="mailto:{!! setting()->site_gmail !!}"><i class="fa fa-envelope"></i></a>
+
+            </div>
+        </div>
+    @endif
 
 
-
-
-    </div>
-    <!--end::Error-->
 </div>
-<!--end::Main-->
 
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
-<script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
-<!--begin::Global Config(global config for global JS scripts)-->
-<script>
-    var KTAppSettings = {
-        "breakpoints": {
-            "sm": 576,
-            "md": 768,
-            "lg": 992,
-            "xl": 1200,
-            "xxl": 1400
-        },
-        "colors": {
-            "theme": {
-                "base": {
-                    "white": "#ffffff",
-                    "primary": "#3699FF",
-                    "secondary": "#E5EAEE",
-                    "success": "#1BC5BD",
-                    "info": "#8950FC",
-                    "warning": "#FFA800",
-                    "danger": "#F64E60",
-                    "light": "#E4E6EF",
-                    "dark": "#181C32"
-                },
-                "light": {
-                    "white": "#ffffff",
-                    "primary": "#E1F0FF",
-                    "secondary": "#EBEDF3",
-                    "success": "#C9F7F5",
-                    "info": "#EEE5FF",
-                    "warning": "#FFF4DE",
-                    "danger": "#FFE2E5",
-                    "light": "#F3F6F9",
-                    "dark": "#D6D6E0"
-                },
-                "inverse": {
-                    "white": "#ffffff",
-                    "primary": "#ffffff",
-                    "secondary": "#3F4254",
-                    "success": "#ffffff",
-                    "info": "#ffffff",
-                    "warning": "#ffffff",
-                    "danger": "#ffffff",
-                    "light": "#464E5F",
-                    "dark": "#ffffff"
-                }
-            },
-            "gray": {
-                "gray-100": "#F3F6F9",
-                "gray-200": "#EBEDF3",
-                "gray-300": "#E4E6EF",
-                "gray-400": "#D1D3E0",
-                "gray-500": "#B5B5C3",
-                "gray-600": "#7E8299",
-                "gray-700": "#5E6278",
-                "gray-800": "#3F4254",
-                "gray-900": "#181C32"
-            }
-        },
-        "font-family": "Poppins"
-    };
-</script>
-<!--end::Global Config-->
-
-<!--begin::Global Theme Bundle(used by all pages)-->
-<script src="{{asset('adminBoard/assets/plugins/global/plugins.bundle.js')}}"></script>
-<script src="{{asset('adminBoard/assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
-<script src="{{asset('adminBoard/assets/js/scripts.bundle.js')}}"></script>
-<!--end::Global Theme Bundle-->
-
-
-</body>
-<!--end::Body-->
 </html>

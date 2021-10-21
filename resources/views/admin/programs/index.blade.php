@@ -139,7 +139,6 @@
                                                     <th>@lang('programs.name_ar')</th>
                                                     <th>@lang('programs.name_en')</th>
                                                     <th>@lang('programs.hours')</th>
-                                                    <th>@lang('programs.date')</th>
                                                     <th>@lang('programs.price')</th>
                                                     <th>@lang('programs.discount')</th>
                                                     <th>@lang('programs.enrolled_count')</th>
@@ -171,6 +170,7 @@
     </div>
     <!--end::content-->
 
+    @include('admin.programs.modals.show-program-details')
 
 
 @endsection
@@ -225,7 +225,6 @@
                     {data: "name_ar"},
                     {data: "name_en"},
                     {data: "hours"},
-                    {data: "date"},
                     {data: "price"},
                     {data: "discount"},
                     {data: "enrolled_count"},

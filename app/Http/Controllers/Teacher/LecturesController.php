@@ -9,6 +9,7 @@ use App\Http\Resources\LectureResource;
 use App\Http\Resources\teachers\TeacherAttendanceRecordResource;
 use App\Http\Resources\teachers\TeacherLectureResource;
 use App\Models\Lecture;
+use App\Models\lecture_mawhob;
 use App\Models\MawhobEnrollCourse;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
@@ -126,9 +127,11 @@ class LecturesController extends Controller
             }
             if ($request->switchStatus == 'false') {
                 $lecture->status = null;
+                $lecture->lecture_cancel = null;
                 $lecture->save();
             } else {
                 $lecture->status = 'on';
+                $lecture->lecture_cancel = null;
                 $lecture->save();
             }
             return $this->returnSuccessMessage(trans('general.change_status_success_message'));
@@ -153,6 +156,11 @@ class LecturesController extends Controller
                 $lecture->lecture_cancel = null;
                 $lecture->save();
             } else {
+                //// Delete All Mawhob On Lecture When Cancel Lecture
+                $lecture_mawhobs = lecture_mawhob::where('lecture_id', $lecture->id)->get();
+                foreach ($lecture_mawhobs as $lecture_mawhob) {
+                    $lecture_mawhob->delete();
+                }
                 $lecture->status = null;
                 $lecture->lecture_cancel = 'on';
                 $lecture->save();

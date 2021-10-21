@@ -4,16 +4,18 @@
     <i class="fa fa-eye fa-1x"></i>
 </a>
 
-<a href="{!! route('teacher.lectures',$instance->id) !!}"
-   class="btn btn-hover-primary btn-icon btn-pill "
-   title="{{trans('courses.lectures')}}">
-    <i class="flaticon2-open-text-book fa-1x"></i>
-</a>
-
-
 <a href="{!! route('teacher.edit.course',$instance->id) !!}"
    class="btn btn-hover-primary btn-icon btn-pill "
    title="{{trans('general.edit')}}">
     <i class="fa fa-edit fa-1x"></i>
 </a>
+
+
+@if($instance->active != null || $instance->active != '' )
+    <a href="{!! route('teacher.lectures',$instance->id) !!}"
+       class="btn btn-hover-primary btn-icon btn-pill "
+       title="{{trans('courses.lectures')}}">
+        <i class="flaticon2-open-text-book fa-1x"></i>
+    </a>
+@endif
 

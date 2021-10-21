@@ -453,9 +453,7 @@ class TeacherController extends Controller
                     ->where(function ($q) use ($requestData, $search) {
                         foreach ($requestData as $field)
                             $q->orWhere($field, 'like', "%{$search}%");
-                    })->get();
-
-
+                    })->where('deleted_at',null)->get();
         }
         return response()->json($data);
     }

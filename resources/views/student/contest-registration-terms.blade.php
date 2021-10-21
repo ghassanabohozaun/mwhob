@@ -156,7 +156,7 @@
                             title: data.msg
                         })
                         setTimeout(function () {
-                            window.location.href = "{!! route('student.contests') !!}";
+                            window.location.href = "{!! route('contests') !!}";
                         }, 2500)
                     } else {
                         const Toast = Swal.mixin({

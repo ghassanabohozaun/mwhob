@@ -13,6 +13,12 @@
                 <!--begin::Actions-->
                 <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                     <li class="breadcrumb-item">
+                        <a href="{!! route('admin.courses') !!}" class="text-muted">
+                            {{trans('menu.courses')}}
+                        </a>
+                    </li>
+
+                    <li class="breadcrumb-item">
                         <a href="javascript:void(0);" class="text-muted">
                             {{trans('courses.trashed_courses')}}
                         </a>
@@ -58,9 +64,7 @@
                                                     <th>@lang('courses.hours')</th>
                                                     <th>@lang('courses.cost')</th>
                                                     <th>@lang('courses.discount')</th>
-                                                    <th>@lang('courses.enrolled_count')</th>
                                                     <th>@lang('courses.teacher_id')</th>
-                                                    <th>@lang('courses.zoom_link')</th>
                                                     <th>@lang('general.actions')</th>
                                                 </tr>
                                                 </thead>
@@ -110,10 +114,8 @@
             {data: "title_en"},
             {data: "hours"},
             {data: "cost"},
-            {data: "enrolled_count"},
             {data: "discount"},
             {data: "teacher_id"},
-            {data: "zoom_link"},
             {data: "actions"},
         ];
     </script>

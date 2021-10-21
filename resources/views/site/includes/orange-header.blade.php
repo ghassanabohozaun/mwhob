@@ -170,7 +170,7 @@
             function () {
                 $('#orange_student_notify_section').load("{!! route('student.get.notifications') !!}");
                 $(".orange_student_notifications_count").load(location.href + " .orange_student_notifications_count");
-            }, 1000);
+            }, 50000);
         ///50000
     </script>
 @endpush

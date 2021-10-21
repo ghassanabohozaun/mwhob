@@ -5,6 +5,7 @@ return [
     'discount_note' => 'If there is no discount, leave it blank or enter the value 0',
     'enrolled_count' => 'Enrolled Count',
     'mawhob_mobile_no' => 'Mawhob Mobile No',
+    'show_program_details' => 'Show Program Details',
 
 
     'update_program' => 'Update New Program',
@@ -22,7 +23,7 @@ return [
     'work_plan' => 'Work Plane',
     'date' => 'Date',
     'price' => 'Price',
-    'discount' => 'Cost after Discount',
+    'discount' => 'The Price after Discount',
     'language' => 'Language',
     'status' => 'Status',
     'start_at' => 'Program Start At',
@@ -38,7 +39,7 @@ return [
     'enter_work_plan' => 'Enter Work Plane',
     'enter_date' => 'Enter Date',
     'enter_price' => 'Enter Price',
-    'enter_discount' => 'Enter Cost after Discount',
+    'enter_discount' => 'Enter The Price after Discount',
     'enter_language' => 'Enter Language',
     'enter_status' => 'Enter Status',
     'enter_start_at' => 'Enter Program Start At',
@@ -60,7 +61,6 @@ return [
     'mawhob_enrolled_in_this_program' => 'Sorry , Mawhob Has Previously Enrolled For This Program ',
     /////////////////////////////////////////////////////////
     /// enrolled List
-
     'mawhobs_enrolled_in_program' => 'Mawhobs Enrolled In Program',
     'enrolled_list' => 'Enrolled List',
     'add_new_mawhob' => 'Add New Mawhob',

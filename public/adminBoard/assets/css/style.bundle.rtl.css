@@ -56725,6 +56725,7 @@ code {
     border-radius: 0;
     top: 50%;
     right: 0;
+      margin-right:5px;
     height: 18px;
     width: 18px;
     margin-top: -9px;
@@ -56752,7 +56753,8 @@ code {
     font-weight: normal;
     font-variant: normal;
     line-height: 1;
-    text-decoration: inherit;
+      margin-right:5px;
+      text-decoration: inherit;
     text-rendering: optimizeLegibility;
     text-transform: none;
     -moz-osx-font-smoothing: grayscale;

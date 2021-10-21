@@ -1,3 +1,10 @@
+<a href="#" class="btn btn-hover-info btn-icon btn-pill show_program_details_btn"
+   data-id="{{$instance->id}}"
+   title="{{trans('general.show')}}">
+    <i class="fa fa-eye fa-1x"></i>
+</a>
+
+
 <a href="{!! route('admin.edit.program',$instance->id) !!}"
    class="btn btn-hover-primary btn-icon btn-pill "
    title="{{trans('general.edit')}}">

@@ -21,6 +21,10 @@ class CreateRevenuesTable extends Migration
             $table->float('value')->nullable();
             $table->string('revenue_for')->nullable();
             $table->string('details')->nullable();
+            $table->text('payer_id')->nullable();
+            $table->text('payment_id')->nullable();
+            $table->text('token')->nullable();
+            $table->string('payment_method')->nullable();
             $table->timestamps();
         });
     }

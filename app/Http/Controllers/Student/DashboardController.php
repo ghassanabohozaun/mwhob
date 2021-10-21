@@ -11,6 +11,7 @@ use App\Models\Mawhob;
 use App\Models\MawhobEnrollCourse;
 use App\Models\MawhobEnrolledContest;
 use App\Models\MawhobEnrollProgram;
+use App\Models\MawhobEnrollSummerCamp;
 use App\Models\MawhobSound;
 use App\Models\MawhobVideo;
 use App\Models\Mawhoob_Notification;
@@ -209,6 +210,73 @@ class DashboardController extends Controller
 
 
     ////////////////////////////////////////////////////
+    /// summer camps
+    public function summerCamps()
+    {
+        $title = trans('site.summer_camps');
+        $studentID = student()->user()->id;
+
+        if (LaravelLocalization::getCurrentLocale() == 'ar') {
+
+            $studentSummerCamps = MawhobEnrollSummerCamp::join('mawhobs', 'mawhob_enroll_summer_camps.mawhob_id', '=', 'mawhobs.id')
+                ->join('summer_camps', 'mawhob_enroll_summer_camps.summer_camp_id', '=', 'summer_camps.id')
+                ->select('mawhob_enroll_summer_camps.id as studentSummerCampID', 'mawhob_enroll_summer_camps.*', 'mawhobs.*', 'summer_camps.*')
+                ->orderByDesc('studentSummerCampID')->where('.mawhob_enroll_summer_camps.mawhob_id', $studentID)
+                ->where(function ($q) {
+                    $q->where('summer_camps.language', 'ar')
+                        ->orWhere('summer_camps.language', 'ar_en');
+                })->paginate(2);
+
+        } else {
+            $studentSummerCamps = MawhobEnrollSummerCamp::join('mawhobs', 'mawhob_enroll_summer_camps.mawhob_id', '=', 'mawhobs.id')
+                ->join('summer_camps', 'mawhob_enroll_summer_camps.summer_camp_id', '=', 'summer_camps.id')
+                ->select('mawhob_enroll_summer_camps.id as studentSummerCampID', 'mawhob_enroll_summer_camps.*', 'mawhobs.*', 'summer_camps.*')
+                ->orderByDesc('studentSummerCampID')->where('.mawhob_enroll_summer_camps.mawhob_id', $studentID)
+                ->where(function ($q) {
+                    $q->where('summer_camps.language', 'ar_en');
+                })->paginate(2);
+        }
+
+        return view('student.summer-camps', compact('title', 'studentSummerCamps'));
+    }
+    ////////////////////////////////////////////////////
+    /// summer camps paging
+    public function studentsummerCampPaging(Request $request)
+    {
+        if ($request->ajax()) {
+            $studentID = student()->user()->id;
+
+            if (LaravelLocalization::getCurrentLocale() == 'ar') {
+
+                $studentSummerCamps = MawhobEnrollSummerCamp::join('mawhobs', 'mawhob_enroll_summer_camps.mawhob_id', '=', 'mawhobs.id')
+                    ->join('summer_camps', 'mawhob_enroll_summer_camps.summer_camp_id', '=', 'summer_camps.id')
+                    ->select('mawhob_enroll_summer_camps.id as studentSummerCampID', 'mawhob_enroll_summer_camps.*', 'mawhobs.*', 'summer_camps.*')
+                    ->orderByDesc('studentSummerCampID')->where('.mawhob_enroll_summer_camps.mawhob_id', $studentID)
+                    ->where(function ($q) {
+                        $q->where('summer_camps.language', 'ar')
+                            ->orWhere('summer_camps.language', 'ar_en');
+                    })->paginate(2);
+
+            } else {
+                $studentSummerCamps = MawhobEnrollSummerCamp::join('mawhobs', 'mawhob_enroll_summer_camps.mawhob_id', '=', 'mawhobs.id')
+                    ->join('summer_camps', 'mawhob_enroll_summer_camps.summer_camp_id', '=', 'summer_camps.id')
+                    ->select('mawhob_enroll_summer_camps.id as studentSummerCampID', 'mawhob_enroll_summer_camps.*', 'mawhobs.*', 'summer_camps.*')
+                    ->orderByDesc('studentSummerCampID')->where('.mawhob_enroll_summer_camps.mawhob_id', $studentID)
+                    ->where(function ($q) {
+                        $q->where('summer_camps.language', 'ar_en');
+                    })->paginate(2);
+            }
+
+            return view('student.summer-camps-paging', compact('studentSummerCamps'))->render();
+
+        }
+
+    }
+
+
+
+
+    ////////////////////////////////////////////////////
     /// contests
     public function contests()
     {
@@ -322,7 +390,6 @@ class DashboardController extends Controller
 
     ////////////////////////////////////////////////////
     /// get all Notifications
-
     public function showAllStudentNotifications()
     {
         $title = trans('site.notifications');
@@ -332,7 +399,8 @@ class DashboardController extends Controller
         return view('student.all-notifications', compact('title', 'notifications'));
     }
 
-
+    ////////////////////////////////////////////////////
+    /// get all Notifications paging
     public function showAllStudentNotificationsPaging(Request $request)
     {
         if ($request->ajax()) {

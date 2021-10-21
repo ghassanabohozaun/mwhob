@@ -167,18 +167,31 @@
                         extend: 'pdfHtml5',
                         text: 'PDF',
                         footer: true,
+                        title: "{!! trans('general.program_enrolled_list') !!}",
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        },
                     },
                     {
                         extend: 'print',
                         text: 'print',
                         footer: true,
+                        title: "{!! trans('general.program_enrolled_list') !!}",
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        },
                     },
                     {
                         extend: 'excel',
                         text: 'excel',
                         footer: true,
+                        title: "{!! trans('general.program_enrolled_list') !!}",
+                        exportOptions: {
+                            columns: ':not(:last-child)',
+                        },
                     },
                 ],
+
                 responsive: !0,
                 lengthMenu: [5, 10, 25, 50],
                 pageLength: 10,

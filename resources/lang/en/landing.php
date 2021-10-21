@@ -2,7 +2,7 @@
 
 return [
     /////////////////////////////////////////////////////////
-    /// about Doctor
+    /// about Mwhob
 
     'no_video' => 'No Video Exists',
     'show_video' => 'Show Video',
@@ -13,7 +13,7 @@ return [
     'summary_en' => 'Summary | en',
     'details_ar' => 'Details | ar',
     'details_en' => 'Details | en',
-    'video' => 'Video',
+    'video' => 'Youtube Video Link',
 
     'enter_title_ar' => 'Enter Arabic Title',
     'enter_title_en' => 'Enter English Title ',
@@ -21,7 +21,7 @@ return [
     'enter_summary_en' => 'Enter English Summary',
     'enter_details_ar' => 'Enter Arabic Details',
     'enter_details_en' => 'Enter English Details ',
-    'enter_video' => 'Enter Video',
+    'enter_video' => 'Enter Youtube Video Link',
 
     /////////////////////////////////////////////////////////
     /// footer images

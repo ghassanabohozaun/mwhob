@@ -12,6 +12,8 @@ return [
     'discount_note' => 'If there is no discount, leave it blank or enter the value 0',
     'enrolled_count' => 'Enrolled Count',
     'mawhob_mobile_no' => 'Mawhob Mobile No',
+    'total_of_course_lectures'=>'Total Of Course Lectures',
+    'mawhob_lectures_number'=>'Number Of Mawhob Lectures',
 
 
     'course_image' => 'Image',
@@ -21,7 +23,7 @@ return [
     'description_en' => 'Description | en',
     'hours' => 'Hours',
     'cost' => 'Cost',
-    'discount' => 'Cost after Discount',
+    'discount' => 'The Cost After Discount',
     'category_id' => 'Category',
     'teacher_id' => 'Teacher',
     'zoom_link' => 'Zoom Link',
@@ -38,7 +40,7 @@ return [
     'enter_description_en' => 'Enter English Description ',
     'enter_hours' => 'Enter Hours',
     'enter_cost' => 'Enter Cost',
-    'enter_discount' => 'Enter Cost after Discount',
+    'enter_discount' => 'Enter The Cost After Discount',
     'enter_category_id' => 'Enter Category',
     'enter_teacher_id' => 'Enter Teacher',
     'enter_zoom_link' => 'Enter Zoom Link',

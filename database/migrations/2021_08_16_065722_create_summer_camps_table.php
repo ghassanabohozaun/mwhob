@@ -22,8 +22,16 @@ class CreateSummerCampsTable extends Migration
             $table->string('name_en')->nullable();
             $table->longText('short_description_ar')->nullable();
             $table->longText('short_description_en')->nullable();
-            $table->enum('language',['ar','ar_en'])->default('ar');
+
+            $table->double('cost')->nullable();
+            $table->double('discount')->nullable();
+            $table->string('year')->nullable();
+            $table->string('start_at')->nullable();
+            $table->string('end_at')->nullable();
             $table->string('status')->nullable();
+            $table->string('enable_enrolling')->nullable();
+
+            $table->enum('language', ['ar', 'ar_en'])->default('ar');
             $table->softDeletes();
             $table->timestamps();
         });

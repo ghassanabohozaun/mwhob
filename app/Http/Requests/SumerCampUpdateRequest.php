@@ -30,12 +30,22 @@ class SumerCampUpdateRequest extends FormRequest
                 'name_en' => 'required',
                 'short_description_ar' => 'required',
                 'short_description_en' => 'required',
+                'year' => 'required|numeric',
+                'start_at' => 'required',
+                'end_at' => 'required',
+                'cost' => 'required|numeric',
+                'discount' => 'sometimes|nullable|numeric',
             ];
         } else {
             return [
                 'summer_camp_image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png|max:1024',
                 'name_ar' => 'required',
                 'short_description_ar' => 'required',
+                'year' => 'required|numeric',
+                'start_at' => 'required',
+                'end_at' => 'required',
+                'cost' => 'required|numeric',
+                'discount' => 'sometimes|nullable|numeric',
             ];
         }
 
@@ -51,6 +61,7 @@ class SumerCampUpdateRequest extends FormRequest
             'mimes' => trans('summerCamps.mimes'),
             'max' => trans('summerCamps.image_max'),
             'photo.required' => trans('summerCamps.photo_required'),
+            'numeric' => trans('summerCamps.numeric'),
         ];
     }
 }

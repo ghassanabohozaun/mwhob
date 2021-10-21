@@ -5,6 +5,7 @@ return [
     'discount_note' => 'اذا لم يكن هناك خصم اتركها فارغة او ادخل القيمة 0',
     'enrolled_count' => 'عدد المسجلين',
     'mawhob_mobile_no' => 'رقم جوال الموهوب',
+    'show_program_details'=>'عرض تفاصيل البرنامج',
 
 
     'update_program' => 'تعديل البرنامج',
@@ -52,7 +53,7 @@ return [
     'photo_required' => 'صورة العرض مطلوبة',
     'no_work_plan' => 'لا يوجد خطة عمل',
     'show_work_plan' => 'عرض خطة العمل',
-    'cannot_be_deleted_because_it_enroll_mawhob' => 'لا يمكن حذف الرنامج  لانها مسجل من موهوب',
+    'cannot_be_deleted_because_it_enroll_mawhob' => 'لا يمكن حذف البرنامج  لانها مسجل من موهوب',
     'add_new_mawhob_success_message' => 'تمت عملية اضافة الموهوب بنجاح',
     'mawhob_enrolled_in_this_program' => 'عذرا الموهوب سجل في هذه البرنامج ',
     /////////////////////////////////////////////////////////

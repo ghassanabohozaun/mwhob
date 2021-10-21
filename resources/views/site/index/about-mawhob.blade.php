@@ -22,9 +22,12 @@
                 <div class="box-video-right" data-aos="fade-left" data-aos-duration="1800">
                     <a href="#" class="link-to-video" uk-toggle="target: +">
                         <i class="fas fa-play-circle"></i></a>
-                    <iframe hidden
-                            src="{!! asset(Storage::url(aboutMawob()->video)) !!}" sandbox
-                            width="100%" height="400" frameborder="0" allowfullscreen uk-responsive></iframe>
+
+
+                    <iframe hidden=""
+                            src="https://www.youtube-nocookie.com/embed/{!! aboutMawob()->video !!}?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1"
+                            width="100%" height="400" frameborder="0" allowfullscreen="" uk-responsive=""
+                            class="uk-responsive-width"></iframe>
                 </div>
             </div>
         </div>
